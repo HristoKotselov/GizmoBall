@@ -1,5 +1,5 @@
 package model;
 
-public class SaveDataEngine {
+public class SaveDataEngine implements ISaveDataEngine{
 
 }

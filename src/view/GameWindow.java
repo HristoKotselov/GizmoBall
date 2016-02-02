@@ -7,7 +7,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JFrame;
 
 import controller.FrameListener;
-import controller.KeyListenerImpl;
+import controller.PlayGameListener;
 import controller.MagicKeyListenerWrapper;
 import controller.MouseListenerImpl;
 import controller.MouseMotionListenerImpl;
