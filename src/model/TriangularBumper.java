@@ -1,5 +1,5 @@
 package model;
 
-public class TriangularBumper {
+public class TriangularBumper extends IGizmoComponent {
 
 }

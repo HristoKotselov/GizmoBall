@@ -1,5 +1,5 @@
 package model;
 
-public class CircularBumper {
+public class CircularBumper extends IGizmoComponent{
 
 }

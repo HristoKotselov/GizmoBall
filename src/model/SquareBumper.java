@@ -1,5 +1,5 @@
 package model;
 
-public class SquareBumper {
+public class SquareBumper extends IGizmoComponent {
 
 }

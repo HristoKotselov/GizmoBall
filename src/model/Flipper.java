@@ -1,5 +1,5 @@
 package model;
 
-public class Flipper {
+public class Flipper extends IGizmoComponent{
 
 }
