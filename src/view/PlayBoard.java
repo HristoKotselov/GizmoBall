@@ -6,9 +6,10 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-public class GameBoard extends JPanel implements Observer {
+public class PlayBoard implements Observer {
 
-	@Override
+	private JPanel board;
+
 	public void paintComponent(Graphics g) {
 		// TODO
 	}

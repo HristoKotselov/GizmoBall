@@ -13,11 +13,12 @@ import controller.MouseListenerImpl;
 import controller.MouseMotionListenerImpl;
 import model.MainEngine;
 
-public class MainFrame extends JFrame {
+public class GameWindow {
 	private MainEngine model;
+	private JFrame frame;
 
 	/* other GUI components */
-	private GameBoard gameBoard;
+	private PlayBoard gameBoard;
 	private BuildBoard buildBoard;
 
 	/* Listeners */
@@ -26,7 +27,7 @@ public class MainFrame extends JFrame {
 	private MouseListener mouseBasicHandler;
 	private MouseMotionListener mouseMovingHandler;
 
-	public MainFrame() {
+	public GameWindow() {
 		// TODO
 
 		keyboardListener = new MagicKeyListenerWrapper(keyboardListener);

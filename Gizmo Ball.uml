@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/FrameListener.java;3004455774/1;/GitHub-Gizmo Ball/src/controller/KeyListenerImpl.java;3604480691/1;/GitHub-Gizmo Ball/src/model/Walls.java;1991433973/1;/GitHub-Gizmo Ball/src/controller/MouseListenerImpl.java;163551667/1;/GitHub-Gizmo Ball/src/controller/MouseMotionListenerImpl.java;3661724324/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3733098335/1;/GitHub-Gizmo Ball/src/model/Ball.java;3605082374/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1140115946/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2157275101/1;/GitHub-Gizmo Ball/src/model/Connections.java;1492499204/1;/GitHub-Gizmo Ball/src/model/Flipper.java;137800628/1;/GitHub-Gizmo Ball/src/model/Line.java;2389891395/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;3707476578/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3706190285/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2947983869/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;1838134557/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;2448906817/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;2524454082/1;/GitHub-Gizmo Ball/src/view/GameBoard.java;3935864367/1;/GitHub-Gizmo Ball/src/view/MainFrame.java;2371749047/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/FrameListener.java;3004455774/1;/GitHub-Gizmo Ball/src/controller/KeyListenerImpl.java;3604480691/1;/GitHub-Gizmo Ball/src/model/Walls.java;1991433973/1;/GitHub-Gizmo Ball/src/controller/MouseListenerImpl.java;163551667/1;/GitHub-Gizmo Ball/src/controller/MouseMotionListenerImpl.java;3661724324/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3733098335/1;/GitHub-Gizmo Ball/src/model/Ball.java;3605082374/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1140115946/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2157275101/1;/GitHub-Gizmo Ball/src/model/Connections.java;1492499204/1;/GitHub-Gizmo Ball/src/model/Flipper.java;137800628/1;/GitHub-Gizmo Ball/src/model/Line.java;2389891395/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;3707476578/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3706190285/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2947983869/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;1838134557/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;2448906817/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;2807863919/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3607767802/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;2385995646/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_xvEkQMR4EeW_3q3XSh-SYw">
@@ -518,9 +518,15 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xv_xUMR4EeW_3q3XSh-SYw" name="view">
       <packagedElement xmi:type="uml:Class" xmi:id="_xxSKwMR4EeW_3q3XSh-SYw" name="BuildBoard">
-        <generalization xmi:id="_xzwP8MR4EeW_3q3XSh-SYw" general="_xy7wkcR4EeW_3q3XSh-SYw"/>
+        <ownedAttribute xmi:id="_EnhpcMmGEeWJ3ZYnwbU2iQ" name="board" visibility="private" type="_xy7wkcR4EeW_3q3XSh-SYw" association="_Enl64MmGEeWJ3ZYnwbU2iQ"/>
         <interfaceRealization xmi:id="_xzr-gMR4EeW_3q3XSh-SYw" client="_xxSKwMR4EeW_3q3XSh-SYw" supplier="_xy7JgcR4EeW_3q3XSh-SYw" contract="_xy7JgcR4EeW_3q3XSh-SYw"/>
-        <ownedOperation xmi:id="_xzslkMR4EeW_3q3XSh-SYw" name="paintComponent">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vF3e0MmFEeWJ3ZYnwbU2iQ" name="paintComponent" specification="_xzslkMR4EeW_3q3XSh-SYw">
+          <ownedParameter xmi:id="_vF3e0cmFEeWJ3ZYnwbU2iQ" name="g" type="_xy4tQMR4EeW_3q3XSh-SYw"/>
+          <language>java</language>
+          <body>// TODO&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_xzslkMR4EeW_3q3XSh-SYw" name="paintComponent" method="_vF3e0MmFEeWJ3ZYnwbU2iQ">
           <ownedParameter xmi:id="_xzslkcR4EeW_3q3XSh-SYw" name="g" type="_xy4tQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
         <ownedOperation xmi:id="_xzvB0MR4EeW_3q3XSh-SYw" name="update">
@@ -528,10 +534,16 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_xzvB0sR4EeW_3q3XSh-SYw" name="arg" type="_xzuawMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_xxXDQMR4EeW_3q3XSh-SYw" name="GameBoard">
-        <generalization xmi:id="_xzzTQcR4EeW_3q3XSh-SYw" general="_xy7wkcR4EeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xxXDQMR4EeW_3q3XSh-SYw" name="PlayBoard">
+        <ownedAttribute xmi:id="_5suv0MmFEeWJ3ZYnwbU2iQ" name="board" visibility="private" type="_xy7wkcR4EeW_3q3XSh-SYw" association="_ktA_MMmGEeWJ3ZYnwbU2iQ"/>
         <interfaceRealization xmi:id="_xzwP8cR4EeW_3q3XSh-SYw" client="_xxXDQMR4EeW_3q3XSh-SYw" supplier="_xy7JgcR4EeW_3q3XSh-SYw" contract="_xy7JgcR4EeW_3q3XSh-SYw"/>
-        <ownedOperation xmi:id="_xzw3AMR4EeW_3q3XSh-SYw" name="paintComponent">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_wVXX0MmFEeWJ3ZYnwbU2iQ" name="paintComponent" specification="_xzw3AMR4EeW_3q3XSh-SYw">
+          <ownedParameter xmi:id="_wVXX0cmFEeWJ3ZYnwbU2iQ" name="g" type="_xy4tQMR4EeW_3q3XSh-SYw"/>
+          <language>java</language>
+          <body>// TODO&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_xzw3AMR4EeW_3q3XSh-SYw" name="paintComponent" method="_wVXX0MmFEeWJ3ZYnwbU2iQ">
           <ownedParameter xmi:id="_xzw3AcR4EeW_3q3XSh-SYw" name="g" type="_xy4tQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
         <ownedOperation xmi:id="_xzyFIMR4EeW_3q3XSh-SYw" name="update">
@@ -539,16 +551,16 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_xzyFIsR4EeW_3q3XSh-SYw" name="arg1" type="_xzuawMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_xxb7wMR4EeW_3q3XSh-SYw" name="MainFrame">
-        <generalization xmi:id="_xzz6UMR4EeW_3q3XSh-SYw" general="_xzBQIMR4EeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_1IYd4MSCEeW_3q3XSh-SYw" name="gameBoard" visibility="private" type="_xxXDQMR4EeW_3q3XSh-SYw" association="_1IZsAcSCEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_1IZE8cSCEeW_3q3XSh-SYw" name="buildBoard" visibility="private" type="_xxSKwMR4EeW_3q3XSh-SYw" association="_1IaTEcSCEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_QVfIYMSDEeW_3q3XSh-SYw" name="model" visibility="private" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_QVfvccSDEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_m9iTUMSDEeW_3q3XSh-SYw" name="windowHandler" visibility="private" type="_xwVIgMR4EeW_3q3XSh-SYw" association="_m9kvkMSDEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_m9i6YcSDEeW_3q3XSh-SYw" name="keyboardListener" visibility="private" type="_xyiH8cR4EeW_3q3XSh-SYw" association="_P7mMQMSEEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_m9jhccSDEeW_3q3XSh-SYw" name="mouseBasicHandler" visibility="private" type="_xylyUcR4EeW_3q3XSh-SYw" association="_m9l9sMSDEeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_m9jhc8SDEeW_3q3XSh-SYw" name="mouseMovingHandler" visibility="private" type="_xypcsMR4EeW_3q3XSh-SYw" association="_m9l9s8SDEeW_3q3XSh-SYw"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_79uvoMSDEeW_3q3XSh-SYw" name="MainFrame" specification="_79rsUMSDEeW_3q3XSh-SYw">
+      <packagedElement xmi:type="uml:Class" xmi:id="_xxb7wMR4EeW_3q3XSh-SYw" name="GameWindow">
+        <ownedAttribute xmi:id="_1IYd4MSCEeW_3q3XSh-SYw" name="gameBoard" visibility="private" type="_xxXDQMR4EeW_3q3XSh-SYw" association="_vVXogMmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_1IZE8cSCEeW_3q3XSh-SYw" name="buildBoard" visibility="private" type="_xxSKwMR4EeW_3q3XSh-SYw" association="_vVY2ocmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_QVfIYMSDEeW_3q3XSh-SYw" name="model" visibility="private" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_vVdIEcmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_m9iTUMSDEeW_3q3XSh-SYw" name="windowHandler" visibility="private" type="_xwVIgMR4EeW_3q3XSh-SYw" association="_vVgycMmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_m9i6YcSDEeW_3q3XSh-SYw" name="keyboardListener" visibility="private" type="_xyiH8cR4EeW_3q3XSh-SYw" association="_vVaEwcmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_m9jhccSDEeW_3q3XSh-SYw" name="mouseBasicHandler" visibility="private" type="_xylyUcR4EeW_3q3XSh-SYw" association="_vVb58cmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_m9jhc8SDEeW_3q3XSh-SYw" name="mouseMovingHandler" visibility="private" type="_xypcsMR4EeW_3q3XSh-SYw" association="_vVinoMmHEeWJ3ZYnwbU2iQ"/>
+        <ownedAttribute xmi:id="_PgVmEMmGEeWJ3ZYnwbU2iQ" name="frame" visibility="private" type="_xzBQIMR4EeW_3q3XSh-SYw" association="_vVe9QMmHEeWJ3ZYnwbU2iQ"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_79uvoMSDEeW_3q3XSh-SYw" name="GameWindow" specification="_79rsUMSDEeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_79uvocSDEeW_3q3XSh-SYw" type="_xxb7wMR4EeW_3q3XSh-SYw" direction="return">
             <name xsi:nil="true"/>
           </ownedParameter>
@@ -562,33 +574,42 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		// TODO&#xD;
 	</body>
         </ownedBehavior>
-        <ownedOperation xmi:id="_79rsUMSDEeW_3q3XSh-SYw" name="MainFrame" method="_79uvoMSDEeW_3q3XSh-SYw">
+        <ownedOperation xmi:id="_79rsUMSDEeW_3q3XSh-SYw" name="GameWindow" method="_79uvoMSDEeW_3q3XSh-SYw">
           <eAnnotations xmi:id="_79sTYcSDEeW_3q3XSh-SYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
             <details xmi:id="_79sTYsSDEeW_3q3XSh-SYw" key="create"/>
           </eAnnotations>
-          <ownedParameter xmi:id="_79sTYMSDEeW_3q3XSh-SYw" type="_xxb7wMR4EeW_3q3XSh-SYw" direction="return"/>
+          <ownedParameter xmi:id="_vVSwAMmHEeWJ3ZYnwbU2iQ" type="_xxb7wMR4EeW_3q3XSh-SYw" direction="return"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_1IZsAcSCEeW_3q3XSh-SYw" name="" memberEnd="_1IZsAsSCEeW_3q3XSh-SYw _1IYd4MSCEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_1IZsAsSCEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_1IZsAcSCEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Enl64MmGEeWJ3ZYnwbU2iQ" name="" memberEnd="_Enl64cmGEeWJ3ZYnwbU2iQ _EnhpcMmGEeWJ3ZYnwbU2iQ">
+        <ownedEnd xmi:id="_Enl64cmGEeWJ3ZYnwbU2iQ" name="" type="_xxSKwMR4EeW_3q3XSh-SYw" association="_Enl64MmGEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_1IaTEcSCEeW_3q3XSh-SYw" name="" memberEnd="_1IaTEsSCEeW_3q3XSh-SYw _1IZE8cSCEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_1IaTEsSCEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_1IaTEcSCEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_ktA_MMmGEeWJ3ZYnwbU2iQ" name="" memberEnd="_ktA_McmGEeWJ3ZYnwbU2iQ _5suv0MmFEeWJ3ZYnwbU2iQ">
+        <ownedEnd xmi:id="_ktA_McmGEeWJ3ZYnwbU2iQ" name="" type="_xxXDQMR4EeW_3q3XSh-SYw" association="_ktA_MMmGEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_QVfvccSDEeW_3q3XSh-SYw" name="" memberEnd="_QVfvcsSDEeW_3q3XSh-SYw _QVfIYMSDEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_QVfvcsSDEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_QVfvccSDEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVXogMmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVXogcmHEeWJ3ZYnwbU2iQ _1IYd4MSCEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVXogcmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVXogMmHEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_m9kvkMSDEeW_3q3XSh-SYw" name="" memberEnd="_m9kvkcSDEeW_3q3XSh-SYw _m9iTUMSDEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_m9kvkcSDEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_m9kvkMSDEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVY2ocmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVY2osmHEeWJ3ZYnwbU2iQ _1IZE8cSCEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVY2osmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVY2ocmHEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_m9l9sMSDEeW_3q3XSh-SYw" name="" memberEnd="_m9l9scSDEeW_3q3XSh-SYw _m9jhccSDEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_m9l9scSDEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_m9l9sMSDEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVaEwcmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVaEwsmHEeWJ3ZYnwbU2iQ _m9i6YcSDEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVaEwsmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVaEwcmHEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_m9l9s8SDEeW_3q3XSh-SYw" name="" memberEnd="_m9l9tMSDEeW_3q3XSh-SYw _m9jhc8SDEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_m9l9tMSDEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_m9l9s8SDEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVb58cmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVb58smHEeWJ3ZYnwbU2iQ _m9jhccSDEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVb58smHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVb58cmHEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_P7mMQMSEEeW_3q3XSh-SYw" name="" memberEnd="_P7mMQcSEEeW_3q3XSh-SYw _m9i6YcSDEeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_P7mMQcSEEeW_3q3XSh-SYw" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_P7mMQMSEEeW_3q3XSh-SYw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVdIEcmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVdIEsmHEeWJ3ZYnwbU2iQ _QVfIYMSDEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVdIEsmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVdIEcmHEeWJ3ZYnwbU2iQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVe9QMmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVe9QcmHEeWJ3ZYnwbU2iQ _PgVmEMmGEeWJ3ZYnwbU2iQ">
+        <ownedEnd xmi:id="_vVe9QcmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVe9QMmHEeWJ3ZYnwbU2iQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVgycMmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVgyccmHEeWJ3ZYnwbU2iQ _m9iTUMSDEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVgyccmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVgycMmHEeWJ3ZYnwbU2iQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vVinoMmHEeWJ3ZYnwbU2iQ" name="" memberEnd="_vVinocmHEeWJ3ZYnwbU2iQ _m9jhc8SDEeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_vVinocmHEeWJ3ZYnwbU2iQ" name="" type="_xxb7wMR4EeW_3q3XSh-SYw" association="_vVinoMmHEeWJ3ZYnwbU2iQ"/>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:id="_xeDswMR4EeW_3q3XSh-SYw">
@@ -663,7 +684,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
     <annotations xmi:id="_xzhmccR4EeW_3q3XSh-SYw" name="Override"/>
   </UMLLabProfile:Annotations>
   <UMLLabProfile:Reference xmi:id="_xzntEMR4EeW_3q3XSh-SYw" base_Element="_xznGAcR4EeW_3q3XSh-SYw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_xztMoMR4EeW_3q3XSh-SYw" base_Element="_xzslkMR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Annotations xmi:id="_xztzsMR4EeW_3q3XSh-SYw" base_Element="_xzslkMR4EeW_3q3XSh-SYw">
     <annotations xmi:id="_xztzscR4EeW_3q3XSh-SYw" name="Override"/>
   </UMLLabProfile:Annotations>
@@ -672,13 +692,8 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:Annotations xmi:id="_xzvo4MR4EeW_3q3XSh-SYw" base_Element="_xzvB0MR4EeW_3q3XSh-SYw">
     <annotations xmi:id="_xzvo4cR4EeW_3q3XSh-SYw" name="Override"/>
   </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_xzw3AsR4EeW_3q3XSh-SYw" base_Element="_xzw3AMR4EeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Annotations xmi:id="_xzxeEMR4EeW_3q3XSh-SYw" base_Element="_xzw3AMR4EeW_3q3XSh-SYw">
-    <annotations xmi:id="_xzxeEcR4EeW_3q3XSh-SYw" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_xzysMMR4EeW_3q3XSh-SYw" base_Element="_xzyFIMR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Annotations xmi:id="_xzysMcR4EeW_3q3XSh-SYw" base_Element="_xzyFIMR4EeW_3q3XSh-SYw">
-    <annotations xmi:id="_xzzTQMR4EeW_3q3XSh-SYw" name="Override"/>
+    <annotations xmi:id="_uzYyQMmGEeWJ3ZYnwbU2iQ" name="Override"/>
   </UMLLabProfile:Annotations>
   <UMLLabProfile:LegacyStyledElement xmi:id="_xz2WkMR4EeW_3q3XSh-SYw" base_Element="_xz1vgMR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_xz3ksMR4EeW_3q3XSh-SYw" base_Element="_xz2WkcR4EeW_3q3XSh-SYw"/>
@@ -713,18 +728,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:Reference xmi:id="_VDA2MMR9EeW_3q3XSh-SYw" base_Element="_VDAPIMR9EeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_1IZE8MSCEeW_3q3XSh-SYw" base_Element="_1IYd4MSCEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_1IZsAMSCEeW_3q3XSh-SYw" base_Element="_1IZE8cSCEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_1IaTEMSCEeW_3q3XSh-SYw" base_Element="_1IZsAcSCEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_1IaTE8SCEeW_3q3XSh-SYw" base_Element="_1IaTEcSCEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_QVfvcMSDEeW_3q3XSh-SYw" base_Element="_QVfIYMSDEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_QVgWgMSDEeW_3q3XSh-SYw" base_Element="_QVfvccSDEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_m9i6YMSDEeW_3q3XSh-SYw" base_Element="_m9iTUMSDEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_m9jhcMSDEeW_3q3XSh-SYw" base_Element="_m9i6YcSDEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_m9jhcsSDEeW_3q3XSh-SYw" base_Element="_m9jhccSDEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_m9jhdMSDEeW_3q3XSh-SYw" base_Element="_m9jhc8SDEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_m9lWoMSDEeW_3q3XSh-SYw" base_Element="_m9kvkMSDEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_m9l9ssSDEeW_3q3XSh-SYw" base_Element="_m9l9sMSDEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_m9mkwMSDEeW_3q3XSh-SYw" base_Element="_m9l9s8SDEeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_P7mzUMSEEeW_3q3XSh-SYw" base_Element="_P7mMQMSEEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_VatD0cSFEeW_3q3XSh-SYw" base_Element="_VatD0MSFEeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_Vatq4sSFEeW_3q3XSh-SYw" base_Element="_Vatq4MSFEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_YBanYcSFEeW_3q3XSh-SYw" base_Element="_YBanYMSFEeW_3q3XSh-SYw"/>
@@ -733,4 +741,18 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:Reference xmi:id="_Y4sNosSFEeW_3q3XSh-SYw" base_Element="_Y4sNoMSFEeW_3q3XSh-SYw"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_ZhjkcMSFEeW_3q3XSh-SYw" base_Element="_Zhi9YMSFEeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_ZhkLgMSFEeW_3q3XSh-SYw" base_Element="_ZhjkccSFEeW_3q3XSh-SYw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_5svW4MmFEeWJ3ZYnwbU2iQ" base_Element="_5suv0MmFEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Eni3kMmGEeWJ3ZYnwbU2iQ" base_Element="_EnhpcMmGEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_EnnJAMmGEeWJ3ZYnwbU2iQ" base_Element="_Enl64MmGEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_PgW0MMmGEeWJ3ZYnwbU2iQ" base_Element="_PgVmEMmGEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_ktC0YMmGEeWJ3ZYnwbU2iQ" base_Element="_ktA_MMmGEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_uzancMmGEeWJ3ZYnwbU2iQ" base_Element="_xzyFIMR4EeW_3q3XSh-SYw"/>
+  <UMLLabProfile:Reference xmi:id="_vVY2oMmHEeWJ3ZYnwbU2iQ" base_Element="_vVXogMmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVaEwMmHEeWJ3ZYnwbU2iQ" base_Element="_vVY2ocmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVb58MmHEeWJ3ZYnwbU2iQ" base_Element="_vVaEwcmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVdIEMmHEeWJ3ZYnwbU2iQ" base_Element="_vVb58cmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVeWMMmHEeWJ3ZYnwbU2iQ" base_Element="_vVdIEcmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVgLYMmHEeWJ3ZYnwbU2iQ" base_Element="_vVe9QMmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vViAkMmHEeWJ3ZYnwbU2iQ" base_Element="_vVgycMmHEeWJ3ZYnwbU2iQ"/>
+  <UMLLabProfile:Reference xmi:id="_vVj1wMmHEeWJ3ZYnwbU2iQ" base_Element="_vVinoMmHEeWJ3ZYnwbU2iQ"/>
 </xmi:XMI>

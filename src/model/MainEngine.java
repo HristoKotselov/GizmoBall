@@ -2,7 +2,7 @@ package model;
 
 import java.util.Set;
 
-public class MainEngine {
+public class MainEngine implements IMainEngine{
 	/* Game Component */
 	private Set<Ball> ballSet;
 	private Set<Line> linesSet;
