@@ -81,10 +81,11 @@ public class GameWindow implements IGameWindow {
 
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
-
-		buildmenu = new PlayMenu();
-		buildboard = new PlayBoard();
-
+		
+		// TODO
+		buildmenu = new BuildMenu();
+		buildboard = new BuildBoard();
+		
 		buildmenu.initialize();
 		buildboard.initialize();
 
