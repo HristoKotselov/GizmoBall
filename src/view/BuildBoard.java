@@ -8,11 +8,6 @@ import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.event.MouseInputListener;
-
-import controller.AddGizmoListener;
-import controller.ConnectGizmoListener;
-import controller.WindowListener;
 
 public class BuildBoard implements IBoard, Observer {
 

@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/model/Walls.java;1526432045/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3699926699/1;/GitHub-Gizmo Ball/src/model/Ball.java;1832658528/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1493049965/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2157275101/1;/GitHub-Gizmo Ball/src/model/Connections.java;4915726/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2285789862/1;/GitHub-Gizmo Ball/src/model/Line.java;3931419622/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;2429340787/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3706190285/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;602007569/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2862396350/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;1300979577/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;2474277757/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;1527831542/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;467586538/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;1754474240/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/IMainListener.java;2042122120/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;4196494579/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;186538543/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;333695327/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;1807637302/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3281182909/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;260802257/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;755107795/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;3319127931/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;466423609/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/model/IConnections.java;3989313881/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/model/Walls.java;1526432045/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3699926699/1;/GitHub-Gizmo Ball/src/model/Ball.java;1832658528/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1493049965/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2157275101/1;/GitHub-Gizmo Ball/src/model/Connections.java;1492499204/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2285789862/1;/GitHub-Gizmo Ball/src/model/Line.java;3931419622/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;2995883570/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3706190285/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;602007569/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2862396350/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;1300979577/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;1971978686/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;1527831542/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3603679478/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;111695609/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;4196494579/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3162224122/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;333695327/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;1807637302/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3281182909/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;260802257/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;755107795/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1565996257/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;573000427/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/controller/AMainListener.java;2795724307/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -41,17 +41,18 @@
     <elementImport xmi:id="_xvGZcMR4EeW_3q3XSh-SYw">
       <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </elementImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K74RQMonEeWI07Wu9tqfCA" name="ActionListener"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_xvL5AMR4EeW_3q3XSh-SYw" name="java">
       <packagedElement xmi:type="uml:Package" xmi:id="_xvMgEMR4EeW_3q3XSh-SYw" name="awt">
         <packagedElement xmi:type="uml:Class" xmi:id="_xyrR4MR4EeW_3q3XSh-SYw" name="Component"/>
         <packagedElement xmi:type="uml:Package" xmi:id="_xvNHIMR4EeW_3q3XSh-SYw" name="event">
           <packagedElement xmi:type="uml:Class" xmi:id="_xyazMMR4EeW_3q3XSh-SYw" name="ActionEvent"/>
-          <packagedElement xmi:type="uml:Interface" xmi:id="_xyd2gMR4EeW_3q3XSh-SYw" name="ActionListener"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_xyg50MR4EeW_3q3XSh-SYw" name="KeyEvent"/>
-          <packagedElement xmi:type="uml:Interface" xmi:id="_xyiH8cR4EeW_3q3XSh-SYw" name="KeyListener"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_xylLQMR4EeW_3q3XSh-SYw" name="MouseEvent"/>
           <packagedElement xmi:type="uml:Interface" xmi:id="_xylyUcR4EeW_3q3XSh-SYw" name="MouseListener"/>
           <packagedElement xmi:type="uml:Interface" xmi:id="_xypcsMR4EeW_3q3XSh-SYw" name="MouseMotionListener"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_IRJl0MomEeWI07Wu9tqfCA" name="ActionListener"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_IRKz8MomEeWI07Wu9tqfCA" name="KeyListener"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_xy4tQMR4EeW_3q3XSh-SYw" name="Graphics"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_E3j10MoQEeWsA83iBWrPKA" name="Color"/>
@@ -79,32 +80,32 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_xvTNwMR4EeW_3q3XSh-SYw" name="controller">
       <packagedElement xmi:type="uml:Class" xmi:id="_xwx0ccR4EeW_3q3XSh-SYw" name="MagicKeyListenerWrapper">
         <ownedComment xmi:id="_x0MU0MR4EeW_3q3XSh-SYw">
-          <body>**************************************************************************&#xD;
-Copyright (C) 2001 by the Massachusetts Institute of Technology,&#xD;
-                      Cambridge, Massachusetts.&#xD;
- *&#xD;
-                       All Rights Reserved&#xD;
- *&#xD;
-Permission to use, copy, modify, and distribute this software and&#xD;
-its documentation for any purpose and without fee is hereby&#xD;
-granted, provided that the above copyright notice appear in all&#xD;
-copies and that both that copyright notice and this permission&#xD;
-notice appear in supporting documentation, and that MIT's name not&#xD;
-be used in advertising or publicity pertaining to distribution of&#xD;
-the software without specific, written prior permission.&#xD;
- *&#xD;
-THE MASSACHUSETTS INSTITUTE OF TECHNOLOGY DISCLAIMS ALL WARRANTIES&#xD;
-WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF&#xD;
-MERCHANTABILITY AND FITNESS.  IN NO EVENT SHALL THE MASSACHUSETTS&#xD;
-INSTITUTE OF TECHNOLOGY BE LIABLE FOR ANY SPECIAL, INDIRECT OR&#xD;
-CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS&#xD;
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,&#xD;
-NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN&#xD;
-CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
- *&#xD;
+          <body>**************************************************************************
+Copyright (C) 2001 by the Massachusetts Institute of Technology,
+                      Cambridge, Massachusetts.
+ *
+                       All Rights Reserved
+ *
+Permission to use, copy, modify, and distribute this software and
+its documentation for any purpose and without fee is hereby
+granted, provided that the above copyright notice appear in all
+copies and that both that copyright notice and this permission
+notice appear in supporting documentation, and that MIT's name not
+be used in advertising or publicity pertaining to distribution of
+the software without specific, written prior permission.
+ *
+THE MASSACHUSETTS INSTITUTE OF TECHNOLOGY DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS.  IN NO EVENT SHALL THE MASSACHUSETTS
+INSTITUTE OF TECHNOLOGY BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
  **************************************************************************</body>
         </ownedComment>
-        <ownedAttribute xmi:id="_xz1vgMR4EeW_3q3XSh-SYw" name="adaptee" visibility="private" isLeaf="true" type="_xyiH8cR4EeW_3q3XSh-SYw" isReadOnly="true" association="_x0SbcMR4EeW_3q3XSh-SYw"/>
+        <ownedAttribute xmi:id="_xz1vgMR4EeW_3q3XSh-SYw" name="adaptee" visibility="private" isLeaf="true" type="_IRKz8MomEeWI07Wu9tqfCA" isReadOnly="true" association="_x0SbcMR4EeW_3q3XSh-SYw"/>
         <ownedAttribute xmi:id="_xz2WkcR4EeW_3q3XSh-SYw" name="real" visibility="private" isLeaf="true" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xz29oMR4EeW_3q3XSh-SYw" value="*"/>
@@ -118,30 +119,15 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <ownedAttribute xmi:id="_xz4y0cR4EeW_3q3XSh-SYw" name="assumeAllReleased" visibility="private" isLeaf="true" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedAttribute>
-        <interfaceRealization xmi:id="_xzhmcsR4EeW_3q3XSh-SYw" client="_xwx0ccR4EeW_3q3XSh-SYw" supplier="_xyiH8cR4EeW_3q3XSh-SYw" contract="_xyiH8cR4EeW_3q3XSh-SYw"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0FnIMR4EeW_3q3XSh-SYw" name="MagicKeyListenerWrapper" specification="_xziNgMR4EeW_3q3XSh-SYw">
-          <ownedParameter xmi:id="_AgZ9ccoSEeWsA83iBWrPKA" name="adaptee" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-          <ownedParameter xmi:id="_AgZ9csoSEeWsA83iBWrPKA" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return">
-            <name xsi:nil="true"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_AgZ9c8oSEeWsA83iBWrPKA" name="assumeAllReleased">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>if (adaptee == null)&#xD;
-			throw new IllegalArgumentException();&#xD;
-		this.adaptee = adaptee;&#xD;
-		this.assumeAllReleased = assumeAllReleased;&#xD;
-	</body>
-        </ownedBehavior>
+        <interfaceRealization xmi:id="_z8j10MomEeWI07Wu9tqfCA" client="_xwx0ccR4EeW_3q3XSh-SYw" supplier="_IRKz8MomEeWI07Wu9tqfCA" contract="_IRKz8MomEeWI07Wu9tqfCA"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0JRgMR4EeW_3q3XSh-SYw" name="MagicKeyListenerWrapper" specification="_xzjboMR4EeW_3q3XSh-SYw">
-          <ownedParameter xmi:id="_AgZWYMoSEeWsA83iBWrPKA" name="adaptee" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-          <ownedParameter xmi:id="_AgZ9cMoSEeWsA83iBWrPKA" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return">
+          <ownedParameter xmi:id="_9hBOoMomEeWI07Wu9tqfCA" name="adaptee" type="_IRKz8MomEeWI07Wu9tqfCA"/>
+          <ownedParameter xmi:id="_9hBOocomEeWI07Wu9tqfCA" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return">
             <name xsi:nil="true"/>
           </ownedParameter>
           <language>java</language>
-          <body>this(adaptee, false);&#xD;
-	</body>
+          <body>this(adaptee, false);
+  </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0JRhMR4EeW_3q3XSh-SYw" name="marker" specification="_xzkpwMR4EeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_x0JRhcR4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
@@ -150,8 +136,8 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
           <language>java</language>
-          <body>return new Integer(e.getKeyCode());&#xD;
-	</body>
+          <body>return new Integer(e.getKeyCode());
+  </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0JRh8R4EeW_3q3XSh-SYw" name="eventFromMarker" specification="_xzlQ0MR4EeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_x0JRiMR4EeW_3q3XSh-SYw" name="marker">
@@ -162,86 +148,81 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <name xsi:nil="true"/>
           </ownedParameter>
           <language>java</language>
-          <body>Component source = e.getComponent();&#xD;
-		int id = e.getID();&#xD;
-		long when = e.getWhen();&#xD;
-		int modifiers = e.getModifiers();&#xD;
-		int keyCode = marker.intValue();&#xD;
-		char keyChar = e.getKeyChar();&#xD;
-&#xD;
-		return new KeyEvent(source, id, when, modifiers, keyCode, keyChar);&#xD;
-	</body>
+          <body>Component source = e.getComponent();
+ int id = e.getID();
+ long when = e.getWhen();
+ int modifiers = e.getModifiers();
+ int keyCode = marker.intValue();
+ char keyChar = e.getKeyChar();
+
+ return new KeyEvent(source, id, when, modifiers, keyCode, keyChar);
+  </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0J4kMR4EeW_3q3XSh-SYw" name="keyPressed" specification="_xzl34MR4EeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_x0J4kcR4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
           <language>java</language>
-          <body>real.add(marker(e));&#xD;
-		SwingUtilities.invokeLater(new KeyPressedLater(e));&#xD;
-	</body>
+          <body>real.add(marker(e));
+ SwingUtilities.invokeLater(new KeyPressedLater(e));
+  </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0J4ksR4EeW_3q3XSh-SYw" name="keyReleased" specification="_xzme8MR4EeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_x0J4k8R4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
           <language>java</language>
-          <body>real.remove(marker(e));&#xD;
-		SwingUtilities.invokeLater(new KeyReleasedLater(e));&#xD;
-&#xD;
-		if (assumeAllReleased) {&#xD;
-			while (!real.isEmpty()) {&#xD;
-				Integer marker;&#xD;
-				{&#xD;
-					Iterator&lt;Integer> chooser = real.iterator();&#xD;
-					marker = chooser.next();&#xD;
-					chooser.remove();&#xD;
-				}&#xD;
-				KeyEvent event = eventFromMarker(marker, e);&#xD;
-				SwingUtilities.invokeLater(new KeyReleasedLater(event));&#xD;
-			}&#xD;
-		}&#xD;
-	</body>
+          <body>real.remove(marker(e));
+ SwingUtilities.invokeLater(new KeyReleasedLater(e));
+
+ if (assumeAllReleased) {
+   while (!real.isEmpty()) {
+	Integer marker;
+	{
+	  Iterator&lt;Integer> chooser = real.iterator();
+	  marker = chooser.next();
+	  chooser.remove();
+	}
+	KeyEvent event = eventFromMarker(marker, e);
+	SwingUtilities.invokeLater(new KeyReleasedLater(event));
+   }
+ }
+  </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0J4lMR4EeW_3q3XSh-SYw" name="keyTyped" specification="_xzme8sR4EeW_3q3XSh-SYw">
           <ownedParameter xmi:id="_x0J4lcR4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
           <language>java</language>
-          <body>SwingUtilities.invokeLater(new KeyTypedLater(e));&#xD;
-	</body>
+          <body>SwingUtilities.invokeLater(new KeyTypedLater(e));
+  </body>
         </ownedBehavior>
-        <ownedOperation xmi:id="_xziNgMR4EeW_3q3XSh-SYw" name="MagicKeyListenerWrapper" method="_x0FnIMR4EeW_3q3XSh-SYw">
-          <eAnnotations xmi:id="_xziNgsR4EeW_3q3XSh-SYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-            <details xmi:id="_xziNg8R4EeW_3q3XSh-SYw" key="create"/>
-          </eAnnotations>
-          <ownedComment xmi:id="_x0MU0sR4EeW_3q3XSh-SYw">
-            <body>@requires adaptee != null&#xD;
-	 *&#xD;
-	 * @param assumeAllReleased enables the third option listed in the&#xD;
-	 * class overview, namely that any key release event implies that&#xD;
-	 * all keys have been released.&#xD;
-	 *&#xD;
-	 * @effects creates a new MagicKeyListener.</body>
-          </ownedComment>
-          <ownedParameter xmi:id="_xziNgcR4EeW_3q3XSh-SYw" name="adaptee" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-          <ownedParameter xmi:id="_xzi0kMR4EeW_3q3XSh-SYw" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return"/>
-          <ownedParameter xmi:id="_xzjbosR4EeW_3q3XSh-SYw" name="assumeAllReleased">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_z8lrAsomEeWI07Wu9tqfCA" name="MagicKeyListenerWrapper" specification="_z8iAoMomEeWI07Wu9tqfCA">
+          <ownedParameter xmi:id="_9hAnkMomEeWI07Wu9tqfCA" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_9hAnkcomEeWI07Wu9tqfCA" name="adaptee" type="_IRKz8MomEeWI07Wu9tqfCA"/>
+          <ownedParameter xmi:id="_9hAnksomEeWI07Wu9tqfCA" name="assumeAllReleased">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
-        </ownedOperation>
+          <language>java</language>
+          <body>if (adaptee == null) throw new IllegalArgumentException();
+ this.adaptee = adaptee;
+ this.assumeAllReleased = assumeAllReleased;
+  </body>
+        </ownedBehavior>
         <ownedOperation xmi:id="_xzjboMR4EeW_3q3XSh-SYw" name="MagicKeyListenerWrapper" method="_x0JRgMR4EeW_3q3XSh-SYw">
           <eAnnotations xmi:id="_xzkCsMR4EeW_3q3XSh-SYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
             <details xmi:id="_xzkCscR4EeW_3q3XSh-SYw" key="create"/>
           </eAnnotations>
           <ownedComment xmi:id="_x0MU0cR4EeW_3q3XSh-SYw">
-            <body>@requires adaptee != null&#xD;
-	 * &#xD;
-	 * @effects creates a new MagicKeyListener without the generation of&#xD;
-	 * additional key release events (the third option given in the&#xD;
-	 * class overview is disabled).</body>
+            <body>@requires adaptee != null
+   * 
+   * @effects creates a new MagicKeyListener without the generation of
+   * additional key release events (the third option given in the
+   * class overview is disabled).</body>
           </ownedComment>
-          <ownedParameter xmi:id="_xzjbocR4EeW_3q3XSh-SYw" name="adaptee" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
+          <ownedParameter xmi:id="_xzjbocR4EeW_3q3XSh-SYw" name="adaptee" type="_IRKz8MomEeWI07Wu9tqfCA"/>
           <ownedParameter xmi:id="_xzkCssR4EeW_3q3XSh-SYw" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:id="_xzkpwMR4EeW_3q3XSh-SYw" name="marker" visibility="private" isStatic="true" method="_x0JRhMR4EeW_3q3XSh-SYw">
           <ownedComment xmi:id="_x0MU08R4EeW_3q3XSh-SYw">
-            <body>@returns an immutable object which is representative of the key&#xD;
-	 * associated with the given event</body>
+            <body>@returns an immutable object which is representative of the key
+   * associated with the given event</body>
           </ownedComment>
           <ownedParameter xmi:id="_xzkpwcR4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
           <ownedParameter xmi:id="_xzkpwsR4EeW_3q3XSh-SYw" direction="return">
@@ -250,8 +231,8 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         </ownedOperation>
         <ownedOperation xmi:id="_xzlQ0MR4EeW_3q3XSh-SYw" name="eventFromMarker" visibility="private" isStatic="true" method="_x0JRh8R4EeW_3q3XSh-SYw">
           <ownedComment xmi:id="_x0MU1MR4EeW_3q3XSh-SYw">
-            <body>@returns an event which is constructed from the given immutable&#xD;
-	 * key (from the marker method) and a template event.</body>
+            <body>@returns an event which is constructed from the given immutable
+   * key (from the marker method) and a template event.</body>
           </ownedComment>
           <ownedParameter xmi:id="_xzlQ0cR4EeW_3q3XSh-SYw" name="marker">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -277,11 +258,30 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           </ownedComment>
           <ownedParameter xmi:id="_xzme88R4EeW_3q3XSh-SYw" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
+        <ownedOperation xmi:id="_z8iAoMomEeWI07Wu9tqfCA" name="MagicKeyListenerWrapper" method="_z8lrAsomEeWI07Wu9tqfCA">
+          <eAnnotations xmi:id="_z8iApMomEeWI07Wu9tqfCA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_z8insMomEeWI07Wu9tqfCA" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_x0MU0sR4EeW_3q3XSh-SYw">
+            <body>@requires adaptee != null
+   *
+   * @param assumeAllReleased enables the third option listed in the
+   * class overview, namely that any key release event implies that
+   * all keys have been released.
+   *
+   * @effects creates a new MagicKeyListener.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_z8iAo8omEeWI07Wu9tqfCA" type="_xwx0ccR4EeW_3q3XSh-SYw" direction="return"/>
+          <ownedParameter xmi:id="_xziNgcR4EeW_3q3XSh-SYw" name="adaptee" type="_IRKz8MomEeWI07Wu9tqfCA"/>
+          <ownedParameter xmi:id="_z8lrBMomEeWI07Wu9tqfCA" name="assumeAllReleased">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
         <nestedClassifier xmi:type="uml:Class" xmi:id="_xw3UAMR4EeW_3q3XSh-SYw" name="KeyTypedLater" visibility="private">
-          <ownedComment xmi:id="_MHShAMoSEeWsA83iBWrPKA">
-            <body>A simple class which forms a closure around a key typed event.&#xD;
-	 * When run, it fires the event to the keyTyped method of the&#xD;
-	 * adaptee.</body>
+          <ownedComment xmi:id="_DB9usMonEeWI07Wu9tqfCA">
+            <body>A simple class which forms a closure around a key typed event.
+   * When run, it fires the event to the keyTyped method of the
+   * adaptee.</body>
           </ownedComment>
           <ownedAttribute xmi:id="_xz5Z4cR4EeW_3q3XSh-SYw" name="event" visibility="private" isLeaf="true" type="_xyg50MR4EeW_3q3XSh-SYw" isReadOnly="true" association="_x0TpkMR4EeW_3q3XSh-SYw"/>
           <interfaceRealization xmi:id="_xzntEcR4EeW_3q3XSh-SYw" client="_xw3UAMR4EeW_3q3XSh-SYw" supplier="_xznGAcR4EeW_3q3XSh-SYw" contract="_xznGAcR4EeW_3q3XSh-SYw"/>
@@ -291,13 +291,13 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
               <name xsi:nil="true"/>
             </ownedParameter>
             <language>java</language>
-            <body>this.event = event;&#xD;
-		</body>
+            <body>this.event = event;
+ </body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0J4mcR4EeW_3q3XSh-SYw" name="run" specification="_xw6XUMR4EeW_3q3XSh-SYw">
             <language>java</language>
-            <body>adaptee.keyTyped(event);&#xD;
-		</body>
+            <body>adaptee.keyTyped(event);
+ </body>
           </ownedBehavior>
           <ownedOperation xmi:id="_xw6XUMR4EeW_3q3XSh-SYw" name="run" method="_x0J4mcR4EeW_3q3XSh-SYw"/>
           <ownedOperation xmi:id="_xzoUIMR4EeW_3q3XSh-SYw" name="KeyTypedLater" visibility="private" method="_x0J4lsR4EeW_3q3XSh-SYw">
@@ -309,11 +309,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           </ownedOperation>
         </nestedClassifier>
         <nestedClassifier xmi:type="uml:Class" xmi:id="_xw9aoMR4EeW_3q3XSh-SYw" name="KeyPressedLater" visibility="private">
-          <ownedComment xmi:id="_AgakgMoSEeWsA83iBWrPKA">
-            <body>A simple class which forms a closure around an key pressed event.&#xD;
-	 * When run, it fires the event to the keyPressed method of the&#xD;
-	 * adaptee only if the pressed keyset still contains this key and&#xD;
-	 * the adaptee has not already been informed.</body>
+          <ownedComment xmi:id="_MHShAMoSEeWsA83iBWrPKA">
+            <body>A simple class which forms a closure around an key pressed event.
+   * When run, it fires the event to the keyPressed method of the
+   * adaptee only if the pressed keyset still contains this key and
+   * the adaptee has not already been informed.</body>
           </ownedComment>
           <ownedAttribute xmi:id="_xz6A8cR4EeW_3q3XSh-SYw" name="event" visibility="private" isLeaf="true" type="_xyg50MR4EeW_3q3XSh-SYw" isReadOnly="true" association="_x0UQocR4EeW_3q3XSh-SYw"/>
           <interfaceRealization xmi:id="_xzo7MMR4EeW_3q3XSh-SYw" client="_xw9aoMR4EeW_3q3XSh-SYw" supplier="_xznGAcR4EeW_3q3XSh-SYw" contract="_xznGAcR4EeW_3q3XSh-SYw"/>
@@ -323,17 +323,17 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
               <name xsi:nil="true"/>
             </ownedParameter>
             <language>java</language>
-            <body>this.event = event;&#xD;
-		</body>
+            <body>this.event = event;
+ </body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0Kfo8R4EeW_3q3XSh-SYw" name="run" specification="_xw-owMR4EeW_3q3XSh-SYw">
             <language>java</language>
-            <body>Integer key = marker(event);&#xD;
-			if (real.contains(key) &amp;&amp; !announced.contains(key)) {&#xD;
-				announced.add(key);&#xD;
-				adaptee.keyPressed(event);&#xD;
-			}&#xD;
-		</body>
+            <body>Integer key = marker(event);
+   if (real.contains(key) &amp;&amp; !announced.contains(key)) {
+	announced.add(key);
+	adaptee.keyPressed(event);
+   }
+ </body>
           </ownedBehavior>
           <ownedOperation xmi:id="_xw-owMR4EeW_3q3XSh-SYw" name="run" method="_x0Kfo8R4EeW_3q3XSh-SYw"/>
           <ownedOperation xmi:id="_xzo7McR4EeW_3q3XSh-SYw" name="KeyPressedLater" visibility="private" method="_x0KfoMR4EeW_3q3XSh-SYw">
@@ -346,10 +346,10 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         </nestedClassifier>
         <nestedClassifier xmi:type="uml:Class" xmi:id="_xxAd8MR4EeW_3q3XSh-SYw" name="KeyReleasedLater" visibility="private">
           <ownedComment xmi:id="_x0M748R4EeW_3q3XSh-SYw">
-            <body>A simple class which forms a closure around an key released&#xD;
-	 * event.  When run, it fires the event to the keyReleased method of&#xD;
-	 * the adaptee only if the pressed keyset does not contains this key&#xD;
-	 * and the adaptee has not already been informed of the release.</body>
+            <body>A simple class which forms a closure around an key released
+   * event.  When run, it fires the event to the keyReleased method of
+   * the adaptee only if the pressed keyset does not contains this key
+   * and the adaptee has not already been informed of the release.</body>
           </ownedComment>
           <ownedAttribute xmi:id="_xz6oAcR4EeW_3q3XSh-SYw" name="event" visibility="private" isLeaf="true" type="_xyg50MR4EeW_3q3XSh-SYw" isReadOnly="true" association="_x0VewMR4EeW_3q3XSh-SYw"/>
           <interfaceRealization xmi:id="_xzqJUMR4EeW_3q3XSh-SYw" client="_xxAd8MR4EeW_3q3XSh-SYw" supplier="_xznGAcR4EeW_3q3XSh-SYw" contract="_xznGAcR4EeW_3q3XSh-SYw"/>
@@ -359,17 +359,17 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
               <name xsi:nil="true"/>
             </ownedParameter>
             <language>java</language>
-            <body>this.event = event;&#xD;
-		</body>
+            <body>this.event = event;
+ </body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x0Kfp8R4EeW_3q3XSh-SYw" name="run" specification="_xxBsEMR4EeW_3q3XSh-SYw">
             <language>java</language>
-            <body>Integer key = marker(event);&#xD;
-			if (!real.contains(key) &amp;&amp; announced.contains(key)) {&#xD;
-				announced.remove(key);&#xD;
-				adaptee.keyReleased(event);&#xD;
-			}&#xD;
-		</body>
+            <body>Integer key = marker(event);
+   if (!real.contains(key) &amp;&amp; announced.contains(key)) {
+	announced.remove(key);
+	adaptee.keyReleased(event);
+   }
+ </body>
           </ownedBehavior>
           <ownedOperation xmi:id="_xxBsEMR4EeW_3q3XSh-SYw" name="run" method="_x0Kfp8R4EeW_3q3XSh-SYw"/>
           <ownedOperation xmi:id="_xzqJUcR4EeW_3q3XSh-SYw" name="KeyReleasedLater" visibility="private" method="_x0KfpMR4EeW_3q3XSh-SYw">
@@ -395,7 +395,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_E3mSEMoQEeWsA83iBWrPKA" name="AddGizmoListener">
         <ownedAttribute xmi:id="_PG-QIMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHTAQMoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PF8VYcoQEeWsA83iBWrPKA" client="_E3mSEMoQEeWsA83iBWrPKA" supplier="_E3lrAcoQEeWsA83iBWrPKA" contract="_E3lrAcoQEeWsA83iBWrPKA"/>
+        <interfaceRealization xmi:id="_G5R-gMonEeWI07Wu9tqfCA" client="_E3mSEMoQEeWsA83iBWrPKA" supplier="_IRLbAMomEeWI07Wu9tqfCA" contract="_IRLbAMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PF88cMoQEeWsA83iBWrPKA" name="mouseDragged">
           <ownedParameter xmi:id="_PF9jgMoQEeWsA83iBWrPKA" name="arg0" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -420,7 +420,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_E3m5IMoQEeWsA83iBWrPKA" name="ConnectGizmoListener">
         <ownedAttribute xmi:id="_PHAsYMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHU1ccoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGH7kMoQEeWsA83iBWrPKA" client="_E3m5IMoQEeWsA83iBWrPKA" supplier="_E3lrAcoQEeWsA83iBWrPKA" contract="_E3lrAcoQEeWsA83iBWrPKA"/>
+        <interfaceRealization xmi:id="_Fwtz8MonEeWI07Wu9tqfCA" client="_E3m5IMoQEeWsA83iBWrPKA" supplier="_IRLbAMomEeWI07Wu9tqfCA" contract="_IRLbAMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGH7kcoQEeWsA83iBWrPKA" name="mouseClicked">
           <ownedParameter xmi:id="_PGIioMoQEeWsA83iBWrPKA" name="arg0" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -445,42 +445,20 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_E3ngMcoQEeWsA83iBWrPKA" name="WindowListener">
         <ownedAttribute xmi:id="_PHHaEMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_PHZt8coQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGzRAMoQEeWsA83iBWrPKA" client="_E3ngMcoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_sF0jEMomEeWI07Wu9tqfCA" client="_E3ngMcoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGz4EMoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGz4EcoQEeWsA83iBWrPKA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PE9d8MoQEeWsA83iBWrPKA" name="BuildModeMainListener">
-        <ownedAttribute xmi:id="_PG_eQMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHTnUcoQEeWsA83iBWrPKA"/>
-        <ownedAttribute xmi:id="_PG_eQsoQEeWsA83iBWrPKA" name="mouseHandler" visibility="private" type="_E3lrAcoQEeWsA83iBWrPKA" association="_PHUOYcoQEeWsA83iBWrPKA"/>
-        <ownedAttribute xmi:id="_PHAFUcoQEeWsA83iBWrPKA" name="keyHandler" visibility="private" type="_xyiH8cR4EeW_3q3XSh-SYw" association="_PHUOZMoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGE4QMoQEeWsA83iBWrPKA" client="_PE9d8MoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
-        <interfaceRealization xmi:id="_PGE4QcoQEeWsA83iBWrPKA" client="_PE9d8MoQEeWsA83iBWrPKA" supplier="_PFIdEMoQEeWsA83iBWrPKA" contract="_PFIdEMoQEeWsA83iBWrPKA"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_PHJPQMoQEeWsA83iBWrPKA" name="setKeyBoardListener" specification="_PGGGYsoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PHJPQcoQEeWsA83iBWrPKA" name="kl" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-          <language>java</language>
-          <body>keyHandler = kl;&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_PHJ2UMoQEeWsA83iBWrPKA" name="setMouseListener" specification="_PGGtcMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PHJ2UcoQEeWsA83iBWrPKA" name="ml" type="_E3lrAcoQEeWsA83iBWrPKA"/>
-          <language>java</language>
-          <body>mouseHandler = ml;&#xD;
-	</body>
-        </ownedBehavior>
+        <generalization xmi:id="_IQrrwMomEeWI07Wu9tqfCA" general="_IQgFkMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGFfUMoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGFfUcoQEeWsA83iBWrPKA" name="arg0" type="_xyazMMR4EeW_3q3XSh-SYw"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_PGGGYsoQEeWsA83iBWrPKA" name="setKeyBoardListener" method="_PHJPQMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PGGGY8oQEeWsA83iBWrPKA" name="kl" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_PGGtcMoQEeWsA83iBWrPKA" name="setMouseListener" method="_PHJ2UMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PGGtccoQEeWsA83iBWrPKA" name="ml" type="_E3lrAcoQEeWsA83iBWrPKA"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFELoMoQEeWsA83iBWrPKA" name="ConnectKeyListener">
         <ownedAttribute xmi:id="_PHBTcMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHU1dMoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGPQUMoQEeWsA83iBWrPKA" client="_PFELoMoQEeWsA83iBWrPKA" supplier="_xyiH8cR4EeW_3q3XSh-SYw" contract="_xyiH8cR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_E9sbkMonEeWI07Wu9tqfCA" client="_PFELoMoQEeWsA83iBWrPKA" supplier="_IRKz8MomEeWI07Wu9tqfCA" contract="_IRKz8MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGP3YMoQEeWsA83iBWrPKA" name="keyPressed">
           <ownedParameter xmi:id="_PGP3YcoQEeWsA83iBWrPKA" name="e" type="_xyg50MR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -493,7 +471,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFGA0MoQEeWsA83iBWrPKA" name="DeleteGizmoListener">
         <ownedAttribute xmi:id="_PHB6gMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHVcgcoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGUI0MoQEeWsA83iBWrPKA" client="_PFGA0MoQEeWsA83iBWrPKA" supplier="_E3lrAcoQEeWsA83iBWrPKA" contract="_E3lrAcoQEeWsA83iBWrPKA"/>
+        <interfaceRealization xmi:id="_ERgrAMonEeWI07Wu9tqfCA" client="_PFGA0MoQEeWsA83iBWrPKA" supplier="_IRLbAMomEeWI07Wu9tqfCA" contract="_IRLbAMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGUI0coQEeWsA83iBWrPKA" name="mouseDragged">
           <ownedParameter xmi:id="_PGUI0soQEeWsA83iBWrPKA" name="e" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -516,25 +494,16 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_PGZBVMoQEeWsA83iBWrPKA" name="e" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Interface" xmi:id="_PFIdEMoQEeWsA83iBWrPKA" name="IMainListener">
-        <generalization xmi:id="_PGaPcMoQEeWsA83iBWrPKA" general="_xyd2gMR4EeW_3q3XSh-SYw"/>
-        <ownedOperation xmi:id="_PGaPccoQEeWsA83iBWrPKA" name="setKeyBoardListener">
-          <ownedParameter xmi:id="_PGaPcsoQEeWsA83iBWrPKA" name="kl" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_PGaPc8oQEeWsA83iBWrPKA" name="setMouseListener">
-          <ownedParameter xmi:id="_PGa2gMoQEeWsA83iBWrPKA" name="ml" type="_E3lrAcoQEeWsA83iBWrPKA"/>
-        </ownedOperation>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFJrMMoQEeWsA83iBWrPKA" name="LoadFileListener">
         <ownedAttribute xmi:id="_QCjx0MoUEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_QCkY4MoUEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGa2gcoQEeWsA83iBWrPKA" client="_PFJrMMoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_7VqKUMomEeWI07Wu9tqfCA" client="_PFJrMMoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGa2gsoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGa2g8oQEeWsA83iBWrPKA" name="arg0" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFKSQMoQEeWsA83iBWrPKA" name="MoveGizmoListener">
         <ownedAttribute xmi:id="_PHChkMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHWDkMoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGcEoMoQEeWsA83iBWrPKA" client="_PFKSQMoQEeWsA83iBWrPKA" supplier="_E3lrAcoQEeWsA83iBWrPKA" contract="_E3lrAcoQEeWsA83iBWrPKA"/>
+        <interfaceRealization xmi:id="_zS500MomEeWI07Wu9tqfCA" client="_PFKSQMoQEeWsA83iBWrPKA" supplier="_IRLbAMomEeWI07Wu9tqfCA" contract="_IRLbAMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGcEocoQEeWsA83iBWrPKA" name="mouseDragged">
           <ownedParameter xmi:id="_PGcEosoQEeWsA83iBWrPKA" name="e" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -559,7 +528,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFNVkMoQEeWsA83iBWrPKA" name="PlayGameListener">
         <ownedAttribute xmi:id="_PHDIoMoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHWDk8oQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGiyUMoQEeWsA83iBWrPKA" client="_PFNVkMoQEeWsA83iBWrPKA" supplier="_xyiH8cR4EeW_3q3XSh-SYw" contract="_xyiH8cR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_yngHYMomEeWI07Wu9tqfCA" client="_PFNVkMoQEeWsA83iBWrPKA" supplier="_IRKz8MomEeWI07Wu9tqfCA" contract="_IRKz8MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGiyUcoQEeWsA83iBWrPKA" name="keyPressed">
           <ownedParameter xmi:id="_PGiyUsoQEeWsA83iBWrPKA" name="arg0" type="_xyg50MR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -571,35 +540,14 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFPKwMoQEeWsA83iBWrPKA" name="PlayModeMainListener">
-        <ownedAttribute xmi:id="_PHDvscoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHWqocoQEeWsA83iBWrPKA"/>
-        <ownedAttribute xmi:id="_PHEWwMoQEeWsA83iBWrPKA" name="mouseHandler" visibility="private" type="_E3lrAcoQEeWsA83iBWrPKA" association="_PHXRscoQEeWsA83iBWrPKA"/>
-        <ownedAttribute xmi:id="_PHEWwsoQEeWsA83iBWrPKA" name="keyHandler" visibility="private" type="_xyiH8cR4EeW_3q3XSh-SYw" association="_PHX4wcoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGlOkMoQEeWsA83iBWrPKA" client="_PFPKwMoQEeWsA83iBWrPKA" supplier="_PFIdEMoQEeWsA83iBWrPKA" contract="_PFIdEMoQEeWsA83iBWrPKA"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_PHLEcMoQEeWsA83iBWrPKA" name="setKeyBoardListener" specification="_PGmcssoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PHLEccoQEeWsA83iBWrPKA" name="kl" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-          <language>java</language>
-          <body>keyHandler = kl;&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_PHLrgMoQEeWsA83iBWrPKA" name="setMouseListener" specification="_PGmctMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PHLrgcoQEeWsA83iBWrPKA" name="ml" type="_E3lrAcoQEeWsA83iBWrPKA"/>
-          <language>java</language>
-          <body>mouseHandler = ml;&#xD;
-	</body>
-        </ownedBehavior>
+        <generalization xmi:id="_IQ2D0MomEeWI07Wu9tqfCA" general="_IQgFkMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGl1oMoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGl1ocoQEeWsA83iBWrPKA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_PGmcssoQEeWsA83iBWrPKA" name="setKeyBoardListener" method="_PHLEcMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PGmcs8oQEeWsA83iBWrPKA" name="kl" type="_xyiH8cR4EeW_3q3XSh-SYw"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_PGmctMoQEeWsA83iBWrPKA" name="setMouseListener" method="_PHLrgMoQEeWsA83iBWrPKA">
-          <ownedParameter xmi:id="_PGnDwMoQEeWsA83iBWrPKA" name="ml" type="_E3lrAcoQEeWsA83iBWrPKA"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFQ_8MoQEeWsA83iBWrPKA" name="RotateGizmoListener">
         <ownedAttribute xmi:id="_PHE90MoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHX4xMoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGnq0MoQEeWsA83iBWrPKA" client="_PFQ_8MoQEeWsA83iBWrPKA" supplier="_E3lrAcoQEeWsA83iBWrPKA" contract="_E3lrAcoQEeWsA83iBWrPKA"/>
+        <interfaceRealization xmi:id="_vzQeIMomEeWI07Wu9tqfCA" client="_PFQ_8MoQEeWsA83iBWrPKA" supplier="_IRLbAMomEeWI07Wu9tqfCA" contract="_IRLbAMomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGoR4MoQEeWsA83iBWrPKA" name="mouseDragged">
           <ownedParameter xmi:id="_PGoR4coQEeWsA83iBWrPKA" name="e" type="_xylLQMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
@@ -624,43 +572,34 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFUDQMoQEeWsA83iBWrPKA" name="SaveFileListener">
         <ownedAttribute xmi:id="_PHFk4MoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHYf0coQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGtxcMoQEeWsA83iBWrPKA" client="_PFUDQMoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_wVS0MMomEeWI07Wu9tqfCA" client="_PFUDQMoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGtxccoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGtxcsoQEeWsA83iBWrPKA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFVRYMoQEeWsA83iBWrPKA" name="StartGameListener">
         <ownedAttribute xmi:id="_PHGL8MoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHYf1MoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGu_kMoQEeWsA83iBWrPKA" client="_PFVRYMoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_w-KyEMomEeWI07Wu9tqfCA" client="_PFVRYMoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGu_kcoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGvmoMoQEeWsA83iBWrPKA" name="arg0" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFXGkMoQEeWsA83iBWrPKA" name="StopGameListener">
         <ownedAttribute xmi:id="_PHGL8soQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHZG4coQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGwNsMoQEeWsA83iBWrPKA" client="_PFXGkMoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_xl3EMMomEeWI07Wu9tqfCA" client="_PFXGkMoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGw0wMoQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGw0wcoQEeWsA83iBWrPKA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_PFY7wMoQEeWsA83iBWrPKA" name="UndoRedoListener">
         <ownedAttribute xmi:id="_PHGzAcoQEeWsA83iBWrPKA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_PHZG5MoQEeWsA83iBWrPKA"/>
-        <interfaceRealization xmi:id="_PGyC4MoQEeWsA83iBWrPKA" client="_PFY7wMoQEeWsA83iBWrPKA" supplier="_xyd2gMR4EeW_3q3XSh-SYw" contract="_xyd2gMR4EeW_3q3XSh-SYw"/>
+        <interfaceRealization xmi:id="_s3i68MomEeWI07Wu9tqfCA" client="_PFY7wMoQEeWsA83iBWrPKA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
         <ownedOperation xmi:id="_PGyC4coQEeWsA83iBWrPKA" name="actionPerformed">
           <ownedParameter xmi:id="_PGyC4soQEeWsA83iBWrPKA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_PHTAQMoQEeWsA83iBWrPKA" name="" memberEnd="_PHTAQcoQEeWsA83iBWrPKA _PG-QIMoQEeWsA83iBWrPKA">
         <ownedEnd xmi:id="_PHTAQcoQEeWsA83iBWrPKA" name="" type="_E3mSEMoQEeWsA83iBWrPKA" association="_PHTAQMoQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHTnUcoQEeWsA83iBWrPKA" name="" memberEnd="_PHTnUsoQEeWsA83iBWrPKA _PG_eQMoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHTnUsoQEeWsA83iBWrPKA" name="" type="_PE9d8MoQEeWsA83iBWrPKA" association="_PHTnUcoQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHUOYcoQEeWsA83iBWrPKA" name="" memberEnd="_PHUOYsoQEeWsA83iBWrPKA _PG_eQsoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHUOYsoQEeWsA83iBWrPKA" name="" type="_PE9d8MoQEeWsA83iBWrPKA" association="_PHUOYcoQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHUOZMoQEeWsA83iBWrPKA" name="" memberEnd="_PHUOZcoQEeWsA83iBWrPKA _PHAFUcoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHUOZcoQEeWsA83iBWrPKA" name="" type="_PE9d8MoQEeWsA83iBWrPKA" association="_PHUOZMoQEeWsA83iBWrPKA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_PHU1ccoQEeWsA83iBWrPKA" name="" memberEnd="_PHU1csoQEeWsA83iBWrPKA _PHAsYMoQEeWsA83iBWrPKA">
         <ownedEnd xmi:id="_PHU1csoQEeWsA83iBWrPKA" name="" type="_E3m5IMoQEeWsA83iBWrPKA" association="_PHU1ccoQEeWsA83iBWrPKA"/>
@@ -676,15 +615,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_PHWDk8oQEeWsA83iBWrPKA" name="" memberEnd="_PHWDlMoQEeWsA83iBWrPKA _PHDIoMoQEeWsA83iBWrPKA">
         <ownedEnd xmi:id="_PHWDlMoQEeWsA83iBWrPKA" name="" type="_PFNVkMoQEeWsA83iBWrPKA" association="_PHWDk8oQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHWqocoQEeWsA83iBWrPKA" name="" memberEnd="_PHWqosoQEeWsA83iBWrPKA _PHDvscoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHWqosoQEeWsA83iBWrPKA" name="" type="_PFPKwMoQEeWsA83iBWrPKA" association="_PHWqocoQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHXRscoQEeWsA83iBWrPKA" name="" memberEnd="_PHXRssoQEeWsA83iBWrPKA _PHEWwMoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHXRssoQEeWsA83iBWrPKA" name="" type="_PFPKwMoQEeWsA83iBWrPKA" association="_PHXRscoQEeWsA83iBWrPKA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PHX4wcoQEeWsA83iBWrPKA" name="" memberEnd="_PHX4wsoQEeWsA83iBWrPKA _PHEWwsoQEeWsA83iBWrPKA">
-        <ownedEnd xmi:id="_PHX4wsoQEeWsA83iBWrPKA" name="" type="_PFPKwMoQEeWsA83iBWrPKA" association="_PHX4wcoQEeWsA83iBWrPKA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_PHX4xMoQEeWsA83iBWrPKA" name="" memberEnd="_PHX4xcoQEeWsA83iBWrPKA _PHE90MoQEeWsA83iBWrPKA">
         <ownedEnd xmi:id="_PHX4xcoQEeWsA83iBWrPKA" name="" type="_PFQ_8MoQEeWsA83iBWrPKA" association="_PHX4xMoQEeWsA83iBWrPKA"/>
@@ -707,6 +637,39 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       <packagedElement xmi:type="uml:Association" xmi:id="_QCkY4MoUEeWsA83iBWrPKA" name="" memberEnd="_QCkY4coUEeWsA83iBWrPKA _QCjx0MoUEeWsA83iBWrPKA">
         <ownedEnd xmi:id="_QCkY4coUEeWsA83iBWrPKA" name="" type="_PFJrMMoQEeWsA83iBWrPKA" association="_QCkY4MoUEeWsA83iBWrPKA"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_IQgFkMomEeWI07Wu9tqfCA" name="AMainListener" isAbstract="true">
+        <ownedAttribute xmi:id="_8SdUUMonEeWI07Wu9tqfCA" name="model" visibility="private" type="_PF7uUMoQEeWsA83iBWrPKA" association="_8SeicMonEeWI07Wu9tqfCA"/>
+        <ownedAttribute xmi:id="_8Sd7YMonEeWI07Wu9tqfCA" name="mouseHandler" visibility="private" type="_IRLbAMomEeWI07Wu9tqfCA" association="_8SfJgconEeWI07Wu9tqfCA"/>
+        <ownedAttribute xmi:id="_8Sd7YconEeWI07Wu9tqfCA" name="keyHandler" visibility="private" type="_IRKz8MomEeWI07Wu9tqfCA" association="_8SfJhMonEeWI07Wu9tqfCA"/>
+        <interfaceRealization xmi:id="_IROeUMomEeWI07Wu9tqfCA" client="_IQgFkMomEeWI07Wu9tqfCA" supplier="_IRJl0MomEeWI07Wu9tqfCA" contract="_IRJl0MomEeWI07Wu9tqfCA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8Sd7YsonEeWI07Wu9tqfCA" name="setKeyBoardListener" specification="_IRPFYMomEeWI07Wu9tqfCA">
+          <ownedParameter xmi:id="_8Sd7Y8onEeWI07Wu9tqfCA" name="kl" type="_IRKz8MomEeWI07Wu9tqfCA"/>
+          <language>java</language>
+          <body>keyHandler = kl;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_8Sd7ZMonEeWI07Wu9tqfCA" name="setMouseListener" specification="_IRQTgMomEeWI07Wu9tqfCA">
+          <ownedParameter xmi:id="_8Sd7ZconEeWI07Wu9tqfCA" name="ml" type="_IRLbAMomEeWI07Wu9tqfCA"/>
+          <language>java</language>
+          <body>mouseHandler = ml;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_IRPFYMomEeWI07Wu9tqfCA" name="setKeyBoardListener" visibility="public" method="_8Sd7YsonEeWI07Wu9tqfCA">
+          <ownedParameter xmi:id="_IRPFYcomEeWI07Wu9tqfCA" name="kl" type="_IRKz8MomEeWI07Wu9tqfCA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_IRQTgMomEeWI07Wu9tqfCA" name="setMouseListener" visibility="public" method="_8Sd7ZMonEeWI07Wu9tqfCA">
+          <ownedParameter xmi:id="_IRQTgcomEeWI07Wu9tqfCA" name="ml" type="_IRLbAMomEeWI07Wu9tqfCA"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8SeicMonEeWI07Wu9tqfCA" name="" memberEnd="_8SeicconEeWI07Wu9tqfCA _8SdUUMonEeWI07Wu9tqfCA">
+        <ownedEnd xmi:id="_8SeicconEeWI07Wu9tqfCA" name="" type="_IQgFkMomEeWI07Wu9tqfCA" association="_8SeicMonEeWI07Wu9tqfCA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8SfJgconEeWI07Wu9tqfCA" name="" memberEnd="_8SfJgsonEeWI07Wu9tqfCA _8Sd7YMonEeWI07Wu9tqfCA">
+        <ownedEnd xmi:id="_8SfJgsonEeWI07Wu9tqfCA" name="" type="_IQgFkMomEeWI07Wu9tqfCA" association="_8SfJgconEeWI07Wu9tqfCA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8SfJhMonEeWI07Wu9tqfCA" name="" memberEnd="_8SfJhconEeWI07Wu9tqfCA _8Sd7YconEeWI07Wu9tqfCA">
+        <ownedEnd xmi:id="_8SfJhconEeWI07Wu9tqfCA" name="" type="_IQgFkMomEeWI07Wu9tqfCA" association="_8SfJhMonEeWI07Wu9tqfCA"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xvcXsMR4EeW_3q3XSh-SYw" name="model">
       <packagedElement xmi:type="uml:Class" xmi:id="_xwhVwMR4EeW_3q3XSh-SYw" name="Walls">
@@ -722,9 +685,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <generalization xmi:id="_E3ztcMoQEeWsA83iBWrPKA" general="_E3x4QMoQEeWsA83iBWrPKA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xws78MR4EeW_3q3XSh-SYw" name="CollisionDetails"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_xwtjAMR4EeW_3q3XSh-SYw" name="Connections">
-        <interfaceRealization xmi:id="_CY-hQcoVEeWsA83iBWrPKA" client="_xwtjAMR4EeW_3q3XSh-SYw" supplier="_CY96MMoVEeWsA83iBWrPKA" contract="_CY96MMoVEeWsA83iBWrPKA"/>
-      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xwtjAMR4EeW_3q3XSh-SYw" name="Connections"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xwuKEMR4EeW_3q3XSh-SYw" name="Flipper">
         <generalization xmi:id="_E3ztccoQEeWsA83iBWrPKA" general="_E3x4QMoQEeWsA83iBWrPKA"/>
       </packagedElement>
@@ -732,6 +693,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <generalization xmi:id="_E3ztcsoQEeWsA83iBWrPKA" general="_E3x4QMoQEeWsA83iBWrPKA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xwvYMMR4EeW_3q3XSh-SYw" name="MainEngine">
+        <generalization xmi:id="_pvgv0MoiEeWI07Wu9tqfCA" general="_xy57YcR4EeW_3q3XSh-SYw"/>
         <ownedAttribute xmi:id="_QlgF4MR5EeW_3q3XSh-SYw" name="linesSet" visibility="private" type="_xwuxIMR4EeW_3q3XSh-SYw" association="_n03IccR5EeW_3q3XSh-SYw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qlgs8MR5EeW_3q3XSh-SYw" value="*"/>
         </ownedAttribute>
@@ -801,12 +763,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       <packagedElement xmi:type="uml:Class" xmi:id="_E3x4QMoQEeWsA83iBWrPKA" name="AGizmoComponent" isAbstract="true"/>
       <packagedElement xmi:type="uml:Interface" xmi:id="_PF7uUMoQEeWsA83iBWrPKA" name="IMainEngine"/>
       <packagedElement xmi:type="uml:Interface" xmi:id="_is7jEMoQEeWsA83iBWrPKA" name="ISaveDataEngine"/>
-      <packagedElement xmi:type="uml:Interface" xmi:id="_CY96MMoVEeWsA83iBWrPKA" name="IConnections"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xvv5sMR4EeW_3q3XSh-SYw" name="javax">
       <packagedElement xmi:type="uml:Package" xmi:id="_xvv5scR4EeW_3q3XSh-SYw" name="swing">
         <packagedElement xmi:type="uml:Package" xmi:id="_E2s6MMoQEeWsA83iBWrPKA" name="event">
-          <packagedElement xmi:type="uml:Interface" xmi:id="_E3lrAcoQEeWsA83iBWrPKA" name="MouseInputListener"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_IRLbAMomEeWI07Wu9tqfCA" name="MouseInputListener"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_xysgAcR4EeW_3q3XSh-SYw" name="SwingUtilities"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_xy7wkcR4EeW_3q3XSh-SYw" name="JPanel"/>
@@ -968,8 +929,9 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		JSeparator separator1 = new JSeparator();&#xD;
 		window1.getContentPane().add(separator1);&#xD;
 &#xD;
-		buildmenu = new PlayMenu();&#xD;
-		buildboard = new PlayBoard();&#xD;
+		// TODO&#xD;
+		buildmenu = new BuildMenu();&#xD;
+		buildboard = new BuildBoard();&#xD;
 &#xD;
 		buildmenu.initialize();&#xD;
 		buildboard.initialize();&#xD;
@@ -1070,6 +1032,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		JButton delete = new JButton(&quot;Delete gizmo&quot;);&#xD;
 		JButton rotate = new JButton(&quot;Rotate gizmo&quot;);&#xD;
 		JButton undo = new JButton(&quot;Undo&quot;);&#xD;
+		JButton redo = new JButton(&quot;Redo&quot;);&#xD;
 		JButton reload = new JButton(&quot;Reload Board&quot;);&#xD;
 		JButton clear = new JButton(&quot;Clear Board&quot;);&#xD;
 		JButton play = new JButton(&quot;Play&quot;);&#xD;
@@ -1121,6 +1084,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		buttonMenu.add(delete);&#xD;
 		buttonMenu.add(rotate);&#xD;
 		buttonMenu.add(undo);&#xD;
+		buttonMenu.add(redo);&#xD;
 		buttonMenu.add(reload);&#xD;
 		buttonMenu.add(clear);&#xD;
 		buttonMenu.add(play);&#xD;
@@ -1206,6 +1170,8 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <ownedEnd xmi:id="_WQUmhcoSEeWsA83iBWrPKA" name="" type="_WP_2YMoSEeWsA83iBWrPKA" association="_WQUmhMoSEeWsA83iBWrPKA"/>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K74RQsonEeWI07Wu9tqfCA" name="KeyListener"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K75fYconEeWI07Wu9tqfCA" name="MouseInputListener"/>
     <profileApplication xmi:id="_xeDswMR4EeW_3q3XSh-SYw">
       <eAnnotations xmi:id="_xeJMUMR4EeW_3q3XSh-SYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
@@ -1217,9 +1183,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
     <languageName>java</languageName>
   </UMLLabProfile:TargetLanguage>
   <UMLLabProfile:Reference xmi:id="_xycoYMR4EeW_3q3XSh-SYw" base_Element="_xyazMMR4EeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_xyedkMR4EeW_3q3XSh-SYw" base_Element="_xyd2gMR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_xyiH8MR4EeW_3q3XSh-SYw" base_Element="_xyg50MR4EeW_3q3XSh-SYw"/>
-  <UMLLabProfile:Reference xmi:id="_xyivAMR4EeW_3q3XSh-SYw" base_Element="_xyiH8cR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_xylyUMR4EeW_3q3XSh-SYw" base_Element="_xylLQMR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_xynAcMR4EeW_3q3XSh-SYw" base_Element="_xylyUcR4EeW_3q3XSh-SYw"/>
   <UMLLabProfile:Reference xmi:id="_xyqDwMR4EeW_3q3XSh-SYw" base_Element="_xypcsMR4EeW_3q3XSh-SYw"/>
@@ -1292,7 +1256,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:Reference xmi:id="_E3kc4MoQEeWsA83iBWrPKA" base_Element="_E3j10MoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_E3lD8MoQEeWsA83iBWrPKA" base_Element="_E3kc4coQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_E3lrAMoQEeWsA83iBWrPKA" base_Element="_E3lD8coQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_E3lrAsoQEeWsA83iBWrPKA" base_Element="_E3lrAcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_E3ouUMoQEeWsA83iBWrPKA" base_Element="_E3oHQcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_E3pVYMoQEeWsA83iBWrPKA" base_Element="_E3ouUcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_E3p8cMoQEeWsA83iBWrPKA" base_Element="_E3pVYcoQEeWsA83iBWrPKA"/>
@@ -1520,17 +1483,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
     <annotations xmi:id="_PG0fIMoQEeWsA83iBWrPKA" name="Override"/>
   </UMLLabProfile:Annotations>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PG-3MMoQEeWsA83iBWrPKA" base_Element="_PG-QIMoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PG_eQcoQEeWsA83iBWrPKA" base_Element="_PG_eQMoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PHAFUMoQEeWsA83iBWrPKA" base_Element="_PG_eQsoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PHAFUsoQEeWsA83iBWrPKA" base_Element="_PHAFUcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHAsYcoQEeWsA83iBWrPKA" base_Element="_PHAsYMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHBTccoQEeWsA83iBWrPKA" base_Element="_PHBTcMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHB6gcoQEeWsA83iBWrPKA" base_Element="_PHB6gMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHChkcoQEeWsA83iBWrPKA" base_Element="_PHChkMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHDvsMoQEeWsA83iBWrPKA" base_Element="_PHDIoMoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PHDvssoQEeWsA83iBWrPKA" base_Element="_PHDvscoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PHEWwcoQEeWsA83iBWrPKA" base_Element="_PHEWwMoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_PHEWw8oQEeWsA83iBWrPKA" base_Element="_PHEWwsoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHE90coQEeWsA83iBWrPKA" base_Element="_PHE90MoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHFk4coQEeWsA83iBWrPKA" base_Element="_PHFk4MoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHGL8coQEeWsA83iBWrPKA" base_Element="_PHGL8MoQEeWsA83iBWrPKA"/>
@@ -1538,17 +1495,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHGzAsoQEeWsA83iBWrPKA" base_Element="_PHGzAcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_PHHaEcoQEeWsA83iBWrPKA" base_Element="_PHHaEMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHTnUMoQEeWsA83iBWrPKA" base_Element="_PHTAQMoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHUOYMoQEeWsA83iBWrPKA" base_Element="_PHTnUcoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHUOY8oQEeWsA83iBWrPKA" base_Element="_PHUOYcoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHU1cMoQEeWsA83iBWrPKA" base_Element="_PHUOZMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHU1c8oQEeWsA83iBWrPKA" base_Element="_PHU1ccoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHVcgMoQEeWsA83iBWrPKA" base_Element="_PHU1dMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHVcg8oQEeWsA83iBWrPKA" base_Element="_PHVcgcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHWDksoQEeWsA83iBWrPKA" base_Element="_PHWDkMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHWqoMoQEeWsA83iBWrPKA" base_Element="_PHWDk8oQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHXRsMoQEeWsA83iBWrPKA" base_Element="_PHWqocoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHX4wMoQEeWsA83iBWrPKA" base_Element="_PHXRscoQEeWsA83iBWrPKA"/>
-  <UMLLabProfile:Reference xmi:id="_PHX4w8oQEeWsA83iBWrPKA" base_Element="_PHX4wcoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHYf0MoQEeWsA83iBWrPKA" base_Element="_PHX4xMoQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHYf08oQEeWsA83iBWrPKA" base_Element="_PHYf0coQEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_PHZG4MoQEeWsA83iBWrPKA" base_Element="_PHYf1MoQEeWsA83iBWrPKA"/>
@@ -1567,4 +1518,17 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:Reference xmi:id="_WQVNkMoSEeWsA83iBWrPKA" base_Element="_WQUmhMoSEeWsA83iBWrPKA"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_QCjx0coUEeWsA83iBWrPKA" base_Element="_QCjx0MoUEeWsA83iBWrPKA"/>
   <UMLLabProfile:Reference xmi:id="_QCkY4soUEeWsA83iBWrPKA" base_Element="_QCkY4MoUEeWsA83iBWrPKA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_IRCREMomEeWI07Wu9tqfCA" base_Element="_IQgFkMomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_IRKM4MomEeWI07Wu9tqfCA" base_Element="_IRJl0MomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_IRKz8comEeWI07Wu9tqfCA" base_Element="_IRKz8MomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_IRMCEMomEeWI07Wu9tqfCA" base_Element="_IRLbAMomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_K74RQconEeWI07Wu9tqfCA" base_Element="_K74RQMonEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_K75fYMonEeWI07Wu9tqfCA" base_Element="_K74RQsonEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_K75fYsonEeWI07Wu9tqfCA" base_Element="_K75fYconEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:StyledElement xmi:id="_8SctQMonEeWI07Wu9tqfCA" base_Element="_IRPFYMomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:StyledElement xmi:id="_8SctQconEeWI07Wu9tqfCA" base_Element="_IRQTgMomEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_8SfJgMonEeWI07Wu9tqfCA" base_Element="_8SeicMonEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_8SfJg8onEeWI07Wu9tqfCA" base_Element="_8SfJgconEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Reference xmi:id="_8SfwkMonEeWI07Wu9tqfCA" base_Element="_8SfJhMonEeWI07Wu9tqfCA"/>
+  <UMLLabProfile:Array xmi:id="_ZP1poMooEeWI07Wu9tqfCA" base_Element="_E3C4cMoQEeWsA83iBWrPKA"/>
 </xmi:XMI>

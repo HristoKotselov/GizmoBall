@@ -1,8 +1,9 @@
 package model;
 
+import java.util.Observable;
 import java.util.Set;
 
-public class MainEngine implements IMainEngine {
+public class MainEngine extends Observable implements IMainEngine {
 	/* Game Component */
 	private Set<Ball> ballSet;
 	private Set<Line> linesSet;

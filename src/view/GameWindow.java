@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.JFrame;
 
-import controller.WindowListener;
 import model.MainEngine;
 import java.awt.Button;
 import java.awt.Color;
@@ -20,7 +19,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
-import javax.swing.event.MouseInputListener;
 
 public class GameWindow implements IGameWindow {
 	private MainEngine model;
@@ -81,11 +79,11 @@ public class GameWindow implements IGameWindow {
 
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
-		
+
 		// TODO
 		buildmenu = new BuildMenu();
 		buildboard = new BuildBoard();
-		
+
 		buildmenu.initialize();
 		buildboard.initialize();
 
