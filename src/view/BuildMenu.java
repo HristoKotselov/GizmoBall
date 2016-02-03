@@ -45,6 +45,7 @@ public class BuildMenu implements IMenu{
 		JButton delete = new JButton("Delete gizmo");
 		JButton rotate = new JButton("Rotate gizmo");
 		JButton undo = new JButton("Undo");
+		JButton redo = new JButton("Redo");
 		JButton reload = new JButton("Reload Board");
 		JButton clear = new JButton("Clear Board");
 		JButton play = new JButton("Play");
@@ -96,6 +97,7 @@ public class BuildMenu implements IMenu{
 		buttonMenu.add(delete);
 		buttonMenu.add(rotate);
 		buttonMenu.add(undo);
+		buttonMenu.add(redo);
 		buttonMenu.add(reload);
 		buttonMenu.add(clear);
 		buttonMenu.add(play);

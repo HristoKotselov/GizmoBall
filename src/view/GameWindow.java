@@ -77,8 +77,8 @@ public class GameWindow{
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
 		
-		buildmenu = new PlayMenu();
-		buildboard = new PlayBoard();
+		buildmenu = new BuildMenu();
+		buildboard = new BuildBoard();
 		
 		buildmenu.initialize();
 		buildboard.initialize();
