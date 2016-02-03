@@ -1,5 +1,5 @@
 package model;
 
-public class Walls extends IGizmoComponent{
+public class Walls extends AGizmoComponent {
 
 }

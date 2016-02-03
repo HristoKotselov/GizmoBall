@@ -1,5 +1,5 @@
 package model;
 
-public class Absorber extends IGizmoComponent{
+public class Absorber extends AGizmoComponent {
 
 }

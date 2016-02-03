@@ -1,5 +1,5 @@
 package model;
 
-public class Line extends IGizmoComponent{
+public class Line extends AGizmoComponent {
 
 }

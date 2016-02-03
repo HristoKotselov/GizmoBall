@@ -1,5 +1,5 @@
 package model;
 
-public interface IMainEngine{
+public interface IMainEngine {
 
 }

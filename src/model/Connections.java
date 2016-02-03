@@ -1,5 +1,5 @@
 package model;
 
-public class Connections {
+public class Connections implements IConnections {
 
 }

@@ -6,12 +6,30 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-public class PlayBoard implements Observer {
+import java.awt.Color;
+import java.awt.Dimension;
 
-	private JPanel board;
+import javax.swing.BorderFactory;
+
+public class PlayBoard implements IBoard, Observer {
+
+	private JPanel gameBoard;
+
+	public void initialize() {
+		//start of right panel (the game panel)
+		gameBoard = new JPanel();
+		gameBoard.setPreferredSize(new Dimension(500, 500));
+		gameBoard.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
+		gameBoard.setBackground(Color.BLACK);
+		//end of the right panel
+	}
 
 	public void paintComponent(Graphics g) {
 		// TODO
+	}
+
+	public JPanel getBoard() {
+		return gameBoard;
 	}
 
 	@Override
@@ -19,5 +37,4 @@ public class PlayBoard implements Observer {
 		// TODO Auto-generated method stub
 
 	}
-
 }

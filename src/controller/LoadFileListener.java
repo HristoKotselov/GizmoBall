@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import model.IMainEngine;
 
-public class SaveDataListener implements ActionListener{
+public class LoadFileListener implements ActionListener {
 	private IMainEngine model;
-	
+
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

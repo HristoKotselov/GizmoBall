@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import model.MainEngine;
 
-public class FrameListener implements ActionListener {
+public class WindowListener implements ActionListener {
 	private MainEngine model;
 
 	@Override
