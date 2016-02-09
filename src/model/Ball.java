@@ -1,5 +1,5 @@
 package model;
 
-public class Ball extends AGizmoComponent {
+public class Ball{
 
 }
