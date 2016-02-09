@@ -12,7 +12,7 @@ public class Walls extends AGizmoComponent {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

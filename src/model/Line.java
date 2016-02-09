@@ -19,10 +19,9 @@ public class Line extends AGizmoComponent {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
+
 /* Root class methods */
 	public int getX2() {
 		return xpos2;

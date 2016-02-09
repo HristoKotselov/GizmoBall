@@ -13,14 +13,14 @@ abstract public class AGizmoComponent {
 	private Color colour;
 	/** Colour of the triggerable Gizmo, after it has been triggered (a ball hits the component)    **/
 	private Color triggeredColour;
-	
+
 	public AGizmoComponent(int x, int y, Color color, Color triggeredColor) {
 		xpos = x;
 		ypos = y;
 		this.colour = color;
 		this.triggeredColour = triggeredColor;
 	}
-	
+
 	public int getX() {
 		return xpos;
 	}
@@ -28,7 +28,7 @@ abstract public class AGizmoComponent {
 	public int getY() {
 		return ypos;
 	}
-	
+
 	public Color getColour() {
 		return colour;
 	}
@@ -36,7 +36,7 @@ abstract public class AGizmoComponent {
 	public Color getTriggeredColour() {
 		return triggeredColour;
 	}
-	
+
 	/**
 	 * Action that is executed when a Ball has a collision with this component, or from a connection of triggers. 
 	 * Keep in mind there are no graphical procedures here.
