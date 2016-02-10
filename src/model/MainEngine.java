@@ -10,7 +10,8 @@ public class MainEngine extends Observable implements IMainEngine {
 	private Set<CircularBumper> circleSet;
 	private Set<SquareBumper> squareSet;
 	private Set<TriangularBumper> triangleSet;
-	private Set<Flipper> flipperSet;
+	private Set<LeftFlipper> leftFlipperSet;
+	private Set<RightFlipper> rightFlipperSet;
 	private Set<Absorber> absorberSet;
 	private Walls gws;
 

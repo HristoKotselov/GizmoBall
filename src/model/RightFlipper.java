@@ -5,11 +5,11 @@ import java.awt.Shape;
 
 import physics.Angle;
 
-public class TriangularBumper extends AGizmoComponent {
+public class RightFlipper extends AGizmoComponent {
 
-	public TriangularBumper(String name, int x, int y, Color color, Color triggeredColor) {
+	public RightFlipper(String name, int x, int y, Color color) {
 		super(name, x, y, color);
-		setTriggeredColour(triggeredColor);
+		setTriggeredColour(color);
 		// TODO Auto-generated constructor stub
 	}
 

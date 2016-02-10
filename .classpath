@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Benny_000/Documents/School Projects/Eclipse Projects/CS308/GitHub-Gizmo Ball/MITPhysicsMIW.jar"/>
+	<classpathentry kind="lib" path="MITPhysicsMIW.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
