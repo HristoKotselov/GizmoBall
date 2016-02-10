@@ -11,7 +11,8 @@ public class Line extends AGizmoComponent {
 
 	public Line(String name, int x1, int y1, int x2, int y2) {
 		super(name, x1, y2, new Color(0, 0, 0, 0)); // " new Color(0, 0, 0, 0) " is transparent
-		this.triggeredColour = new Color(0, 0, 0, 0);
+		setTriggeredColour(new Color(0, 0, 0, 0));
+
 		// TODO need to make LineSegments first		this.rotationAngle = ;
 
 		xpos2 = x2;
@@ -26,12 +27,6 @@ public class Line extends AGizmoComponent {
 
 	@Override
 	public void triggerAction() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void rotate(double radians) {
 		// TODO Auto-generated method stub
 
 	}

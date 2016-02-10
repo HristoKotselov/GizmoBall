@@ -9,8 +9,7 @@ public class Absorber extends AGizmoComponent {
 
 	public Absorber(String name, int x, int y, Color color) {
 		super(name, x, y, color);
-		this.triggeredColour = color;
-		this.rotationAngle = new Angle(0);
+		setTriggeredColour(color);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,12 +17,6 @@ public class Absorber extends AGizmoComponent {
 	public Shape getShape() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void rotate(double radians) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

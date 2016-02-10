@@ -9,8 +9,7 @@ public class TriangularBumper extends AGizmoComponent {
 
 	public TriangularBumper(String name, int x, int y, Color color, Color triggeredColor) {
 		super(name, x, y, color);
-		this.triggeredColour = triggeredColor;
-		this.rotationAngle = new Angle(0);
+		setTriggeredColour(triggeredColor);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -26,9 +25,4 @@ public class TriangularBumper extends AGizmoComponent {
 
 	}
 
-	@Override
-	public void rotate(double radians) {
-		// TODO Auto-generated method stub
-
-	}
 }

@@ -19,27 +19,22 @@ abstract public class AGizmoComponent {
 	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
 	private Color colour;
 
-	/* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes */
+	/* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes)
+	 * or will be modified in the constructor of sub-classes */
 	/** Colour of the Gizmo after it has been triggered (e.g. a ball hits the component)    **/
-	protected Color triggeredColour;
+	private Color triggeredColour;
 	/** The angle of rotation of a Gizmo. In this project, the default position of a Gizmo component is treated as 0; with
 	 * the exception of Line, which will automatically be calculated properly upon construction **/
-	protected Angle rotationAngle;
+	private Angle rotationAngle;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
 		gizmoID = name;
 		xpos = x;
 		ypos = y;
 		this.colour = color;
-	}
 
-	/**
-	 * Method called when the user decides to rotate a Gizmo component.
-	 * @param degree - how many degree to rotate by 
-	 * @modify this
-	 * @effect varies with each Gizmo component; see individual class
-	 */
-	public abstract void rotate(double radians);
+		rotationAngle = new Angle(0);
+	}
 
 	/**
 	 * Action that is executed when a Ball has a collision with this component, or from a connection of triggers. 
@@ -63,20 +58,55 @@ abstract public class AGizmoComponent {
 		return xpos;
 	}
 
+	public boolean setX(int x) {
+		// TODO some validation
+		xpos = x;
+		return true;
+	}
+
 	public int getY() {
 		return ypos;
+	}
+
+	public boolean setY(int y) {
+		// TODO some validation
+		ypos = y;
+		return true;
 	}
 
 	public Color getColour() {
 		return colour;
 	}
 
+	public boolean setColour(Color color) {
+		// TODO some validation
+		this.colour = color;
+		return true;
+	}
+
 	public Color getTriggeredColour() {
 		return triggeredColour;
 	}
 
+	public boolean setTriggeredColour(Color color) {
+		// TODO some validation
+		this.triggeredColour = color;
+		return true;
+	}
+
 	public double getRotation() {
 		return rotationAngle.radians();
+	}
+
+	/**
+	 * Method called when the user decides to rotate a Gizmo component.
+	 * @param radians - the radians of rotation to add
+	 * @modify this
+	 * @effect varies with each Gizmo component; see individual class
+	 */
+	public boolean rotate(double radians) {
+		// TODO
+		return true;
 	}
 
 }
