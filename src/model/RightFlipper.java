@@ -5,9 +5,9 @@ import java.awt.Shape;
 
 import physics.Angle;
 
-public class Absorber extends AGizmoComponent {
+public class RightFlipper extends AGizmoComponent {
 
-	public Absorber(String name, int x, int y, Color color) {
+	public RightFlipper(String name, int x, int y, Color color) {
 		super(name, x, y, color);
 		this.triggeredColour = color;
 		this.rotationAngle = new Angle(0);
@@ -21,7 +21,7 @@ public class Absorber extends AGizmoComponent {
 	}
 
 	@Override
-	public void rotate(double radians) {
+	public void rotate(double degree) {
 		// TODO Auto-generated method stub
 
 	}
