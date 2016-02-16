@@ -1,3 +1,5 @@
+package FileLoader.src;
+
 import java.awt.Color;
 import java.awt.Shape;
 
