@@ -4,12 +4,7 @@ import java.awt.Shape;
 
 public class SquareBumper extends Gizmo {
 	public SquareBumper(String name, int x, int y) {
-		this.name = name;
-		this.x = x;
-		this.y = y;
-	}
-
-	public void rotate() {
+		super(name, x, y);
 	}
 
 	public Color getColor() {
