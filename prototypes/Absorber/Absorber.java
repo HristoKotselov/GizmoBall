@@ -1,24 +1,24 @@
-package model;
+package Absorber;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.Shape;
 
-import physics.Angle;
+import FileLoader.src.Const;
 
 public class Absorber extends AGizmoComponent {
 
 	public Absorber(String name, int x, int y, Color color) {
 		super(name, x, y, color);
 		setTriggeredColour(color);
-		// finish this line:		setHeight( );
-		// finish this line:		 setWidth( );
+		// no need for this in the prototype:		setHeight( );
+		// no need for this in the prototype:		 setWidth( );
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Shape getShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Rectangle(Const.L * getWidth(), Const.L * getHeight());
 	}
 
 	@Override
