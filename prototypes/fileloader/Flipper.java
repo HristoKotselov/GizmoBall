@@ -1,4 +1,4 @@
-package FileLoader.src;
+package fileloader;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -33,7 +33,7 @@ public class Flipper extends Gizmo {
 	public int getWidth() {
 		return 2 * Const.L;
 	}
-	
+
 	@Override
 	public int getHeight() {
 		return 2 * Const.L;

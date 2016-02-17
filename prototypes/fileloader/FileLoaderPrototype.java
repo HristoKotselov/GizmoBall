@@ -1,4 +1,4 @@
-package FileLoader.src;
+package fileloader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,7 +25,7 @@ public class FileLoaderPrototype {
 
 	private void loadFile() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File("prototypes/FileLoader/example.txt")));
+			BufferedReader br = new BufferedReader(new FileReader(new File("res/ExampleBoard.txt")));
 
 			while (br.ready()) {
 				String line = br.readLine();

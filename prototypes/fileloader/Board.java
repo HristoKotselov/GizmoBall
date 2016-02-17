@@ -1,4 +1,4 @@
-package FileLoader.src;
+package fileloader;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -54,7 +54,7 @@ public class Board extends JPanel {
 			// Reset transformation before drawing the next object
 			g2d.setTransform(old);
 		}
-		
+
 		for (Ball b : balls.values()) {
 			g2d.setColor(Color.BLUE);
 
@@ -62,7 +62,7 @@ public class Board extends JPanel {
 			g2d.translate(b.getX() * Const.L, b.getY() * Const.L);
 
 			// Draw the shape
-			Shape s = new Ellipse2D.Double(0, 0, Const.L/2, Const.L/2);
+			Shape s = new Ellipse2D.Double(0, 0, Const.L / 2, Const.L / 2);
 			g2d.fill(s);
 
 			// Reset transformation before drawing the next object
@@ -81,7 +81,7 @@ public class Board extends JPanel {
 	public void addBall(String name, Ball b) {
 		balls.put(name, b);
 	}
-	
+
 	public void addGizmo(String name, Gizmo g) {
 		gizmos.put(name, g);
 	}
@@ -89,7 +89,7 @@ public class Board extends JPanel {
 	public Gizmo getGizmo(String name) {
 		return gizmos.get(name);
 	}
-	
+
 	public void removeGizmo(String name) {
 		gizmos.remove(name);
 	}

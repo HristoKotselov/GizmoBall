@@ -1,4 +1,4 @@
-package PhysicsDemo.src.view;
+package physicsdemo.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -10,9 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import PhysicsDemo.src.model.Model;
-import PhysicsDemo.src.controller.RunListener;
+import physicsdemo.controller.RunListener;
+import physicsdemo.model.Model;
 
 /**
  * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014

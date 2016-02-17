@@ -1,5 +1,4 @@
-package FileLoader.src;
-
+package fileloader;
 
 public class Ball {
 	private double x;
