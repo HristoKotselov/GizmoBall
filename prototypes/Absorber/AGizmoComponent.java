@@ -3,8 +3,6 @@ package Absorber;
 import java.awt.Color;
 import java.awt.Shape;
 
-import FileLoader.src.Const;
-
 abstract public class AGizmoComponent {
 
 	/* The following attributes can be defined before the Gizmo is created **/
@@ -24,6 +22,8 @@ abstract public class AGizmoComponent {
 	private int height;
 	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
 	private Color colour;
+	/** Whether the Gizmo is visible on the board or not */
+	private boolean visibility;
 
 	/* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes)
 	 * or will be modified in the constructor of sub-classes */
@@ -39,6 +39,8 @@ abstract public class AGizmoComponent {
 		ypos = y;
 		this.colour = color;
 
+		// Default settings
+		visibility = true;
 		rotationAngle = 0;
 	}
 
@@ -126,6 +128,14 @@ abstract public class AGizmoComponent {
 	 */
 	public int getHeight() {
 		return height;
+	}
+	
+	public void setVisibility(boolean visible) {
+		this.visibility = visible;
+	}
+
+	public boolean getVisibility() {
+		return visibility;
 	}
 
 	/**

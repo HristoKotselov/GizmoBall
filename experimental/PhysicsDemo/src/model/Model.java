@@ -25,12 +25,6 @@ public class Model extends Observable {
 	final int L = 20;
 
 	public Model() {
-
-		try {
-			writer = new PrintWriter(new File("out.txt"));
-		} catch (FileNotFoundException e) {
-		}
-
 		// Ball position (5, 5), moving horizontally right at 20 units
 		ball = new Ball(5, 5, Angle.ZERO, 20);
 

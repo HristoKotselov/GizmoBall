@@ -24,7 +24,7 @@ public class Model extends Observable {
 	private Walls gws;
 	PrintWriter writer;
 
-	final int L = 20;
+	final static int L = 20;
 
 	public Model() {
 		// Ball position (5, 5), moving horizontally right at 20 units
@@ -108,7 +108,7 @@ public class Model extends Observable {
 			}
 		}
 
-		// Time to collide with any vertical lines
+		// Time to collide with any lines
 		for (Line line : lines) {
 			LineSegment ls = line.getLineSeg();
 			time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);

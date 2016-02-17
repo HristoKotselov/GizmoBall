@@ -11,8 +11,6 @@ import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import FileLoader.src.Const;
-
 /**
  * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
  */
@@ -46,7 +44,7 @@ public class Board extends JPanel implements Observer {
 		
 		// Set the Board black
 		g2D.setColor(Color.BLACK);
-		g2D.fillRect(0, 0, Const.L * Const.L, Const.L * Const.L);
+		g2D.fillRect(0, 0, Model.L * Model.L, Model.L * Model.L);
 		
 		// Turn on antialiasing
 		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

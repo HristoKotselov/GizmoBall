@@ -4,9 +4,6 @@ import java.awt.Color;
 
 import javax.swing.UIManager;
 
-import FileLoader.src.Const;
-import PhysicsDemo.src.model.VerticalLine;
-
 public class AbsorberPrototype {
 	
 	public static void main(String[] args) {
