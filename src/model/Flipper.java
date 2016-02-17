@@ -3,28 +3,26 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 
-import physics.Angle;
+public class Flipper extends AGizmoComponent{
 
-public class TriangularBumper extends AGizmoComponent {
-
-	public TriangularBumper(String name, int x, int y, Color color, Color triggeredColor) {
+	public Flipper(String name, int x, int y, Color color) {
 		super(name, x, y, color);
-		setTriggeredColour(triggeredColor);
+		setTriggeredColour(color);
 		// finish this line:		setHeight( );
 		// finish this line:		 setWidth( );
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public Shape getShape() {
+	public void triggerAction() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public void triggerAction() {
+	public Shape getShape() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 }

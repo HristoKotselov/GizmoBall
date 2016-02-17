@@ -1,4 +1,4 @@
-package model;
+package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -10,17 +10,17 @@ abstract public class AGizmoComponent {
 	/* The following attributes can be defined before the Gizmo is created **/
 	/** A String given to a Gizmo to identity it    **/
 	private String gizmoID;
-	/** The horizontal-coordinate of the component. Along with y-coordinate, this determines the position of a Gizmo component
-	 * on the board. Where exactly it is on the component depends on the type of Gizmo.    **/
+	/** The horizontal-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
+	 * component on the board. Where exactly it is on the component depends on the type of Gizmo.    **/
 	private int xpos;
-	/** The vertical-coordinate of the component. Along with y-coordinate, this determines the position of a Gizmo component
-	 * on the board. Where exactly it is on the component depends on the type of Gizmo.    **/
+	/** The vertical-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
+	 * component on the board. Where exactly it is on the component depends on the type of Gizmo.    **/
 	private int ypos;
-	/** The amount of width this component takes up in the board. Since GizmoBall is grid-based. a component will take up
-	 * at least one grid tile worth of space (except the ball)    **/
+	/** The amount of width this component takes up in the board (in pixel). A component will always take up at least one 
+	 * grid tile worth of space (except the ball).    **/
 	private int width;
-	/** The amount of height this component takes up in the board. Since GizmoBall is grid-based. a component will take up
-	 * at least one grid tile worth of space (except the ball)    **/
+	/** The amount of height this component takes up in the board (in pixel). A component will always take up at least one 
+	 * grid tile worth of space (except the ball).    **/
 	private int height;
 	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
 	private Color colour;
@@ -105,7 +105,6 @@ abstract public class AGizmoComponent {
 	}
 	
 	public boolean setWidth(int newWidth) {
-		// TODO some validation
 		this.width = newWidth;
 		return true;
 	}
@@ -118,7 +117,6 @@ abstract public class AGizmoComponent {
 	}
 	
 	public boolean setHeight(int newHeight) {
-		// TODO some validation
 		this.height = newHeight;
 		return true;
 	}
@@ -137,7 +135,7 @@ abstract public class AGizmoComponent {
 	 * @effect varies with each Gizmo component; see individual class
 	 */
 	public boolean rotate(int degree) {
-		// TODO
+		// no need for this in the prototype!
 		return true;
 	}
 

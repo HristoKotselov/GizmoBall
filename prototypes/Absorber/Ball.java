@@ -1,4 +1,4 @@
-package model;
+package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
