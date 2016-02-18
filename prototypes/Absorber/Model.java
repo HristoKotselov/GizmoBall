@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Set;
+
+import Absorber.CollisionDetails.CollisionType;
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
@@ -56,11 +59,13 @@ public class Model extends Observable {
 			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 			CollisionDetails cd = timeUntilCollision();
-			double tuc = cd.getTuc();
+			double tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
 			if (tuc > moveTime) {
 				// No collision ...
 				ball = movelBallForTime(ball, moveTime);
 			} else {
+				// TODO change this bit to incoperate different collision type
+				
 				// We've got a collision in tuc
 				ball = movelBallForTime(ball, tuc);
 				// Post collision velocity ...
@@ -97,6 +102,8 @@ public class Model extends Observable {
 		// Now find shortest time to hit a vertical line or a wall line
 		double shortestTime = Double.MAX_VALUE;
 		double time = 0.0;
+		
+		CollisionType collisionType = CollisionDetails.CollisionType.REGULAR;
 
 		// Time to collide with 4 walls
 		ArrayList<LineSegment> lss = gws.getLineSegments();
@@ -105,6 +112,7 @@ public class Model extends Observable {
 			if (time < shortestTime) {
 				shortestTime = time;
 				newVelo = Geometry.reflectWall(line, ball.getVelo(), 1.0);
+				collisionType = CollisionDetails.CollisionType.REGULAR;
 			}
 		}
 
@@ -115,9 +123,27 @@ public class Model extends Observable {
 			if (time < shortestTime) {
 				shortestTime = time;
 				newVelo = Geometry.reflectWall(ls, ball.getVelo(), 1.0);
+				collisionType = CollisionDetails.CollisionType.REGULAR;
 			}
 		}
-		return new CollisionDetails(shortestTime, newVelo);
+		
+		// Time to collide with any absorbers
+		Set<LineSegment> curAbsorberLSS;
+		
+		for (Absorber abs : absorbers) {
+			curAbsorberLSS = abs.getLineSeg();
+			
+			for (LineSegment ls : curAbsorberLSS) {
+					time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);		
+					if (time < shortestTime) {
+						shortestTime = time;
+						newVelo = new Vect(0, 0);		// stop the ball's velocity
+						collisionType = CollisionDetails.CollisionType.ABSORBER;
+					}
+			}
+		}
+				
+		return new CollisionDetails(shortestTime, newVelo, collisionType);
 	}
 
 	public Ball getBall() {

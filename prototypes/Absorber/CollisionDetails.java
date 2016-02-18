@@ -2,25 +2,32 @@ package Absorber;
 
 import physics.Vect;
 
-/**
- * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
- */
+public class CollisionDetails {
+	
+	public enum CollisionType {
+	    REGULAR, ABSORBER
+	}
 
-public  class CollisionDetails {
-	private double tuc;
+	private double tuc; //time until collision
 	private Vect velo;
+	private CollisionType ct;
 
-	public CollisionDetails(double t, Vect v) {
+	public CollisionDetails(double t, Vect v, CollisionType collisionType) {
 		tuc = t;
 		velo = v;
+		ct = collisionType;
 	}
 
 	public double getTuc() {
 		return tuc;
 	}
-	
+
 	public Vect getVelo() {
 		return velo;
+	}
+	
+	public CollisionType getCollisionType(){
+		return ct;
 	}
 
 }
