@@ -10,6 +10,8 @@ public class TriangleBumper {
 	private int x1,x2,x3,y1,y2,y3,size;
 	private LineSegment a,b,c;
 	private Circle ab,ac,bc; //named to show which circle is situated between which 2 sides of the triangle
+	ArrayList<Circle> circles;
+	ArrayList<LineSegment> lines;
 	
 	public TriangleBumper(int x, int y, int size){
 		this.x1 = x;
@@ -19,27 +21,43 @@ public class TriangleBumper {
 		this.size = size;
 		a = new LineSegment(x, y, x, y + size);
 		b = new LineSegment(x, y, x + size, y);
-		c = new LineSegment(x + size, y + size, x + size, y);
+		c = new LineSegment(x, y + size, x + size, y);
+		lines = new ArrayList<LineSegment>();
+		lines.add(a);
+		lines.add(b);
+		lines.add(c);
 		ab = new Circle(x,y,0);
 		bc = new Circle(x + size,y,0);
 		ac = new Circle(x,y + size,0);
+		circles = new ArrayList<Circle>();
+		circles.add(ab);
+		circles.add(bc);
+		circles.add(ac);
+		
+	}
+	
+	public ArrayList<LineSegment> getSides(){
+		return lines;
+	}
+	
+	public ArrayList<Circle> getEdges(){
+		return circles;
+	}
+	
+	public int getX() {
+		return x1;
+	}
+	
+	public int getX2() {
+		return x2;
+	}
 
+	public int getY() {
+		return y1;
 	}
-	
-	public Vect getTopLeftCorner(){
-		return (new Vect(x1,y1));
-	}
-	
-	public Vect getTopRightCorner(){
-		return (new Vect(x2,y1));
-	}
-	
-	public Vect getBottomRightCorner(){
-		return (new Vect(x2,y2));
-	}
-	
-	public Vect getBottomLeftCorner(){
-		return (new Vect(x1,y2));
+
+	public int getY2() {
+		return y2;
 	}
 	
 	public int getSize(){

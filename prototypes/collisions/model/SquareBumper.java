@@ -23,6 +23,11 @@ public class SquareBumper {
 		b = new LineSegment(x + size, y, x + size, y + size);
 		c = new LineSegment(x + size, y + size, x, y + size);
 		d = new LineSegment(x, y + size, x, y);
+		lines = new ArrayList<LineSegment>();
+		lines.add(a);
+		lines.add(b);
+		lines.add(c);
+		lines.add(d);
 		ab = new Circle(x,y,0);
 		bc = new Circle(x + size,y,0);
 		cd = new Circle(x + size,y + size,0);
@@ -32,11 +37,6 @@ public class SquareBumper {
 		circles.add(bc);
 		circles.add(cd);
 		circles.add(da);
-		lines = new ArrayList<LineSegment>();
-		lines.add(a);
-		lines.add(b);
-		lines.add(c);
-		lines.add(d);
 
 	}
 	

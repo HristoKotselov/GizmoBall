@@ -38,7 +38,7 @@ public class RunGui {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Board is passed the Model so it can act as Observer
-		board = new Board(400, 400, model);
+		board = new Board(400, 100, model);
 
 		Container cp = frame.getContentPane();
 

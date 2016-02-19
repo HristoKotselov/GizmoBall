@@ -3,6 +3,7 @@ package main;
 import javax.swing.UIManager;
 import model.Model;
 import model.SquareBumper;
+import model.TriangleBumper;
 import model.CircleBumper;
 import model.HorizontalLine;
 import view.RunGui;
@@ -29,16 +30,22 @@ public class Main {
 		model.addLine(new HorizontalLine(100, 100, 200));
 		model.addLine(new HorizontalLine(100, 200, 200));
 		model.addLine(new HorizontalLine(100, 300, 200));
-		model.addCircleBumper(new CircleBumper(100,25,10));
-		model.addCircleBumper(new CircleBumper(150,25,10));
-		model.addCircleBumper(new CircleBumper(50,20,10));
-		model.addCircleBumper(new CircleBumper(20,30,10));
 		model.addSquareBumper(new SquareBumper(20,50,20));
 		model.addSquareBumper(new SquareBumper(50,50,20));
 		model.addSquareBumper(new SquareBumper(80,50,20));
-		model.addSquareBumper(new SquareBumper(20,150,20));
-		model.addSquareBumper(new SquareBumper(50,150,20));
-		model.addSquareBumper(new SquareBumper(80,150,20));
+		model.addSquareBumper(new SquareBumper(250,50,20));
+		model.addSquareBumper(new SquareBumper(290,50,20));
+		model.addSquareBumper(new SquareBumper(330,50,20));
+		//model.addSquareBumper(new SquareBumper(20,150,20));
+		//model.addSquareBumper(new SquareBumper(50,150,20));
+		//model.addSquareBumper(new SquareBumper(80,150,20));
+		model.addTriangleBumper(new TriangleBumper(140,40,20));
+		model.addTriangleBumper(new TriangleBumper(180,40,20));
+		model.addTriangleBumper(new TriangleBumper(220,40,20));
+		model.addCircleBumper(new CircleBumper(150,10,10));
+		model.addCircleBumper(new CircleBumper(230,10,10));
+		model.addCircleBumper(new CircleBumper(190,10,10));
+
 
 		RunGui gui = new RunGui(model);
 		gui.createAndShowGUI();

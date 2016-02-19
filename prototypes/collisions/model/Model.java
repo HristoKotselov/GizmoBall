@@ -20,6 +20,7 @@ public class Model extends Observable {
 	private ArrayList<HorizontalLine> lines;
 	private ArrayList<CircleBumper> circles;
 	private ArrayList<SquareBumper> squares;
+	private ArrayList<TriangleBumper> triangles;
 	private Ball ball;
 	private Walls gws;
 	PrintWriter writer;
@@ -34,15 +35,16 @@ public class Model extends Observable {
 		}
 
 		// Ball position (5, 5), moving horizontally right at 20 units
-		ball = new Ball(5, 5, Angle.ZERO, 7);
+		ball = new Ball(5, 5, Angle.ZERO, 20);
 
 		// Wall size 400 x 400 pixels
-		gws = new Walls(0, 0, 4 * L, 4 * L);
+		gws = new Walls(0, 0, 20 * L, 5 * L);
 
 		// Lines added in Main
 		lines = new ArrayList<HorizontalLine>();
 		circles = new ArrayList<CircleBumper>();
 		squares = new ArrayList<SquareBumper>();
+		triangles = new ArrayList<TriangleBumper>();
 	}
 
 	public void moveBall() {
@@ -56,16 +58,16 @@ public class Model extends Observable {
 //			System.out.println("1 - " + ball.getVelo().toString());
 
 			// Friction
-			double mu1 = 0.025;
-			double mu2 = 0.025;
-			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
-			ball.setVelo(ball.getVelo().times(scale));
+			//double mu1 = 0.025;
+			//double mu2 = 0.025;
+			//double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
+			//ball.setVelo(ball.getVelo().times(scale));
 
 //			System.out.println("2 - " + ball.getVelo().toString());
 
 			// Gravity
-			int gravity = 15;
-			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+			//int gravity = 15;
+			//ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 //			System.out.println(ball.getVelo().toString());
 //			writer.println(ball.getVelo().toString());
@@ -151,7 +153,7 @@ public class Model extends Observable {
 			time = Geometry.timeUntilCircleCollision(c3, ballCircle, ballVelocity);
 			if (time < shortestTime) {
 				shortestTime = time;
-				newVelo = Geometry.reflectCircle(new Vect(circle.getX(), circle.getY()), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.5);
+				newVelo = Geometry.reflectCircle(new Vect(circle.getX(), circle.getY()), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
 			}
 		}
 		
@@ -160,7 +162,7 @@ public class Model extends Observable {
 					time = Geometry.timeUntilCircleCollision(each, ballCircle, ballVelocity);
 					if (time < shortestTime) {
 						shortestTime = time;
-						newVelo = Geometry.reflectCircle(each.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.5);
+						newVelo = Geometry.reflectCircle(each.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
 					}
 				}
 				for (LineSegment each : square.getSides()){
@@ -171,6 +173,23 @@ public class Model extends Observable {
 					}
 				}
 		}
+		
+		for (TriangleBumper triangle : triangles) {
+			for (Circle each : triangle.getEdges()){
+				time = Geometry.timeUntilCircleCollision(each, ballCircle, ballVelocity);
+				if (time < shortestTime) {
+					shortestTime = time;
+					newVelo = Geometry.reflectCircle(each.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
+				}
+			}
+			for (LineSegment each : triangle.getSides()){
+				time = Geometry.timeUntilWallCollision(each, ballCircle, ballVelocity);
+				if (time < shortestTime) {
+					shortestTime = time;
+					newVelo = Geometry.reflectWall(each, ball.getVelo(), 1.0);
+				}
+			}
+	}
 		
 		
 		return new CollisionDetails(shortestTime, newVelo);
@@ -202,6 +221,14 @@ public class Model extends Observable {
 	
 	public void addSquareBumper(SquareBumper s) {
 		squares.add(s);
+	}
+	
+	public ArrayList<TriangleBumper> getTriangleBumpers() {
+		return triangles;
+	}
+	
+	public void addTriangleBumper(TriangleBumper t) {
+		triangles.add(t);
 	}
 
 	public void setBallSpeed(int x, int y) {

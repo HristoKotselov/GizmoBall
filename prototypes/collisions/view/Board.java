@@ -13,6 +13,8 @@ import model.Ball;
 import model.CircleBumper;
 import model.Model;
 import model.SquareBumper;
+import model.TriangleBumper;
+import physics.LineSegment;
 import model.HorizontalLine;
 
 /**
@@ -66,6 +68,12 @@ public class Board extends JPanel implements Observer {
 		
 		for (SquareBumper square : gm.getSquareBumpers()) {
 			g2.fillRect(square.getX(), square.getY(), square.getSize(), square.getSize());
+		}
+		
+		for (TriangleBumper triangle : gm.getTriangleBumpers()) {
+			g2.fillRect(triangle.getX(), triangle.getY(), triangle.getSize(), 1);
+			g2.fillRect(triangle.getX(), triangle.getY(), 1, triangle.getSize());
+			g2.drawLine(triangle.getX(), triangle.getY2(), triangle.getX2(), triangle.getY());
 		}
 		
 
