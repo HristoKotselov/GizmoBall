@@ -1,9 +1,6 @@
 package Absorber;
 
 import java.awt.Color;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
@@ -25,7 +22,6 @@ public class Model extends Observable {
 	private ArrayList<Absorber> absorbers;
 	private Ball ball;
 	private Walls gws;
-	PrintWriter writer;
 
 	final static int L = 20;
 
@@ -64,10 +60,12 @@ public class Model extends Observable {
 				// No collision ...
 				ball = movelBallForTime(ball, moveTime);
 			} else {
-				// TODO change this bit to incoperate different collision type
-				
 				// We've got a collision in tuc
 				ball = movelBallForTime(ball, tuc);
+				
+				if(cd.getCollisionType() == CollisionDetails.CollisionType.ABSORBER){
+					CollisionHandler.handleAbsorber(cd);
+				}
 				// Post collision velocity ...
 				ball.setVelo(cd.getVelo());
 			}
@@ -104,6 +102,7 @@ public class Model extends Observable {
 		double time = 0.0;
 		
 		CollisionType collisionType = CollisionDetails.CollisionType.REGULAR;
+		AGizmoComponent collider = null;		// the Gizmo component that the ball will collide with in a collision prediction
 
 		// Time to collide with 4 walls
 		ArrayList<LineSegment> lss = gws.getLineSegments();
@@ -116,17 +115,6 @@ public class Model extends Observable {
 			}
 		}
 
-		// Time to collide with any lines
-		for (Line line : lines) {
-			LineSegment ls = line.getLineSeg();
-			time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);
-			if (time < shortestTime) {
-				shortestTime = time;
-				newVelo = Geometry.reflectWall(ls, ball.getVelo(), 1.0);
-				collisionType = CollisionDetails.CollisionType.REGULAR;
-			}
-		}
-		
 		// Time to collide with any absorbers
 		Set<LineSegment> curAbsorberLSS;
 		
@@ -137,13 +125,14 @@ public class Model extends Observable {
 					time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);		
 					if (time < shortestTime) {
 						shortestTime = time;
-						newVelo = new Vect(0, 0);		// stop the ball's velocity
+						newVelo = ballVelocity;		// no change in ball velocity required yet
 						collisionType = CollisionDetails.CollisionType.ABSORBER;
+						collider = abs;
 					}
 			}
 		}
 				
-		return new CollisionDetails(shortestTime, newVelo, collisionType);
+		return new CollisionDetails(shortestTime, newVelo, collisionType, ball, collider);
 	}
 
 	public Ball getBall() {

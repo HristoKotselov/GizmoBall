@@ -103,20 +103,20 @@ abstract public class AGizmoComponent {
 	public int getRotation() {
 		return rotationAngle;
 	}
-	
+
 	public boolean setWidth(int newWidth) {
 		// TODO some validation
 		this.width = newWidth;
 		return true;
 	}
-	
+
 	/**
 	 * NOTE: This method description might get overwritten by sub-classes
 	 */
 	public int getWidth() {
 		return width;
 	}
-	
+
 	public boolean setHeight(int newHeight) {
 		// TODO some validation
 		this.height = newHeight;

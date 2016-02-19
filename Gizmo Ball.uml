@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;2795724307/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;111695609/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;4196494579/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;1527831542/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3162224122/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;333695327/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;1807637302/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;2686594728/1;/GitHub-Gizmo Ball/src/model/Absorber.java;2146695016/1;/GitHub-Gizmo Ball/src/model/Ball.java;1648412702/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;4063451779/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1787972809/1;/GitHub-Gizmo Ball/src/model/Connections.java;1492499204/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3281182909/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;260802257/1;/GitHub-Gizmo Ball/src/model/Line.java;2086874702/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3441763047/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;602007569/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2969786127/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;4278250289/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;1971978686/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1565996257/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3603679478/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;573000427/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;2670343364/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/model/LeftFlipper.java;4102869535/1;/GitHub-Gizmo Ball/src/model/RightFlipper.java;2207410436/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;2795724307/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;111695609/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;4196494579/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;1527831542/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3162224122/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;333695327/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;1807637302/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;3903185797/1;/GitHub-Gizmo Ball/src/model/Absorber.java;2146695016/1;/GitHub-Gizmo Ball/src/model/Ball.java;82137767/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;4063451779/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1787972809/1;/GitHub-Gizmo Ball/src/model/Connections.java;1492499204/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3281182909/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;260802257/1;/GitHub-Gizmo Ball/src/model/Line.java;2086874702/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;3441763047/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;602007569/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2969786127/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;4278250289/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;1971978686/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1565996257/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3603679478/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;573000427/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;2995883570/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;139306553/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2019799147/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -902,40 +902,45 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <details xmi:id="_akDPcc9KEeWD9JA5XZkC8g" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
           </contents>
         </eAnnotations>
+        <generalization xmi:id="_3XTpINaBEeWiEYVNrmJsoQ" general="_E3x4QMoQEeWsA83iBWrPKA"/>
         <ownedAttribute xmi:id="_HY5lYM-bEeWOGvD12nE26A" name="velocity" visibility="private" type="_4rFGEM-aEeWOGvD12nE26A" association="_HY7aks-bEeWOGvD12nE26A"/>
         <ownedAttribute xmi:id="_HY5lYs-bEeWOGvD12nE26A" name="radius" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_HY5lY8-bEeWOGvD12nE26A" name="xpos" visibility="private">
+        <ownedAttribute xmi:id="_HY5lY8-bEeWOGvD12nE26A" name="preciseXPos" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_HY6McM-bEeWOGvD12nE26A" name="ypos" visibility="private">
+        <ownedAttribute xmi:id="_HY6McM-bEeWOGvD12nE26A" name="preciseYPos" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_HY6Mcs-bEeWOGvD12nE26A" name="colour" type="_E3j10MoQEeWsA83iBWrPKA" isReadOnly="true" association="_HY8Boc-bEeWOGvD12nE26A"/>
         <ownedAttribute xmi:id="_HY6Mc8-bEeWOGvD12nE26A" name="stopped" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedAttribute>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zgM-bEeWOGvD12nE26A" name="Ball" specification="_HY0s4M-bEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_HY6zgc-bEeWOGvD12nE26A" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_HY6zgs-bEeWOGvD12nE26A" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_HY6zg8-bEeWOGvD12nE26A" name="theta" type="_nOTqAM-WEeWOGvD12nE26A"/>
-          <ownedParameter xmi:id="_HY6zhM-bEeWOGvD12nE26A" name="yv">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_HY6zhc-bEeWOGvD12nE26A" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return">
+          <ownedParameter xmi:id="_kvQok9aEEeWiEYVNrmJsoQ" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return">
             <name xsi:nil="true"/>
           </ownedParameter>
+          <ownedParameter xmi:id="_kvQolNaEEeWiEYVNrmJsoQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_kvRPoNaEEeWiEYVNrmJsoQ" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
+          <ownedParameter xmi:id="_kvRPodaEEeWiEYVNrmJsoQ" name="x">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_kvRPotaEEeWiEYVNrmJsoQ" name="y">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_kvRPo9aEEeWiEYVNrmJsoQ" name="theta" type="_nOTqAM-WEeWOGvD12nE26A"/>
+          <ownedParameter xmi:id="_kvRPpNaEEeWiEYVNrmJsoQ" name="yv">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
           <language>java</language>
-          <body>xpos = x; // Centre coordinates&#xD;
-		ypos = y;&#xD;
-		colour = Color.BLUE;&#xD;
-		velocity = new Vect(theta, yv);&#xD;
+          <body>super(name, (int) x, (int) y, color);&#xD;
+&#xD;
 		radius = 5;&#xD;
+		preciseXPos = x; // Centre coordinates&#xD;
+		preciseYPos = y;&#xD;
+		velocity = new Vect(theta, yv);&#xD;
 		stopped = false;&#xD;
 	</body>
         </ownedBehavior>
@@ -958,7 +963,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <name xsi:nil="true"/>
           </ownedParameter>
           <language>java</language>
-          <body>return new Circle(xpos, ypos, radius);&#xD;
+          <body>return new Circle(preciseXPos, preciseYPos, radius);&#xD;
 &#xD;
 	</body>
         </ownedBehavior>
@@ -968,7 +973,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
-          <body>return xpos;&#xD;
+          <body>return preciseXPos;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zjs-bEeWOGvD12nE26A" name="getExactY" specification="_HYzexM-bEeWOGvD12nE26A">
@@ -977,7 +982,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
-          <body>return ypos;&#xD;
+          <body>return preciseYPos;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zkM-bEeWOGvD12nE26A" name="setExactX" specification="_HY1T88-bEeWOGvD12nE26A">
@@ -985,7 +990,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
-          <body>xpos = x;&#xD;
+          <body>preciseXPos = x;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zks-bEeWOGvD12nE26A" name="setExactY" specification="_HY1T9c-bEeWOGvD12nE26A">
@@ -993,7 +998,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
-          <body>ypos = y;&#xD;
+          <body>preciseYPos = y;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zlM-bEeWOGvD12nE26A" name="stop" specification="_HYzexc-bEeWOGvD12nE26A">
@@ -1013,6 +1018,14 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           </ownedParameter>
           <language>java</language>
           <body>return stopped;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3Y16N9aBEeWiEYVNrmJsoQ" name="getShape" specification="_3XSbAtaBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3Y16ONaBEeWiEYVNrmJsoQ" type="_hBFaIM-TEeWOGvD12nE26A" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return null;&#xD;
 	</body>
         </ownedBehavior>
         <ownedOperation xmi:id="_HYy3sM-bEeWOGvD12nE26A" name="getVelo" method="_HY6zhs-bEeWOGvD12nE26A">
@@ -1045,6 +1058,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <eAnnotations xmi:id="_HY0s5s-bEeWOGvD12nE26A" source="http://www.eclipse.org/uml2/2.0.0/UML">
             <details xmi:id="_HY1T8M-bEeWOGvD12nE26A" key="create"/>
           </eAnnotations>
+          <ownedParameter xmi:id="_HY0s5c-bEeWOGvD12nE26A" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return"/>
+          <ownedParameter xmi:id="_3YPdQNaBEeWiEYVNrmJsoQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_3XPXsNaBEeWiEYVNrmJsoQ" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
           <ownedParameter xmi:id="_HY0s4c-bEeWOGvD12nE26A" name="x">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
@@ -1055,7 +1073,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_HY0s5M-bEeWOGvD12nE26A" name="yv">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_HY0s5c-bEeWOGvD12nE26A" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:id="_HY1T88-bEeWOGvD12nE26A" name="setExactX" method="_HY6zkM-bEeWOGvD12nE26A">
           <ownedParameter xmi:id="_HY1T9M-bEeWOGvD12nE26A" name="x">
@@ -1066,6 +1083,10 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_HY1T9s-bEeWOGvD12nE26A" name="y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_3XRz8NaBEeWiEYVNrmJsoQ" name="triggerAction"/>
+        <ownedOperation xmi:id="_3XSbAtaBEeWiEYVNrmJsoQ" name="getShape" method="_3Y16N9aBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3XTCENaBEeWiEYVNrmJsoQ" type="_hBFaIM-TEeWOGvD12nE26A" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xwrt0MR4EeW_3q3XSh-SYw" name="CircularBumper">
@@ -1294,7 +1315,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <ownedAttribute xmi:id="_4lXRM8R5EeW_3q3XSh-SYw" name="triangleSet" visibility="private" type="_xwx0cMR4EeW_3q3XSh-SYw" association="_4lZGYcR5EeW_3q3XSh-SYw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4lXRNMR5EeW_3q3XSh-SYw" value="*"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_-Du-YMR5EeW_3q3XSh-SYw" name="leftFlipperSet" visibility="private" type="_hBRAUM-TEeWOGvD12nE26A" association="_fKigg8-ZEeWOGvD12nE26A">
+        <ownedAttribute xmi:id="_-Du-YMR5EeW_3q3XSh-SYw" name="flipperSet" visibility="private" type="_3YnQsNaBEeWiEYVNrmJsoQ" association="_3ZG_8NaBEeWiEYVNrmJsoQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-Du-YcR5EeW_3q3XSh-SYw" value="*"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_YCXYsMR8EeW_3q3XSh-SYw" name="absorberSet" visibility="private" type="_xwp4oMR4EeW_3q3XSh-SYw" association="_YCZN4MR8EeW_3q3XSh-SYw">
@@ -1302,9 +1323,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         </ownedAttribute>
         <ownedAttribute xmi:id="_64WgIMR8EeW_3q3XSh-SYw" name="physicsSettings" visibility="private" type="_xwv_QMR4EeW_3q3XSh-SYw" association="_64YVUMR8EeW_3q3XSh-SYw"/>
         <ownedAttribute xmi:id="_VC_oEMR9EeW_3q3XSh-SYw" name="customConnections" visibility="private" type="_xwtjAMR4EeW_3q3XSh-SYw" association="_VDAPIMR9EeW_3q3XSh-SYw"/>
-        <ownedAttribute xmi:id="_fKhSYM-ZEeWOGvD12nE26A" name="rightFlipperSet" visibility="private" type="_841usM-UEeWOGvD12nE26A" association="_fKiggM-ZEeWOGvD12nE26A">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fKhSYc-ZEeWOGvD12nE26A" value="*"/>
-        </ownedAttribute>
         <interfaceRealization xmi:id="_q9N-QMoQEeWsA83iBWrPKA" client="_xwvYMMR4EeW_3q3XSh-SYw" supplier="_PF7uUMoQEeWsA83iBWrPKA" contract="_PF7uUMoQEeWsA83iBWrPKA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xwv_QMR4EeW_3q3XSh-SYw" name="PhysicsConfig">
@@ -1532,7 +1550,15 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         <ownedAttribute xmi:id="_hBWf4M-TEeWOGvD12nE26A" name="gizmoID" isReadOnly="true">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_hBXG8c-TEeWOGvD12nE26A" name="rotationAngle" visibility="private" type="_nOTqAM-WEeWOGvD12nE26A"/>
+        <ownedAttribute xmi:id="_hBXG8c-TEeWOGvD12nE26A" name="rotationAngle" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_HY6Mcs-bEeWOGvD12nE26A" name="width" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_fKhSYM-ZEeWOGvD12nE26A" name="height" visibility="public" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ak5kAM9KEeWD9JA5XZkC8g" name="AGizmoComponent" specification="_akla8M9KEeWD9JA5XZkC8g">
           <ownedParameter xmi:id="_nOU4Ic-WEeWOGvD12nE26A" type="_E3x4QMoQEeWsA83iBWrPKA" direction="return">
             <name xsi:nil="true"/>
@@ -1553,7 +1579,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		ypos = y;&#xD;
 		this.colour = color;&#xD;
 &#xD;
-		rotationAngle = new Angle(0);&#xD;
+		rotationAngle = 0;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ak6LEM9KEeWD9JA5XZkC8g" name="getX" specification="_akAzMM9KEeWD9JA5XZkC8g">
@@ -1587,12 +1613,12 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hBfCws-TEeWOGvD12nE26A" name="getRotation" specification="_akNAcM9KEeWD9JA5XZkC8g">
-          <ownedParameter xmi:id="_cIXa4M-XEeWOGvD12nE26A" direction="return">
+          <ownedParameter xmi:id="_3Y0FANaBEeWiEYVNrmJsoQ" direction="return">
             <name xsi:nil="true"/>
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
           <language>java</language>
-          <body>return rotationAngle.radians();&#xD;
+          <body>return rotationAngle;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_a1VPQM-jEeWc1NBveAXAvg" name="setX" specification="_a1FXoM-jEeWc1NBveAXAvg">
@@ -1636,15 +1662,43 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_a1V2Us-jEeWc1NBveAXAvg" name="rotate" specification="_g_35MM-TEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_a1V2U8-jEeWc1NBveAXAvg" name="radians">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <ownedParameter xmi:id="_kvQokdaEEeWiEYVNrmJsoQ" direction="return">
+            <name xsi:nil="true"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_a1V2VM-jEeWc1NBveAXAvg" direction="return">
+          <ownedParameter xmi:id="_kvQoktaEEeWiEYVNrmJsoQ" name="degree">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>// TODO&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3Y0sENaBEeWiEYVNrmJsoQ" name="setWidth" specification="_3YMZ8NaBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3Y0sEdaBEeWiEYVNrmJsoQ" name="newWidth">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_3Y0sEtaBEeWiEYVNrmJsoQ" direction="return">
             <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
           <language>java</language>
-          <body>// TODO&#xD;
+          <body>// TODO some validation&#xD;
+		this.width = newWidth;&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3Y0sE9aBEeWiEYVNrmJsoQ" name="setHeight" specification="_3YNBAtaBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3Y0sFNaBEeWiEYVNrmJsoQ" name="newHeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_3Y0sFdaBEeWiEYVNrmJsoQ" direction="return">
+            <name xsi:nil="true"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>// TODO some validation&#xD;
+		this.height = newHeight;&#xD;
 		return true;&#xD;
 	</body>
         </ownedBehavior>
@@ -1684,21 +1738,21 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
         </ownedOperation>
         <ownedOperation xmi:id="_akNAcM9KEeWD9JA5XZkC8g" name="getRotation" method="_hBfCws-TEeWOGvD12nE26A">
           <ownedParameter xmi:id="_hBGoQM-TEeWOGvD12nE26A" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_g_35MM-TEeWOGvD12nE26A" name="rotate" method="_a1V2Us-jEeWc1NBveAXAvg">
           <ownedComment xmi:id="_hBmXgM-TEeWOGvD12nE26A">
             <body>Method called when the user decides to rotate a Gizmo component.&#xD;
-	 * @param radians - the radians of rotation to add&#xD;
+	 * @param degree - the angle of rotation to add&#xD;
 	 * @modify this&#xD;
 	 * @effect varies with each Gizmo component; see individual class</body>
           </ownedComment>
-          <ownedParameter xmi:id="_8J8WcM-WEeWOGvD12nE26A" name="radians">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-          </ownedParameter>
           <ownedParameter xmi:id="_a1Glw8-jEeWc1NBveAXAvg" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_a1V2U8-jEeWc1NBveAXAvg" name="degree">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_g_35Mc-TEeWOGvD12nE26A" name="getShape" isAbstract="true">
@@ -1736,6 +1790,22 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
         </ownedOperation>
+        <ownedOperation xmi:id="_3YMZ8NaBEeWiEYVNrmJsoQ" name="setWidth" method="_3Y0sENaBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3YMZ8daBEeWiEYVNrmJsoQ" name="newWidth">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_3YNBANaBEeWiEYVNrmJsoQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_3YNBAtaBEeWiEYVNrmJsoQ" name="setHeight" method="_3Y0sE9aBEeWiEYVNrmJsoQ">
+          <ownedParameter xmi:id="_3YNoENaBEeWiEYVNrmJsoQ" name="newHeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_3YNoEdaBEeWiEYVNrmJsoQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_PF7uUMoQEeWsA83iBWrPKA" name="IMainEngine">
         <eAnnotations xmi:id="_akFrsM9KEeWD9JA5XZkC8g" source="http://ns.yatta.de/umllab">
@@ -1757,123 +1827,67 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       <packagedElement xmi:type="uml:Association" xmi:id="_alFKMc9KEeWD9JA5XZkC8g" name="" memberEnd="_alFKMs9KEeWD9JA5XZkC8g _ak0Ecc9KEeWD9JA5XZkC8g">
         <ownedEnd xmi:id="_alFKMs9KEeWD9JA5XZkC8g" name="" type="_E3x4QMoQEeWsA83iBWrPKA" association="_alFKMc9KEeWD9JA5XZkC8g"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_hBRAUM-TEeWOGvD12nE26A" name="LeftFlipper">
-        <generalization xmi:id="_O1NqJM-UEeWOGvD12nE26A" general="_E3x4QMoQEeWsA83iBWrPKA"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_O1ORMM-UEeWOGvD12nE26A" name="LeftFlipper" specification="_O1NDEM-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_O1ORMc-UEeWOGvD12nE26A" name="name">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1ORMs-UEeWOGvD12nE26A" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1ORM8-UEeWOGvD12nE26A" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1ORNM-UEeWOGvD12nE26A" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
-          <ownedParameter xmi:id="_O1ORNc-UEeWOGvD12nE26A" type="_hBRAUM-TEeWOGvD12nE26A" direction="return">
-            <name xsi:nil="true"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>super(name, x, y, color);&#xD;
-		setTriggeredColour(color);&#xD;
-		// TODO Auto-generated constructor stub&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_O1ORNs-UEeWOGvD12nE26A" name="getShape" specification="_O1FuUM-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_O1ORN8-UEeWOGvD12nE26A" type="_hBFaIM-TEeWOGvD12nE26A" direction="return">
-            <name xsi:nil="true"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>return null;&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedOperation xmi:id="_O1FuUM-UEeWOGvD12nE26A" name="getShape" method="_O1ORNs-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_O1NqI8-UEeWOGvD12nE26A" type="_hBFaIM-TEeWOGvD12nE26A" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_O1IKks-UEeWOGvD12nE26A" name="triggerAction"/>
-        <ownedOperation xmi:id="_O1NDEM-UEeWOGvD12nE26A" name="LeftFlipper" method="_O1ORMM-UEeWOGvD12nE26A">
-          <eAnnotations xmi:id="_O1NqIM-UEeWOGvD12nE26A" source="http://www.eclipse.org/uml2/2.0.0/UML">
-            <details xmi:id="_O1NqIc-UEeWOGvD12nE26A" key="create"/>
-          </eAnnotations>
-          <ownedParameter xmi:id="_O1NDEc-UEeWOGvD12nE26A" name="name">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1NDEs-UEeWOGvD12nE26A" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1NDE8-UEeWOGvD12nE26A" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_O1NDFM-UEeWOGvD12nE26A" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
-          <ownedParameter xmi:id="_O1NqIs-UEeWOGvD12nE26A" type="_hBRAUM-TEeWOGvD12nE26A" direction="return"/>
-        </ownedOperation>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_841usM-UEeWOGvD12nE26A" name="RightFlipper">
-        <generalization xmi:id="_849Dcs-UEeWOGvD12nE26A" general="_E3x4QMoQEeWsA83iBWrPKA"/>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_849qgM-UEeWOGvD12nE26A" name="RightFlipper" specification="_848cYM-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_849qgc-UEeWOGvD12nE26A" name="name">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_849qgs-UEeWOGvD12nE26A" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_849qg8-UEeWOGvD12nE26A" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_849qhM-UEeWOGvD12nE26A" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
-          <ownedParameter xmi:id="_849qhc-UEeWOGvD12nE26A" type="_841usM-UEeWOGvD12nE26A" direction="return">
-            <name xsi:nil="true"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>super(name, x, y, color);&#xD;
-		setTriggeredColour(color);&#xD;
-		// TODO Auto-generated constructor stub&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_849qhs-UEeWOGvD12nE26A" name="getShape" specification="_842VwM-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_849qh8-UEeWOGvD12nE26A" type="_hBFaIM-TEeWOGvD12nE26A" direction="return">
-            <name xsi:nil="true"/>
-          </ownedParameter>
-          <language>java</language>
-          <body>return null;&#xD;
-	</body>
-        </ownedBehavior>
-        <ownedOperation xmi:id="_842VwM-UEeWOGvD12nE26A" name="getShape" method="_849qhs-UEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_849Dcc-UEeWOGvD12nE26A" type="_hBFaIM-TEeWOGvD12nE26A" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:id="_844K9M-UEeWOGvD12nE26A" name="triggerAction"/>
-        <ownedOperation xmi:id="_848cYM-UEeWOGvD12nE26A" name="RightFlipper" method="_849qgM-UEeWOGvD12nE26A">
-          <eAnnotations xmi:id="_848cZc-UEeWOGvD12nE26A" source="http://www.eclipse.org/uml2/2.0.0/UML">
-            <details xmi:id="_848cZs-UEeWOGvD12nE26A" key="create"/>
-          </eAnnotations>
-          <ownedParameter xmi:id="_848cYc-UEeWOGvD12nE26A" name="name">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_848cYs-UEeWOGvD12nE26A" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_848cY8-UEeWOGvD12nE26A" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_848cZM-UEeWOGvD12nE26A" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
-          <ownedParameter xmi:id="_849DcM-UEeWOGvD12nE26A" type="_841usM-UEeWOGvD12nE26A" direction="return"/>
-        </ownedOperation>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_fKiggM-ZEeWOGvD12nE26A" name="" memberEnd="_fKiggc-ZEeWOGvD12nE26A _fKhSYM-ZEeWOGvD12nE26A">
-        <ownedEnd xmi:id="_fKiggc-ZEeWOGvD12nE26A" name="" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_fKiggM-ZEeWOGvD12nE26A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_fKigg8-ZEeWOGvD12nE26A" name="" memberEnd="_fKighM-ZEeWOGvD12nE26A _-Du-YMR5EeW_3q3XSh-SYw">
-        <ownedEnd xmi:id="_fKighM-ZEeWOGvD12nE26A" name="" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_fKigg8-ZEeWOGvD12nE26A"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_4rIwdM-aEeWOGvD12nE26A" name="" memberEnd="_4rIwdc-aEeWOGvD12nE26A _4rHiUc-aEeWOGvD12nE26A">
         <ownedEnd xmi:id="_4rIwdc-aEeWOGvD12nE26A" name="" type="_xws78MR4EeW_3q3XSh-SYw" association="_4rIwdM-aEeWOGvD12nE26A"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_HY7aks-bEeWOGvD12nE26A" name="" memberEnd="_HY7ak8-bEeWOGvD12nE26A _HY5lYM-bEeWOGvD12nE26A">
         <ownedEnd xmi:id="_HY7ak8-bEeWOGvD12nE26A" name="" type="_xwrGwMR4EeW_3q3XSh-SYw" association="_HY7aks-bEeWOGvD12nE26A"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_HY8Boc-bEeWOGvD12nE26A" name="" memberEnd="_HY8Bos-bEeWOGvD12nE26A _HY6Mcs-bEeWOGvD12nE26A">
-        <ownedEnd xmi:id="_HY8Bos-bEeWOGvD12nE26A" name="" type="_xwrGwMR4EeW_3q3XSh-SYw" association="_HY8Boc-bEeWOGvD12nE26A"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3YnQsNaBEeWiEYVNrmJsoQ" name="Flipper">
+        <generalization xmi:id="_0J-E0dcNEeWNZKF-rpbInQ" general="_E3x4QMoQEeWsA83iBWrPKA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0KAhENcNEeWNZKF-rpbInQ" name="Flipper" specification="_0J6acNcNEeWNZKF-rpbInQ">
+          <ownedParameter xmi:id="_0KAhEdcNEeWNZKF-rpbInQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0KAhEtcNEeWNZKF-rpbInQ" name="x">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0KAhE9cNEeWNZKF-rpbInQ" name="y">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0KAhFNcNEeWNZKF-rpbInQ" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
+          <ownedParameter xmi:id="_0KAhFdcNEeWNZKF-rpbInQ" type="_3YnQsNaBEeWiEYVNrmJsoQ" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>super(name, x, y, color);&#xD;
+		setTriggeredColour(color);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0KCWQNcNEeWNZKF-rpbInQ" name="getShape" specification="_0JarMNcNEeWNZKF-rpbInQ">
+          <ownedParameter xmi:id="_0KCWQdcNEeWNZKF-rpbInQ" type="_hBFaIM-TEeWOGvD12nE26A" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return null;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_0JQ6MNcNEeWNZKF-rpbInQ" name="triggerAction"/>
+        <ownedOperation xmi:id="_0JarMNcNEeWNZKF-rpbInQ" name="getShape" method="_0KCWQNcNEeWNZKF-rpbInQ">
+          <ownedParameter xmi:id="_0J-E0NcNEeWNZKF-rpbInQ" type="_hBFaIM-TEeWOGvD12nE26A" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_0J6acNcNEeWNZKF-rpbInQ" name="Flipper" method="_0KAhENcNEeWNZKF-rpbInQ">
+          <eAnnotations xmi:id="_0J8PoNcNEeWNZKF-rpbInQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_0J8PodcNEeWNZKF-rpbInQ" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_0J7BgNcNEeWNZKF-rpbInQ" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0J7BgdcNEeWNZKF-rpbInQ" name="x">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0J7okNcNEeWNZKF-rpbInQ" name="y">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_0J7okdcNEeWNZKF-rpbInQ" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
+          <ownedParameter xmi:id="_0J82sNcNEeWNZKF-rpbInQ" type="_3YnQsNaBEeWiEYVNrmJsoQ" direction="return"/>
+        </ownedOperation>
       </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_3ZG_8NaBEeWiEYVNrmJsoQ" name="" memberEnd="_3ZG_8daBEeWiEYVNrmJsoQ _-Du-YMR5EeW_3q3XSh-SYw">
+        <ownedEnd xmi:id="_3ZG_8daBEeWiEYVNrmJsoQ" name="" type="_xwvYMMR4EeW_3q3XSh-SYw" association="_3ZG_8NaBEeWiEYVNrmJsoQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_awbfINcMEeWNZKF-rpbInQ" name="CollisionHandler"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xvv5sMR4EeW_3q3XSh-SYw" name="javax">
       <packagedElement xmi:type="uml:Package" xmi:id="_xvv5scR4EeW_3q3XSh-SYw" name="swing">
@@ -2333,6 +2347,11 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
       <packagedElement xmi:type="uml:Class" xmi:id="_-f1S8c-aEeWOGvD12nE26A" name="LineSegment"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_HY3wMM-bEeWOGvD12nE26A" name="Circle"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_3XGNwNaBEeWiEYVNrmJsoQ" name="FileLoader">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3XG00NaBEeWiEYVNrmJsoQ" name="src">
+        <packagedElement xmi:type="uml:Class" xmi:id="_3Yf78NaBEeWiEYVNrmJsoQ" name="Const"/>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:id="_xeDswMR4EeW_3q3XSh-SYw">
       <eAnnotations xmi:id="_xeJMUMR4EeW_3q3XSh-SYw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
@@ -2750,26 +2769,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
     <annotations xmi:id="_n5ljAM-TEeWOGvD12nE26A" name="Override"/>
   </UMLLabProfile:Annotations>
   <UMLLabProfile:LegacyStyledElement xmi:id="_n5mKEM-TEeWOGvD12nE26A" base_Element="_g_68gM-TEeWOGvD12nE26A"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_O1GVYM-UEeWOGvD12nE26A" base_Element="_O1FuUM-UEeWOGvD12nE26A"/>
-  <UMLLabProfile:Annotations xmi:id="_O1G8cM-UEeWOGvD12nE26A" base_Element="_O1FuUM-UEeWOGvD12nE26A">
-    <annotations xmi:id="_O1G8cc-UEeWOGvD12nE26A" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_O1IKk8-UEeWOGvD12nE26A" base_Element="_O1IKks-UEeWOGvD12nE26A"/>
-  <UMLLabProfile:Annotations xmi:id="_O1IxoM-UEeWOGvD12nE26A" base_Element="_O1IKks-UEeWOGvD12nE26A">
-    <annotations xmi:id="_O1Ixoc-UEeWOGvD12nE26A" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_84280M-UEeWOGvD12nE26A" base_Element="_842VwM-UEeWOGvD12nE26A"/>
-  <UMLLabProfile:Annotations xmi:id="_843j4M-UEeWOGvD12nE26A" base_Element="_842VwM-UEeWOGvD12nE26A">
-    <annotations xmi:id="_843j4c-UEeWOGvD12nE26A" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_844yAM-UEeWOGvD12nE26A" base_Element="_844K9M-UEeWOGvD12nE26A"/>
-  <UMLLabProfile:Annotations xmi:id="_844yAc-UEeWOGvD12nE26A" base_Element="_844K9M-UEeWOGvD12nE26A">
-    <annotations xmi:id="_844yAs-UEeWOGvD12nE26A" name="Override"/>
-  </UMLLabProfile:Annotations>
   <UMLLabProfile:Reference xmi:id="_nOUREM-WEeWOGvD12nE26A" base_Element="_nOTqAM-WEeWOGvD12nE26A"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_fKhSYs-ZEeWOGvD12nE26A" base_Element="_fKhSYM-ZEeWOGvD12nE26A"/>
-  <UMLLabProfile:Reference xmi:id="_fKiggs-ZEeWOGvD12nE26A" base_Element="_fKiggM-ZEeWOGvD12nE26A"/>
-  <UMLLabProfile:Reference xmi:id="_fKjHkM-ZEeWOGvD12nE26A" base_Element="_fKigg8-ZEeWOGvD12nE26A"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_4rCCwM-aEeWOGvD12nE26A" base_Element="_4rA0oM-aEeWOGvD12nE26A"/>
   <UMLLabProfile:Reference xmi:id="_4rFtIM-aEeWOGvD12nE26A" base_Element="_4rFGEM-aEeWOGvD12nE26A"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_4rIJYM-aEeWOGvD12nE26A" base_Element="_4rHiVM-aEeWOGvD12nE26A"/>
@@ -2788,9 +2788,30 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
   <UMLLabProfile:LegacyStyledElement xmi:id="_HY6Mcc-bEeWOGvD12nE26A" base_Element="_HY6McM-bEeWOGvD12nE26A"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_HY6MdM-bEeWOGvD12nE26A" base_Element="_HY6Mc8-bEeWOGvD12nE26A"/>
   <UMLLabProfile:Reference xmi:id="_HY8BoM-bEeWOGvD12nE26A" base_Element="_HY7aks-bEeWOGvD12nE26A"/>
-  <UMLLabProfile:Reference xmi:id="_HY8Bo8-bEeWOGvD12nE26A" base_Element="_HY8Boc-bEeWOGvD12nE26A"/>
   <UMLLabProfile:StyledElement xmi:id="_a06YgM-jEeWc1NBveAXAvg" base_Element="_ak0Ecc9KEeWD9JA5XZkC8g"/>
   <UMLLabProfile:StyledElement xmi:id="_a07moM-jEeWc1NBveAXAvg" base_Element="_a0WX0M-jEeWc1NBveAXAvg"/>
   <UMLLabProfile:StyledElement xmi:id="_a1F-sM-jEeWc1NBveAXAvg" base_Element="_a1FXoM-jEeWc1NBveAXAvg"/>
   <UMLLabProfile:StyledElement xmi:id="_a1GlwM-jEeWc1NBveAXAvg" base_Element="_a1F-sc-jEeWc1NBveAXAvg"/>
+  <UMLLabProfile:Annotations xmi:id="_3XSbANaBEeWiEYVNrmJsoQ" base_Element="_3XRz8NaBEeWiEYVNrmJsoQ">
+    <annotations xmi:id="_3XSbAdaBEeWiEYVNrmJsoQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_3XTCEdaBEeWiEYVNrmJsoQ" base_Element="_3XSbAtaBEeWiEYVNrmJsoQ">
+    <annotations xmi:id="_3XTCEtaBEeWiEYVNrmJsoQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:StyledElement xmi:id="_3X6tINaBEeWiEYVNrmJsoQ" base_Element="_HY6Mcs-bEeWOGvD12nE26A"/>
+  <UMLLabProfile:StyledElement xmi:id="_3X7UMNaBEeWiEYVNrmJsoQ" base_Element="_fKhSYM-ZEeWOGvD12nE26A"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_3X-XgNaBEeWiEYVNrmJsoQ" base_Element="_3XRz8NaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_3X-XgdaBEeWiEYVNrmJsoQ" base_Element="_3XSbAtaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:StyledElement xmi:id="_3YNBAdaBEeWiEYVNrmJsoQ" base_Element="_3YMZ8NaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:StyledElement xmi:id="_3YNoEtaBEeWiEYVNrmJsoQ" base_Element="_3YNBAtaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:Reference xmi:id="_3YgjANaBEeWiEYVNrmJsoQ" base_Element="_3Yf78NaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:Reference xmi:id="_3ZHnANaBEeWiEYVNrmJsoQ" base_Element="_3ZG_8NaBEeWiEYVNrmJsoQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_0JVLoNcNEeWNZKF-rpbInQ" base_Element="_0JQ6MNcNEeWNZKF-rpbInQ"/>
+  <UMLLabProfile:Annotations xmi:id="_0JZdENcNEeWNZKF-rpbInQ" base_Element="_0JQ6MNcNEeWNZKF-rpbInQ">
+    <annotations xmi:id="_0JaEINcNEeWNZKF-rpbInQ" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_0Jb5UNcNEeWNZKF-rpbInQ" base_Element="_0JarMNcNEeWNZKF-rpbInQ"/>
+  <UMLLabProfile:Annotations xmi:id="_0JcgYNcNEeWNZKF-rpbInQ" base_Element="_0JarMNcNEeWNZKF-rpbInQ">
+    <annotations xmi:id="_0JcgYdcNEeWNZKF-rpbInQ" name="Override"/>
+  </UMLLabProfile:Annotations>
 </xmi:XMI>

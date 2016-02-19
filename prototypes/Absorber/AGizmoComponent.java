@@ -14,12 +14,6 @@ abstract public class AGizmoComponent {
 	/** The vertical-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
 	 * component on the board. Where exactly it is on the component depends on the type of Gizmo.    **/
 	private int ypos;
-	/** The amount of width this component takes up in the board (in pixel). A component will always take up at least one 
-	 * grid tile worth of space (except the ball).    **/
-	private int width;
-	/** The amount of height this component takes up in the board (in pixel). A component will always take up at least one 
-	 * grid tile worth of space (except the ball).    **/
-	private int height;
 	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
 	private Color colour;
 	/** Whether the Gizmo is visible on the board or not */
@@ -103,30 +97,6 @@ abstract public class AGizmoComponent {
 	
 	public int getRotation() {
 		return rotationAngle;
-	}
-	
-	public boolean setWidth(int newWidth) {
-		this.width = newWidth;
-		return true;
-	}
-	
-	/**
-	 * NOTE: This method description might get overwritten by sub-classes
-	 */
-	public int getWidth() {
-		return width;
-	}
-	
-	public boolean setHeight(int newHeight) {
-		this.height = newHeight;
-		return true;
-	}
-
-	/**
-	 * NOTE: This method description might get overwritten by sub-classes
-	 */
-	public int getHeight() {
-		return height;
 	}
 	
 	public void setVisibility(boolean visible) {

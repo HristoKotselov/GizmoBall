@@ -11,11 +11,15 @@ public class CollisionDetails {
 	private double tuc; //time until collision
 	private Vect velo;
 	private CollisionType ct;
+	private Ball b;
+	private AGizmoComponent clder;
 
-	public CollisionDetails(double t, Vect v, CollisionType collisionType) {
+	public CollisionDetails(double t, Vect v, CollisionType collisionType, Ball ball, AGizmoComponent collider) {
 		tuc = t;
 		velo = v;
 		ct = collisionType;
+		clder = collider;
+		b = ball;
 	}
 
 	public double getTuc() {
@@ -28,6 +32,14 @@ public class CollisionDetails {
 	
 	public CollisionType getCollisionType(){
 		return ct;
+	}
+	
+	public AGizmoComponent getCollider(){
+		return clder;
+	}
+	
+	public Ball getBall(){
+		return b;
 	}
 
 }

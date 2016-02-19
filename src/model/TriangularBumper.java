@@ -10,8 +10,6 @@ public class TriangularBumper extends AGizmoComponent {
 	public TriangularBumper(String name, int x, int y, Color color, Color triggeredColor) {
 		super(name, x, y, color);
 		setTriggeredColour(triggeredColor);
-		// finish this line:		setHeight( );
-		// finish this line:		 setWidth( );
 		// TODO Auto-generated constructor stub
 	}
 

@@ -10,8 +10,6 @@ public class Absorber extends AGizmoComponent {
 	public Absorber(String name, int x, int y, Color color) {
 		super(name, x, y, color);
 		setTriggeredColour(color);
-		// finish this line:		setHeight( );
-		// finish this line:		 setWidth( );
 		// TODO Auto-generated constructor stub
 	}
 
