@@ -31,8 +31,11 @@ public class Main {
 		model.addLine(new HorizontalLine(100, 300, 200));
 		model.addCircleBumper(new CircleBumper(100,25,10));
 		model.addCircleBumper(new CircleBumper(150,25,10));
-		model.addCircleBumper(new CircleBumper(200,25,10));
-		model.addCircleBumper(new CircleBumper(250,25,10));
+		model.addCircleBumper(new CircleBumper(50,20,10));
+		model.addCircleBumper(new CircleBumper(20,30,10));
+		model.addSquareBumper(new SquareBumper(20,50,20));
+		model.addSquareBumper(new SquareBumper(50,50,20));
+		model.addSquareBumper(new SquareBumper(80,50,20));
 		model.addSquareBumper(new SquareBumper(20,150,20));
 		model.addSquareBumper(new SquareBumper(50,150,20));
 		model.addSquareBumper(new SquareBumper(80,150,20));

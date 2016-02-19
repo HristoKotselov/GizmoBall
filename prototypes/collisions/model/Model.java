@@ -37,7 +37,7 @@ public class Model extends Observable {
 		ball = new Ball(5, 5, Angle.ZERO, 7);
 
 		// Wall size 400 x 400 pixels
-		gws = new Walls(0, 0, 20 * L, 20 * L);
+		gws = new Walls(0, 0, 4 * L, 4 * L);
 
 		// Lines added in Main
 		lines = new ArrayList<HorizontalLine>();
@@ -151,7 +151,7 @@ public class Model extends Observable {
 			time = Geometry.timeUntilCircleCollision(c3, ballCircle, ballVelocity);
 			if (time < shortestTime) {
 				shortestTime = time;
-				newVelo = Geometry.reflectCircle(new Vect(circle.getX(), circle.getY()), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
+				newVelo = Geometry.reflectCircle(new Vect(circle.getX(), circle.getY()), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.5);
 			}
 		}
 		
@@ -160,7 +160,7 @@ public class Model extends Observable {
 					time = Geometry.timeUntilCircleCollision(each, ballCircle, ballVelocity);
 					if (time < shortestTime) {
 						shortestTime = time;
-						newVelo = Geometry.reflectCircle(each.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
+						newVelo = Geometry.reflectCircle(each.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.5);
 					}
 				}
 				for (LineSegment each : square.getSides()){
