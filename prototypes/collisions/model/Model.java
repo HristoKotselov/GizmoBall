@@ -12,7 +12,7 @@ import physics.LineSegment;
 import physics.Vect;
 
 /**
- * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
+ * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014
  */
 
 public class Model extends Observable {
@@ -35,7 +35,7 @@ public class Model extends Observable {
 		}
 
 		// Ball position (5, 5), moving horizontally right at 20 units
-		ball = new Ball(5, 5, Angle.ZERO, 20);
+		ball = new Ball(5, 5, Angle.ZERO, 15);
 
 		// Wall size 400 x 400 pixels
 		gws = new Walls(0, 0, 20 * L, 5 * L);
@@ -58,10 +58,10 @@ public class Model extends Observable {
 //			System.out.println("1 - " + ball.getVelo().toString());
 
 			// Friction
-			//double mu1 = 0.025;
-			//double mu2 = 0.025;
-			//double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
-			//ball.setVelo(ball.getVelo().times(scale));
+//			double mu1 = 0.025;
+//			double mu2 = 0.025;
+//			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
+//			ball.setVelo(ball.getVelo().times(scale));
 
 //			System.out.println("2 - " + ball.getVelo().toString());
 

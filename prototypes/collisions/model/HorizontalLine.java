@@ -4,7 +4,7 @@ import physics.LineSegment;
 import physics.Circle;
 
 /**
- * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
+ * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014
  */
 
 public class HorizontalLine {
