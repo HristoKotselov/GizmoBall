@@ -3,8 +3,6 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 
-import FileLoader.src.Const;
-
 abstract public class AGizmoComponent {
 
 	/* The following attributes can be defined before the Gizmo is created **/

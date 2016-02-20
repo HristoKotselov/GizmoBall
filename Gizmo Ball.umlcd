@@ -1317,10 +1317,10 @@
     <bendpoints xmi:id="_GCOf0tcOEeWNZKF-rpbInQ" sourceX="-1871" sourceY="-987" targetX="-1695" targetY="60"/>
     <bendpoints xmi:id="_GCPG4NcOEeWNZKF-rpbInQ" sourceX="-176" sourceY="-987" targetY="60"/>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_clQuQNcWEeWNZKF-rpbInQ" dashed="true" subClass="_PQxsYMoQEeWsA83iBWrPKA">
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_fDUtsNd6EeWZorPfHJjN1g" dashed="true" subClass="_PQxsYMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_G5R-gMonEeWI07Wu9tqfCA"/>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_cqQjANcWEeWNZKF-rpbInQ" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_fHAT0Nd6EeWZorPfHJjN1g" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_E9sbkMonEeWI07Wu9tqfCA"/>
   </edges>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_re7iwM93EeWej54JrL5caA" sourceConnectionVisual="_rggQEM93EeWej54JrL5caA" text="**************************************************************************&#xD;&#xA;Copyright (C) 2001 by the Massachusetts Institute of Technology,&#xD;&#xA;                      Cambridge, Massachusetts.&#xD;&#xA; *&#xD;&#xA;                       All Rights Reserved&#xD;&#xA; *&#xD;&#xA;Permission to use, copy, modify, and distribute this software and&#xD;&#xA;its documentation for any purpose and without fee is hereby&#xD;&#xA;granted, provided that the above copyright notice appear in all&#xD;&#xA;copies and that both that copyright notice and this permission&#xD;&#xA;notice appear in supporting documentation, and that MIT's name not&#xD;&#xA;be used in advertising or publicity pertaining to distribution of&#xD;&#xA;the software without specific, written prior permission.&#xD;&#xA; *&#xD;&#xA;THE MASSACHUSETTS INSTITUTE OF TECHNOLOGY DISCLAIMS ALL WARRANTIES&#xD;&#xA;WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF&#xD;&#xA;MERCHANTABILITY AND FITNESS.  IN NO EVENT SHALL THE MASSACHUSETTS&#xD;&#xA;INSTITUTE OF TECHNOLOGY BE LIABLE FOR ANY SPECIAL, INDIRECT OR&#xD;&#xA;CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS&#xD;&#xA;OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,&#xD;&#xA;NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN&#xD;&#xA;CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;&#xA; *&#xD;&#xA; **************************************************************************" item="_yejgcMR4EeW_3q3XSh-SYw">
@@ -2500,7 +2500,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsOut="_PQxFUMoQEeWsA83iBWrPKA" generalizations="_clQuQNcWEeWNZKF-rpbInQ">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsOut="_PQxFUMoQEeWsA83iBWrPKA" generalizations="_fDUtsNd6EeWZorPfHJjN1g">
     <modelElement href="Gizmo%20Ball.uml#_E3mSEMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PQxsYcoQEeWsA83iBWrPKA" position="-1468.0,1583.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PQxsYsoQEeWsA83iBWrPKA" label="+"/>
@@ -2669,7 +2669,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_cqQjANcWEeWNZKF-rpbInQ">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_fHAT0Nd6EeWZorPfHJjN1g">
     <modelElement href="Gizmo%20Ball.uml#_PFELoMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRQNgcoQEeWsA83iBWrPKA" position="-1048.0,1652.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRQNgsoQEeWsA83iBWrPKA" label="+"/>
