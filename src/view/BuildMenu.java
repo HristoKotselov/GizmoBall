@@ -64,7 +64,6 @@ public class BuildMenu implements IMenu {
 		JRadioButton square = new JRadioButton("square");
 		JRadioButton triangle = new JRadioButton("circle");
 		JRadioButton circle = new JRadioButton("triangle");
-		JRadioButton ball = new JRadioButton("ball");
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(leftFlipper);
 		bg.add(rightFlipper);
@@ -76,7 +75,6 @@ public class BuildMenu implements IMenu {
 		buttonMenu.add(square);
 		buttonMenu.add(triangle);
 		buttonMenu.add(circle);
-		buttonMenu.add(ball);
 		JButton add = new JButton("Add");
 		buttonMenu.add(add);
 
