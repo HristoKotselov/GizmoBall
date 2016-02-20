@@ -1,4 +1,4 @@
-package model;
+package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -7,11 +7,11 @@ import physics.Angle;
 import physics.Circle;
 import physics.Vect;
 
-public class Ball extends AGizmoComponent {
+public class Ball extends AGizmoComponent{
 
 	private double radius;
-	private double preciseXPos; // most likely from abstract class and will be removed from here
-	private double preciseYPos; // same as above
+	private double preciseXPos;
+	private double preciseYPos;
 	private Vect velocity;
 
 	private boolean stopped;
@@ -19,7 +19,7 @@ public class Ball extends AGizmoComponent {
 	// x, y coordinates and x,y velocity
 	public Ball(String name, Color color, double x, double y, Angle theta, double yv) {
 		super(name, (int) x, (int) y, color);
-
+		
 		radius = 5;
 		preciseXPos = x; // Centre coordinates
 		preciseYPos = y;
@@ -30,7 +30,7 @@ public class Ball extends AGizmoComponent {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class Ball extends AGizmoComponent {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 	/* Ball specific methods that deal with double precision. */
 	public double getExactX() {
 		return preciseXPos;
@@ -67,7 +68,7 @@ public class Ball extends AGizmoComponent {
 	public boolean stopped() {
 		return stopped;
 	}
-
+	
 	public Vect getVelo() {
 		return velocity;
 	}
