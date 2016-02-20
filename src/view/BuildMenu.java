@@ -38,6 +38,10 @@ public class BuildMenu implements IMenu {
 		//JButton square = new JButton("Add a square");
 		//JButton triangle = new JButton("Add a trangle");
 		//JButton circle = new JButton("Add a circle");
+		JButton addBall = new JButton("Add Ball");
+		JButton setBallSpeed = new JButton("Set Ball speed");
+		JButton setFriction = new JButton("Set Friction");
+		JButton setGravity = new JButton("Set Gravity");
 		JButton absorber = new JButton("Add absorber");
 		JButton connect = new JButton("Connect gizmos");
 		JButton disconnect = new JButton("Disconnect gismoz");
@@ -90,6 +94,10 @@ public class BuildMenu implements IMenu {
 		//buttonMenu.add(square);
 		//buttonMenu.add(triangle);
 		//buttonMenu.add(circle);
+		buttonMenu.add(addBall);
+		buttonMenu.add(setBallSpeed);
+		buttonMenu.add(setFriction);
+		buttonMenu.add(setGravity);
 		buttonMenu.add(absorber);
 		buttonMenu.add(connect);
 		buttonMenu.add(disconnect);
