@@ -3,21 +3,15 @@ package Absorber;
 import physics.Vect;
 
 public class CollisionDetails {
-	
-	public enum CollisionType {
-	    REGULAR, ABSORBER
-	}
 
 	private double tuc; //time until collision
 	private Vect velo;
-	private CollisionType ct;
-	private Ball b;
-	private AGizmoComponent clder;
+	private Ball b;		// identify which ball is involved in a collision & provide access to the object
+	private AGizmoComponent clder;		// identify which Gizmo Component is involved in a collision & provide access to the object
 
-	public CollisionDetails(double t, Vect v, CollisionType collisionType, Ball ball, AGizmoComponent collider) {
+	public CollisionDetails(double t, Vect v, Ball ball, AGizmoComponent collider) {
 		tuc = t;
 		velo = v;
-		ct = collisionType;
 		clder = collider;
 		b = ball;
 	}
@@ -28,10 +22,6 @@ public class CollisionDetails {
 
 	public Vect getVelo() {
 		return velo;
-	}
-	
-	public CollisionType getCollisionType(){
-		return ct;
 	}
 	
 	public AGizmoComponent getCollider(){

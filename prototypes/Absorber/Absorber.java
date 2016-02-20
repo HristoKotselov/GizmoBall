@@ -6,7 +6,9 @@ import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
 
+import physics.Angle;
 import physics.LineSegment;
+import physics.Vect;
 
 public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 	/** The amount of width this absorber takes up in the board (in pixel). Absorber will always at least take up 1L*1L worth of space    **/
@@ -41,14 +43,18 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 
 	@Override
 	public void triggerAction() {
-		// TODO Auto-generated method stub
+		if(capturedBall != null){		// no ball in absorber = nothing happens
+			capturedBall.start();
+			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50 is in L due to the way the gravity/friction have been handled
+			capturedBall.setVelo(new Vect(Angle.DEG_270, 50));
+		}
 
 	}
 	
 	/* Absorber's collision detector methods */
 	
 	/**
-	 * The setup of the Line Segment collection. Each Gizmo component which rely on Line Segments for collision detection should
+	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should
 	 * set up their Line Segment objects here.
 	 * @modify this
 	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects

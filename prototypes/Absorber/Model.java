@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Set;
 
-import Absorber.CollisionDetails.CollisionType;
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
@@ -18,10 +17,13 @@ import physics.Vect;
 
 public class Model extends Observable {
 
-	private ArrayList<Line> lines;
 	private ArrayList<Absorber> absorbers;
 	private Ball ball;
 	private Walls gws;
+	
+	private CollisionDetails cd;
+	
+	private boolean isPlaying;		// used to tell Keyboard ActionListeners when they should be active (only when the game is running)
 
 	final static int L = 20;
 
@@ -32,42 +34,45 @@ public class Model extends Observable {
 		// Wall size 400 x 400 pixels
 		gws = new Walls(0, 0, 20 * L, 20 * L);
 
-		// Lines added in Main
-		lines = new ArrayList<Line>();
-		
-		// Absorbers added in Main
 		absorbers = new ArrayList<Absorber>();
+		
+		cd = null;
+		isPlaying = false;
 	}
 
 	public void moveBall() {
-		double moveTime = 1.0/60.0; // 0.05 = 20 times per second as per
-										// Gizmoball
+		double moveTime = 1.0/60.0;		// 60 fps
 
 		if (ball != null && !ball.stopped()) {
-			// Friction
-			double mu1 = 0.025;
-			double mu2 = 0.025;
+			// Friction		- from 	6.170 Final Project  Gizmoball
+			double mu1 = 0.025;		// 0.025L per second
+			double mu2 = 0.025;		
 			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(scale));
 
-			// Gravity
-			int gravity = 25;
-			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+			// Gravity		- from 	6.170 Final Project  Gizmoball
+			int gravity = 25;		// 25L per second
+			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));		// 25L
 
-			CollisionDetails cd = timeUntilCollision();
+			cd = timeUntilCollision();
 			double tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
 			if (tuc > moveTime) {
 				// No collision ...
 				ball = movelBallForTime(ball, moveTime);
 			} else {
 				// We've got a collision in tuc
-				ball = movelBallForTime(ball, tuc);
 				
-				if(cd.getCollisionType() == CollisionDetails.CollisionType.ABSORBER){
-					CollisionHandler.handleAbsorber(cd);
+				if(cd.getCollider() instanceof Absorber){		// special collision (with Absorber)
+					// if ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside
+					if(!SpecialCollisionHandler.handleAbsorberColi(cd)){		
+						ball = movelBallForTime(ball, moveTime);
+					}
 				}
-				// Post collision velocity ...
-				ball.setVelo(cd.getVelo());
+				else{		// procedures for a normal collision
+					ball = movelBallForTime(ball, tuc);
+					// Post collision velocity ...
+					ball.setVelo(cd.getVelo());
+				}
 			}
 
 			// Notify observers ... redraw updated view
@@ -101,7 +106,6 @@ public class Model extends Observable {
 		double shortestTime = Double.MAX_VALUE;
 		double time = 0.0;
 		
-		CollisionType collisionType = CollisionDetails.CollisionType.REGULAR;
 		AGizmoComponent collider = null;		// the Gizmo component that the ball will collide with in a collision prediction
 
 		// Time to collide with 4 walls
@@ -111,7 +115,6 @@ public class Model extends Observable {
 			if (time < shortestTime) {
 				shortestTime = time;
 				newVelo = Geometry.reflectWall(line, ball.getVelo(), 1.0);
-				collisionType = CollisionDetails.CollisionType.REGULAR;
 			}
 		}
 
@@ -122,29 +125,19 @@ public class Model extends Observable {
 			curAbsorberLSS = abs.getLineSeg();
 			
 			for (LineSegment ls : curAbsorberLSS) {
-					time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);		
-					if (time < shortestTime) {
-						shortestTime = time;
-						newVelo = ballVelocity;		// no change in ball velocity required yet
-						collisionType = CollisionDetails.CollisionType.ABSORBER;
-						collider = abs;
-					}
+				time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);		
+				if (time < shortestTime) {
+					shortestTime = time;
+					collider = abs;
+				}
 			}
 		}
 				
-		return new CollisionDetails(shortestTime, newVelo, collisionType, ball, collider);
+		return new CollisionDetails(shortestTime, newVelo, ball, collider);
 	}
 
 	public Ball getBall() {
 		return ball;
-	}
-
-	public ArrayList<Line> getLines() {
-		return lines;
-	}
-
-	public void addLine(Line l) {
-		lines.add(l);
 	}
 	
 	public ArrayList<Absorber> getAbsorbers() {
@@ -157,5 +150,21 @@ public class Model extends Observable {
 	
 	public void setBallSpeed(int x, int y) {
 		ball.setVelo(new Vect(x, y));
+	}
+	
+	public CollisionDetails getCollisionDetails(){
+		return cd;
+	}
+	
+	public boolean isPlaying(){
+		return isPlaying;
+	}
+	
+	public void start(){
+		isPlaying = true;
+	}
+	
+	public void stop(){
+		isPlaying = false;
 	}
 }

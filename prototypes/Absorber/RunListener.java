@@ -30,13 +30,17 @@ public class RunListener implements ActionListener {
 		} else
 			switch (e.getActionCommand()) {
 			case "Start":
+				model.start();
 				timer.start();
 				break;
 			case "Stop":
+				model.stop();
 				timer.stop();
 				break;
 			case "Tick":
+				model.start();
 				model.moveBall();
+				model.stop();
 				break;
 			case "Quit":
 				System.exit(0);

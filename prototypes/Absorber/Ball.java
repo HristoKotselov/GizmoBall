@@ -10,8 +10,8 @@ import physics.Vect;
 public class Ball extends AGizmoComponent{
 
 	private double radius;
-	private double preciseXPos; // most likely from abstract class and will be removed from here
-	private double preciseYPos; // same as above
+	private double preciseXPos;
+	private double preciseYPos;
 	private Vect velocity;
 
 	private boolean stopped;

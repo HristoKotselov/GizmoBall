@@ -57,12 +57,6 @@ public class Board extends JPanel implements Observer {
 			g2D.drawLine(0, i * 20, 400, i * 20);
 		}
 		*/
-
-		g2D.setColor(Color.BLACK);
-		// Draw all the vertical lines
-		for (Line vl : gm.getLines()) {
-			g2D.fillRect(vl.getX(), vl.getY(), vl.getWidth(), 1);
-		}
 		
 		g2D.setColor(gm.getAbsorbers().get(0).getColour());
 		// Draw all the absorbers
