@@ -1,4 +1,4 @@
-package PhysicsDemo.src.model;
+package physicsdemo.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,7 +26,7 @@ public class Model extends Observable {
 
 	public Model() {
 		// Ball position (5, 5), moving horizontally right at 20 units
-		ball = new Ball(5, 5, Angle.ZERO, 20);
+		ball = new Ball(5, 5, Angle.ZERO, 400);
 
 		// Wall size 400 x 400 pixels
 		gws = new Walls(0, 0, 20 * L, 20 * L);
@@ -47,14 +47,14 @@ public class Model extends Observable {
 
 			// Friction
 			double mu1 = 0.025;
-			double mu2 = 0.025;
+			double mu2 = 0.025/L;
 			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(scale));
 
 //			System.out.println("2 - " + ball.getVelo().toString());
 
 			// Gravity
-			int gravity = 25;
+			int gravity = 25*L;
 			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 //			System.out.println(ball.getVelo().toString());
@@ -82,8 +82,8 @@ public class Model extends Observable {
 
 		double newX = 0.0;
 		double newY = 0.0;
-		double xVel = ball.getVelo().x() * L;
-		double yVel = ball.getVelo().y() * L;
+		double xVel = ball.getVelo().x();
+		double yVel = ball.getVelo().y();
 		newX = ball.getExactX() + (xVel * time);
 		newY = ball.getExactY() + (yVel * time);
 		ball.setExactX(newX);
@@ -96,7 +96,7 @@ public class Model extends Observable {
 		// speed vector.
 		// Create a physics.Circle from Ball
 		Circle ballCircle = ball.getCircle();
-		Vect ballVelocity = ball.getVelo().times(20);
+		Vect ballVelocity = ball.getVelo();
 		Vect newVelo = new Vect(0, 0);
 
 		// Now find shortest time to hit a vertical line or a wall line

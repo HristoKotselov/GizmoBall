@@ -1,9 +1,9 @@
-package PhysicsDemo.src.main;
+package physicsdemo.main;
 
 import javax.swing.UIManager;
-import PhysicsDemo.src.model.Model;
-import PhysicsDemo.src.model.VerticalLine;
-import PhysicsDemo.src.view.RunGui;
+import physicsdemo.model.Model;
+import physicsdemo.model.VerticalLine;
+import physicsdemo.view.RunGui;
 
 /**
  * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014

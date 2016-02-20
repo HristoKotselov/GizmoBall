@@ -1,4 +1,4 @@
-package PhysicsDemo.src.model;
+package physicsdemo.model;
 
 import physics.LineSegment;
 

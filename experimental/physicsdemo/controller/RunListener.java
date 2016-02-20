@@ -1,4 +1,4 @@
-package PhysicsDemo.src.controller;
+package physicsdemo.controller;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.Timer;
-import PhysicsDemo.src.model.Model;
+import physicsdemo.model.Model;
 
 /**
  * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014

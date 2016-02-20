@@ -1,4 +1,4 @@
-package FileLoader.src;
+package fileloader;
 
 import java.awt.Color;
 import java.awt.Rectangle;

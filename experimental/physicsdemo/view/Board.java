@@ -1,4 +1,4 @@
-package PhysicsDemo.src.view;
+package physicsdemo.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,9 +9,9 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import PhysicsDemo.src.model.Ball;
-import PhysicsDemo.src.model.Model;
-import PhysicsDemo.src.model.VerticalLine;
+import physicsdemo.model.Ball;
+import physicsdemo.model.Model;
+import physicsdemo.model.VerticalLine;
 
 /**
  * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
