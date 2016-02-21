@@ -45,8 +45,8 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 	public void triggerAction() {
 		if(capturedBall != null){		// no ball in absorber = nothing happens
 			capturedBall.start();
-			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50 is in L due to the way the gravity/friction have been handled
-			capturedBall.setVelo(new Vect(Angle.DEG_270, 50));
+			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50L is the length, thus it is converted to pixels here
+			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * Model.L));
 		}
 
 	}
