@@ -14,11 +14,10 @@ import model.CircleBumper;
 import model.Model;
 import model.SquareBumper;
 import model.TriangleBumper;
-import physics.LineSegment;
 import model.HorizontalLine;
 
 /**
- * @author Murray Wood Demonstration of MVC and MIT Physics Collisions 2014
+ * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014
  */
 
 public class Board extends JPanel implements Observer {
@@ -62,12 +61,12 @@ public class Board extends JPanel implements Observer {
 		for (CircleBumper circle : gm.getCircleBumpers()) {
 			int x = (int) (circle.getX() - circle.getRadius());
 			int y = (int) (circle.getY() - circle.getRadius());
-			int width = (int) (2 * circle.getRadius());
+			int width = (int) (2 * circle.getRadius() + 1);
 			g2.fillOval(x, y, width, width);
 		}
 		
 		for (SquareBumper square : gm.getSquareBumpers()) {
-			g2.fillRect(square.getX(), square.getY(), square.getSize(), square.getSize());
+			g2.fillRect(square.getX(), square.getY(), square.getSize() + 1, square.getSize() + 1);
 		}
 		
 		for (TriangleBumper triangle : gm.getTriangleBumpers()) {
