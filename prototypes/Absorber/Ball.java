@@ -2,6 +2,8 @@ package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.util.List;
+import java.util.Set;
 
 import physics.Angle;
 import physics.Circle;
@@ -32,13 +34,18 @@ public class Ball extends AGizmoComponent{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
-	public Shape getShape() {
+	protected void setupDrawingShape() {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 	
+	@Override
+	protected void setupCircles() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	/* Ball specific methods that deal with double precision. */
 	public double getExactX() {
@@ -81,8 +88,13 @@ public class Ball extends AGizmoComponent{
 		return radius;
 	}
 
+	/** 
+	 * TODO 
+	 * Will merge this method with getCircles() later.
+	 **/
 	public Circle getCircle() {
 		return new Circle(preciseXPos, preciseYPos, radius);
 
 	}
+
 }

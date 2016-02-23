@@ -131,6 +131,8 @@ public class Model extends Observable {
 					collider = abs;
 				}
 			}
+			
+			TO ADD CIRCLES
 		}
 				
 		return new CollisionDetails(shortestTime, newVelo, ball, collider);
