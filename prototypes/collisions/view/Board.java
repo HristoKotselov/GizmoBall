@@ -61,7 +61,7 @@ public class Board extends JPanel implements Observer {
 		for (CircleBumper circle : gm.getCircleBumpers()) {
 			int x = (int) (circle.getX() - circle.getRadius());
 			int y = (int) (circle.getY() - circle.getRadius());
-			int width = (int) (2 * circle.getRadius());
+			int width = (int) (2 * circle.getRadius() + 1);
 			g2.fillOval(x, y, width, width);
 		}
 		

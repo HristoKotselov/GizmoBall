@@ -35,7 +35,7 @@ public class Model extends Observable {
 		}
 
 		// Ball position (5, 5), moving horizontally right at 20 units
-		ball = new Ball(5, 5, Angle.ZERO, 15);
+		ball = new Ball(5, 5, Angle.ZERO, 300);
 
 		// Wall size 400 x 400 pixels
 		gws = new Walls(0, 0, 20 * L, 5 * L);
@@ -58,15 +58,15 @@ public class Model extends Observable {
 //			System.out.println("1 - " + ball.getVelo().toString());
 
 			// Friction
-//			double mu1 = 0.025;
-//			double mu2 = 0.025;
+//			double mu1 = 0.025*L;
+//			double mu2 = 0.025*L;
 //			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 //			ball.setVelo(ball.getVelo().times(scale));
 
 //			System.out.println("2 - " + ball.getVelo().toString());
 
 			// Gravity
-			//int gravity = 15;
+			//int gravity = 25*L;
 			//ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 //			System.out.println(ball.getVelo().toString());
@@ -94,8 +94,8 @@ public class Model extends Observable {
 
 		double newX = 0.0;
 		double newY = 0.0;
-		double xVel = ball.getVelo().x() * L;
-		double yVel = ball.getVelo().y() * L;
+		double xVel = ball.getVelo().x();
+		double yVel = ball.getVelo().y();
 		newX = ball.getExactX() + (xVel * time);
 		newY = ball.getExactY() + (yVel * time);
 		ball.setExactX(newX);
@@ -108,7 +108,7 @@ public class Model extends Observable {
 		// speed vector.
 		// Create a physics.Circle from Ball
 		Circle ballCircle = ball.getCircle();
-		Vect ballVelocity = ball.getVelo().times(20);
+		Vect ballVelocity = ball.getVelo();
 		Vect newVelo = new Vect(0, 0);
 
 		// Now find shortest time to hit a vertical line or a wall line
@@ -126,27 +126,27 @@ public class Model extends Observable {
 		}
 
 		// Time to collide with any vertical lines
-		for (HorizontalLine line : lines) {
-			LineSegment ls = line.getLineSeg();
-			Circle c1 = line.getLeftCircle();
-			Circle c2 = line.getRightCircle();
-			time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);
-			if (time < shortestTime) {
-				shortestTime = time;
-				newVelo = Geometry.reflectWall(ls, ball.getVelo(), 1.0);
-			}
-			time = Geometry.timeUntilCircleCollision(c1, ballCircle, ballVelocity);
-			if (time < shortestTime) {
-				shortestTime = time;
-				newVelo = Geometry.reflectCircle(c1.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
-			}
-			time = Geometry.timeUntilCircleCollision(c2, ballCircle, ballVelocity);
-			if (time < shortestTime) {
-				shortestTime = time;
-				newVelo = Geometry.reflectCircle(c2.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
-			}
-			
-		}
+//		for (HorizontalLine line : lines) {
+//			LineSegment ls = line.getLineSeg();
+//			Circle c1 = line.getLeftCircle();
+//			Circle c2 = line.getRightCircle();
+//			time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);
+//			if (time < shortestTime) {
+//				shortestTime = time;
+//				newVelo = Geometry.reflectWall(ls, ball.getVelo(), 1.0);
+//			}
+//			time = Geometry.timeUntilCircleCollision(c1, ballCircle, ballVelocity);
+//			if (time < shortestTime) {
+//				shortestTime = time;
+//				newVelo = Geometry.reflectCircle(c1.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
+//			}
+//			time = Geometry.timeUntilCircleCollision(c2, ballCircle, ballVelocity);
+//			if (time < shortestTime) {
+//				shortestTime = time;
+//				newVelo = Geometry.reflectCircle(c2.getCenter(), new Vect(ball.getExactX(), ball.getExactY()), ball.getVelo(), 1.0);
+//			}
+//			
+//		}
 		
 		for (CircleBumper circle : circles) {
 			Circle c3 = circle.getCircle();
