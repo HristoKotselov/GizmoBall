@@ -28,8 +28,8 @@ public class Model extends Observable {
 	final static int L = 20;
 
 	public Model() {
-		// Ball position (5, 5), moving horizontally right at 20 units
-		ball = new Ball("Ball1", Color.YELLOW, 5, 5, Angle.ZERO, 20);
+		// Ball position (5, 5), moving horizontally right at 20L
+		ball = new Ball("Ball1", Color.YELLOW, 5, 5, Angle.ZERO, 20 * L);
 
 		// Wall size 400 x 400 pixels
 		gws = new Walls(0, 0, 20 * L, 20 * L);
@@ -45,14 +45,14 @@ public class Model extends Observable {
 
 		if (ball != null && !ball.stopped()) {
 			// Friction		- from 	6.170 Final Project  Gizmoball
-			double mu1 = 0.025;		// 0.025L per second
-			double mu2 = 0.025;		
+			double mu1 = 0.025;		// 0.025 per second
+			double mu2 = 0.025/L;	// 0.025 per L (convert to unit of mu1)
 			double scale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(scale));
 
 			// Gravity		- from 	6.170 Final Project  Gizmoball
-			int gravity = 25;		// 25L per second
-			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));		// 25L
+			int gravity = 25 * L;		// 25L per second, converted to pixels per second
+			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 			cd = timeUntilCollision();
 			double tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
@@ -85,8 +85,8 @@ public class Model extends Observable {
 
 		double newX = 0.0;
 		double newY = 0.0;
-		double xVel = ball.getVelo().x() * L;
-		double yVel = ball.getVelo().y() * L;
+		double xVel = ball.getVelo().x();
+		double yVel = ball.getVelo().y();
 		newX = ball.getExactX() + (xVel * time);
 		newY = ball.getExactY() + (yVel * time);
 		ball.setExactX(newX);
@@ -99,7 +99,7 @@ public class Model extends Observable {
 		// speed vector.
 		// Create a physics.Circle from Ball
 		Circle ballCircle = ball.getCircle();
-		Vect ballVelocity = ball.getVelo().times(20);
+		Vect ballVelocity = ball.getVelo();
 		Vect newVelo = new Vect(0, 0);
 
 		// Now find shortest time to hit a vertical line or a wall line
@@ -120,12 +120,25 @@ public class Model extends Observable {
 
 		// Time to collide with any absorbers
 		Set<LineSegment> curAbsorberLSS;
+		Set<Circle> curAbsorberCS;
 		
 		for (Absorber abs : absorbers) {
+			// handle all Lines from Absorber
 			curAbsorberLSS = abs.getLineSeg();
 			
 			for (LineSegment ls : curAbsorberLSS) {
 				time = Geometry.timeUntilWallCollision(ls, ballCircle, ballVelocity);		
+				if (time < shortestTime) {
+					shortestTime = time;
+					collider = abs;
+				}
+			}
+			
+			// handle all Circles from Absorber
+			curAbsorberCS = abs.getCircles();
+			
+			for (Circle circle : curAbsorberCS) {
+				time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);		
 				if (time < shortestTime) {
 					shortestTime = time;
 					collider = abs;

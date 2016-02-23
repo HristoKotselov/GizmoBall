@@ -1,12 +1,11 @@
 package Absorber;
 
 import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
 
 import physics.Angle;
+import physics.Circle;
 import physics.LineSegment;
 import physics.Vect;
 
@@ -15,7 +14,7 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 	private int width;
 	/** The amount of height this absorber takes up in the board (in pixel). Absorber will always at least take up 1L*1L worth of space    **/
 	private int height;
-	/** A list of Line Segments around the edge of the absorber, which will act as the collision detector with a ball **/
+	/** A set of Line Segments around the edge of the absorber, which will act as the collision detector with a ball **/
 	private Set<LineSegment> ls;
 	/** The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null. */
 	private Ball capturedBall;
@@ -30,28 +29,44 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 		capturedBall = null;
 		
 		ls = new HashSet<LineSegment>();
-		createLineSeg();
-		// no need for this in the prototype:		setHeight( );
-		// no need for this in the prototype:		 setWidth( );
+		setupLineSeg();
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public Shape getShape() {
-		return new Rectangle(getWidth(), getHeight());
 	}
 
 	@Override
 	public void triggerAction() {
 		if(capturedBall != null){		// no ball in absorber = nothing happens
 			capturedBall.start();
-			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50 is in L due to the way the gravity/friction have been handled
-			capturedBall.setVelo(new Vect(Angle.DEG_270, 50));
+			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50L is the length, thus it is converted to pixels here
+			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * Model.L));
 		}
 
 	}
 	
+	@Override
+	protected void setupDrawingShape() {
+		// TODO Auto-generated method stub
+
+	}
+	
 	/* Absorber's collision detector methods */
+	@Override
+	protected void setupCircles() {
+		int lCorner_X = getX();
+		int rCorner_X = getX() + getWidth();
+		int tCorner_Y = getY();
+		int bCorner_Y = getY() + getHeight();
+		
+		Circle tlCorner = new Circle(lCorner_X, tCorner_Y, 0.0);
+		Circle trCorner = new Circle(rCorner_X, tCorner_Y, 0.0);
+		Circle brCorner = new Circle(rCorner_X, bCorner_Y, 0.0);
+		Circle blCorner = new Circle(lCorner_X, bCorner_Y, 0.0);
+		
+		circleSet.add(tlCorner);
+		circleSet.add(trCorner);
+		circleSet.add(brCorner);
+		circleSet.add(blCorner);
+	}
 	
 	/**
 	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should
@@ -59,9 +74,9 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 	 * @modify this
 	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects
 	 */
-	private void createLineSeg() {
+	private void setupLineSeg() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + getWidth();;
+		int rCorner_X = getX() + getWidth();
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + getHeight();
 		

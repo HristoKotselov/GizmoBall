@@ -2,6 +2,11 @@ package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.util.HashSet;
+import java.util.Set;
+
+import physics.Circle;
+import physics.LineSegment;
 
 abstract public class AGizmoComponent {
 
@@ -19,6 +24,11 @@ abstract public class AGizmoComponent {
 	/** Whether the Gizmo is visible on the board or not */
 	private boolean visibility;
 	
+	/** The visual representation of the Gizmo. Used by drawing code to determine what a Gizmo will look like on screen **/
+	protected Shape drawingShape;
+	/** A set of Circles belonging to this Gizmo. They act as collision detectors with a ball **/
+	protected Set<Circle> circleSet;
+	
 	/* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes)
 	 * or will be modified in the constructor of sub-classes */
 	/** The angle of rotation of a Gizmo. In this project, the default position of a Gizmo component is treated as 0; with
@@ -30,6 +40,9 @@ abstract public class AGizmoComponent {
 		xpos = x;
 		ypos = y;
 		this.colour = color;
+		
+		setupDrawingShape();
+		circleSet = new HashSet<Circle>();
 
 		// Default settings
 		visibility = true;
@@ -42,13 +55,30 @@ abstract public class AGizmoComponent {
 	 * @modify this
 	 * @effect varies with each Gizmo component; see individual class
 	 */
-	public abstract void triggerAction();
-
+	abstract public void triggerAction();
+	
 	/**
-	 * TODO Don't need to use this method in the Absorber demo!
-	 * @return
+	 * The setup of the Shape implementation: used to specify how the Gizmo's outline will look on the board
+	 * @modify this
+	 * @effect Setup the Shape (drawingShape)
 	 */
-	public abstract Shape getShape();
+	abstract protected void setupDrawingShape();
+
+	public Shape getDrawingShape(){
+		return drawingShape;
+	}
+	
+	/**
+	 * The setup of the Circle collection. Circle is a Physics class used for collision detection, and is needed
+	 * for proper corner Line Segment detection. Gizmo components should set up their Circle objects here.
+	 * @modify this
+	 * @effect Fill the collection (circleSet) which hold all the Circles in this class with appropriate objects
+	 */
+	abstract protected void setupCircles();
+	
+	public Set<Circle> getCircles(){
+		return circleSet;
+	}
 
 	public String getGizmoID() {
 		return gizmoID;
