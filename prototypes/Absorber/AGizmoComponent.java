@@ -2,9 +2,11 @@ package Absorber;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.util.HashSet;
 import java.util.Set;
 
 import physics.Circle;
+import physics.LineSegment;
 
 abstract public class AGizmoComponent {
 
@@ -38,6 +40,9 @@ abstract public class AGizmoComponent {
 		xpos = x;
 		ypos = y;
 		this.colour = color;
+		
+		setupDrawingShape();
+		circleSet = new HashSet<Circle>();
 
 		// Default settings
 		visibility = true;

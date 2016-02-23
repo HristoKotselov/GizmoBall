@@ -30,8 +30,6 @@ public class Absorber extends AGizmoComponent implements ILineSegmentCollider{
 		
 		ls = new HashSet<LineSegment>();
 		setupLineSeg();
-		// no need for this in the prototype:		setHeight( );
-		// no need for this in the prototype:		 setWidth( );
 		// TODO Auto-generated constructor stub
 	}
 

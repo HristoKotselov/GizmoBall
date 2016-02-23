@@ -120,8 +120,10 @@ public class Model extends Observable {
 
 		// Time to collide with any absorbers
 		Set<LineSegment> curAbsorberLSS;
+		Set<Circle> curAbsorberCS;
 		
 		for (Absorber abs : absorbers) {
+			// handle all Lines from Absorber
 			curAbsorberLSS = abs.getLineSeg();
 			
 			for (LineSegment ls : curAbsorberLSS) {
@@ -132,7 +134,16 @@ public class Model extends Observable {
 				}
 			}
 			
-			TO ADD CIRCLES
+			// handle all Circles from Absorber
+			curAbsorberCS = abs.getCircles();
+			
+			for (Circle circle : curAbsorberCS) {
+				time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);		
+				if (time < shortestTime) {
+					shortestTime = time;
+					collider = abs;
+				}
+			}
 		}
 				
 		return new CollisionDetails(shortestTime, newVelo, ball, collider);
