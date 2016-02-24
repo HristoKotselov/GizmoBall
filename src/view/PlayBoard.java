@@ -6,6 +6,8 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import model.IMainEngine;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -14,6 +16,8 @@ import javax.swing.BorderFactory;
 public class PlayBoard implements IBoard, Observer {
 
 	private JPanel gameBoard;
+
+	private IMainEngine model;
 
 	public void initialize() {
 		//start of right panel (the game panel)

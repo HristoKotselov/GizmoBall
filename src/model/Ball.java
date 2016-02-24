@@ -34,9 +34,15 @@ public class Ball extends AGizmoComponent {
 	}
 
 	@Override
-	public Shape getShape() {
+	protected void setupDrawingShape() {
 		// TODO Auto-generated method stub
-		return null;
+
+	}
+
+	@Override
+	protected void setupCircles() {
+		// TODO Auto-generated method stub
+
 	}
 
 	/* Ball specific methods that deal with double precision. */
@@ -84,4 +90,5 @@ public class Ball extends AGizmoComponent {
 		return new Circle(preciseXPos, preciseYPos, radius);
 
 	}
+
 }

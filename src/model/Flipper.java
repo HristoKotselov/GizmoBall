@@ -2,12 +2,14 @@ package model;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.util.Set;
 
-public class Flipper extends AGizmoComponent {
+import physics.LineSegment;
 
-	public Flipper(String name, int x, int y, Color color) {
-		super(name, x, y, color);
-		setTriggeredColour(color);
+public class Flipper extends AGizmoComponent implements ILineSegmentCollider {
+
+	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color) {
+		super(name, grid_tile_x, grid_tile_y, color);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,7 +20,19 @@ public class Flipper extends AGizmoComponent {
 	}
 
 	@Override
-	public Shape getShape() {
+	protected void setupDrawingShape() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setupCircles() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Set<LineSegment> getLineSeg() {
 		// TODO Auto-generated method stub
 		return null;
 	}
