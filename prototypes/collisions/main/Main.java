@@ -1,12 +1,12 @@
-package main;
+package collisions.main;
 
 import javax.swing.UIManager;
-import model.Model;
-import model.SquareBumper;
-import model.TriangleBumper;
-import model.CircleBumper;
-import model.HorizontalLine;
-import view.RunGui;
+import collisions.model.Model;
+import collisions.model.SquareBumper;
+import collisions.model.TriangleBumper;
+import collisions.model.CircleBumper;
+import collisions.model.HorizontalLine;
+import collisions.view.RunGui;
 
 /**
  * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014

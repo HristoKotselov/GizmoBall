@@ -1,4 +1,4 @@
-package view;
+package collisions.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,12 +9,12 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import model.Ball;
-import model.CircleBumper;
-import model.Model;
-import model.SquareBumper;
-import model.TriangleBumper;
-import model.HorizontalLine;
+import collisions.model.Ball;
+import collisions.model.CircleBumper;
+import collisions.model.Model;
+import collisions.model.SquareBumper;
+import collisions.model.TriangleBumper;
+import collisions.model.HorizontalLine;
 
 /**
  * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014
