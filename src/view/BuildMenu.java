@@ -19,9 +19,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 
+import model.IMainEngine;
+
 public class BuildMenu implements IMenu {
 
 	private JPanel buttonMenu;
+
+	private IMainEngine model;
 
 	/**
 	 * Initialize the contents of the frame.

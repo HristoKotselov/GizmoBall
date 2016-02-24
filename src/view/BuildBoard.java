@@ -9,9 +9,13 @@ import java.util.Observer;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import model.IMainEngine;
+
 public class BuildBoard implements IBoard, Observer {
 
 	private JPanel gameBoard;
+
+	private IMainEngine model;
 
 	public void initialize() {
 		//start of right panel (the game panel)

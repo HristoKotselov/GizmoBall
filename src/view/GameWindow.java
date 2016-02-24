@@ -21,7 +21,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 
 public class GameWindow implements IGameWindow {
-	private MainEngine model;
 	private JFrame window1, window2;
 	private IMenu buildmenu, playmenu;
 	private IBoard buildboard, playboard;
@@ -50,7 +49,7 @@ public class GameWindow implements IGameWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 720, 600);
