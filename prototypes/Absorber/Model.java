@@ -61,15 +61,17 @@ public class Model extends Observable {
 				ball = movelBallForTime(ball, moveTime);
 			} else {
 				// We've got a collision in tuc
+				ball = movelBallForTime(ball, tuc);
 				
 				if(cd.getCollider() instanceof Absorber){		// special collision (with Absorber)
-					// if ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside
-					if(!SpecialCollisionHandler.handleAbsorberColi(cd)){		
+					/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
+					 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
+					 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure by exploiting the fact that if the 1st condition isn't true, the 2nd condition is not evaluated	*/	
+					if(tuc == 0 && !SpecialCollisionHandler.handleAbsorberColi(cd)){		// tuc == 0 occur when the Ball is directly in contact the Line Segment
 						ball = movelBallForTime(ball, moveTime);
 					}
 				}
 				else{		// procedures for a normal collision
-					ball = movelBallForTime(ball, tuc);
 					// Post collision velocity ...
 					ball.setVelo(cd.getVelo());
 				}
