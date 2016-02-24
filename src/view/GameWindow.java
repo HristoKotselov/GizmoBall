@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.JFrame;
 
+import model.IMainEngine;
 import model.MainEngine;
 import java.awt.Button;
 import java.awt.Color;
@@ -20,8 +21,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 
+import controller.WindowListener;
+
 public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
+
 	private IMenu buildmenu, playmenu;
 	private IBoard buildboard, playboard;
 
