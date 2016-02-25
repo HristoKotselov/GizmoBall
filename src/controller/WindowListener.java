@@ -1,5 +1,7 @@
 package controller;
-
+/**
+ * This class will listen out for button clicks througout the whole GUI window
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -1,7 +1,8 @@
 package view;
 
 import javax.swing.JFrame;
-
+import controller.SaveFileListener;
+import controller.LoadFileListener;
 import model.IMainEngine;
 import model.MainEngine;
 import java.awt.Button;
@@ -13,7 +14,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -28,7 +28,9 @@ public class GameWindow implements IGameWindow {
 
 	private IMenu buildmenu, playmenu;
 	private IBoard buildboard, playboard;
-
+	private LoadFileListener loadlis;
+	private SaveFileListener savlis;
+	private IMainEngine m;
 	/* other GUI components */
 	private PlayBoard gameBoard;
 	private BuildBoard buildBoard;
@@ -54,7 +56,8 @@ public class GameWindow implements IGameWindow {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
-
+		loadlis = new LoadFileListener(m);
+		savlis = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 720, 600);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,9 +70,13 @@ public class GameWindow implements IGameWindow {
 		menuBar.add(mnFolio);
 
 		JMenuItem mntmOpen = new JMenuItem("Load");
+		mntmOpen.setActionCommand("load");
+		mntmOpen.addActionListener(loadlis);
 		mnFolio.add(mntmOpen);
 
 		JMenuItem mntmSave = new JMenuItem("Save");
+		mntmSave.setActionCommand("save");
+		mntmSave.addActionListener(savlis);
 		mnFolio.add(mntmSave);
 
 		JSeparator separator = new JSeparator();
