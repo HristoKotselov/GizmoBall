@@ -10,7 +10,7 @@ public class PrototypeTesting {
 
 	@Test
 	public void test() {
-		//RunGui g = new RunGui();
+		System.out.println("test");
 	}
 
 }

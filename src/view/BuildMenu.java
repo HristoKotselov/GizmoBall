@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import controller.WindowListener;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -26,12 +27,14 @@ public class BuildMenu implements IMenu {
 	private JPanel buttonMenu;
 
 	private IMainEngine model;
+	private WindowListener wdolis;
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
 
+		wdolis = new WindowListener(model);
 		buttonMenu = new JPanel();
 		buttonMenu.setPreferredSize(new Dimension(170, 500));
 		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
@@ -43,21 +46,68 @@ public class BuildMenu implements IMenu {
 		//JButton triangle = new JButton("Add a trangle");
 		//JButton circle = new JButton("Add a circle");
 		JButton addBall = new JButton("Add Ball");
+		addBall.setActionCommand("addBall");
+		addBall.addActionListener(wdolis);
+		
 		JButton setBallSpeed = new JButton("Set Ball speed");
+		setBallSpeed.setActionCommand("setBallSpeed");
+		setBallSpeed.addActionListener(wdolis);
+		
 		JButton setFriction = new JButton("Set Friction");
+		setFriction.setActionCommand("setFriction");
+		setFriction.addActionListener(wdolis);
+		
 		JButton setGravity = new JButton("Set Gravity");
+		setGravity.setActionCommand("setGravity");
+		setGravity.addActionListener(wdolis);
+		
 		JButton absorber = new JButton("Add absorber");
+		absorber.setActionCommand("absorber");
+		absorber.addActionListener(wdolis);
+		
 		JButton connect = new JButton("Connect gizmos");
-		JButton disconnect = new JButton("Disconnect gismoz");
+		connect.setActionCommand("connect");
+		connect.addActionListener(wdolis);
+		
+		JButton disconnect = new JButton("Disconnect gismos");
+		disconnect.setActionCommand("disconnect");
+		disconnect.addActionListener(wdolis);
+		
 		JButton keyPress = new JButton("Connect key");
+		keyPress.setActionCommand("keyPress");
+		keyPress.addActionListener(wdolis);
+		
 		JButton keyDisconnect = new JButton("Disconnect key");
+		keyDisconnect.setActionCommand("keyDisconnect");
+		keyDisconnect.addActionListener(wdolis);
+		
 		JButton delete = new JButton("Delete gizmo");
+		delete.setActionCommand("delete");
+		delete.addActionListener(wdolis);
+		
 		JButton rotate = new JButton("Rotate gizmo");
+		rotate.setActionCommand("rotate");
+		rotate.addActionListener(wdolis);
+		
 		JButton undo = new JButton("Undo");
+		undo.setActionCommand("undo");
+		undo.addActionListener(wdolis);
+		
 		JButton redo = new JButton("Redo");
+		redo.setActionCommand("redo");
+		redo.addActionListener(wdolis);
+		
 		JButton reload = new JButton("Reload Board");
+		reload.setActionCommand("reloadBoard");
+		reload.addActionListener(wdolis);
+		
 		JButton clear = new JButton("Clear Board");
+		clear.setActionCommand("clear");
+		clear.addActionListener(wdolis);
+		
 		JButton play = new JButton("Play");
+		play.setActionCommand("play");
+		play.addActionListener(wdolis);
 
 		JLabel label = new JLabel("  Choose a gizmo to add:");
 		label.setFont(new Font("Arial", 1, 13));

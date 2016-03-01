@@ -1585,6 +1585,9 @@
       <modelElement href="Gizmo%20Ball.uml#_NTg8cNqNEeW7l6s7iyoCaQ"/>
       <visualProperties xmi:id="_UturQ9qNEeW7l6s7iyoCaQ" position="0.9999999999995453,7.0"/>
       <stereotypes xmi:id="_NV6wMNqNEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_pyPFINtkEeWbD-vxUneaCw" name="LegacyStyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_NTg8cdqNEeW7l6s7iyoCaQ"/>
+      </stereotypes>
       <visibility xmi:id="_NV5iFtqNEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_NV5iF9qNEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
     </targetRole>
@@ -1608,6 +1611,9 @@
       <modelElement href="Gizmo%20Ball.uml#_PYBx4NqNEeW7l6s7iyoCaQ"/>
       <visualProperties xmi:id="_UttdIdqNEeW7l6s7iyoCaQ" position="-131.9999999999999,-56.0"/>
       <stereotypes xmi:id="_PZZD0NqNEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_pyRhYNtkEeWbD-vxUneaCw" name="LegacyStyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_PYBx4dqNEeW7l6s7iyoCaQ"/>
+      </stereotypes>
       <visibility xmi:id="_PZX1t9qNEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_PZX1uNqNEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
     </targetRole>
@@ -1628,6 +1634,9 @@
     <targetRole xmi:id="_NQOlptqSEeW7l6s7iyoCaQ" aggregationKind="NONE" name="model" navigable="true">
       <modelElement href="Gizmo%20Ball.uml#_NNy8sNqSEeW7l6s7iyoCaQ"/>
       <stereotypes xmi:id="_NQQa0NqSEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_pySIcNtkEeWbD-vxUneaCw" name="LegacyStyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_NNy8sdqSEeW7l6s7iyoCaQ"/>
+      </stereotypes>
       <visibility xmi:id="_NQOlp9qSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_NQOlqNqSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
     </targetRole>
@@ -1648,6 +1657,9 @@
     <targetRole xmi:id="_QjzPNtqSEeW7l6s7iyoCaQ" aggregationKind="NONE" name="model" navigable="true">
       <modelElement href="Gizmo%20Ball.uml#_Qig1wNqSEeW7l6s7iyoCaQ"/>
       <stereotypes xmi:id="_Qj0dUNqSEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_pyTWkNtkEeWbD-vxUneaCw" name="LegacyStyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_Qig1wdqSEeW7l6s7iyoCaQ"/>
+      </stereotypes>
       <visibility xmi:id="_QjzPN9qSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_QjzPONqSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
     </targetRole>
@@ -1666,6 +1678,9 @@
     <targetRole xmi:id="_RYA6ZtqSEeW7l6s7iyoCaQ" aggregationKind="NONE" name="model" navigable="true">
       <modelElement href="Gizmo%20Ball.uml#_RWPYwNqSEeW7l6s7iyoCaQ"/>
       <stereotypes xmi:id="_RYCIgNqSEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_pyUksNtkEeWbD-vxUneaCw" name="LegacyStyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_RWP_0NqSEeW7l6s7iyoCaQ"/>
+      </stereotypes>
       <visibility xmi:id="_RYA6Z9qSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_RYA6aNqSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
     </targetRole>
@@ -1931,6 +1946,9 @@
       <stereotypes xmi:id="_cRFr0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRGS4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRoeYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6LgMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6MHQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6gQUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_U2TYQtpoEeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_U2TYQ9poEeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_U2TYRNpoEeWelou951FNPg" name="Ball">
@@ -1942,6 +1960,9 @@
       <stereotypes xmi:id="_cRG58NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRHhANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRoeYdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6MuUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6NVYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6g3YNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_U2TYR9poEeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_U2TYSNpoEeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_U2TYSdpoEeWelou951FNPg" name="AGizmoComponent">
@@ -2063,6 +2084,9 @@
       <stereotypes xmi:id="_cQ2bQNqJEeW7l6s7iyoCaQ" name="StyledElement"/>
       <stereotypes xmi:id="_cQ4QcNqJEeW7l6s7iyoCaQ" name="StyledElement"/>
       <stereotypes xmi:id="_cRpFcNqJEeW7l6s7iyoCaQ" name="StyledElement"/>
+      <stereotypes xmi:id="_p5-E0NtkEeWbD-vxUneaCw" name="StyledElement"/>
+      <stereotypes xmi:id="_p5_6ANtkEeWbD-vxUneaCw" name="StyledElement"/>
+      <stereotypes xmi:id="_p6iFgNtkEeWbD-vxUneaCw" name="StyledElement"/>
       <visibility xmi:id="_bGXSWs9KEeWD9JA5XZkC8g" label="+"/>
       <cardinality xmi:id="_bGXSW89KEeWD9JA5XZkC8g" label="1" max="1" min="1"/>
       <type xmi:id="_bGXSXM9KEeWD9JA5XZkC8g" name="Color">
@@ -2574,6 +2598,9 @@
       <stereotypes xmi:id="_cP8cUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cP9qcNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRtW4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5FUANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5HJMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6lv4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PRQNhcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PRQNhsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PRQNh8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -2793,6 +2820,9 @@
       <stereotypes xmi:id="_cQtRUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQvtkNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRzdgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p50T0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p52JANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6ozMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_WXb7JcoSEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_WXb7JsoSEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_WXb7J8oSEeWsA83iBWrPKA" name="JPanel">
@@ -2861,6 +2891,9 @@
       <stereotypes xmi:id="_cQpm8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQrcINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cR15wNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5u0QNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5xQgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6r2gNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_WXQ8CcoSEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_WXQ8CsoSEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_WXQ8C8oSEeWsA83iBWrPKA" name="JPanel">
@@ -2869,9 +2902,9 @@
     </attributes>
     <attributes xmi:id="_RYBhcNqSEeW7l6s7iyoCaQ" name="model">
       <modelElement href="Gizmo%20Ball.uml#_RWPYwNqSEeW7l6s7iyoCaQ"/>
-      <stereotypes xmi:id="_RYBhcdqSEeW7l6s7iyoCaQ" name="LegacyStyledElement">
-        <modelElement href="Gizmo%20Ball.uml#_RWP_0NqSEeW7l6s7iyoCaQ"/>
-      </stereotypes>
+      <stereotypes xmi:id="_p6ebINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6fCMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6u50NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_RYBhctqSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_RYBhc9qSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
       <type xmi:id="_RYBhdNqSEeW7l6s7iyoCaQ" name="IMainEngine">
@@ -2962,6 +2995,9 @@
       <stereotypes xmi:id="_cPr9oNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cPuZ4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSRXkNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4xyANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p401UNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6wH8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_EnplQsmGEeWJ3ZYnwbU2iQ" label="-"/>
       <cardinality xmi:id="_EnplQ8mGEeWJ3ZYnwbU2iQ" label="1" max="1" min="1"/>
       <type xmi:id="_EnplRMmGEeWJ3ZYnwbU2iQ" name="JPanel">
@@ -2970,9 +3006,9 @@
     </attributes>
     <attributes xmi:id="_NQOlqdqSEeW7l6s7iyoCaQ" name="model">
       <modelElement href="Gizmo%20Ball.uml#_NNy8sNqSEeW7l6s7iyoCaQ"/>
-      <stereotypes xmi:id="_NQOlqtqSEeW7l6s7iyoCaQ" name="LegacyStyledElement">
-        <modelElement href="Gizmo%20Ball.uml#_NNy8sdqSEeW7l6s7iyoCaQ"/>
-      </stereotypes>
+      <stereotypes xmi:id="_p6b-4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6cl8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6zLQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_NQOlq9qSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_NQOlrNqSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
       <type xmi:id="_NQOlrdqSEeW7l6s7iyoCaQ" name="IMainEngine">
@@ -3085,6 +3121,9 @@
       <stereotypes xmi:id="_cPwPENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cPzSYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSTz0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p44fsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4678NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6zyUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_5s7kIsmFEeWJ3ZYnwbU2iQ" label="-"/>
       <cardinality xmi:id="_5s7kI8mFEeWJ3ZYnwbU2iQ" label="1" max="1" min="1"/>
       <type xmi:id="_C9Zp8MmGEeWJ3ZYnwbU2iQ" name="JPanel">
@@ -3093,9 +3132,9 @@
     </attributes>
     <attributes xmi:id="_QjzPOdqSEeW7l6s7iyoCaQ" name="model">
       <modelElement href="Gizmo%20Ball.uml#_Qig1wNqSEeW7l6s7iyoCaQ"/>
-      <stereotypes xmi:id="_QjzPOtqSEeW7l6s7iyoCaQ" name="LegacyStyledElement">
-        <modelElement href="Gizmo%20Ball.uml#_Qig1wdqSEeW7l6s7iyoCaQ"/>
-      </stereotypes>
+      <stereotypes xmi:id="_p6dNANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6d0ENtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p62OkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_QjzPO9qSEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_QjzPPNqSEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
       <type xmi:id="_QjzPPdqSEeW7l6s7iyoCaQ" name="IMainEngine">
@@ -3166,6 +3205,9 @@
       <stereotypes xmi:id="_cRQq8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRRSANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSW3INqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6WfUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6WfUdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p621oNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_5i7v69p2EeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_5i7v7Np2EeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_5i7v7dp2EeWelou951FNPg" name="MainEngine">
@@ -3266,6 +3308,9 @@
       <stereotypes xmi:id="_cRIIENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRIvINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSXeMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6N8cNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6OjgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p63csNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_xmc3-9pqEeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_xmc3_NpqEeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_xmc3_dpqEeWelou951FNPg" name="MainEngine">
@@ -3334,6 +3379,12 @@
       <stereotypes xmi:id="_cRLLYdqJEeW7l6s7iyoCaQ" name="Generics"/>
       <stereotypes xmi:id="_cSYFQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSYFQdqJEeW7l6s7iyoCaQ" name="Generics"/>
+      <stereotypes xmi:id="_p6PxoNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6PxodtkEeWbD-vxUneaCw" name="Generics"/>
+      <stereotypes xmi:id="_p6Q_wNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6Rm0NtkEeWbD-vxUneaCw" name="Generics"/>
+      <stereotypes xmi:id="_p64DwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p64DwdtkEeWbD-vxUneaCw" name="Generics"/>
       <visibility xmi:id="_sGlOn9ptEeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_sGlOoNptEeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_PIGJMNpxEeWelou951FNPg" name="List">
@@ -3348,6 +3399,12 @@
       <stereotypes xmi:id="_cRQD4dqJEeW7l6s7iyoCaQ" name="Generics"/>
       <stereotypes xmi:id="_cSYsUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSYsUdqJEeW7l6s7iyoCaQ" name="Generics"/>
+      <stereotypes xmi:id="_p6S08NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6TcANtkEeWbD-vxUneaCw" name="Generics"/>
+      <stereotypes xmi:id="_p6UqINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6VRMNtkEeWbD-vxUneaCw" name="Generics"/>
+      <stereotypes xmi:id="_p65R4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6548NtkEeWbD-vxUneaCw" name="Generics"/>
       <visibility xmi:id="_sGlOpNptEeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_sGlOpdptEeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_PIg_8NpxEeWelou951FNPg" name="List">
@@ -3558,6 +3615,9 @@
       <stereotypes xmi:id="_cNHKwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNMDQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSZTYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2O0UNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2TFwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p66gANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_yejgdcR4EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_yejgdsR4EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_0JCyoMomEeWI07Wu9tqfCA" name="KeyListener">
@@ -3767,6 +3827,9 @@
       <stereotypes xmi:id="_cQDKANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQE_MNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSbIkNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5N24NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5PsENtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p688QNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PRsSZcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PRsSZsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PRsSZ8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -4015,6 +4078,9 @@
       <stereotypes xmi:id="_cP_foNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQBU0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cShPMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5I-YNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5KzkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7AmoNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PRW7NcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PRW7NsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PRW7N8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -4199,6 +4265,9 @@
       <stereotypes xmi:id="_cNeXINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNgzYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSidUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2rgQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2vxsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7DC4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_yfAzdcR4EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_yfAzdsR4EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_yfAzd8R4EeW_3q3XSh-SYw" name="KeyEvent">
@@ -4281,6 +4350,9 @@
       <stereotypes xmi:id="_cNPtoNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNSJ4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSkSgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2X-QNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2cPsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7FfINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_yezYGMR4EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_yezYGcR4EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_yezYGsR4EeW_3q3XSh-SYw" name="KeyEvent">
@@ -4363,6 +4435,9 @@
       <stereotypes xmi:id="_cNWbUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNbT0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSmHsNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2ghINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p2mAsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7HUUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_ye5etcR4EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_ye5etsR4EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_ye5et8R4EeW_3q3XSh-SYw" name="KeyEvent">
@@ -4439,6 +4514,9 @@
       <stereotypes xmi:id="_cQZvUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQdZsNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSqZINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5hY4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5j1INtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7JJgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PSJlZcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PSJlZsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PSJlZ8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -4509,6 +4587,9 @@
       <stereotypes xmi:id="_cQICgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQLF0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSs1YNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5RhQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5TWcNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7K-sNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PRyZBcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PRyZBsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PRyZB8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -4621,6 +4702,9 @@
       <stereotypes xmi:id="_cRD2oNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cREdsNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSuqkNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6JrANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6KSENtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7Mz4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_oAaOyto-EeWZSOZzoCHXcg" label="-"/>
       <cardinality xmi:id="_oAaOy9o-EeWZSOZzoCHXcg" label="1..*" max="-1" min="1"/>
       <type xmi:id="_oAaOzNo-EeWZSOZzoCHXcg" name="LineSegment">
@@ -4820,6 +4904,9 @@
       <stereotypes xmi:id="_cQ7TwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQ8h4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSvRoNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6BvMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6DkYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7OCANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_Haybws-bEeWOGvD12nE26A" label="-"/>
       <cardinality xmi:id="_Haybw8-bEeWOGvD12nE26A" label="1" max="1" min="1"/>
       <type xmi:id="_HaybxM-bEeWOGvD12nE26A" name="Vect">
@@ -5197,6 +5284,9 @@
       <stereotypes xmi:id="_cQlVgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQnKsNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSwfwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5p7wNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5sYANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7PQINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PSQ6JcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PSQ6JsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_5UicoNp4EeWelou951FNPg" name="IMainEngine">
@@ -5267,6 +5357,9 @@
       <stereotypes xmi:id="_cP4K4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cP6AENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSyU8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5BCkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5De0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7RFUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PRHqpcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PRHqpsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PRHqp8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -5445,6 +5538,9 @@
       <stereotypes xmi:id="_cQM7ANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQOwMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cS0KINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5VLoNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5XA0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7ThkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PR8xFcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PR8xFsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PR8xF8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -5707,6 +5803,9 @@
       <stereotypes xmi:id="_cNuOwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNygMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRTuQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p29NENtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3AQYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7VWwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_Qm0Uh8R5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_Qm0UiMR5EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_Qm0UicR5EeW_3q3XSh-SYw" name="Ball">
@@ -5760,6 +5859,9 @@
       <stereotypes xmi:id="_cNlE0NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cNpWQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRVjcNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p21RQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p26JwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7XL8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_Qm0UjMR5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_Qm0UjcR5EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_Qm0UjsR5EeW_3q3XSh-SYw" name="Walls">
@@ -5813,6 +5915,9 @@
       <stereotypes xmi:id="_cN1jgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cN508NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRX_sNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3DTsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3Fv8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7ZoMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_n2ITy8R5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_n2ITzMR5EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_n2ITzcR5EeW_3q3XSh-SYw" name="CircularBumper">
@@ -5866,6 +5971,9 @@
       <stereotypes xmi:id="_cN8RMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cN-tcNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRZ04NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3IMMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3KocNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7crgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_4lsoa8R5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_4lsobMR5EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_4lsobcR5EeW_3q3XSh-SYw" name="SquareBumper">
@@ -5919,6 +6027,9 @@
       <stereotypes xmi:id="_cOBwwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cOE0ENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRcRINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3NEsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3QIANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7fHwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_4lsocMR5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_4lsoccR5EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_4lsocsR5EeW_3q3XSh-SYw" name="TriangularBumper">
@@ -5977,6 +6088,9 @@
       <stereotypes xmi:id="_cQ9wANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQ_lMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cReGUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6EygNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6GnsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7g88NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_-Dz268R5EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_-Dz27MR5EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_3phagNaBEeWiEYVNrmJsoQ" name="Flipper">
@@ -6030,6 +6144,9 @@
       <stereotypes xmi:id="_cOH3YNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cOMv4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRgikNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3SkQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3VnkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7jZMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_YCete8R8EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_YCetfMR8EeW_3q3XSh-SYw" label="1..*" max="-1" min="1"/>
       <type xmi:id="_YCetfcR8EeW_3q3XSh-SYw" name="Absorber">
@@ -6083,6 +6200,9 @@
       <stereotypes xmi:id="_cORoYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cOWg4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRjl4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3Z5ANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3cVQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7lOYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_64_ZUsR8EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_64_ZU8R8EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_64_ZVMR8EeW_3q3XSh-SYw" name="PhysicsConfig">
@@ -6136,6 +6256,9 @@
       <stereotypes xmi:id="_cOZkMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cObZYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRlbENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3f_oNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3jC8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7nqoNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_VDn6O8R9EeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_VDn6PMR9EeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_VDn6PcR9EeW_3q3XSh-SYw" name="Connections">
@@ -6158,6 +6281,9 @@
       <stereotypes xmi:id="_cRR5ENqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRR5EdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRnQQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6XGYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6XtcNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7qG4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_6_wdwtp3EeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_6_wdw9p3EeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_6_wdxNp3EeWelou951FNPg" name="CollisionHandler">
@@ -6169,6 +6295,9 @@
       <stereotypes xmi:id="_cRSgINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRTHMNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRn3UNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6YUgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6Y7kNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7qt8NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_6_wdx9p3EeWelou951FNPg" label="-"/>
       <cardinality xmi:id="_6_wdyNp3EeWelou951FNPg" label="1" max="1" min="1"/>
       <type xmi:id="_6_wdydp3EeWelou951FNPg" name="SaveDataEngine">
@@ -6516,6 +6645,9 @@
       <stereotypes xmi:id="_cQfO4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQhrINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSoj8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5lqUNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5nfgNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7rVANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PSMousoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PSMou8oQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PSMovMoQEeWsA83iBWrPKA" name="IMainEngine">
@@ -6586,6 +6718,9 @@
       <stereotypes xmi:id="_cQxiwNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQzX8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRxoUNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p54lQNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p56acNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7tKMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_QEK7a8oUEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_QEK7bMoUEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_QEK7bcoUEeWsA83iBWrPKA" name="IMainEngine">
@@ -6594,9 +6729,9 @@
     </attributes>
     <attributes xmi:id="_PZX1udqNEeW7l6s7iyoCaQ" name="dataEngine">
       <modelElement href="Gizmo%20Ball.uml#_PYBx4NqNEeW7l6s7iyoCaQ"/>
-      <stereotypes xmi:id="_PZX1utqNEeW7l6s7iyoCaQ" name="LegacyStyledElement">
-        <modelElement href="Gizmo%20Ball.uml#_PYBx4dqNEeW7l6s7iyoCaQ"/>
-      </stereotypes>
+      <stereotypes xmi:id="_p6awwdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6bX0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7u_YNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PZX1u9qNEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_PZX1vNqNEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
       <type xmi:id="_PZX1vdqNEeW7l6s7iyoCaQ" name="ISaveDataEngine">
@@ -6667,6 +6802,9 @@
       <stereotypes xmi:id="_cQU20NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQWsANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSeL4NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5cgYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5eVkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7u_YdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PSF7BcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PSF7BsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PSF7B8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -6737,6 +6875,9 @@
       <stereotypes xmi:id="_cQQlYNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cQSakNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSrnQNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5Y2ANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p5arMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7w0kNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PSCQpcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PSCQpsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PSCQp8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -6745,9 +6886,9 @@
     </attributes>
     <attributes xmi:id="_NV5iGNqNEeW7l6s7iyoCaQ" name="dataEngine">
       <modelElement href="Gizmo%20Ball.uml#_NTg8cNqNEeW7l6s7iyoCaQ"/>
-      <stereotypes xmi:id="_NV5iGdqNEeW7l6s7iyoCaQ" name="LegacyStyledElement">
-        <modelElement href="Gizmo%20Ball.uml#_NTg8cdqNEeW7l6s7iyoCaQ"/>
-      </stereotypes>
+      <stereotypes xmi:id="_p6aJsNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p6awwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7ypwNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_NV5iGtqNEeW7l6s7iyoCaQ" label="-"/>
       <cardinality xmi:id="_NV5iG9qNEeW7l6s7iyoCaQ" label="1" max="1" min="1"/>
       <type xmi:id="_NV5iHNqNEeW7l6s7iyoCaQ" name="ISaveDataEngine">
@@ -6841,6 +6982,9 @@
       <stereotypes xmi:id="_cP1HkNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cP28wNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cRvzINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p48xINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4_NYNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p7zQ0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_PQxsZcoQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_PQxsZsoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_PQxsZ8oQEeWsA83iBWrPKA" name="IMainEngine">
@@ -7050,6 +7194,9 @@
       <stereotypes xmi:id="_cOd1oNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cOhgANqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cR3u8NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3lfMNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3oigNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p71GANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_1IjdC8SCEeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_1IjdDMSCEeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_1IjdDcSCEeW_3q3XSh-SYw" name="PlayBoard">
@@ -7105,6 +7252,9 @@
       <stereotypes xmi:id="_cOj8QNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cOmYgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cR5kINqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3rl0NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3uCENtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p727MNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_1IjdEMSCEeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_1IjdEcSCEeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_1IjdEsSCEeW_3q3XSh-SYw" name="BuildBoard">
@@ -7203,6 +7353,12 @@
       <stereotypes xmi:id="_cPoTQdqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cR9OgNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cR9OgdqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4pPINtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4pPIdtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4tgkNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4uHoNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p75XcNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p75XcdtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
       <visibility xmi:id="_m9tScsSDEeW_3q3XSh-SYw" label="-"/>
       <cardinality xmi:id="_m9tSc8SDEeW_3q3XSh-SYw" label="1" max="1" min="1"/>
       <type xmi:id="_E4seQMoQEeWsA83iBWrPKA" name="JFrame">
@@ -7293,6 +7449,12 @@
       <stereotypes xmi:id="_cPXNgNqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cSA44NqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSBf8NqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4UfANtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4VGENtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4aloNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4bMsNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p78awNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p79B0NtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
       <visibility xmi:id="_Pgf-IsmGEeWJ3ZYnwbU2iQ" label="-"/>
       <cardinality xmi:id="_Pgf-I8mGEeWJ3ZYnwbU2iQ" label="1" max="1" min="1"/>
       <type xmi:id="_FPP9EMoQEeWsA83iBWrPKA" name="IMenu">
@@ -7379,6 +7541,12 @@
       <stereotypes xmi:id="_cO23MNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSEjQNqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cSEjQdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p3xFYNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p3xscNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p32k8NtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p32k8dtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p8AFINtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p8AFIdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_FKpJ48oQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_FKpJ5MoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_FKpJ5coQEeWsA83iBWrPKA" name="IMenu">
@@ -7465,6 +7633,12 @@
       <stereotypes xmi:id="_cPB2UNqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSHmkNqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cSHmkdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p38rkNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p38rkdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4CLINtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4CLIdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p8DvgNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p8DvgdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_FKpJ6coQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_FKpJ6soQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_FKpJ68oQEeWsA83iBWrPKA" name="IBoard">
@@ -7551,6 +7725,12 @@
       <stereotypes xmi:id="_cPMOYdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSLQ8NqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cSLQ8dqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4IRwNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4I40NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4OYYNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4O_cNtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p8Gy0NtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p8HZ4NtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_FKpJ78oQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_FKpJ8MoQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_FKpJ8coQEeWsA83iBWrPKA" name="JFrame">
@@ -7637,6 +7817,12 @@
       <stereotypes xmi:id="_cPg-gdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
       <stereotypes xmi:id="_cSOUQNqJEeW7l6s7iyoCaQ" name="MultiDeclaration"/>
       <stereotypes xmi:id="_cSOUQdqJEeW7l6s7iyoCaQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4gsQNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4gsQdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p4k9sNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p4k9sdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_p8KdMNtkEeWbD-vxUneaCw" name="MultiDeclaration"/>
+      <stereotypes xmi:id="_p8KdMdtkEeWbD-vxUneaCw" name="LegacyStyledElement"/>
       <visibility xmi:id="_FKpJ9coQEeWsA83iBWrPKA" label="-"/>
       <cardinality xmi:id="_FKpJ9soQEeWsA83iBWrPKA" label="1" max="1" min="1"/>
       <type xmi:id="_FKpJ98oQEeWsA83iBWrPKA" name="IBoard">

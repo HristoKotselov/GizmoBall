@@ -7,13 +7,18 @@ import model.IMainEngine;
 import model.ISaveDataEngine;
 
 public class LoadFileListener implements ActionListener {
-	private IMainEngine model;
+	private IMainEngine m;
 	private ISaveDataEngine dataEngine;
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
+	
+	public LoadFileListener(IMainEngine m) {
+		this.m = m;
 	}
 
-}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String actionCmd = e.getActionCommand();
+		if (actionCmd.equals("load")) {
+			//TODO load file
+	}
+
+}}
