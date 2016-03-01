@@ -1,4 +1,4 @@
-package Absorber;
+package absorber;
 
 import java.awt.AWTException;
 import java.awt.Robot;

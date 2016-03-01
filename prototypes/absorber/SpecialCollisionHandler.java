@@ -1,4 +1,4 @@
-package Absorber;
+package absorber;
 
 import physics.Angle;
 import physics.Vect;
