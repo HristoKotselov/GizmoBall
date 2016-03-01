@@ -7,10 +7,10 @@ import java.util.Set;
 import physics.Angle;
 import physics.LineSegment;
 
-public class TriangularBumper extends AGizmoComponent implements ILineSegmentCollider {
+public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollider {
 
 	public TriangularBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x, grid_tile_y, color);
+		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -8,6 +8,10 @@ import model.IMainEngine;
 public class UndoRedoListener implements ActionListener {
 	private IMainEngine model;
 
+	public UndoRedoListener(IMainEngine m) {
+		model = m;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

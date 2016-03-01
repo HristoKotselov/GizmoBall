@@ -7,11 +7,11 @@ import model.IMainEngine;
 import model.ISaveDataEngine;
 
 public class LoadFileListener implements ActionListener {
-	private IMainEngine m;
+	private IMainEngine model;
 	private ISaveDataEngine dataEngine;
-	
+
 	public LoadFileListener(IMainEngine m) {
-		this.m = m;
+		model = m;
 	}
 
 	@Override
@@ -19,6 +19,7 @@ public class LoadFileListener implements ActionListener {
 		String actionCmd = e.getActionCommand();
 		if (actionCmd.equals("load")) {
 			//TODO load file
-	}
+		}
 
-}}
+	}
+}

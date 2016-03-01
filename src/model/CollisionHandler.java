@@ -20,11 +20,11 @@ public class CollisionHandler {
 		Ball ball = cd.getBall();
 		Absorber absorber = (Absorber) cd.getCollider();
 
-		if (absorber.getCapturedBall() != ball
-				&& (ball.getExactY() < absorber.getY() || ball.getExactY() > absorber.getY() + absorber.getHeight())) { // i.e. first collision BEFORE ball enter Absorber
+		if (absorber.getCapturedBall() != ball && (ball.getPreciseY() < absorber.getY()
+				|| ball.getPreciseY() > absorber.getY() + absorber.getHeight())) { // i.e. first collision BEFORE ball enter Absorber
 			ball.stop();
-			ball.setExactX(absorber.getX() + absorber.getWidth() - (0.25 * MainEngine.L));
-			ball.setExactY(absorber.getY() + absorber.getHeight() - (0.25 * MainEngine.L));
+			ball.setPreciseX(absorber.getX() + absorber.getWidth() - (0.25 * MainEngine.L));
+			ball.setPreciseY(absorber.getY() + absorber.getHeight() - (0.25 * MainEngine.L));
 			absorber.setBall(ball);
 			return true;
 		} else { // i.e. second collision AFTER ball enter Absorber

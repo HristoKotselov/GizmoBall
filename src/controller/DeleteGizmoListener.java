@@ -8,6 +8,10 @@ import model.IMainEngine;
 public class DeleteGizmoListener implements MouseInputListener {
 	private IMainEngine model;
 
+	public DeleteGizmoListener(IMainEngine m) {
+		model = m;
+	}
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub

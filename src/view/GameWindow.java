@@ -28,8 +28,8 @@ public class GameWindow implements IGameWindow {
 
 	private IMenu buildmenu, playmenu;
 	private IBoard buildboard, playboard;
-	private LoadFileListener loadlis;
-	private SaveFileListener savlis;
+	private LoadFileListener loadFileAL;
+	private SaveFileListener saveFileAL;
 	private IMainEngine m;
 	/* other GUI components */
 	private PlayBoard gameBoard;
@@ -56,8 +56,8 @@ public class GameWindow implements IGameWindow {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
-		loadlis = new LoadFileListener(m);
-		savlis = new SaveFileListener(m);
+		loadFileAL = new LoadFileListener(m);
+		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 720, 600);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,12 +71,12 @@ public class GameWindow implements IGameWindow {
 
 		JMenuItem mntmOpen = new JMenuItem("Load");
 		mntmOpen.setActionCommand("load");
-		mntmOpen.addActionListener(loadlis);
+		mntmOpen.addActionListener(loadFileAL);
 		mnFolio.add(mntmOpen);
 
 		JMenuItem mntmSave = new JMenuItem("Save");
 		mntmSave.setActionCommand("save");
-		mntmSave.addActionListener(savlis);
+		mntmSave.addActionListener(saveFileAL);
 		mnFolio.add(mntmSave);
 
 		JSeparator separator = new JSeparator();
@@ -93,9 +93,6 @@ public class GameWindow implements IGameWindow {
 		// TODO
 		buildmenu = new BuildMenu();
 		buildboard = new BuildBoard();
-
-		buildmenu.initialize();
-		buildboard.initialize();
 
 		window1.add(buildmenu.getMenu());
 		window1.add(buildboard.getBoard());

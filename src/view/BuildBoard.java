@@ -17,7 +17,11 @@ public class BuildBoard implements IBoard, Observer {
 
 	private IMainEngine model;
 
-	public void initialize() {
+	public BuildBoard() {
+		initialize();
+	}
+
+	private void initialize() {
 		//start of right panel (the game panel)
 		gameBoard = new JPanel();
 		gameBoard.setPreferredSize(new Dimension(500, 500));
@@ -39,4 +43,5 @@ public class BuildBoard implements IBoard, Observer {
 		// TODO Auto-generated method stub
 
 	}
+
 }

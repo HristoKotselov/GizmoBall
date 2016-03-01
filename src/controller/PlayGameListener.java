@@ -9,6 +9,10 @@ import model.MainEngine;
 public class PlayGameListener implements KeyListener {
 	private IMainEngine model;
 
+	public PlayGameListener(IMainEngine m) {
+		model = m;
+	}
+
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
