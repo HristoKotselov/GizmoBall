@@ -1,4 +1,4 @@
-package model;
+package collisions.model;
 
 import physics.LineSegment;
 import physics.Vect;

@@ -1,5 +1,8 @@
 package Absorber;
 
+import physics.Angle;
+import physics.Vect;
+
 public class SpecialCollisionHandler {
 
 	
@@ -9,7 +12,7 @@ public class SpecialCollisionHandler {
 		Absorber absorber = (Absorber) cd.getCollider();
 		
 		if(absorber.getCapturedBall() != ball && (ball.getExactY() < absorber.getY() || ball.getExactY() > absorber.getY() + absorber.getHeight()) ){		// i.e. first collision BEFORE ball enter Absorber
-			ball.stop();
+			ball.setVelo(new Vect(Angle.DEG_270, 0));		// make the velocity 0
 			ball.setExactX(absorber.getX() + absorber.getWidth() - (0.25 * Model.L));
 			ball.setExactY(absorber.getY() + absorber.getHeight() - (0.25 * Model.L));
 			absorber.setBall(ball);

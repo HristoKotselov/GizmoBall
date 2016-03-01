@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;3845827658/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;111695609/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;256077675/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3051579385/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3162224122/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;313572420/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;3551188274/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;94969616/1;/GitHub-Gizmo Ball/src/model/Absorber.java;2104594749/1;/GitHub-Gizmo Ball/src/model/Ball.java;3024592692/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;4063510514/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1381946759/1;/GitHub-Gizmo Ball/src/model/Connections.java;1235098248/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3878838552/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;1845838742/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2754978856/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;4071632438/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;3265399526/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;660683816/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1221344625/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3094280473/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;3978836678/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;3183735764/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;2075384408/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2085038298/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;3845827658/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;4287659270/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;111695609/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;4017036422/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2923214179/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;2085229515/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;256077675/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3851570498/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3234179510/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;834296855/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3162224122/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;3404834027/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;313572420/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;2480748991/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;560753830/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;3450596372/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;3551188274/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;94969616/1;/GitHub-Gizmo Ball/src/model/Absorber.java;2104594749/1;/GitHub-Gizmo Ball/src/model/Ball.java;3024592692/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;4063510514/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1381946759/1;/GitHub-Gizmo Ball/src/model/Connections.java;1235098248/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;3878838552/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;1845838742/1;/GitHub-Gizmo Ball/src/view/IMenu.java;3664531813/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2754978856/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;4071632438/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;3265399526/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;660683816/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1266074468/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3094280473/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1290430175/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;3978836678/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;3183735764/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1636838318/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;2075384408/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2085038298/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -2813,6 +2813,10 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		//JButton square = new JButton(&quot;Add a square&quot;);&#xD;
 		//JButton triangle = new JButton(&quot;Add a trangle&quot;);&#xD;
 		//JButton circle = new JButton(&quot;Add a circle&quot;);&#xD;
+		JButton addBall = new JButton(&quot;Add Ball&quot;);&#xD;
+		JButton setBallSpeed = new JButton(&quot;Set Ball speed&quot;);&#xD;
+		JButton setFriction = new JButton(&quot;Set Friction&quot;);&#xD;
+		JButton setGravity = new JButton(&quot;Set Gravity&quot;);&#xD;
 		JButton absorber = new JButton(&quot;Add absorber&quot;);&#xD;
 		JButton connect = new JButton(&quot;Connect gizmos&quot;);&#xD;
 		JButton disconnect = new JButton(&quot;Disconnect gismoz&quot;);&#xD;
@@ -2835,7 +2839,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		JRadioButton square = new JRadioButton(&quot;square&quot;);&#xD;
 		JRadioButton triangle = new JRadioButton(&quot;circle&quot;);&#xD;
 		JRadioButton circle = new JRadioButton(&quot;triangle&quot;);&#xD;
-		JRadioButton ball = new JRadioButton(&quot;ball&quot;);&#xD;
 		ButtonGroup bg = new ButtonGroup();&#xD;
 		bg.add(leftFlipper);&#xD;
 		bg.add(rightFlipper);&#xD;
@@ -2847,7 +2850,6 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		buttonMenu.add(square);&#xD;
 		buttonMenu.add(triangle);&#xD;
 		buttonMenu.add(circle);&#xD;
-		buttonMenu.add(ball);&#xD;
 		JButton add = new JButton(&quot;Add&quot;);&#xD;
 		buttonMenu.add(add);&#xD;
 &#xD;
@@ -2865,6 +2867,10 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
 		//buttonMenu.add(square);&#xD;
 		//buttonMenu.add(triangle);&#xD;
 		//buttonMenu.add(circle);&#xD;
+		buttonMenu.add(addBall);&#xD;
+		buttonMenu.add(setBallSpeed);&#xD;
+		buttonMenu.add(setFriction);&#xD;
+		buttonMenu.add(setGravity);&#xD;
 		buttonMenu.add(absorber);&#xD;
 		buttonMenu.add(connect);&#xD;
 		buttonMenu.add(disconnect);&#xD;

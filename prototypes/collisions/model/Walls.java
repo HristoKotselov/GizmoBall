@@ -1,4 +1,4 @@
-package model;
+package collisions.model;
 
 import java.util.ArrayList;
 

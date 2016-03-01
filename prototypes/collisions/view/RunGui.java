@@ -1,4 +1,4 @@
-package view;
+package collisions.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -11,8 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import model.Model;
-import controller.RunListener;
+import collisions.model.Model;
+import collisions.controller.RunListener;
 
 /**
  * part of the code is from Murray's Demonstration of MVC and MIT Physics Collisions 2014
