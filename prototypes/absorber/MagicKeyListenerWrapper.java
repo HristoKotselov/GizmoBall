@@ -1,4 +1,4 @@
-package Absorber;
+package absorber;
 
 import java.awt.Component;
 import java.awt.event.KeyListener;

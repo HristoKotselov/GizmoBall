@@ -1,4 +1,4 @@
-package Absorber;
+package absorber;
 
 import java.awt.Color;
 import java.util.HashSet;
