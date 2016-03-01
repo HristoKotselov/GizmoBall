@@ -12,16 +12,16 @@ import javax.swing.JOptionPane;
 import model.IMainEngine;
 
 public class WindowListener implements ActionListener {
-	private IMainEngine m;
+	private IMainEngine model;
 
 	public WindowListener(IMainEngine m) {
-		this.m = m;
+		model = m;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		// TODO
+		
 	}
 
 }
