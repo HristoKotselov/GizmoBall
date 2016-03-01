@@ -8,6 +8,10 @@ import model.IMainEngine;
 public class MoveGizmoListener implements MouseInputListener {
 	private IMainEngine model;
 
+	public MoveGizmoListener(IMainEngine m) {
+		model = m;
+	}
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub

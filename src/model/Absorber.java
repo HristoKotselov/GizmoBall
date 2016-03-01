@@ -9,7 +9,7 @@ import physics.Circle;
 import physics.LineSegment;
 import physics.Vect;
 
-public class Absorber extends AGizmoComponent implements ILineSegmentCollider {
+public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	/** The amount of width this absorber takes up in the board (in pixel). Absorber will always at least take up 1L*1L worth of space    **/
 	private int width;
 	/** The amount of height this absorber takes up in the board (in pixel). Absorber will always at least take up 1L*1L worth of space    **/

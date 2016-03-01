@@ -1,6 +1,15 @@
 package view;
 
 import java.awt.Color;
+
+import controller.AMainListener;
+import controller.AddGizmoListener;
+import controller.BuildModeMainListener;
+import controller.ChangeBallConfigListener;
+import controller.LoadFileListener;
+import controller.PhysicsConfigListener;
+import controller.SaveFileListener;
+import controller.UndoRedoListener;
 import controller.WindowListener;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -24,90 +33,94 @@ import model.IMainEngine;
 
 public class BuildMenu implements IMenu {
 
+	/* GUI */
 	private JPanel buttonMenu;
 
+	/* Model */
 	private IMainEngine model;
-	private WindowListener wdolis;
+
+	/* Controller */
+	private AMainListener buildModeAL;
+	private ChangeBallConfigListener changeBallConfigAL;
+	private PhysicsConfigListener physicsConfigAL;
+	private UndoRedoListener undoRedoAL;
+
+	public BuildMenu() {
+		initialize();
+	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
+	private void initialize() {
+		buildModeAL = new BuildModeMainListener(model);
+		physicsConfigAL = new PhysicsConfigListener(model);
+		undoRedoAL = new UndoRedoListener(model);
 
-		wdolis = new WindowListener(model);
 		buttonMenu = new JPanel();
 		buttonMenu.setPreferredSize(new Dimension(170, 500));
 		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
 		buttonMenu.setLayout(new GridLayout(0, 1));
 
-		//JButton leftFlipper = new JButton("Add left flipper");
-		//JButton rightFlipper = new JButton("Add right flipper");
-		//JButton square = new JButton("Add a square");
-		//JButton triangle = new JButton("Add a trangle");
-		//JButton circle = new JButton("Add a circle");
 		JButton addBall = new JButton("Add Ball");
 		addBall.setActionCommand("addBall");
-		addBall.addActionListener(wdolis);
-		
+		addBall.addActionListener(buildModeAL);
+
 		JButton setBallSpeed = new JButton("Set Ball speed");
 		setBallSpeed.setActionCommand("setBallSpeed");
-		setBallSpeed.addActionListener(wdolis);
-		
+		setBallSpeed.addActionListener(changeBallConfigAL);
+
 		JButton setFriction = new JButton("Set Friction");
 		setFriction.setActionCommand("setFriction");
-		setFriction.addActionListener(wdolis);
-		
+		setFriction.addActionListener(physicsConfigAL);
+
 		JButton setGravity = new JButton("Set Gravity");
 		setGravity.setActionCommand("setGravity");
-		setGravity.addActionListener(wdolis);
-		
-		JButton absorber = new JButton("Add absorber");
-		absorber.setActionCommand("absorber");
-		absorber.addActionListener(wdolis);
-		
+		setGravity.addActionListener(physicsConfigAL);
+
 		JButton connect = new JButton("Connect gizmos");
 		connect.setActionCommand("connect");
-		connect.addActionListener(wdolis);
-		
+		connect.addActionListener(buildModeAL);
+
 		JButton disconnect = new JButton("Disconnect gismos");
 		disconnect.setActionCommand("disconnect");
-		disconnect.addActionListener(wdolis);
-		
-		JButton keyPress = new JButton("Connect key");
-		keyPress.setActionCommand("keyPress");
-		keyPress.addActionListener(wdolis);
-		
+		disconnect.addActionListener(buildModeAL);
+
+		JButton keyConnect = new JButton("Connect key");
+		keyConnect.setActionCommand("keyConnect");
+		keyConnect.addActionListener(buildModeAL);
+
 		JButton keyDisconnect = new JButton("Disconnect key");
 		keyDisconnect.setActionCommand("keyDisconnect");
-		keyDisconnect.addActionListener(wdolis);
-		
+		keyDisconnect.addActionListener(buildModeAL);
+
 		JButton delete = new JButton("Delete gizmo");
 		delete.setActionCommand("delete");
-		delete.addActionListener(wdolis);
-		
+		delete.addActionListener(buildModeAL);
+
 		JButton rotate = new JButton("Rotate gizmo");
 		rotate.setActionCommand("rotate");
-		rotate.addActionListener(wdolis);
-		
+		rotate.addActionListener(buildModeAL);
+
 		JButton undo = new JButton("Undo");
 		undo.setActionCommand("undo");
-		undo.addActionListener(wdolis);
-		
+		undo.addActionListener(undoRedoAL);
+
 		JButton redo = new JButton("Redo");
 		redo.setActionCommand("redo");
-		redo.addActionListener(wdolis);
-		
+		redo.addActionListener(undoRedoAL);
+
 		JButton reload = new JButton("Reload Board");
 		reload.setActionCommand("reloadBoard");
-		reload.addActionListener(wdolis);
-		
+		reload.addActionListener(buildModeAL);
+
 		JButton clear = new JButton("Clear Board");
 		clear.setActionCommand("clear");
-		clear.addActionListener(wdolis);
-		
-		JButton play = new JButton("Play");
-		play.setActionCommand("play");
-		play.addActionListener(wdolis);
+		clear.addActionListener(buildModeAL);
+
+		JButton playMode = new JButton("Play!");
+		playMode.setActionCommand("playMode");
+		playMode.addActionListener(buildModeAL);
 
 		JLabel label = new JLabel("  Choose a gizmo to add:");
 		label.setFont(new Font("Arial", 1, 13));
@@ -118,19 +131,24 @@ public class BuildMenu implements IMenu {
 		JRadioButton square = new JRadioButton("square");
 		JRadioButton triangle = new JRadioButton("circle");
 		JRadioButton circle = new JRadioButton("triangle");
+		JRadioButton absorber = new JRadioButton("absorber");
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(leftFlipper);
 		bg.add(rightFlipper);
 		bg.add(square);
 		bg.add(triangle);
 		bg.add(circle);
+		bg.add(absorber);
 		buttonMenu.add(leftFlipper);
 		buttonMenu.add(rightFlipper);
 		buttonMenu.add(square);
 		buttonMenu.add(triangle);
 		buttonMenu.add(circle);
-		JButton add = new JButton("Add");
-		buttonMenu.add(add);
+		buttonMenu.add(absorber);
+		JButton addGizmo = new JButton("Add");
+		addGizmo.setActionCommand("addGizmo");
+		addGizmo.addActionListener(buildModeAL);
+		buttonMenu.add(addGizmo);
 
 		//JTextArea textarea = new JTextArea(1,10);
 		//textarea.setBackground(Color.LIGHT_GRAY);
@@ -141,19 +159,13 @@ public class BuildMenu implements IMenu {
 		separator.setFont(new Font("Arial", 1, 13));
 		buttonMenu.add(separator);
 
-		//buttonMenu.add(leftFlipper);
-		//buttonMenu.add(rightFlipper);
-		//buttonMenu.add(square);
-		//buttonMenu.add(triangle);
-		//buttonMenu.add(circle);
 		buttonMenu.add(addBall);
 		buttonMenu.add(setBallSpeed);
 		buttonMenu.add(setFriction);
 		buttonMenu.add(setGravity);
-		buttonMenu.add(absorber);
 		buttonMenu.add(connect);
 		buttonMenu.add(disconnect);
-		buttonMenu.add(keyPress);
+		buttonMenu.add(keyConnect);
 		buttonMenu.add(keyDisconnect);
 		buttonMenu.add(delete);
 		buttonMenu.add(rotate);
@@ -161,7 +173,7 @@ public class BuildMenu implements IMenu {
 		buttonMenu.add(redo);
 		buttonMenu.add(reload);
 		buttonMenu.add(clear);
-		buttonMenu.add(play);
+		buttonMenu.add(playMode);
 
 	}
 

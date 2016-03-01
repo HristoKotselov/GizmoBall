@@ -5,10 +5,10 @@ import java.awt.Shape;
 
 import physics.Angle;
 
-public class CircularBumper extends AGizmoComponent {
+public class CircularBumper extends AStatueGizmo {
 
 	public CircularBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x, grid_tile_y, color);
+		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		// TODO Auto-generated constructor stub
 	}
 

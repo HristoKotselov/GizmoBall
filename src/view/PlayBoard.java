@@ -19,7 +19,11 @@ public class PlayBoard implements IBoard, Observer {
 
 	private IMainEngine model;
 
-	public void initialize() {
+	public PlayBoard() {
+		initialize();
+	}
+
+	private void initialize() {
 		//start of right panel (the game panel)
 		gameBoard = new JPanel();
 		gameBoard.setPreferredSize(new Dimension(500, 500));
@@ -41,4 +45,5 @@ public class PlayBoard implements IBoard, Observer {
 		// TODO Auto-generated method stub
 
 	}
+
 }

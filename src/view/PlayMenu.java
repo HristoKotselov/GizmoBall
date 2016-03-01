@@ -8,20 +8,43 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import controller.AMainListener;
+import controller.BuildModeMainListener;
+import controller.ChangeBallConfigListener;
+import controller.PhysicsConfigListener;
+import controller.PlayModeMainListener;
+import controller.StartGameListener;
+import controller.StopGameListener;
+import controller.UndoRedoListener;
 import controller.WindowListener;
 import model.IMainEngine;
 
 public class PlayMenu implements IMenu {
 
+	/* GUI */
 	private JPanel buttonMenu;
+
+	/* Model */
 	private IMainEngine model;
-	private WindowListener wdolis;
+
+	/* Controller */
+	private AMainListener playModeAL;
+	private StartGameListener startGameAL;
+	private StopGameListener stopGameAL;
+
+	public PlayMenu() {
+		initialize();
+	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
-		wdolis = new WindowListener(model);
+	private void initialize() {
+		playModeAL = new PlayModeMainListener(model);
+		startGameAL = new StartGameListener(model);
+		stopGameAL = new StopGameListener(model);
+
 		buttonMenu = new JPanel();
 		buttonMenu.setPreferredSize(new Dimension(170, 500));
 		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
@@ -29,25 +52,30 @@ public class PlayMenu implements IMenu {
 
 		JButton start = new JButton("Start");
 		start.setActionCommand("start");
-		start.addActionListener(wdolis);
+		start.addActionListener(startGameAL);
 		start.setFont(new Font("Arial", Font.PLAIN, 40));
+
 		JButton tick = new JButton("Tick");
 		tick.setActionCommand("tick");
-		tick.addActionListener(wdolis);
+		tick.addActionListener(startGameAL);
 		tick.setFont(new Font("Arial", Font.PLAIN, 40));
+
 		JButton stop = new JButton("Stop");
 		stop.setActionCommand("stop");
-		stop.addActionListener(wdolis);
+		stop.addActionListener(stopGameAL);
 		stop.setFont(new Font("Arial", Font.PLAIN, 40));
+
 		JButton reload = new JButton("Reload");
 		reload.setActionCommand("reload");
-		reload.addActionListener(wdolis);
+		reload.addActionListener(playModeAL);
 		reload.setFont(new Font("Arial", Font.PLAIN, 40));
+
 		//JButton shoot = new JButton("<html>Shoot ball<br />(idea)</html>");
 		//shoot.setFont(new Font("Arial", Font.PLAIN, 30));
+
 		JButton buildMode = new JButton("<html>Build<br />Mode</html>");
 		buildMode.setActionCommand("buildMode");
-		buildMode.addActionListener(wdolis);
+		buildMode.addActionListener(playModeAL);
 		buildMode.setFont(new Font("Arial", Font.PLAIN, 30));
 
 		buttonMenu.add(start);

@@ -7,10 +7,10 @@ import java.util.Set;
 import physics.Angle;
 import physics.LineSegment;
 
-public class SquareBumper extends AGizmoComponent implements ILineSegmentCollider {
+public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 
 	public SquareBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x, grid_tile_y, color);
+		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		// TODO Auto-generated constructor stub
 	}
 

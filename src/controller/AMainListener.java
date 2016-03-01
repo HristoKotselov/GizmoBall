@@ -15,6 +15,10 @@ abstract public class AMainListener implements ActionListener {
 
 	private IGameWindow gameWindow;
 
+	public AMainListener(IMainEngine m) {
+		model = m;
+	}
+
 	public void setKeyBoardListener(KeyListener kl) {
 		keyHandler = kl;
 	}

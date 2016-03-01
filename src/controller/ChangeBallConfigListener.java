@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 import model.IMainEngine;
 
-public class StopGameListener implements ActionListener {
+public class ChangeBallConfigListener implements ActionListener {
 	private IMainEngine model;
 
-	public StopGameListener(IMainEngine m) {
+	public ChangeBallConfigListener(IMainEngine m) {
 		model = m;
 	}
 

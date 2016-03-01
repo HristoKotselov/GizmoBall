@@ -7,12 +7,11 @@ import model.IMainEngine;
 import model.ISaveDataEngine;
 
 public class SaveFileListener implements ActionListener {
-	private IMainEngine m;
+	private IMainEngine model;
 	private ISaveDataEngine dataEngine;
 
-	
-	public 	SaveFileListener(IMainEngine m) {
-		this.m = m;
+	public SaveFileListener(IMainEngine m) {
+		model = m;
 	}
 
 	@Override
@@ -20,6 +19,7 @@ public class SaveFileListener implements ActionListener {
 		String actionCmd = e.getActionCommand();
 		if (actionCmd.equals("save")) {
 			//TODO save file
-	}
+		}
 
-}}
+	}
+}

@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Shape;
 import java.util.Set;
 
+import physics.Angle;
+import physics.Circle;
 import physics.LineSegment;
 
-public class Flipper extends AGizmoComponent implements ILineSegmentCollider {
+public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x, grid_tile_y, color);
+		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
+
 		// TODO Auto-generated constructor stub
 	}
 
@@ -20,15 +23,15 @@ public class Flipper extends AGizmoComponent implements ILineSegmentCollider {
 	}
 
 	@Override
-	protected void setupDrawingShape() {
+	public Shape getDrawingShape() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	@Override
-	protected void setupCircles() {
+	public Set<Circle> getCircles() {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	@Override
@@ -36,5 +39,4 @@ public class Flipper extends AGizmoComponent implements ILineSegmentCollider {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
