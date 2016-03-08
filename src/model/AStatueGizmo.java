@@ -36,7 +36,7 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 
 	/**
 	 * The setup of the Circle collection. Circle is a Physics class used for collision detection, and is needed
-	 * for proper corner Line Segment detection. Stationary Gizmos should set up their Circle objects here.
+	 * for proper corner Line Segment detection. Statue Gizmos should set up their Circle objects here.
 	 * @modify this
 	 * @effect Fill the collection (circleSet) which hold all the Circles in this class with appropriate objects
 	 */
