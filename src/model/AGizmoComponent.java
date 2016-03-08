@@ -17,11 +17,11 @@ abstract public class AGizmoComponent {
 	/* The following attributes can be defined before the Gizmo is created **/
 	/** A String given to a Gizmo to identity it    **/
 	private String gizmoID;
-	/** The horizontal-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
-	 * component on the board. **/
+	/** The horizontal-coordinate of the component (in pixel). Along with x-coordinate, this determines the position of a Gizmo 
+	 * component on the board. Where this is exactly depends on the type of Gizmo **/
 	private int xpos;
 	/** The vertical-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
-	 * component on the board. **/
+	 * component on the board. Where this is exactly depends on the type of Gizmo **/
 	private int ypos;
 	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
 	private Color colour;
