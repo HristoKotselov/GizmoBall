@@ -35,7 +35,7 @@ public class BuildMenu implements IMenu {
 
 	/* GUI */
 	private JPanel buttonMenu;
-
+	ButtonGroup bg;
 	/* Model */
 	private IMainEngine model;
 
@@ -132,13 +132,16 @@ public class BuildMenu implements IMenu {
 		JRadioButton triangle = new JRadioButton("circle");
 		JRadioButton circle = new JRadioButton("triangle");
 		JRadioButton absorber = new JRadioButton("absorber");
-		ButtonGroup bg = new ButtonGroup();
+	
+		
+		bg = new ButtonGroup();
 		bg.add(leftFlipper);
 		bg.add(rightFlipper);
 		bg.add(square);
 		bg.add(triangle);
 		bg.add(circle);
 		bg.add(absorber);
+		square.setSelected(true);
 		buttonMenu.add(leftFlipper);
 		buttonMenu.add(rightFlipper);
 		buttonMenu.add(square);
@@ -176,7 +179,10 @@ public class BuildMenu implements IMenu {
 		buttonMenu.add(playMode);
 
 	}
-
+public ButtonGroup getGizmoSelector(){
+	return bg;
+}
+	
 	public JPanel getMenu() {
 		return buttonMenu;
 	}
