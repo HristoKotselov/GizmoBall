@@ -36,6 +36,19 @@ public class Ball extends AMovingGizmo {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+	@Override
+	public boolean rotate(int degree) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean move(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	/* Ball specific methods */
 	public double getRadius() {
