@@ -33,9 +33,9 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + 20;
+		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + 20;
+		int bCorner_Y = getY() + MainEngine.L;
 
 		LineSegment top = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
 		LineSegment right = new LineSegment(rCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
@@ -53,18 +53,18 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	@Override
-	public Shape getDrawingShape() {
-		return new Rectangle(20, 20);
+	protected void setupDrawingShape() {
+		drawingShape = new Rectangle(MainEngine.L, MainEngine.L);
 	}
 
 	@Override
 	protected void setupCircles() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + 20;
+		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + 20;
+		int bCorner_Y = getY() + MainEngine.L;
 
 		Circle topleft = new Circle(lCorner_X, tCorner_Y, 0);
 		Circle topright = new Circle(rCorner_X, tCorner_Y, 0);

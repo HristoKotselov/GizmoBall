@@ -106,8 +106,7 @@ abstract public class AGizmoComponent {
 	/**
 	 * Method called when the user decides to rotate a Gizmo component.
 	 * 
-	 * @param degree
-	 *            - the angle of rotation to add
+	 * @param degree - the angle of rotation to add
 	 * @modify this
 	 * @effect varies with each Gizmo component; see individual class
 	 */

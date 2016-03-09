@@ -12,8 +12,8 @@ abstract public class AStationaryGizmo extends AGizmoComponent {
 
 	private boolean stopped;
 
-	public AStationaryGizmo(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x , grid_tile_y , color);
+	public AStationaryGizmo(String name, int x, int y, Color color) {
+		super(name, x , y , color);
 
 	}
 

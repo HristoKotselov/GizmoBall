@@ -21,8 +21,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private long flipTime;
 	private long startedFlipping;
 
-	private Set<Circle> circles;
-	private Set<LineSegment> lines;
+	// private Set<Circle> circles;
+	// private Set<LineSegment> lines;
 
 	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color, boolean leftFlipper) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
@@ -69,13 +69,14 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public Set<Circle> getCircles() {
-		return circles;
-
+		// TODO
+		return null;
 	}
 
 	@Override
 	public Set<LineSegment> getLineSeg() {
-		return lines;
+		// TODO
+		return null;
 	}
 
 	@Override
