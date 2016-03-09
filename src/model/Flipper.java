@@ -6,8 +6,10 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.RoundRectangle2D;
+import java.util.HashSet;
 import java.util.Set;
 
+import javafx.geometry.Point2D;
 import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
@@ -34,7 +36,11 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		if (!leftFlipper) {
 			this.setX( (this.getX() + 10));
 		}
-		// TODO Auto-generated constructor stub
+		
+		circles = new HashSet<Circle>();
+		Circle c = new physics.Circle(this.getX()+10, this.getY()+10, MainEngine.L*0.5);
+		circles.add(c);
+
 	}
 
 	@Override
@@ -46,7 +52,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public Shape getDrawingShape() {
-	//	rotation += 15;
+		rotation += 15;
 		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
 		AffineTransform transform = new AffineTransform();

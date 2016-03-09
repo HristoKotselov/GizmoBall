@@ -14,6 +14,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
+import physics.Circle;
 
 public class BuildBoard extends JPanel implements Observer {
 	private IMainEngine model;
@@ -43,13 +44,13 @@ public class BuildBoard extends JPanel implements Observer {
 		// Iterate over all gizmos
 		for (AGizmoComponent giz : gizmos.values()) {
 			// Get the colour and shape of the gizmo
-			//System.out.println(giz.getGizmoID());
+			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
 
 			// Translate the gizmo to the appropriate position on the board
 			g2d.translate(giz.getX(), giz.getY());
-		//	System.out.println(giz.getX() + ":" + giz.getY());
+			// System.out.println(giz.getX() + ":" + giz.getY());
 			// Rotate gizmo around its center. Currently only works with 1x1
 			// gizmos because of hardcoded 10, but can be easily changed
 			// g2d.rotate(Math.toRadians(giz.getRotation()), giz.getWidth() / 2,
@@ -60,7 +61,10 @@ public class BuildBoard extends JPanel implements Observer {
 
 			// Reset transformation before drawing the next object
 			g2d.setTransform(old);
+
 		}
+
+	
 
 		// Draw grid
 		g2d.setColor(Color.WHITE);

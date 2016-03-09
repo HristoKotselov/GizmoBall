@@ -22,6 +22,7 @@ public class PlayModeMainListener extends AMainListener {
 		// check out AMainListener's method!
 
 		String actionCmd = e.getActionCommand();
+	
 		if (actionCmd.equals("start")) {
 
 		} else if (actionCmd.equals("tick")) {
