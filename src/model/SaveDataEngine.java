@@ -9,11 +9,11 @@ import java.util.StringTokenizer;
 
 public class SaveDataEngine {
 
-	public void loadFile(String filePath, MainEngine model) {
-		System.out.println("loading board");
-		
+	public void loadFile(String filepath, MainEngine model) {
+		System.out.println("loading board from \"" + filepath + "\"");
+
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File("res/ExampleBoard.txt")));
+			BufferedReader br = new BufferedReader(new FileReader(new File(filepath)));
 
 			while (br.ready()) {
 				String line = br.readLine();
@@ -33,7 +33,6 @@ public class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Adding triangle bumper named \"" + name + "\" at (" + x + ", " + y + ")");
 
 							g = new TriangularBumper(name, x, y, Color.BLUE);
 							model.addGizmo(g);
@@ -43,7 +42,6 @@ public class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Adding square bumper named \"" + name + "\" at (" + x + ", " + y + ")");
 
 							g = new SquareBumper(name, x, y, Color.RED);
 							model.addGizmo(g);
@@ -53,7 +51,6 @@ public class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Adding circle bumper named \"" + name + "\" at (" + x + ", " + y + ")");
 
 							g = new CircularBumper(name, x, y, Color.GREEN);
 							model.addGizmo(g);
@@ -67,7 +64,7 @@ public class SaveDataEngine {
 //
 //							g = new Flipper(name, x, y, Flipper.LEFT);
 //							b.addGizmo(name, g);
-							break;
+//							break;
 
 						case "RightFlipper":
 //							name = st.nextToken();
@@ -77,7 +74,7 @@ public class SaveDataEngine {
 //
 //							g = new Flipper(name, x, y, Flipper.RIGHT);
 //							b.addGizmo(name, g);
-							break;
+//							break;
 
 						case "Absorber":
 //							name = st.nextToken();
@@ -89,14 +86,14 @@ public class SaveDataEngine {
 //
 //							g = new Absorber(name, x, y, w, h);
 //							b.addGizmo(name, g);
-							break;
+//							break;
 
 						case "Rotate":
 //							name = st.nextToken();
 //							System.out.println("Rotating \"" + name + "\" by 90 degrees");
 //
 //							b.getGizmo(name).rotate(90);
-							break;
+//							break;
 
 						case "Move":
 //							name = st.nextToken();
@@ -107,14 +104,14 @@ public class SaveDataEngine {
 //							g = b.getGizmo(name);
 //							g.setX(x);
 //							g.setY(y);
-							break;
+//							break;
 
 						case "Delete":
 //							name = st.nextToken();
 //							System.out.println("Deleting \"" + name + "\"");
 //
 //							b.removeGizmo(name);
-							break;
+//							break;
 
 						case "Ball":
 //							name = st.nextToken();
@@ -126,7 +123,7 @@ public class SaveDataEngine {
 //
 //							Ball ball = new Ball(xpos, ypos, xvel, yvel);
 //							b.addBall(name, ball);
-							break;
+//							break;
 
 						case "Connect":
 						case "KeyConnect":

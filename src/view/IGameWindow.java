@@ -1,6 +1,6 @@
 package view;
 
 public interface IGameWindow {
-
-	public void initialize();
+	
+	public String getFile();
 }

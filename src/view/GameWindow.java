@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -15,9 +17,8 @@ import controller.LoadFileListener;
 import controller.SaveFileListener;
 import model.IMainEngine;
 import model.ISaveDataEngine;
-import model.MainEngine;
 
-public class GameWindow {// implements IGameWindow {
+public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
 
 	private IMenu buildmenu, playmenu;
@@ -36,7 +37,7 @@ public class GameWindow {// implements IGameWindow {
 	public GameWindow(IMainEngine m, ISaveDataEngine s) {
 		model = m;
 
-		loadFileAL = new LoadFileListener(m, s);
+		loadFileAL = new LoadFileListener(this, s);
 		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 720, 600);
@@ -95,5 +96,19 @@ public class GameWindow {// implements IGameWindow {
 		window1.add(textarea);
 
 		window1.setVisible(true);
+	}
+
+	@Override
+	public String getFile() {
+		JFileChooser f = new JFileChooser();
+		f.showOpenDialog(window1);
+
+		File file = f.getSelectedFile();
+
+		if (file != null) {
+			return file.getAbsolutePath();
+		} else {
+			return null;
+		}
 	}
 }

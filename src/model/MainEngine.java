@@ -56,16 +56,35 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
+		AGizmoComponent g = getGizmoAt(gizmo.getX(), gizmo.getY());
+
+		if (g != null) {
+			removeGizmo(g);
+		}
+
 		gizmos.put(gizmo.getGizmoID(), gizmo);
+
 		setChanged();
 		notifyObservers();
+
+		// TODO Validation
 		return false;
+	}
+
+	public AGizmoComponent getGizmoAt(int x, int y) {
+		for (AGizmoComponent g : gizmos.values()) {
+			if (g.getX() == x && g.getY() == y) {
+				return g;
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
-		// TODO Auto-generated method stub
-		return false;
+		gizmos.remove(gizmo.getGizmoID());
+
+		return !(gizmos.containsValue(gizmo));
 	}
 
 	@Override
