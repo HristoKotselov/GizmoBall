@@ -29,6 +29,7 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		capturedBall = null;
 
 		ls = new HashSet<LineSegment>();
+		
 		setupLineSeg();
 	}
 
@@ -92,6 +93,35 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	@Override
 	public Set<LineSegment> getLineSeg() {
 		return ls;
+	}
+	
+	@Override
+	public void updateCollections(){
+		setupDrawingShape();
+		setupLineSeg();
+		setupCircles();
+	}
+
+	@Override
+	public boolean rotate(int degree) {
+		
+		
+		
+		updateCollections();
+		
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean move(int newX, int newY) {
+		
+		
+		
+		updateCollections();
+		
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	/* Absorber exclusive methods */

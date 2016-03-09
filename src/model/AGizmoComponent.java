@@ -108,12 +108,22 @@ abstract public class AGizmoComponent {
 	 * 
 	 * @param degree - the angle of rotation to add
 	 * @modify this
-	 * @effect varies with each Gizmo component; see individual class
+	 * @effect rotationAngle = new angle;  Circle Set is updated;	IF gizmo uses Line Segments, 
+	 * THEN the collection of Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, 
+	 * THEN drawingShape is updated. Can have additional effects, check individual Gizmo for them.
 	 */
-	public boolean rotate(int degree) {
-		// no need for this in the prototype!
-		return true;
-	}
+	abstract public boolean rotate(int degree);
+	
+	/**
+	 * Method called when the user decides to move a Gizmo component.
+	 * 
+	 * @param newX - new X coordinate
+	 * @param newY - new Y coordinate
+	 * @modify this
+	 * @effect Circle Set is updated;	IF gizmo uses Line Segments, THEN the collection of 
+	 * Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, THEN drawingShape is updated. 
+	 */
+	abstract public boolean move(int newX, int newY);
 
 	public int getRotation() {
 		return rotationAngle;

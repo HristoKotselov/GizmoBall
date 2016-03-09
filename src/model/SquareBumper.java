@@ -21,6 +21,13 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		setupLineSeg();
 		setupCircles();
 	}
+	
+
+	@Override
+	public void triggerAction() {
+		// TODO Auto-generated method stub
+
+	}
 
 	/**
 	 * The setup of the Line Segment collection. Gizmo component that rely on
@@ -47,12 +54,6 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		ls.add(bottom);
 		ls.add(left);
 	}
-
-	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-
-	}
 	
 	@Override
 	protected void setupDrawingShape() {
@@ -75,6 +76,35 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		circleSet.add(topright);
 		circleSet.add(bottomright);
 		circleSet.add(bottomleft);
+	}
+	
+	@Override
+	public void updateCollections(){
+		setupDrawingShape();
+		setupLineSeg();
+		setupCircles();
+	}
+
+	@Override
+	public boolean rotate(int degree) {
+		
+		
+		
+		updateCollections();
+		
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean move(int newX, int newY) {
+		
+		
+		
+		updateCollections();
+		
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override

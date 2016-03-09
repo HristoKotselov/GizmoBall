@@ -84,6 +84,19 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO
 		return null;
 	}
+	
+
+	@Override
+	public boolean rotate(int degree) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean move(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
 	public void update() {
