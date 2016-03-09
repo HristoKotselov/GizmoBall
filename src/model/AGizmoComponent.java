@@ -4,34 +4,44 @@ import java.awt.Color;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
-
 import physics.Circle;
 import physics.LineSegment;
 
 /**
- * TODO
- * Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
+ * TODO Parent class of ALL Gizmo Component. Contain key attribute that all
+ * Gizmo should process.
  */
 abstract public class AGizmoComponent {
 
 	/* The following attributes can be defined before the Gizmo is created **/
-	/** A String given to a Gizmo to identity it    **/
+	/** A String given to a Gizmo to identity it **/
 	private String gizmoID;
-	/** The horizontal-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
-	 * component on the board. **/
+	/**
+	 * The horizontal-coordinate of the component (in pixel). Along with
+	 * x-coordinate, this determines the position of a Gizmo component on the
+	 * board. Where this is exactly depends on the type of Gizmo
+	 **/
 	private int xpos;
-	/** The vertical-coordinate of the component (in pixel). Along with y-coordinate, this determines the position of a Gizmo 
-	 * component on the board. **/
+	/**
+	 * The vertical-coordinate of the component (in pixel). Along with
+	 * y-coordinate, this determines the position of a Gizmo component on the
+	 * board. Where this is exactly depends on the type of Gizmo
+	 **/
 	private int ypos;
-	/** Colour of the Gizmo, used by the view to determine what colour to paint    **/
+	/**
+	 * Colour of the Gizmo, used by the view to determine what colour to paint
+	 **/
 	private Color colour;
 
 	/* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes)
 	 * or will be modified in the constructor of sub-classes */
 	/** Whether the Gizmo is visible on the board or not */
 	private boolean visibility;
-	/** The angle of rotation of a Gizmo. In this project, the default position of a Gizmo component is treated as 0; with
-	 * the exception of Line, which will automatically be calculated properly upon construction **/
+	/**
+	 * The angle of rotation of a Gizmo. In this project, the default position
+	 * of a Gizmo component is treated as 0; with the exception of Line, which
+	 * will automatically be calculated properly upon construction
+	 **/
 	private int rotationAngle;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
@@ -46,8 +56,10 @@ abstract public class AGizmoComponent {
 	}
 
 	/**
-	 * Action that is executed when a Ball has a collision with this component, or from a connection of triggers. 
-	 * Keep in mind there are no graphical procedures here.
+	 * Action that is executed when a Ball has a collision with this component,
+	 * or from a connection of triggers. Keep in mind there are no graphical
+	 * procedures here.
+	 * 
 	 * @modify this
 	 * @effect varies with each Gizmo component; see individual class
 	 */
@@ -93,7 +105,9 @@ abstract public class AGizmoComponent {
 
 	/**
 	 * Method called when the user decides to rotate a Gizmo component.
-	 * @param degree - the angle of rotation to add
+	 * 
+	 * @param degree
+	 *            - the angle of rotation to add
 	 * @modify this
 	 * @effect varies with each Gizmo component; see individual class
 	 */

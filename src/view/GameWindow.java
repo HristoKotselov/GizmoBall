@@ -1,68 +1,49 @@
 package view;
 
-import javax.swing.JFrame;
-import controller.SaveFileListener;
-import controller.LoadFileListener;
-import model.IMainEngine;
-import model.MainEngine;
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
-
-import controller.WindowListener;
+import controller.BuildModeMouseListener;
+import controller.LoadFileListener;
+import controller.SaveFileListener;
+import model.IMainEngine;
+import model.ISaveDataEngine;
 
 public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
 
 	private IMenu buildmenu, playmenu;
-	private IBoard buildboard, playboard;
+	private BuildBoard buildboard;
+	// , playboard;
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
-	private IMainEngine m;
+	private IMainEngine model;
 	/* other GUI components */
 	private PlayBoard gameBoard;
 	private BuildBoard buildBoard;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameWindow window = new GameWindow();
-					window.initialize();
-					window.window1.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
-		loadFileAL = new LoadFileListener(m);
+	public GameWindow(IMainEngine m, ISaveDataEngine s) {
+		model = m;
+
+		loadFileAL = new LoadFileListener(this, s);
 		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 720, 600);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//start of drop menu
+		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
 		window1.setJMenuBar(menuBar);
 
@@ -85,17 +66,24 @@ public class GameWindow implements IGameWindow {
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFolio.add(mntmExit);
 		window1.getContentPane().setLayout(new FlowLayout());
-		//end of menu bar
+		// end of menu bar
 
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
 
+
+
 		// TODO
 		buildmenu = new BuildMenu();
-		buildboard = new BuildBoard();
+		buildboard = new BuildBoard(m);
+
+		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model);
+
+		buildboard.addMouseListener(l);
+//		buildboard.addMouseMotionListener(l);
 
 		window1.add(buildmenu.getMenu());
-		window1.add(buildboard.getBoard());
+		window1.add(buildboard);
 
 		JLabel tips = new JLabel("Action Tip:");
 		tips.setFont(new Font("Arial", 1, 12));
@@ -107,5 +95,20 @@ public class GameWindow implements IGameWindow {
 		textarea.setEditable(false);
 		window1.add(textarea);
 
+		window1.setVisible(true);
+	}
+
+	@Override
+	public String getFile() {
+		JFileChooser f = new JFileChooser();
+		f.showOpenDialog(window1);
+
+		File file = f.getSelectedFile();
+
+		if (file != null) {
+			return file.getAbsolutePath();
+		} else {
+			return null;
+		}
 	}
 }

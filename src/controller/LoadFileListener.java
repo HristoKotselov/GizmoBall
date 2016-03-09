@@ -2,24 +2,28 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import model.IMainEngine;
 import model.ISaveDataEngine;
+import view.IGameWindow;
 
 public class LoadFileListener implements ActionListener {
-	private IMainEngine model;
+	private IGameWindow window;
 	private ISaveDataEngine dataEngine;
 
-	public LoadFileListener(IMainEngine m) {
-		model = m;
+	public LoadFileListener(IGameWindow w, ISaveDataEngine s) {
+		window = w;
+		dataEngine = s;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String actionCmd = e.getActionCommand();
-		if (actionCmd.equals("load")) {
-			//TODO load file
-		}
 
+		if (actionCmd.equals("load")) {
+			String path = window.getFile();
+
+			if (path != null) {
+				dataEngine.loadFile(path);
+			}
+		}
 	}
 }
