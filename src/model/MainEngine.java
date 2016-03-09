@@ -61,7 +61,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 		if (g != null) {
 			removeGizmo(g);
 		}
-
 		gizmos.put(gizmo.getGizmoID(), gizmo);
 
 		setChanged();

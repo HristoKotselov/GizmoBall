@@ -21,7 +21,8 @@ import model.ISaveDataEngine;
 public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
 
-	private IMenu buildmenu, playmenu;
+	private IMenu playmenu;
+	private BuildMenu buildmenu;
 	private BuildBoard buildboard;
 	// , playboard;
 	private LoadFileListener loadFileAL;
@@ -77,7 +78,7 @@ public class GameWindow implements IGameWindow {
 		buildmenu = new BuildMenu();
 		buildboard = new BuildBoard(m);
 
-		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model);
+		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
 
 		buildboard.addMouseListener(l);
 //		buildboard.addMouseMotionListener(l);
@@ -96,6 +97,8 @@ public class GameWindow implements IGameWindow {
 		window1.add(textarea);
 
 		window1.setVisible(true);
+		
+		
 	}
 
 	@Override

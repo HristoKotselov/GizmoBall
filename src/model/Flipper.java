@@ -1,7 +1,11 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.NoninvertibleTransformException;
+import java.awt.geom.RoundRectangle2D;
 import java.util.Set;
 
 import physics.Angle;
@@ -9,34 +13,90 @@ import physics.Circle;
 import physics.LineSegment;
 
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
+	public double rotation;
+	public boolean flippingForward;
+	public boolean leftFlipper;
+	private int flipSpeed;
 
-	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color) {
+	private long flipTime;
+	private long startedFlipping;
+
+	private Set<Circle> circles;
+	private Set<LineSegment> lines;
+
+	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color, boolean leftFlipper) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
+		//System.out.println(leftFlipper);
 
+		this.rotation = 0;
+		this.flippingForward = false;
+		this.leftFlipper = leftFlipper;
+		if (!leftFlipper) {
+			this.setX( (this.getX() + 10));
+		}
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		flippingForward = true;
+		startedFlipping = System.nanoTime();
 	}
 
 	@Override
 	public Shape getDrawingShape() {
-		// TODO Auto-generated method stub
-		return null;
+	//	rotation += 15;
+		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
+				0.5 * MainEngine.L, 0.5 * MainEngine.L);
+		AffineTransform transform = new AffineTransform();
+
+		transform.rotate(Math.toRadians(rotation), r.getX() + 5, r.getY() + 5);
+		if (leftFlipper) {
+			try {
+			//	System.out.println("inverting");
+				transform.invert();
+			} catch (NoninvertibleTransformException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		Shape transformedR = transform.createTransformedShape(r);
+		return transformedR;
+		// return new Rectangle(20, 20);
 	}
 
 	@Override
 	public Set<Circle> getCircles() {
-		// TODO Auto-generated method stub
-		return null;
+		return circles;
+
 	}
 
 	@Override
 	public Set<LineSegment> getLineSeg() {
-		// TODO Auto-generated method stub
-		return null;
+		return lines;
+	}
+
+	@Override
+	public void update() {
+		if (flippingForward) {
+			rotation += flipSpeed;
+		} else {
+			rotation -= flipSpeed;
+		}
+
+		if (rotation > 90) {
+			rotation = 90;
+		} else if (rotation < 0) {
+			rotation = 0;
+		}
+
+		if (System.nanoTime() - startedFlipping > flipTime) {
+			flippingForward = false;
+		}
+		// Circle circle = new physics.Circle(new physics.Vect(this.getX(),
+		// this.getY()), 10);
+
 	}
 }
