@@ -18,12 +18,12 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 	/** The visual representation of the Gizmo. Used by drawing code to determine what a Gizmo will look like on screen. **/
 	protected Shape drawingShape;
 	/** A set of Circles belonging to this Gizmo. They act as collision detectors with a ball, often at the edges of a shape. **/
-	protected Set<Circle> circleSet;
+	protected Set<Circle> circleSet = new HashSet<>();
 
 	public AStatueGizmo(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
+		super(name, grid_tile_x, grid_tile_y, color);
 
-		setupDrawingShape();
+//		setupDrawingShape();
 		setupCircles();
 	}
 
@@ -32,7 +32,7 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 	 * @modify this
 	 * @effect Setup the Shape (drawingShape)
 	 */
-	abstract protected void setupDrawingShape();
+//	abstract protected Shape getDrawingShape();
 
 	/**
 	 * The setup of the Circle collection. Circle is a Physics class used for collision detection, and is needed

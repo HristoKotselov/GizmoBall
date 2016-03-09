@@ -1,16 +1,18 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
-
-import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
 
 public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
-	/** A set of Line Segments around the edge of the square bumper, which will act as the collision detector with a ball **/
+	/**
+	 * A set of Line Segments around the edge of the square bumper, which will
+	 * act as the collision detector with a ball
+	 **/
 	private Set<LineSegment> ls;
 
 	public SquareBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
@@ -21,10 +23,13 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 	}
 
 	/**
-	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should
-	 * set up their Line Segment objects here.
+	 * The setup of the Line Segment collection. Gizmo component that rely on
+	 * Line Segments for collision detection should set up their Line Segment
+	 * objects here.
+	 * 
 	 * @modify this
-	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects
+	 * @effect Fill the collection which hold all the Line Segments in this
+	 *         class with appropriate objects
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
@@ -42,7 +47,7 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		ls.add(bottom);
 		ls.add(left);
 	}
-	
+
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
@@ -50,9 +55,8 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 	}
 
 	@Override
-	protected void setupDrawingShape() {
-		// TODO Auto-generated method stub
-
+	public Shape getDrawingShape() {
+		return new Rectangle(20, 20);
 	}
 
 	@Override

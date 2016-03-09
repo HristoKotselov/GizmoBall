@@ -41,11 +41,6 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 	}
 
-	@Override
-	protected void setupDrawingShape() {
-		// TODO Auto-generated method stub
-
-	}
 
 	/* Absorber's collision detector methods */
 	@Override

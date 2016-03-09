@@ -10,16 +10,17 @@ public class LoadFileListener implements ActionListener {
 	private IMainEngine model;
 	private ISaveDataEngine dataEngine;
 
-	public LoadFileListener(IMainEngine m) {
+	public LoadFileListener(IMainEngine m, ISaveDataEngine s) {
 		model = m;
+		dataEngine = s;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String actionCmd = e.getActionCommand();
+		
 		if (actionCmd.equals("load")) {
-			//TODO load file
+			dataEngine.loadFile("./test");
 		}
-
 	}
 }

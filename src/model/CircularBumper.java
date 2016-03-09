@@ -2,8 +2,7 @@ package model;
 
 import java.awt.Color;
 import java.awt.Shape;
-
-import physics.Angle;
+import java.awt.geom.Ellipse2D;
 import physics.Circle;
 
 public class CircularBumper extends AStatueGizmo {
@@ -18,12 +17,6 @@ public class CircularBumper extends AStatueGizmo {
 	}
 
 	@Override
-	protected void setupDrawingShape() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	protected void setupCircles() {
 		Circle circle = new Circle(getX() + 10, getY() + 10, 10);
 		circleSet.add(circle);
@@ -33,6 +26,11 @@ public class CircularBumper extends AStatueGizmo {
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public Shape getDrawingShape(){
+		return new Ellipse2D.Double(0, 0, 20, 20);
 	}
 	
 	public double getRadius() {

@@ -1,11 +1,10 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Polygon;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
-
-import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
 
@@ -47,10 +46,13 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 
 	}
 
+	
 	@Override
-	protected void setupDrawingShape() {
-		// TODO Auto-generated method stub
+	public Shape getDrawingShape(){
+		int[] xpoints = { 0, 20, 0 };
+		int[] ypoints = { 0, 0, 20 };
 
+		return new Polygon(xpoints, ypoints, xpoints.length);
 	}
 
 	@Override

@@ -35,6 +35,8 @@ abstract public class AGizmoComponent {
 	private int rotationAngle;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
+		
+		System.out.println("creating gizmo, x = " + x);
 		gizmoID = name;
 		xpos = x;
 		ypos = y;
