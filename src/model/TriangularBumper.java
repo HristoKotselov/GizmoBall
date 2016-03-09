@@ -14,6 +14,7 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 	
 	public TriangularBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
+		
 		ls = new HashSet<LineSegment>();
 		setupLineSeg();
 		setupCircles();
@@ -27,9 +28,9 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + 20;
+		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + 20;
+		int bCorner_Y = getY() + MainEngine.L;
 
 		LineSegment top = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
 		LineSegment middle = new LineSegment(rCorner_X, tCorner_Y, lCorner_X, bCorner_Y);
@@ -46,21 +47,20 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 
 	}
 
-	
 	@Override
-	public Shape getDrawingShape(){
-		int[] xpoints = { 0, 20, 0 };
-		int[] ypoints = { 0, 0, 20 };
+	protected void setupDrawingShape() {
+		int[] xpoints = { 0, MainEngine.L, 0 };
+		int[] ypoints = { 0, 0, MainEngine.L };
 
-		return new Polygon(xpoints, ypoints, xpoints.length);
+		drawingShape = new Polygon(xpoints, ypoints, xpoints.length);
 	}
 
 	@Override
 	protected void setupCircles() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + 20;
+		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + 20;
+		int bCorner_Y = getY() + MainEngine.L;
 
 		Circle topleft = new Circle(lCorner_X, tCorner_Y, 0);
 		Circle topright = new Circle(rCorner_X, tCorner_Y, 0);

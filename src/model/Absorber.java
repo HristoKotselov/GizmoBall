@@ -1,6 +1,8 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +30,6 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 		ls = new HashSet<LineSegment>();
 		setupLineSeg();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -41,6 +42,10 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 	}
 
+	@Override
+	protected void setupDrawingShape() {
+		drawingShape = new Rectangle(MainEngine.L * width, MainEngine.L * height);
+	}
 
 	/* Absorber's collision detector methods */
 	@Override

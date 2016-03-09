@@ -15,6 +15,11 @@ public class CircularBumper extends AStatueGizmo {
 		Circle circle = new Circle(grid_tile_x * MainEngine.L,grid_tile_y * MainEngine.L, radius);
 		circleSet.add(circle);
 	}
+	
+	@Override
+	protected void setupDrawingShape() {
+		drawingShape = new Ellipse2D.Double(0, 0, MainEngine.L, MainEngine.L);
+	}
 
 	@Override
 	protected void setupCircles() {
@@ -26,11 +31,6 @@ public class CircularBumper extends AStatueGizmo {
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
-	}
-	
-	@Override
-	public Shape getDrawingShape(){
-		return new Ellipse2D.Double(0, 0, 20, 20);
 	}
 	
 	public double getRadius() {
