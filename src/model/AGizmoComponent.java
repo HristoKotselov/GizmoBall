@@ -68,6 +68,8 @@ abstract public class AGizmoComponent {
 	abstract public Shape getDrawingShape();
 
 	abstract public Set<Circle> getCircles();
+	
+
 
 	public String getGizmoID() {
 		return gizmoID;

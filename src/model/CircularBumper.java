@@ -3,7 +3,10 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+import java.util.Set;
+
 import physics.Circle;
+import physics.LineSegment;
 
 public class CircularBumper extends AStatueGizmo {
 	
@@ -35,6 +38,12 @@ public class CircularBumper extends AStatueGizmo {
 	
 	public double getRadius() {
 		return radius;
+	}
+
+	//@Override
+	public Set<LineSegment> getLines() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
