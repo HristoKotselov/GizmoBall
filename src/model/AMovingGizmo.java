@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Shape;
 
 import physics.Angle;
 import physics.Vect;
@@ -21,6 +22,9 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	private double preciseXStartingPos;
 	/** Y-coordinate (pixel) of the Gizmo before the game starts (i.e. during Build Mode) **/
 	private double preciseYStartingPos;
+	
+	
+	protected Shape drawingShape;
 
 	private Vect velocity;
 
@@ -28,7 +32,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 
 	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
 		super(name, (int) x, (int) y, color);
-
+		setupDrawingShape();
 		preciseXPos = x; // Centre coordinates
 		preciseYPos = y;
 		preciseXStartingPos = x;
@@ -96,5 +100,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public void update(){
 		
 	}
+	
+	abstract protected void setupDrawingShape();
 
 }
