@@ -24,7 +24,7 @@ public class PlayModeMainListener extends AMainListener {
 		String actionCmd = e.getActionCommand();
 	
 		if (actionCmd.equals("start")) {
-System.out.println("start clicked");
+
 		} else if (actionCmd.equals("tick")) {
 
 		} else if (actionCmd.equals("stop")) {

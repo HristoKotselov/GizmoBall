@@ -9,11 +9,10 @@ import javax.swing.event.MouseInputListener;
 import model.IMainEngine;
 
 public class BuildModeMainListener extends AMainListener {
-//	private IMainEngine model;
+	private IMainEngine model;
 
 	public BuildModeMainListener(IMainEngine m) {
 		super(m);
-		System.out.println(model);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -48,12 +47,7 @@ public class BuildModeMainListener extends AMainListener {
 		} else if (actionCmd.equals("clear")) {
 
 		} else if (actionCmd.equals("playMode")) {
-			System.out.println("Tick " + System.nanoTime());
-			if (model == null) {
-				System.out.println("ITS NULL");
-			} else {
-				model.moveBall();
-			}
+
 		}
 	}
 

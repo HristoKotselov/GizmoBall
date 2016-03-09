@@ -26,6 +26,4 @@ public interface IMainEngine {
 	public boolean isPlaying();
 	
 	public void addObserver(Observer o);
-	
-	public Ball getBall();
 }

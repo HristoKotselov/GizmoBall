@@ -75,7 +75,7 @@ public class GameWindow implements IGameWindow {
 
 
 		// TODO
-		buildmenu = new BuildMenu(m);
+		buildmenu = new BuildMenu();
 		buildboard = new BuildBoard(m);
 
 		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
@@ -97,7 +97,7 @@ public class GameWindow implements IGameWindow {
 		window1.add(textarea);
 
 		window1.setVisible(true);
-	
+		
 		
 	}
 

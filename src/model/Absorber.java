@@ -121,5 +121,4 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		return capturedBall;
 	}
 
-
 }

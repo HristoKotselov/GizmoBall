@@ -9,7 +9,7 @@ import model.IMainEngine;
 import view.IGameWindow;
 
 abstract public class AMainListener implements ActionListener {
-	public IMainEngine model;
+	private IMainEngine model;
 	private MouseInputListener mouseHandler;
 	private KeyListener keyHandler;
 

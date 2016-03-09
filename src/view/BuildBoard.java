@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
 import physics.Circle;
-import model.Ball;
 
 public class BuildBoard extends JPanel implements Observer {
 	private IMainEngine model;
@@ -65,19 +64,8 @@ public class BuildBoard extends JPanel implements Observer {
 
 		}
 
-		Ball ball = model.getBall();
-		g2d.setColor(ball.getColour());
-		g2d.translate(ball.getPreciseX(), ball.getPreciseY());
-		// g2d.fill(ball.getDrawingShape());
-		//Shape s = new Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
-	//	Shape s = (Shape) new javafx.scene.shape.Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
-	//g2d.fill(s);	
-		g2d.fillRect(-(int) ball.getRadius(),-(int) ball.getRadius(),2*(int) ball.getRadius(),2*(int) ball.getRadius());
-		
-		
-		g2d.setTransform(old);
-		
-		
+	
+
 		// Draw grid
 		g2d.setColor(Color.WHITE);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
