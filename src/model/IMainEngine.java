@@ -16,7 +16,7 @@ public interface IMainEngine {
 	public Set<AGizmoComponent> getGizmoSet(Class<?> cls);
 	
 	public Map<String, AGizmoComponent> getGizmos();
-
+	
 	public void setBallSpeed(Ball b, Vect velo);
 
 	public void start();

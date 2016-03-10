@@ -7,7 +7,7 @@ import java.util.Set;
 import physics.Angle;
 import physics.Circle;
 
-public class Ball extends AMovingGizmo {
+public class Ball extends AMovableGizmo {
 
 	private double radius;
 
@@ -53,6 +53,16 @@ public class Ball extends AMovingGizmo {
 	/* Ball specific methods */
 	public double getRadius() {
 		return radius;
+	}
+	
+	
+	/**
+	 * TODO
+	 * Shortcut method to retrieve the only Circle class within circleSets
+	 * @return
+	 */
+	public Circle getCircle(){
+		return new Circle(getPreciseX(), getPreciseY(), radius);
 	}
 
 }
