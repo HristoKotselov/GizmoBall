@@ -1,18 +1,20 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.JComponent;
-import javax.swing.event.MouseInputListener;
-
 import model.IMainEngine;
+import view.IBoard;
+import view.IMenu;
 
 public class BuildModeMainListener extends AMainListener {
-	private IMainEngine model;
+	
+	// TODO Basically need to list all possible Controller associated with Build Mode here
+	private AddGizmoListener addGizmoAL;
+	
 
-	public BuildModeMainListener(IMainEngine m) {
-		super(m);
+	public BuildModeMainListener(IMainEngine model, IBoard board, IMenu menu) {
+		super(model, board, menu);
+		
+		addGizmoAL = new AddGizmoListener(model);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -23,7 +25,7 @@ public class BuildModeMainListener extends AMainListener {
 
 		String actionCmd = e.getActionCommand();
 		if (actionCmd.equals("addGizmo")) {
-
+			setBoardMouseListener(addGizmoAL);
 		} else if (actionCmd.equals("addBall")) {
 
 		} else if (actionCmd.equals("connect")) {
