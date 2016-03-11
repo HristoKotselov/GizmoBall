@@ -46,7 +46,7 @@ public class PlayMenu implements IMenu {
 		stopGameAL = new StopGameListener(model);
 
 		buttonMenu = new JPanel();
-		buttonMenu.setPreferredSize(new Dimension(170, 500));
+		buttonMenu.setPreferredSize(new Dimension(170, 400));
 		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
 		buttonMenu.setLayout(new GridLayout(0, 1));
 

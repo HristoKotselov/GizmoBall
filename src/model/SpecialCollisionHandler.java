@@ -1,16 +1,11 @@
 package model;
 
-public class CollisionHandler {
+public class SpecialCollisionHandler {
 
 	private MainEngine model;
 
-	public CollisionHandler(MainEngine mainEngine) {
+	public SpecialCollisionHandler(MainEngine mainEngine) {
 		model = mainEngine;
-	}
-
-	// Use CollisionDetails to determine which handle__Coli() method to call
-	public void handleCollision(CollisionDetails cd) {
-		// TODO
 	}
 
 	// Return TRUE if outside absorber, return FALSE if inside absorber

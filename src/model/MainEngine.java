@@ -1,9 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+
+import physics.Circle;
+import physics.Geometry;
+import physics.LineSegment;
 import physics.Vect;
 
 public class MainEngine extends Observable implements IMainEngine, ISaveDataEngine {
@@ -24,7 +29,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	/* Game Mechanic */
 	private PhysicsConfig physicsSettings;
-	private CollisionHandler collisionHandler;
+	private SpecialCollisionHandler collisionHandler;
 	private Connections customConnections;
 	private SaveDataEngine fileHandler;
 
@@ -131,4 +136,5 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	public void saveFile(String filePath) {
 		fileHandler.saveFile(filePath);
 	}
+
 }

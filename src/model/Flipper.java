@@ -9,7 +9,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
 
-import javafx.geometry.Point2D;
 import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;

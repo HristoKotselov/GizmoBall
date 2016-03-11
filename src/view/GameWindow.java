@@ -41,7 +41,7 @@ public class GameWindow implements IGameWindow {
 		loadFileAL = new LoadFileListener(this, s);
 		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
-		window1.setBounds(100, 100, 720, 600);
+		window1.setBounds(100, 100, 750, 500);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// start of drop menu
@@ -91,7 +91,7 @@ public class GameWindow implements IGameWindow {
 		tips.setForeground(Color.BLUE);
 		window1.add(tips);
 
-		JTextArea textarea = new JTextArea(1, 50);
+		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
 		window1.add(textarea);

@@ -21,7 +21,7 @@ public class BuildBoard extends JPanel implements Observer {
 
 	public BuildBoard(IMainEngine m) {
 		// TODO change to (400, 400)
-		setPreferredSize(new Dimension(500, 500));
+		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
 
 		model = m;
