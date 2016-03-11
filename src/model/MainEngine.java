@@ -153,8 +153,9 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 			statueGizmos.add((AStatueGizmo) gizmo);
 		}else if(gizmo instanceof AMovableGizmo){
 			movableGizmos.add((AMovableGizmo) gizmo);
-			
-		}if(gizmo instanceof ILineSegmentCollider){
+		}
+		
+		if(gizmo instanceof ILineSegmentCollider){
 			lineSegmentColliders.add((ILineSegmentCollider) gizmo);
 		}
 		
@@ -178,6 +179,19 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		gizmos.remove(gizmo.getGizmoID());
 
+		// Update mapping based on the type of Gizmo, used in Collisions
+		if(gizmo instanceof AStatueGizmo){
+			statueGizmos.remove(gizmo);
+		}else if(gizmo instanceof AMovableGizmo){
+			movableGizmos.remove(gizmo);
+		}
+		
+		if(gizmo instanceof ILineSegmentCollider){
+			lineSegmentColliders.remove(gizmo);
+		}
+		
+		// TODO remove connection
+		
 		return !(gizmos.containsValue(gizmo));
 	}
 
