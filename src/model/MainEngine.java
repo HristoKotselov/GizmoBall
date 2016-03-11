@@ -153,7 +153,8 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 			statueGizmos.add((AStatueGizmo) gizmo);
 		}else if(gizmo instanceof AMovableGizmo){
 			movableGizmos.add((AMovableGizmo) gizmo);
-		}else if(gizmo instanceof ILineSegmentCollider){
+			
+		}if(gizmo instanceof ILineSegmentCollider){
 			lineSegmentColliders.add((ILineSegmentCollider) gizmo);
 		}
 		
