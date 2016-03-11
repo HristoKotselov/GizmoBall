@@ -33,7 +33,7 @@ public class BuildBoard extends JPanel implements Observer {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
-		Map<String, AGizmoComponent> gizmos = model.getGizmos();
+		Map<String, AGizmoComponent> gizmos = model.getGizmosMap();
 
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

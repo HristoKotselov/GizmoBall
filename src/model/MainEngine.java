@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -27,8 +29,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	private Map<String, AGizmoComponent> gizmos;
 	
 	// Collection for Collision detection
-	private Set<AStatueGizmo> statueGizmos;
-	private Set<AMovableGizmo> movableGizmos;
 	private Set<ILineSegmentCollider> lineSegmentColliders;
 
 	
@@ -38,7 +38,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	private List<CollisionDetails> collisionList;
 	
 	private PhysicsConfig physicsSettings;
-	private SpecialCollisionHandler collisionHandler;
+	private SpecialCollisionHandler sCollisionHandler;
 	private Connections customConnections;
 	private SaveDataEngine fileHandler;
 
@@ -49,7 +49,12 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
+		lineSegmentColliders = new HashSet<ILineSegmentCollider>();
+
 		collisionList = new ArrayList<CollisionDetails>();
+		
+		physicsSettings = new PhysicsConfig();
+		customConnections = new Connections();
 		fileHandler = new SaveDataEngine();
 	}
 
@@ -91,36 +96,26 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 				}
 			}
 
-			// Time to collide with Gizmos
+			// Time to collide with the Circles of all Gizmos
 			Set<Circle> circleSet;
 			Set<LineSegment> lsSet;
 			
-			for(AStatueGizmo gizmo: statueGizmos){
+			Collection<AGizmoComponent> allGizmos = getAllGizmos();
+			
+			for(AGizmoComponent gizmo: allGizmos){
 				circleSet = gizmo.getCircles();
 				
 				for(Circle circle : circleSet){
 					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
 					if (time < shortestTime) {
 						shortestTime = time;
-						newVelo = Geometry.reflectCircle(circle.getCenter(), new Vect(ball.getPreciseX(), ball.getPreciseY()), ballVelocity, 1.0);
+						newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);
 						colliderID = gizmo.getGizmoID();
 					}
 				}
 			}
 			
-			for(AMovableGizmo gizmo: movableGizmos){
-				circleSet = gizmo.getCircles();
-				
-				for(Circle circle : circleSet){
-					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
-					if (time < shortestTime) {
-						shortestTime = time;
-						newVelo = Geometry.reflectCircle(circle.getCenter(), new Vect(ball.getPreciseX(), ball.getPreciseY()), ballVelocity, 1.0);
-						colliderID = gizmo.getGizmoID();
-					}
-				}
-			}
-			
+			// Time to collide with the Line Segment of all Gizmos
 			for(ILineSegmentCollider gizmo : lineSegmentColliders){
 				lsSet = gizmo.getLineSeg();
 				
@@ -134,6 +129,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 				}
 			}
 				
+			
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
 			collisionList.add(cd);
 		}
@@ -141,6 +137,8 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
+		// TODO Validation
+		
 		AGizmoComponent g = getGizmoAt(gizmo.getX(), gizmo.getY());
 
 		if (g != null) {
@@ -149,12 +147,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 		gizmos.put(gizmo.getGizmoID(), gizmo);
 
 		// Update mapping based on the type of Gizmo, used in Collisions
-		if(gizmo instanceof AStatueGizmo){
-			statueGizmos.add((AStatueGizmo) gizmo);
-		}else if(gizmo instanceof AMovableGizmo){
-			movableGizmos.add((AMovableGizmo) gizmo);
-		}
-		
 		if(gizmo instanceof ILineSegmentCollider){
 			lineSegmentColliders.add((ILineSegmentCollider) gizmo);
 		}
@@ -162,7 +154,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 		setChanged();
 		notifyObservers();
 		
-		// TODO Validation
 		return false;
 	}
 
@@ -179,13 +170,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		gizmos.remove(gizmo.getGizmoID());
 
-		// Update mapping based on the type of Gizmo, used in Collisions
-		if(gizmo instanceof AStatueGizmo){
-			statueGizmos.remove(gizmo);
-		}else if(gizmo instanceof AMovableGizmo){
-			movableGizmos.remove(gizmo);
-		}
-		
+		// Update mapping based on the type of Gizmo, used in Collisions	
 		if(gizmo instanceof ILineSegmentCollider){
 			lineSegmentColliders.remove(gizmo);
 		}
@@ -202,7 +187,13 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	}
 
 	@Override
-	public Map<String, AGizmoComponent> getGizmos() {
+	public Collection<AGizmoComponent> getAllGizmos() {
+		return gizmos.values();
+	}
+
+	
+	@Override
+	public Map<String, AGizmoComponent> getGizmosMap() {
 		return gizmos;
 	}
 

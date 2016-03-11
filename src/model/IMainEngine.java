@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Observer;
 import java.util.Set;
@@ -12,10 +13,12 @@ public interface IMainEngine {
 	public boolean addGizmo(AGizmoComponent gizmo);
 
 	public boolean removeGizmo(AGizmoComponent gizmo);
-
+	
 	public Set<AGizmoComponent> getGizmoSet(Class<?> cls);
 	
-	public Map<String, AGizmoComponent> getGizmos();
+	public Collection<AGizmoComponent> getAllGizmos();
+	
+	public Map<String, AGizmoComponent> getGizmosMap();
 	
 	public void setBallSpeed(Ball b, Vect velo);
 

@@ -8,7 +8,8 @@ import physics.Vect;
 /**
  * TODO
  * Class designed for Gizmos that can move around on the Board (even just certain parts moving). For these Gizmos, 
- * PreciseX & PreciseY methods should be used instead of the standard position methods in AGizmoComponent DURING gameplay.
+ * PreciseX & PreciseY methods can be used instead if their position on the board need be precise DURING gameplay 
+ * (i.e. move about rapidly).
  * Examples:	Ball, Flipper
  */
 abstract public class AMovableGizmo extends AGizmoComponent {
