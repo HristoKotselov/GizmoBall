@@ -41,7 +41,8 @@ public class PlayMenu implements IMenu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		playModeAL = new PlayModeMainListener(model);
+		// TODO the listeners should have been passed through parameter
+		//playModeAL = new PlayModeMainListener(model);
 		startGameAL = new StartGameListener(model);
 		stopGameAL = new StopGameListener(model);
 

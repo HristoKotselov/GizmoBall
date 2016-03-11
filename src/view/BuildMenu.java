@@ -55,7 +55,8 @@ public class BuildMenu implements IMenu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		buildModeAL = new BuildModeMainListener(model);
+		// TODO the listeners should have been passed through parameter
+		//buildModeAL = new BuildModeMainListener(model);
 		physicsConfigAL = new PhysicsConfigListener(model);
 		undoRedoAL = new UndoRedoListener(model);
 

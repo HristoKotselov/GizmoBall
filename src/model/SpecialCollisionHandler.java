@@ -12,7 +12,7 @@ public class SpecialCollisionHandler {
 	public boolean handleAbsorberColi(CollisionDetails cd) {
 		// TODO Need to improve in order to incoperate MainEngine code
 
-		Ball ball = cd.getBall();
+		/*Ball ball = cd.getBall();
 		Absorber absorber = (Absorber) cd.getCollider();
 
 		if (absorber.getCapturedBall() != ball && (ball.getPreciseY() < absorber.getY()
@@ -26,6 +26,8 @@ public class SpecialCollisionHandler {
 			absorber.setBall(null);
 			return false;
 		}
+		*/
 
+		return false;
 	}
 }
