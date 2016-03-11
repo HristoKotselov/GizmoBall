@@ -16,7 +16,6 @@ import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
 import controller.SaveFileListener;
 import model.IMainEngine;
-import model.ISaveDataEngine;
 
 public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
@@ -35,10 +34,10 @@ public class GameWindow implements IGameWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public GameWindow(IMainEngine m, ISaveDataEngine s) {
+	public GameWindow(IMainEngine m) {
 		model = m;
 
-		loadFileAL = new LoadFileListener(this, s);
+		loadFileAL = new LoadFileListener(this, m);
 		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 750, 500);

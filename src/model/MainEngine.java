@@ -14,7 +14,7 @@ import physics.Geometry;
 import physics.LineSegment;
 import physics.Vect;
 
-public class MainEngine extends Observable implements IMainEngine, ISaveDataEngine {
+public class MainEngine extends Observable implements IMainEngine {
 	/* Constants */
 	final static int L = 20;
 
@@ -27,11 +27,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 //	private Set<Absorber> absorberSet;
 
 	private Map<String, AGizmoComponent> gizmos;
-	
-	// Collection for Collision detection
-	private Set<ILineSegmentCollider> lineSegmentColliders;
 
-	
 	private Walls gws;
 
 	/* Game Mechanic */
@@ -49,13 +45,11 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
-		lineSegmentColliders = new HashSet<ILineSegmentCollider>();
 
 		collisionList = new ArrayList<CollisionDetails>();
 		
 		physicsSettings = new PhysicsConfig();
 		customConnections = new Connections();
-		fileHandler = new SaveDataEngine();
 	}
 
 	@Override
@@ -98,14 +92,16 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 			}
 			
 
-			// Time to collide with the Circles of all Gizmos
+			// Time to collide with all Gizmos
 			Set<Circle> circleSet;
+			Set<LineSegment> lsSet;
 			
 			Collection<AGizmoComponent> allGizmos = getAllGizmos();
 			
 			for(AGizmoComponent gizmo: allGizmos){
 				circleSet = gizmo.getCircles();
 				
+				// Checking collision with all the Circles
 				for(Circle circle : circleSet){
 					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
 					if (time < shortestTime) {
@@ -114,25 +110,21 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 						colliderID = gizmo.getGizmoID();
 					}
 				}
-			}
-			
-			
-			// Time to collide with the Line Segment of all Gizmos
-			Set<LineSegment> lsSet;
-			
-			for(ILineSegmentCollider gizmo : lineSegmentColliders){
-				lsSet = gizmo.getLineSeg();
 				
-				for(LineSegment line : lss){
-					time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
-					if (time < shortestTime) {
-						shortestTime = time;
-						newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
-						colliderID = ((AGizmoComponent) gizmo).getGizmoID();
+				if(gizmo instanceof ILineSegmentCollider){
+					lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
+					
+					// Checking collision with all the Line Segments
+					for(LineSegment line : lss){
+						time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
+						if (time < shortestTime) {
+							shortestTime = time;
+							newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
+							colliderID = ((AGizmoComponent) gizmo).getGizmoID();
+						}
 					}
 				}
-			}
-				
+			}		
 			
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
 			collisionList.add(cd);
@@ -149,11 +141,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 			removeGizmo(g);
 		}
 		gizmos.put(gizmo.getGizmoID(), gizmo);
-
-		// Update mapping based on the type of Gizmo, used in Collisions
-		if(gizmo instanceof ILineSegmentCollider){
-			lineSegmentColliders.add((ILineSegmentCollider) gizmo);
-		}
 		
 		setChanged();
 		notifyObservers();
@@ -173,11 +160,6 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		gizmos.remove(gizmo.getGizmoID());
-
-		// Update mapping based on the type of Gizmo, used in Collisions	
-		if(gizmo instanceof ILineSegmentCollider){
-			lineSegmentColliders.remove(gizmo);
-		}
 		
 		// TODO remove connection
 		
@@ -233,7 +215,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 
 	@Override
 	public void saveFile(String filePath) {
-		fileHandler.saveFile(filePath);
+		fileHandler.saveFile(filePath, this);
 	}
 
 }

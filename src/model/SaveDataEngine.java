@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class SaveDataEngine {
+public class SaveDataEngine{
 
-	public void loadFile(String filepath, MainEngine model) {
+	public static void loadFile(String filepath, MainEngine model) {
 		System.out.println("loading board from \"" + filepath + "\"");
 
 		try {
@@ -151,7 +151,9 @@ public class SaveDataEngine {
 		}
 	}
 
-	public void saveFile(String filePath) {
+	public static void saveFile(String filePath, MainEngine model) {
 		// TODO Auto-generated method stub
+		
 	}
+
 }

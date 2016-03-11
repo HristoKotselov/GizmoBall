@@ -7,7 +7,7 @@ import java.util.Set;
 import physics.Angle;
 import physics.Circle;
 
-public class Ball extends AMovableGizmo {
+public class Ball extends AMovingGizmo {
 
 	private double radius;
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 import java.util.Set;
@@ -27,6 +28,10 @@ public interface IMainEngine {
 	public void stop();
 
 	public boolean isPlaying();
+	
+	public void loadFile(String filePath);
+	
+	public void saveFile(String filePath);
 
 	public void addObserver(Observer o);
 }

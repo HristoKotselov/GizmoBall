@@ -14,7 +14,7 @@ import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
 
-public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
+public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public double rotation;
 	public boolean flippingForward;
 	public boolean leftFlipper;
@@ -27,7 +27,7 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 	// private Set<LineSegment> lines;
 
 	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color, boolean leftFlipper) {
-		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color, new Angle(0.0), 0.0);
+		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		//System.out.println(leftFlipper);
 
 		this.rotation = 0;
@@ -97,7 +97,7 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 		return false;
 	}
 
-	@Override
+	/* Flipper exclusive methods */
 	public void update() {
 		if (flippingForward) {
 			rotation += flipSpeed;
