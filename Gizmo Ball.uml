@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;2633361057/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;3676908478/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;606803937/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;1097901961/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1183788084/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;1103387728/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;112924845/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3775101543/1;/GitHub-Gizmo Ball/src/model/Ball.java;2300798740/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;2599831812/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2681536146/1;/GitHub-Gizmo Ball/src/model/Connections.java;481923912/1;/GitHub-Gizmo Ball/src/model/Flipper.java;3070593286/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;1555568954/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;1845838742/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3237465244/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;1354242392/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;3800285582/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;3904516545/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;2967339088/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;4059663324/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;4066921076/1;/GitHub-Gizmo Ball/src/view/IBoard.java;2379225686/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;616764295/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;2332394209/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;662813586/1;/GitHub-Gizmo Ball/src/model/AMovableGizmo.java;1850619283/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;2633361057/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;3676908478/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;606803937/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;1097901961/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1183788084/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;1103387728/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;112924845/1;/GitHub-Gizmo Ball/src/model/Absorber.java;3775101543/1;/GitHub-Gizmo Ball/src/model/Ball.java;2300798740/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;2599831812/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2681536146/1;/GitHub-Gizmo Ball/src/model/Connections.java;3752613450/1;/GitHub-Gizmo Ball/src/model/Flipper.java;3070593286/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;1555568954/1;/GitHub-Gizmo Ball/src/model/ISaveDataEngine.java;1845838742/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3237465244/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;1354242392/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;3800285582/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;3904516545/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;2967339088/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;4059663324/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;4066921076/1;/GitHub-Gizmo Ball/src/view/IBoard.java;2379225686/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;616764295/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;1229481599/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;662813586/1;/GitHub-Gizmo Ball/src/model/AMovableGizmo.java;1850619283/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -595,7 +595,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           </ownedParameter>
           <language>java</language>
           <body>super(model, board, menu);&#xD;
-		&#xD;
+&#xD;
 		addGizmoAL = new AddGizmoListener(model);&#xD;
 		// TODO Auto-generated constructor stub&#xD;
 	</body>
@@ -830,7 +830,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.&#xD;
           <ownedParameter xmi:id="_bpT4gd_LEeWOj8fPzW2xTA" name="e" type="_xyazMMR4EeW_3q3XSh-SYw"/>
           <language>java</language>
           <body>String actionCmd = e.getActionCommand();&#xD;
-	&#xD;
+&#xD;
 		if (actionCmd.equals(&quot;start&quot;)) {&#xD;
 &#xD;
 		} else if (actionCmd.equals(&quot;tick&quot;)) {&#xD;
@@ -1115,7 +1115,7 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_athnROeCEeWktpDGdewXHA" name="kl" type="_IRKz8MomEeWI07Wu9tqfCA"/>
           <language>java</language>
           <body>KeyListener[] keyListeners = component.getKeyListeners();&#xD;
-		for(KeyListener curKL : keyListeners){&#xD;
+		for (KeyListener curKL : keyListeners) {&#xD;
 			component.removeKeyListener(curKL);&#xD;
 		}&#xD;
 &#xD;
@@ -1127,7 +1127,7 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_athnR-eCEeWktpDGdewXHA" name="ml" type="_IRLbAMomEeWI07Wu9tqfCA"/>
           <language>java</language>
           <body>MouseListener[] mouseListeners = component.getMouseListeners();&#xD;
-		for(MouseListener curML : mouseListeners){&#xD;
+		for (MouseListener curML : mouseListeners) {&#xD;
 			component.removeMouseListener(curML);&#xD;
 		}&#xD;
 &#xD;
@@ -1380,7 +1380,7 @@ Also handle Tick</body>
 		capturedBall = null;&#xD;
 &#xD;
 		ls = new HashSet&lt;LineSegment>();&#xD;
-		&#xD;
+&#xD;
 		setupLineSeg();&#xD;
 	</body>
         </ownedBehavior>
@@ -1493,7 +1493,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -1511,7 +1511,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -1765,7 +1765,7 @@ Also handle Tick</body>
           <language>java</language>
           <body>super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);&#xD;
 		radius = 10;&#xD;
-		Circle circle = new Circle(grid_tile_x * MainEngine.L,grid_tile_y * MainEngine.L, radius);&#xD;
+		Circle circle = new Circle(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, radius);&#xD;
 		circleSet.add(circle);&#xD;
 	</body>
         </ownedBehavior>
@@ -1796,7 +1796,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -1814,7 +1814,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -2268,6 +2268,7 @@ Also handle Tick</body>
 			&#xD;
 			String colliderID = null;		// the Gizmo component that the ball will collide with in a collision prediction&#xD;
 &#xD;
+			&#xD;
 			// Time to collide with 4 walls&#xD;
 			ArrayList&lt;LineSegment> lss = gws.getLineSegments();&#xD;
 			for (LineSegment line : lss) {&#xD;
@@ -2278,10 +2279,10 @@ Also handle Tick</body>
 					colliderID = &quot;Wall&quot;;&#xD;
 				}&#xD;
 			}&#xD;
+			&#xD;
 &#xD;
 			// Time to collide with the Circles of all Gizmos&#xD;
 			Set&lt;Circle> circleSet;&#xD;
-			Set&lt;LineSegment> lsSet;&#xD;
 			&#xD;
 			Collection&lt;AGizmoComponent> allGizmos = getAllGizmos();&#xD;
 			&#xD;
@@ -2298,7 +2299,10 @@ Also handle Tick</body>
 				}&#xD;
 			}&#xD;
 			&#xD;
+			&#xD;
 			// Time to collide with the Line Segment of all Gizmos&#xD;
+			Set&lt;LineSegment> lsSet;&#xD;
+			&#xD;
 			for(ILineSegmentCollider gizmo : lineSegmentColliders){&#xD;
 				lsSet = gizmo.getLineSeg();&#xD;
 				&#xD;
@@ -2795,15 +2799,14 @@ Also handle Tick</body>
 						break;&#xD;
 &#xD;
 					case &quot;RightFlipper&quot;:&#xD;
-						 name = st.nextToken();&#xD;
-						 x = Integer.parseInt(st.nextToken());&#xD;
-						 y = Integer.parseInt(st.nextToken());&#xD;
-						 System.out.println(&quot;Adding right flipper named \&quot;&quot; +&#xD;
-						 name + &quot;\&quot; at (&quot; + x + &quot;, &quot; + y + &quot;)&quot;);&#xD;
-						&#xD;
-						 g = new Flipper(name, x, y, Color.ORANGE, false);&#xD;
-							model.addGizmo(g);&#xD;
-							break;&#xD;
+						name = st.nextToken();&#xD;
+						x = Integer.parseInt(st.nextToken());&#xD;
+						y = Integer.parseInt(st.nextToken());&#xD;
+						System.out.println(&quot;Adding right flipper named \&quot;&quot; + name + &quot;\&quot; at (&quot; + x + &quot;, &quot; + y + &quot;)&quot;);&#xD;
+&#xD;
+						g = new Flipper(name, x, y, Color.ORANGE, false);&#xD;
+						model.addGizmo(g);&#xD;
+						break;&#xD;
 &#xD;
 					case &quot;Absorber&quot;:&#xD;
 						// name = st.nextToken();&#xD;
@@ -2999,7 +3002,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -3017,7 +3020,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -3105,7 +3108,7 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_kWahxM-UEeWOGvD12nE26A" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
           <language>java</language>
           <body>super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);&#xD;
-		&#xD;
+&#xD;
 		ls = new HashSet&lt;LineSegment>();&#xD;
 		setupLineSeg();&#xD;
 		setupCircles();&#xD;
@@ -3177,7 +3180,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -3195,7 +3198,7 @@ Also handle Tick</body>
           </ownedParameter>
           <language>java</language>
           <body>updateCollections();&#xD;
-		&#xD;
+&#xD;
 		// TODO Auto-generated method stub&#xD;
 		return false;&#xD;
 	</body>
@@ -3627,7 +3630,7 @@ Gizmo should process.</body>
 		transform.rotate(Math.toRadians(rotation), r.getX() + 5, r.getY() + 5);&#xD;
 		if (leftFlipper) {&#xD;
 			try {&#xD;
-			//	System.out.println(&quot;inverting&quot;);&#xD;
+				//	System.out.println(&quot;inverting&quot;);&#xD;
 				transform.invert();&#xD;
 			} catch (NoninvertibleTransformException e) {&#xD;
 				// TODO Auto-generated catch block&#xD;
@@ -3674,12 +3677,12 @@ Gizmo should process.</body>
 		this.flippingForward = false;&#xD;
 		this.leftFlipper = leftFlipper;&#xD;
 		if (!leftFlipper) {&#xD;
-			this.setX( (this.getX() + 10));&#xD;
+			this.setX((this.getX() + 10));&#xD;
 		}&#xD;
-		&#xD;
+&#xD;
 		//circles = new HashSet&lt;Circle>();&#xD;
-		Circle c = new physics.Circle(this.getX()+10, this.getY()+10, MainEngine.L*0.5);&#xD;
-	//	circles.add(c);&#xD;
+		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);&#xD;
+		//	circles.add(c);&#xD;
 &#xD;
 	</body>
         </ownedBehavior>
@@ -4175,7 +4178,7 @@ Examples:	Ball, Flipper</body>
 &#xD;
 		/*Ball ball = cd.getBall();&#xD;
 		Absorber absorber = (Absorber) cd.getCollider();&#xD;
-&#xD;
+		&#xD;
 		if (absorber.getCapturedBall() != ball &amp;&amp; (ball.getPreciseY() &lt; absorber.getY()&#xD;
 				|| ball.getPreciseY() > absorber.getY() + absorber.getHeight())) { // i.e. first collision BEFORE ball enter Absorber&#xD;
 			ball.stop();&#xD;
@@ -4315,8 +4318,6 @@ Examples:	Ball, Flipper</body>
 			g2d.setTransform(old);&#xD;
 &#xD;
 		}&#xD;
-&#xD;
-	&#xD;
 &#xD;
 		// Draw grid&#xD;
 		g2d.setColor(Color.WHITE);&#xD;
@@ -4484,8 +4485,6 @@ Examples:	Ball, Flipper</body>
 		JSeparator separator1 = new JSeparator();&#xD;
 		window1.getContentPane().add(separator1);&#xD;
 &#xD;
-&#xD;
-&#xD;
 		// TODO&#xD;
 		buildmenu = new BuildMenu();&#xD;
 		buildboard = new BuildBoard(m);&#xD;
@@ -4493,7 +4492,7 @@ Examples:	Ball, Flipper</body>
 		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);&#xD;
 &#xD;
 		buildboard.addMouseListener(l);&#xD;
-//		buildboard.addMouseMotionListener(l);&#xD;
+		//		buildboard.addMouseMotionListener(l);&#xD;
 &#xD;
 		window1.add(buildmenu.getMenu());&#xD;
 		window1.add(buildboard);&#xD;
@@ -4509,8 +4508,7 @@ Examples:	Ball, Flipper</body>
 		window1.add(textarea);&#xD;
 &#xD;
 		window1.setVisible(true);&#xD;
-		&#xD;
-		&#xD;
+&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_at-TNOeCEeWktpDGdewXHA" name="getFile" specification="_aV048OeCEeWktpDGdewXHA">
@@ -4675,7 +4673,7 @@ Examples:	Ball, Flipper</body>
 		JButton clear = new JButton(&quot;Clear Board&quot;);&#xD;
 		clear.setActionCommand(&quot;clear&quot;);&#xD;
 		clear.addActionListener(buildModeAL);&#xD;
-		&#xD;
+&#xD;
 		JButton move = new JButton(&quot;Move Gizmo&quot;);&#xD;
 		move.setActionCommand(&quot;moveGizmo&quot;);&#xD;
 		move.addActionListener(buildModeAL);&#xD;
@@ -4683,52 +4681,52 @@ Examples:	Ball, Flipper</body>
 		JButton playMode = new JButton(&quot;Play!&quot;);&#xD;
 		playMode.setActionCommand(&quot;playMode&quot;);&#xD;
 		playMode.addActionListener(buildModeAL);&#xD;
-		&#xD;
-//		JPanel addGizmo = new JPanel();&#xD;
-//		addGizmo.setPreferredSize(new Dimension(170, 20));&#xD;
-//		addGizmo.setLayout(new GridLayout(0, 2));&#xD;
-//		&#xD;
-//		JLabel label = new JLabel(&quot;  Choose a gizmo to add:&quot;);&#xD;
-//		label.setFont(new Font(&quot;Arial&quot;, 1, 13));&#xD;
-//		buttonMenu.add(label);&#xD;
-//&#xD;
-//		JRadioButton leftFlipper = new JRadioButton(&quot;left flipper&quot;);&#xD;
-//		JRadioButton rightFlipper = new JRadioButton(&quot;right flipper&quot;);&#xD;
-//		JRadioButton square = new JRadioButton(&quot;square&quot;);&#xD;
-//		JRadioButton triangle = new JRadioButton(&quot;circle&quot;);&#xD;
-//		JRadioButton circle = new JRadioButton(&quot;triangle&quot;);&#xD;
-//		JRadioButton absorber = new JRadioButton(&quot;absorber&quot;);&#xD;
-//		JRadioButton ball = new JRadioButton(&quot;ball&quot;);&#xD;
-//	&#xD;
-//		&#xD;
-//		bg = new ButtonGroup();&#xD;
-//		bg.add(leftFlipper);&#xD;
-//		bg.add(rightFlipper);&#xD;
-//		bg.add(square);&#xD;
-//		bg.add(triangle);&#xD;
-//		bg.add(circle);&#xD;
-//		bg.add(absorber);&#xD;
-//		bg.add(ball);&#xD;
-//		square.setSelected(true);&#xD;
-//		addGizmo.add(leftFlipper);&#xD;
-//		addGizmo.add(rightFlipper);&#xD;
-//		addGizmo.add(square);&#xD;
-//		addGizmo.add(triangle);&#xD;
-//		addGizmo.add(circle);&#xD;
-//		addGizmo.add(absorber);&#xD;
-//		addGizmo.add(ball);&#xD;
-//		&#xD;
-//		buttonMenu.add(addGizmo);&#xD;
+&#xD;
+		//		JPanel addGizmo = new JPanel();&#xD;
+		//		addGizmo.setPreferredSize(new Dimension(170, 20));&#xD;
+		//		addGizmo.setLayout(new GridLayout(0, 2));&#xD;
+		//		&#xD;
+		//		JLabel label = new JLabel(&quot;  Choose a gizmo to add:&quot;);&#xD;
+		//		label.setFont(new Font(&quot;Arial&quot;, 1, 13));&#xD;
+		//		buttonMenu.add(label);&#xD;
+		//&#xD;
+		//		JRadioButton leftFlipper = new JRadioButton(&quot;left flipper&quot;);&#xD;
+		//		JRadioButton rightFlipper = new JRadioButton(&quot;right flipper&quot;);&#xD;
+		//		JRadioButton square = new JRadioButton(&quot;square&quot;);&#xD;
+		//		JRadioButton triangle = new JRadioButton(&quot;circle&quot;);&#xD;
+		//		JRadioButton circle = new JRadioButton(&quot;triangle&quot;);&#xD;
+		//		JRadioButton absorber = new JRadioButton(&quot;absorber&quot;);&#xD;
+		//		JRadioButton ball = new JRadioButton(&quot;ball&quot;);&#xD;
+		//	&#xD;
+		//		&#xD;
+		//		bg = new ButtonGroup();&#xD;
+		//		bg.add(leftFlipper);&#xD;
+		//		bg.add(rightFlipper);&#xD;
+		//		bg.add(square);&#xD;
+		//		bg.add(triangle);&#xD;
+		//		bg.add(circle);&#xD;
+		//		bg.add(absorber);&#xD;
+		//		bg.add(ball);&#xD;
+		//		square.setSelected(true);&#xD;
+		//		addGizmo.add(leftFlipper);&#xD;
+		//		addGizmo.add(rightFlipper);&#xD;
+		//		addGizmo.add(square);&#xD;
+		//		addGizmo.add(triangle);&#xD;
+		//		addGizmo.add(circle);&#xD;
+		//		addGizmo.add(absorber);&#xD;
+		//		addGizmo.add(ball);&#xD;
+		//		&#xD;
+		//		buttonMenu.add(addGizmo);&#xD;
 &#xD;
 		//JTextArea textarea = new JTextArea(1,10);&#xD;
 		//textarea.setBackground(Color.LIGHT_GRAY);&#xD;
 		//textarea.setEditable(false);&#xD;
 		//buttonMenu.add(textarea);&#xD;
-		&#xD;
+&#xD;
 		JPanel sliders = new JPanel();&#xD;
 		sliders.setPreferredSize(new Dimension(270, 400));&#xD;
 		sliders.setLayout(new GridLayout(0, 2));&#xD;
-		&#xD;
+&#xD;
 		JLabel ballspeedlabel = new JLabel(&quot;  Ball speed:&quot;);&#xD;
 		ballspeedlabel.setFont(new Font(&quot;Arial&quot;, 1, 15));&#xD;
 		JSlider ballspeed = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);&#xD;
@@ -4738,7 +4736,6 @@ Examples:	Ball, Flipper</body>
 		ballspeed.setPaintLabels(true);&#xD;
 		ballspeed.setLabelTable(ballspeed.createStandardLabels(10));&#xD;
 &#xD;
-		&#xD;
 		JLabel mu1label = new JLabel(&quot;  Friciton mu1:&quot;);&#xD;
 		mu1label.setFont(new Font(&quot;Arial&quot;, 1, 15));&#xD;
 		JSlider mu1 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);&#xD;
@@ -4747,7 +4744,7 @@ Examples:	Ball, Flipper</body>
 		mu1.setPaintTicks(true);&#xD;
 		mu1.setPaintLabels(true);&#xD;
 		mu1.setLabelTable(ballspeed.createStandardLabels(5));&#xD;
-		&#xD;
+&#xD;
 		JLabel mu2label = new JLabel(&quot;  Friciton mu2:&quot;);&#xD;
 		mu2label.setFont(new Font(&quot;Arial&quot;, 1, 15));&#xD;
 		JSlider mu2 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);&#xD;
@@ -4756,7 +4753,7 @@ Examples:	Ball, Flipper</body>
 		mu2.setPaintTicks(true);&#xD;
 		mu2.setPaintLabels(true);&#xD;
 		mu2.setLabelTable(ballspeed.createStandardLabels(5));&#xD;
-		&#xD;
+&#xD;
 		JLabel gravitylabel = new JLabel(&quot;  Gravity:&quot;);&#xD;
 		gravitylabel.setFont(new Font(&quot;Arial&quot;, 1, 15));&#xD;
 		JSlider gravity = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);&#xD;
@@ -4765,7 +4762,7 @@ Examples:	Ball, Flipper</body>
 		gravity.setPaintTicks(true);&#xD;
 		gravity.setPaintLabels(true);&#xD;
 		gravity.setLabelTable(ballspeed.createStandardLabels(10));&#xD;
-		&#xD;
+&#xD;
 		JLabel addgizmolabel = new JLabel(&quot;  Add Gizmo:&quot;);&#xD;
 		addgizmolabel.setFont(new Font(&quot;Arial&quot;, 1, 15));&#xD;
 		String[] gizmos = { &quot;Left Flipper&quot;, &quot;Right Flipper&quot;, &quot;Square&quot;, &quot;Triangle&quot;, &quot;Circle&quot;, &quot;Absorber&quot;, &quot;Ball&quot; };&#xD;
@@ -4784,8 +4781,6 @@ Examples:	Ball, Flipper</body>
 		sliders.add(addgizmo);&#xD;
 		buttonMenu.add(sliders);&#xD;
 &#xD;
-&#xD;
-		&#xD;
 		JPanel buttons = new JPanel();&#xD;
 		buttons.setPreferredSize(new Dimension(170, 400));&#xD;
 		buttons.setLayout(new GridLayout(0, 2));&#xD;
@@ -4805,7 +4800,7 @@ Examples:	Ball, Flipper</body>
 		buttons.add(clear);&#xD;
 		buttons.add(move);&#xD;
 		buttons.add(playMode);&#xD;
-	&#xD;
+&#xD;
 		buttonMenu.add(buttons);&#xD;
 	</body>
         </ownedBehavior>
@@ -4831,7 +4826,7 @@ Examples:	Ball, Flipper</body>
           </ownedParameter>
           <language>java</language>
           <body>return bg;&#xD;
-</body>
+	</body>
         </ownedBehavior>
         <ownedOperation xmi:id="_WP6W0MoSEeWsA83iBWrPKA" name="initialize" visibility="private" method="_WQSxUsoSEeWsA83iBWrPKA">
           <ownedComment xmi:id="_rT8awM93EeWej54JrL5caA">

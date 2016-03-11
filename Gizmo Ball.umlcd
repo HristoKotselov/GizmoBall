@@ -2052,12 +2052,6 @@
     <modelElement href="Gizmo%20Ball.uml#_asWikOeCEeWktpDGdewXHA"/>
   </edges>
   <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_7dmVoeeDEeWktpDGdewXHA" targetItem="_WXQ8DMoSEeWsA83iBWrPKA" sourceItem="_7dmVoOeDEeWktpDGdewXHA"/>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_MqDakOeEEeWktpDGdewXHA" dashed="true" subClass="_PQxsYMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_G5R-gMonEeWI07Wu9tqfCA"/>
-  </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_Ms89kOeEEeWktpDGdewXHA" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_E9sbkMonEeWI07Wu9tqfCA"/>
-  </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_nIExgOeEEeWktpDGdewXHA" sourceAnchor="0.0,143.0" targetAnchor="605.0,202.0" superClass="_izFOYMoQEeWsA83iBWrPKA" subClass="_nIIb4OeEEeWktpDGdewXHA">
     <modelElement href="Gizmo%20Ball.uml#_m-O5AueEEeWktpDGdewXHA"/>
   </edges>
@@ -2117,6 +2111,12 @@
       <visibility xmi:id="_xN_msueGEeWktpDGdewXHA" label="-"/>
       <cardinality xmi:id="_xN_mseeGEeWktpDGdewXHA" label="1" max="1" min="1"/>
     </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="__22ewOeMEeWktpDGdewXHA" dashed="true" subClass="_PQxsYMoQEeWsA83iBWrPKA">
+    <modelElement href="Gizmo%20Ball.uml#_G5R-gMonEeWI07Wu9tqfCA"/>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_AAimQOeNEeWktpDGdewXHA" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
+    <modelElement href="Gizmo%20Ball.uml#_E9sbkMonEeWI07Wu9tqfCA"/>
   </edges>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_hXu_kM-TEeWOGvD12nE26A" sourceConnectionVisual="_hX27YM-TEeWOGvD12nE26A" text="Method called when the user decides to rotate a Gizmo component.&#xD;&#xA;&#x9; * @param degree - the angle of rotation to add&#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect varies with each Gizmo component; see individual class" item="_hX3icM-TEeWOGvD12nE26A">
     <modelElement href="Gizmo%20Ball.uml#_hBmXgM-TEeWOGvD12nE26A"/>
@@ -2508,7 +2508,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsIn="_a3OV0OeCEeWktpDGdewXHA" associationsOut="_PQxFUMoQEeWsA83iBWrPKA" generalizations="_MqDakOeEEeWktpDGdewXHA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsIn="_a3OV0OeCEeWktpDGdewXHA" associationsOut="_PQxFUMoQEeWsA83iBWrPKA" generalizations="__22ewOeMEeWktpDGdewXHA">
     <modelElement href="Gizmo%20Ball.uml#_E3mSEMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PQxsYcoQEeWsA83iBWrPKA" position="-1710.0,2389.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PQxsYsoQEeWsA83iBWrPKA" label="+"/>
@@ -2717,7 +2717,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_Ms89kOeEEeWktpDGdewXHA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_AAimQOeNEeWktpDGdewXHA">
     <modelElement href="Gizmo%20Ball.uml#_PFELoMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRQNgcoQEeWsA83iBWrPKA" position="-1030.0,2496.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRQNgsoQEeWsA83iBWrPKA" label="+"/>
