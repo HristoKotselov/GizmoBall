@@ -85,6 +85,7 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 			
 			String colliderID = null;		// the Gizmo component that the ball will collide with in a collision prediction
 
+			
 			// Time to collide with 4 walls
 			ArrayList<LineSegment> lss = gws.getLineSegments();
 			for (LineSegment line : lss) {
@@ -95,10 +96,10 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 					colliderID = "Wall";
 				}
 			}
+			
 
 			// Time to collide with the Circles of all Gizmos
 			Set<Circle> circleSet;
-			Set<LineSegment> lsSet;
 			
 			Collection<AGizmoComponent> allGizmos = getAllGizmos();
 			
@@ -115,7 +116,10 @@ public class MainEngine extends Observable implements IMainEngine, ISaveDataEngi
 				}
 			}
 			
+			
 			// Time to collide with the Line Segment of all Gizmos
+			Set<LineSegment> lsSet;
+			
 			for(ILineSegmentCollider gizmo : lineSegmentColliders){
 				lsSet = gizmo.getLineSeg();
 				
