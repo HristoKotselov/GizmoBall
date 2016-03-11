@@ -13,7 +13,7 @@ public class Ball extends AMovableGizmo {
 
 	// x, y coordinates and x,y velocity
 	public Ball(String name, Color color, double x, double y, Angle theta, double yv) {
-		super(name, y, x, color, theta, yv);
+		super(name, x, y, color, theta, yv);
 		start();
 
 		radius = 5;
