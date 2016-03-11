@@ -7,12 +7,12 @@ public class CollisionDetails {
 	private double tuc; //time until collision
 	private Vect velo;
 	private Ball b; // identify which ball is involved in a collision & provide access to the object
-	private AGizmoComponent clder; // identify which Gizmo Component is involved in a collision & provide access to the object
+	private String clderName; // identify which Gizmo Component is involved in a collision
 
-	public CollisionDetails(double t, Vect v, Ball ball, AGizmoComponent collider) {
+	public CollisionDetails(double t, Vect v, Ball ball, String colliderID) {
 		tuc = t;
 		velo = v;
-		clder = collider;
+		clderName = colliderID;
 		b = ball;
 	}
 
@@ -24,8 +24,8 @@ public class CollisionDetails {
 		return velo;
 	}
 
-	public AGizmoComponent getCollider() {
-		return clder;
+	public String getColliderName() {
+		return clderName;
 	}
 
 	public Ball getBall() {
