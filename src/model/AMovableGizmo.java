@@ -55,21 +55,21 @@ abstract public class AMovableGizmo extends AGizmoComponent {
 		return preciseYPos;
 	}
 
-	public void setExactStartingX(double x) {
+	public void setPreciseStartingX(double x) {
 		// TODO Validation
 		preciseXStartingPos = x;
 	}
 
-	public void setExactStartingY(double y) {
+	public void setPreciseStartingY(double y) {
 		// TODO Validation
 		preciseYStartingPos = y;
 	}
 
-	public double getExactStartingX() {
+	public double getPreciseStartingX() {
 		return preciseXStartingPos;
 	}
 
-	public double getExactStartingY() {
+	public double getPreciseStartingY() {
 		return preciseYStartingPos;
 	}
 
