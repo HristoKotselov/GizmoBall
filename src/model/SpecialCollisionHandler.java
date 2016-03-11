@@ -12,14 +12,14 @@ public class SpecialCollisionHandler {
 	public void specialCollisionHandler(CollisionDetails cd) {
 		// TODO
 	}
-	
+
 	// Return TRUE if outside absorber, return FALSE if inside absorber
 	public boolean handleAbsorberColi(CollisionDetails cd, AGizmoComponent gizmo) {
 		// TODO Need to improve in order to incoperate MainEngine code (get MainEngine to retrieve the Gizmo)
 
 		/*Ball ball = cd.getBall();
 		Absorber absorber = (Absorber) cd.getCollider();
-
+		
 		if (absorber.getCapturedBall() != ball && (ball.getPreciseY() < absorber.getY()
 				|| ball.getPreciseY() > absorber.getY() + absorber.getHeight())) { // i.e. first collision BEFORE ball enter Absorber
 			ball.stop();

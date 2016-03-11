@@ -11,22 +11,21 @@ import physics.LineSegment;
 public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollider {
 	/** A set of Line Segments around the edge of the triangular bumper, which will act as the collision detector with a ball **/
 	private Set<LineSegment> ls;
-	
+
 	public TriangularBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
-		
+
 		ls = new HashSet<LineSegment>();
 		setupLineSeg();
 		setupCircles();
 	}
-	
 
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	/**
 	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should
 	 * set up their Line Segment objects here.
@@ -71,36 +70,32 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 		circleSet.add(topright);
 		circleSet.add(bottomleft);
 	}
-	
+
 	@Override
-	public void updateCollections(){
+	public void updateCollections() {
 		setupDrawingShape();
 		setupLineSeg();
 		setupCircles();
 	}
-	
+
 	@Override
 	public boolean rotate(int degree) {
-		
-		
-		
+
 		updateCollections();
-		
+
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean move(int newX, int newY) {
-		
-		
-		
+
 		updateCollections();
-		
+
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	public Set<LineSegment> getLineSeg() {
 		return ls;

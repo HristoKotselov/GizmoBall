@@ -36,7 +36,6 @@ public class Ball extends AMovableGizmo {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 	@Override
 	public boolean rotate(int degree) {
@@ -54,14 +53,13 @@ public class Ball extends AMovableGizmo {
 	public double getRadius() {
 		return radius;
 	}
-	
-	
+
 	/**
 	 * TODO
 	 * Shortcut method to retrieve the only Circle class within circleSets
 	 * @return
 	 */
-	public Circle getCircle(){
+	public Circle getCircle() {
 		return new Circle(getPreciseX(), getPreciseY(), radius);
 	}
 

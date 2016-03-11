@@ -67,15 +67,14 @@ public class SaveDataEngine {
 						break;
 
 					case "RightFlipper":
-						 name = st.nextToken();
-						 x = Integer.parseInt(st.nextToken());
-						 y = Integer.parseInt(st.nextToken());
-						 System.out.println("Adding right flipper named \"" +
-						 name + "\" at (" + x + ", " + y + ")");
-						
-						 g = new Flipper(name, x, y, Color.ORANGE, false);
-							model.addGizmo(g);
-							break;
+						name = st.nextToken();
+						x = Integer.parseInt(st.nextToken());
+						y = Integer.parseInt(st.nextToken());
+						System.out.println("Adding right flipper named \"" + name + "\" at (" + x + ", " + y + ")");
+
+						g = new Flipper(name, x, y, Color.ORANGE, false);
+						model.addGizmo(g);
+						break;
 
 					case "Absorber":
 						// name = st.nextToken();

@@ -51,7 +51,7 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 	public Set<Circle> getCircles() {
 		return circleSet;
 	}
-	
+
 	abstract public void updateCollections();
 
 }

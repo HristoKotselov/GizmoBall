@@ -6,14 +6,13 @@ import view.IBoard;
 import view.IMenu;
 
 public class BuildModeMainListener extends AMainListener {
-	
+
 	// TODO Basically need to list all possible Controller associated with Build Mode here
 	private AddGizmoListener addGizmoAL;
-	
 
 	public BuildModeMainListener(IMainEngine model, IBoard board, IMenu menu) {
 		super(model, board, menu);
-		
+
 		addGizmoAL = new AddGizmoListener(model);
 		// TODO Auto-generated constructor stub
 	}

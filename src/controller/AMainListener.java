@@ -36,18 +36,18 @@ abstract public class AMainListener implements ActionListener {
 		setMouseListener(jpanel, ml);
 	}
 
-	private void setKeyListener(JComponent component, KeyListener kl){
+	private void setKeyListener(JComponent component, KeyListener kl) {
 		KeyListener[] keyListeners = component.getKeyListeners();
-		for(KeyListener curKL : keyListeners){
+		for (KeyListener curKL : keyListeners) {
 			component.removeKeyListener(curKL);
 		}
 
 		component.addKeyListener(kl);
 	}
-	
-	private void setMouseListener(JComponent component, MouseInputListener ml){
+
+	private void setMouseListener(JComponent component, MouseInputListener ml) {
 		MouseListener[] mouseListeners = component.getMouseListeners();
-		for(MouseListener curML : mouseListeners){
+		for (MouseListener curML : mouseListeners) {
 			component.removeMouseListener(curML);
 		}
 

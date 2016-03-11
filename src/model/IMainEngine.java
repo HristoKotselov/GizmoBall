@@ -13,13 +13,13 @@ public interface IMainEngine {
 	public boolean addGizmo(AGizmoComponent gizmo);
 
 	public boolean removeGizmo(AGizmoComponent gizmo);
-	
+
 	public Set<AGizmoComponent> getGizmoSet(Class<?> cls);
-	
+
 	public Collection<AGizmoComponent> getAllGizmos();
-	
+
 	public Map<String, AGizmoComponent> getGizmosMap();
-	
+
 	public void setBallSpeed(Ball b, Vect velo);
 
 	public void start();
@@ -27,6 +27,6 @@ public interface IMainEngine {
 	public void stop();
 
 	public boolean isPlaying();
-	
+
 	public void addObserver(Observer o);
 }

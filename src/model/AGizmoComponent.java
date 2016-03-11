@@ -113,7 +113,7 @@ abstract public class AGizmoComponent {
 	 * THEN drawingShape is updated. Can have additional effects, check individual Gizmo for them.
 	 */
 	abstract public boolean rotate(int degree);
-	
+
 	/**
 	 * Method called when the user decides to move a Gizmo component.
 	 * 

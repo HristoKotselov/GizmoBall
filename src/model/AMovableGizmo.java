@@ -93,9 +93,9 @@ abstract public class AMovableGizmo extends AGizmoComponent {
 	public Vect getVelo() {
 		return velocity;
 	}
-	
-	public void update(){
-		
+
+	public void update() {
+
 	}
 
 }

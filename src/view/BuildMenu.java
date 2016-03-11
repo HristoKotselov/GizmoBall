@@ -116,7 +116,7 @@ public class BuildMenu implements IMenu {
 		JButton clear = new JButton("Clear Board");
 		clear.setActionCommand("clear");
 		clear.addActionListener(buildModeAL);
-		
+
 		JButton move = new JButton("Move Gizmo");
 		move.setActionCommand("moveGizmo");
 		move.addActionListener(buildModeAL);
@@ -124,52 +124,52 @@ public class BuildMenu implements IMenu {
 		JButton playMode = new JButton("Play!");
 		playMode.setActionCommand("playMode");
 		playMode.addActionListener(buildModeAL);
-		
-//		JPanel addGizmo = new JPanel();
-//		addGizmo.setPreferredSize(new Dimension(170, 20));
-//		addGizmo.setLayout(new GridLayout(0, 2));
-//		
-//		JLabel label = new JLabel("  Choose a gizmo to add:");
-//		label.setFont(new Font("Arial", 1, 13));
-//		buttonMenu.add(label);
-//
-//		JRadioButton leftFlipper = new JRadioButton("left flipper");
-//		JRadioButton rightFlipper = new JRadioButton("right flipper");
-//		JRadioButton square = new JRadioButton("square");
-//		JRadioButton triangle = new JRadioButton("circle");
-//		JRadioButton circle = new JRadioButton("triangle");
-//		JRadioButton absorber = new JRadioButton("absorber");
-//		JRadioButton ball = new JRadioButton("ball");
-//	
-//		
-//		bg = new ButtonGroup();
-//		bg.add(leftFlipper);
-//		bg.add(rightFlipper);
-//		bg.add(square);
-//		bg.add(triangle);
-//		bg.add(circle);
-//		bg.add(absorber);
-//		bg.add(ball);
-//		square.setSelected(true);
-//		addGizmo.add(leftFlipper);
-//		addGizmo.add(rightFlipper);
-//		addGizmo.add(square);
-//		addGizmo.add(triangle);
-//		addGizmo.add(circle);
-//		addGizmo.add(absorber);
-//		addGizmo.add(ball);
-//		
-//		buttonMenu.add(addGizmo);
+
+		//		JPanel addGizmo = new JPanel();
+		//		addGizmo.setPreferredSize(new Dimension(170, 20));
+		//		addGizmo.setLayout(new GridLayout(0, 2));
+		//		
+		//		JLabel label = new JLabel("  Choose a gizmo to add:");
+		//		label.setFont(new Font("Arial", 1, 13));
+		//		buttonMenu.add(label);
+		//
+		//		JRadioButton leftFlipper = new JRadioButton("left flipper");
+		//		JRadioButton rightFlipper = new JRadioButton("right flipper");
+		//		JRadioButton square = new JRadioButton("square");
+		//		JRadioButton triangle = new JRadioButton("circle");
+		//		JRadioButton circle = new JRadioButton("triangle");
+		//		JRadioButton absorber = new JRadioButton("absorber");
+		//		JRadioButton ball = new JRadioButton("ball");
+		//	
+		//		
+		//		bg = new ButtonGroup();
+		//		bg.add(leftFlipper);
+		//		bg.add(rightFlipper);
+		//		bg.add(square);
+		//		bg.add(triangle);
+		//		bg.add(circle);
+		//		bg.add(absorber);
+		//		bg.add(ball);
+		//		square.setSelected(true);
+		//		addGizmo.add(leftFlipper);
+		//		addGizmo.add(rightFlipper);
+		//		addGizmo.add(square);
+		//		addGizmo.add(triangle);
+		//		addGizmo.add(circle);
+		//		addGizmo.add(absorber);
+		//		addGizmo.add(ball);
+		//		
+		//		buttonMenu.add(addGizmo);
 
 		//JTextArea textarea = new JTextArea(1,10);
 		//textarea.setBackground(Color.LIGHT_GRAY);
 		//textarea.setEditable(false);
 		//buttonMenu.add(textarea);
-		
+
 		JPanel sliders = new JPanel();
 		sliders.setPreferredSize(new Dimension(270, 400));
 		sliders.setLayout(new GridLayout(0, 2));
-		
+
 		JLabel ballspeedlabel = new JLabel("  Ball speed:");
 		ballspeedlabel.setFont(new Font("Arial", 1, 15));
 		JSlider ballspeed = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
@@ -179,7 +179,6 @@ public class BuildMenu implements IMenu {
 		ballspeed.setPaintLabels(true);
 		ballspeed.setLabelTable(ballspeed.createStandardLabels(10));
 
-		
 		JLabel mu1label = new JLabel("  Friciton mu1:");
 		mu1label.setFont(new Font("Arial", 1, 15));
 		JSlider mu1 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
@@ -188,7 +187,7 @@ public class BuildMenu implements IMenu {
 		mu1.setPaintTicks(true);
 		mu1.setPaintLabels(true);
 		mu1.setLabelTable(ballspeed.createStandardLabels(5));
-		
+
 		JLabel mu2label = new JLabel("  Friciton mu2:");
 		mu2label.setFont(new Font("Arial", 1, 15));
 		JSlider mu2 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
@@ -197,7 +196,7 @@ public class BuildMenu implements IMenu {
 		mu2.setPaintTicks(true);
 		mu2.setPaintLabels(true);
 		mu2.setLabelTable(ballspeed.createStandardLabels(5));
-		
+
 		JLabel gravitylabel = new JLabel("  Gravity:");
 		gravitylabel.setFont(new Font("Arial", 1, 15));
 		JSlider gravity = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
@@ -206,7 +205,7 @@ public class BuildMenu implements IMenu {
 		gravity.setPaintTicks(true);
 		gravity.setPaintLabels(true);
 		gravity.setLabelTable(ballspeed.createStandardLabels(10));
-		
+
 		JLabel addgizmolabel = new JLabel("  Add Gizmo:");
 		addgizmolabel.setFont(new Font("Arial", 1, 15));
 		String[] gizmos = { "Left Flipper", "Right Flipper", "Square", "Triangle", "Circle", "Absorber", "Ball" };
@@ -225,8 +224,6 @@ public class BuildMenu implements IMenu {
 		sliders.add(addgizmo);
 		buttonMenu.add(sliders);
 
-
-		
 		JPanel buttons = new JPanel();
 		buttons.setPreferredSize(new Dimension(170, 400));
 		buttons.setLayout(new GridLayout(0, 2));
@@ -246,13 +243,14 @@ public class BuildMenu implements IMenu {
 		buttons.add(clear);
 		buttons.add(move);
 		buttons.add(playMode);
-	
+
 		buttonMenu.add(buttons);
 	}
-public ButtonGroup getGizmoSelector(){
-	return bg;
-}
-	
+
+	public ButtonGroup getGizmoSelector() {
+		return bg;
+	}
+
 	public JPanel getMenu() {
 		return buttonMenu;
 	}

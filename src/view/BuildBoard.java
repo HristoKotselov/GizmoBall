@@ -64,8 +64,6 @@ public class BuildBoard extends JPanel implements Observer {
 
 		}
 
-	
-
 		// Draw grid
 		g2d.setColor(Color.WHITE);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));

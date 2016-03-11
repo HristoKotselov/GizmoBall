@@ -34,12 +34,12 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 		this.flippingForward = false;
 		this.leftFlipper = leftFlipper;
 		if (!leftFlipper) {
-			this.setX( (this.getX() + 10));
+			this.setX((this.getX() + 10));
 		}
-		
+
 		//circles = new HashSet<Circle>();
-		Circle c = new physics.Circle(this.getX()+10, this.getY()+10, MainEngine.L*0.5);
-	//	circles.add(c);
+		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);
+		//	circles.add(c);
 
 	}
 
@@ -52,7 +52,7 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 
 	@Override
 	public Shape getDrawingShape() {
-	//	rotation += 15;
+		//	rotation += 15;
 		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
 		AffineTransform transform = new AffineTransform();
@@ -60,7 +60,7 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 		transform.rotate(Math.toRadians(rotation), r.getX() + 5, r.getY() + 5);
 		if (leftFlipper) {
 			try {
-			//	System.out.println("inverting");
+				//	System.out.println("inverting");
 				transform.invert();
 			} catch (NoninvertibleTransformException e) {
 				// TODO Auto-generated catch block
@@ -84,7 +84,6 @@ public class Flipper extends AMovableGizmo implements ILineSegmentCollider {
 		// TODO
 		return null;
 	}
-	
 
 	@Override
 	public boolean rotate(int degree) {
