@@ -10,7 +10,7 @@ public class SaveFileListener implements ActionListener {
 	private IMainEngine model;
 	private IGameWindow window;
 
-	public SaveFileListener(IMainEngine m, IGameWindow w) {
+	public SaveFileListener(IGameWindow w, IMainEngine m) {
 		model = m;
 		window = w;
 	}

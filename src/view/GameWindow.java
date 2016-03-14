@@ -38,7 +38,7 @@ public class GameWindow implements IGameWindow {
 		model = m;
 
 		loadFileAL = new LoadFileListener(this, m);
-		saveFileAL = new SaveFileListener(m);
+		saveFileAL = new SaveFileListener(this, m);
 		window1 = new JFrame("Play Mode");
 		window1.setBounds(100, 100, 750, 500);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
