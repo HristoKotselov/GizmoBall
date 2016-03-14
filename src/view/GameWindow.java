@@ -71,8 +71,8 @@ public class GameWindow implements IGameWindow {
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
 
-		// TODO
-		buildmenu = new BuildMenu();
+		// TODO might need to change later
+		buildmenu = new BuildMenu(m);
 		buildboard = new BuildBoard(m);
 
 		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
@@ -94,7 +94,6 @@ public class GameWindow implements IGameWindow {
 		window1.add(textarea);
 
 		window1.setVisible(true);
-
 	}
 
 	@Override

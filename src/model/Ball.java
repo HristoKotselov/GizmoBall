@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 import java.util.Set;
 
 import physics.Angle;
@@ -27,8 +28,7 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public Shape getDrawingShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);
 	}
 
 	@Override

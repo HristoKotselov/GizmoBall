@@ -1,14 +1,17 @@
 package model;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Set;
 
+import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
 import physics.LineSegment;
@@ -20,11 +23,9 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/* Game Component */
 	private Set<Ball> ballSet;
-//	private Set<CircularBumper> circleSet;
-//	private Set<SquareBumper> squareSet;
-//	private Set<TriangularBumper> triangleSet;
-//	private Set<Flipper> flipperSet;
-//	private Set<Absorber> absorberSet;
+	
+/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	public Ball ball;// Using one ball to test, this is the only ball for now
 
 	private Map<String, AGizmoComponent> gizmos;
 
@@ -34,36 +35,72 @@ public class MainEngine extends Observable implements IMainEngine {
 	private List<CollisionDetails> collisionList;
 	
 	private PhysicsConfig physicsSettings;
+	// TODO might change SpecialCollisionHandler to be static-based too
 	private SpecialCollisionHandler sCollisionHandler;
 	private Connections customConnections;
-	private SaveDataEngine fileHandler;
 
 	/* Run time values */
 	private boolean isPlaying; // used to tell Keyboard ActionListeners when
 								// they should be active (only when the game is
 								// running)
+	
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
-
 		collisionList = new ArrayList<CollisionDetails>();
 		
 		physicsSettings = new PhysicsConfig();
 		customConnections = new Connections();
+		
+/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
 	}
 
 	@Override
 	public void moveBall() {
-		// TODO Auto-generated method stub
+
+		double moveTime = 0.05; 		// 0.05 = 20 times per second as per Gizmoball
+
+		/*
+		 * for (Ball ball : ballSet) { if (ball == null || ball.stopped()) {
+		 * System.out.println(
+		 * "ball null or stopped, main engine, top of move ball"); return; } }
+		 */
+		
+/** This method is single ball ONLY, why not develop for multBall instead? It will support single ball too. **/
+		/*
+		CollisionDetails cd = timeUntilCollision();
+		double tuc = cd.getTuc();
+		if (tuc > moveTime) {
+			// No collision ...
+			ball = movelBallForTime(ball, moveTime);
+		} else {
+			// We've got a collision in tuc
+			ball = movelBallForTime(ball, tuc);
+			// Post collision velocity ...
+			ball.setVelo(cd.getVelo());
+		}
+		*/
+
+		// Notify observers ... redraw updated view
+		this.setChanged();
+		this.notifyObservers();
 
 	}
 
 	private Ball moveBallAtCurrentVelo(Ball ball, double time) {
-		// TODO Auto-generated method stub
+		double newX = 0.0;
+		double newY = 0.0;
+		double xVel = ball.getVelo().x();
+		double yVel = ball.getVelo().y();
+		newX = ball.getPreciseX() + (xVel * time);
+		newY = ball.getPreciseY() + (yVel * time);
+		ball.setPreciseX(newX);
+		ball.setPreciseY(newY);
 		return ball;
 	}
 
-	private void timeUntilCollision() {
+	private void calcTimesUntilCollision() {
 		
 		for(Ball ball : ballSet){
 			// Find Time Until Collision and also, if there is a collision, the new
@@ -161,7 +198,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		gizmos.remove(gizmo.getGizmoID());
 		
-		// TODO remove connection
+		// TODO remove connections
 		
 		return !(gizmos.containsValue(gizmo));
 	}
@@ -210,12 +247,16 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public void loadFile(String filePath) {
 		gizmos = new HashMap<String, AGizmoComponent>();
-		fileHandler.loadFile(filePath, this);
+		SaveDataEngine.loadFile(filePath, this);
 	}
 
 	@Override
 	public void saveFile(String filePath) {
-		fileHandler.saveFile(filePath, this);
+		SaveDataEngine.saveFile(filePath, this);
 	}
 
+/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	public Ball getBall() {
+		return ball;
+	}
 }

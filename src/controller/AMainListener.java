@@ -15,7 +15,6 @@ import view.IMenu;
 
 abstract public class AMainListener implements ActionListener {
 	private IMainEngine model;
-
 	private IGameWindow gameWindow;
 	private IBoard board;
 	private IMenu menu;
@@ -52,5 +51,10 @@ abstract public class AMainListener implements ActionListener {
 		}
 
 		component.addMouseListener(ml);
+	}
+	
+	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	protected IMainEngine getModel(){
+		return model;
 	}
 }

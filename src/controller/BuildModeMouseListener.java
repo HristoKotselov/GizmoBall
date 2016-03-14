@@ -29,8 +29,64 @@ public class BuildModeMouseListener implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+	/** On commit 44fcf5421045dec4c6cb0d70e4dbaf40a38bc192 [44fcf54] ; 	09 March 2016 16:43:16
+	 * Sam wrote:
+	 * " if you clicked, moved the mouse, then released, nothing happened. "
+	 * 
+	 * But isn't that a good thing though? This means user can change their mind at the last second
+	 * 
+	 **/
+		
 		//System.out.println(e.getX() / 20 + ", " + e.getY() / 20);
+/*
+		int x = e.getX() / 20;
+		int y = e.getY() / 20;
+		String selectedType = "";
+		for (Enumeration<AbstractButton> buttons = bm.getGizmoSelector().getElements(); buttons.hasMoreElements();) {
+			AbstractButton button = buttons.nextElement();
 
+			if (button.isSelected()) {
+				selectedType = button.getText();
+			}
+		}
+		AGizmoComponent g = null;
+
+		switch (selectedType) {
+		case "square":
+			g = new SquareBumper("s" + x + y, x, y, Color.GREEN);
+
+			break;
+		case "triangle":
+			g = new TriangularBumper("t" + x + y, x, y, Color.red);
+
+			break;
+		case "circle":
+			g = new CircularBumper("c" + x + y, x, y, Color.blue);
+
+			break;
+		case "left flipper":
+			g = new Flipper("f" + x + y, x, y, Color.ORANGE, true);
+
+			break;
+		case "right flipper":
+			g = new Flipper("f" + x + y, x, y, Color.ORANGE, false);
+
+			break;
+		default:
+			System.out.println(
+					"Not recognised or not Implimented, make sure the gizmo is in the BuildModeMouseListener.mouseClicked() case statement.");
+			return;
+		}
+
+		m.addGizmo(g);*/
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+	// Please look at mouseClicked() for a suggestion for moving this block of code back to mouseClick()
+		/** TODO Due to Hristo's GUI changes, this block of code is now broken and need changing **/
+		
 		int x = e.getX() / 20;
 		int y = e.getY() / 20;
 		String selectedType = "";
@@ -71,11 +127,6 @@ public class BuildModeMouseListener implements MouseListener {
 		}
 
 		m.addGizmo(g);
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-
 	}
 
 	@Override

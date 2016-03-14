@@ -47,7 +47,8 @@ public class BuildMenu implements IMenu {
 	private PhysicsConfigListener physicsConfigAL;
 	private UndoRedoListener undoRedoAL;
 
-	public BuildMenu() {
+	public BuildMenu(IMainEngine model) {
+		this.model = model;
 		initialize();
 	}
 

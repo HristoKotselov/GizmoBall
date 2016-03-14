@@ -22,6 +22,10 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	private Ball capturedBall;
 
 	public Absorber(String name, int grid_tile_x, int grid_tile_y, int widthInL, int heightInL, Color color) {
+		/* NOTE -	The following methods are called by the superclass's constructor:
+		setupDrawingShape();
+		setupCircles();
+		 */
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 
 		setWidth(widthInL * MainEngine.L);
@@ -29,7 +33,6 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		capturedBall = null;
 
 		ls = new HashSet<LineSegment>();
-
 		setupLineSeg();
 	}
 
@@ -146,5 +149,6 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	public Ball getCapturedBall() {
 		return capturedBall;
 	}
+
 
 }

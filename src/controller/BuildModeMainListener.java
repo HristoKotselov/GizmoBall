@@ -48,7 +48,18 @@ public class BuildModeMainListener extends AMainListener {
 		} else if (actionCmd.equals("clear")) {
 
 		} else if (actionCmd.equals("playMode")) {
-
+	// In the final release, this command should change from BUILD MODE to PLAY MODE
+			
+		/** TODO START of Temporarily Block of Code, REMOVE\CHANGE before final release **/
+			IMainEngine model = getModel();
+			
+			System.out.println("Tick " + System.nanoTime());
+			if (model == null) {
+				System.out.println("ITS NULL");
+			} else {
+				model.moveBall();
+			}
+		/** TODO END of Temporarily Block of Code **/
 		}
 	}
 

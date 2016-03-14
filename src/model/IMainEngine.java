@@ -34,4 +34,7 @@ public interface IMainEngine {
 	public void saveFile(String filePath);
 
 	public void addObserver(Observer o);
+	
+	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	public Ball getBall();
 }

@@ -15,12 +15,13 @@ public class PlayModeMainListener extends AMainListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		// check out AMainListener's method!
+	/** Check out AMainListener's method! **/
 
 		String actionCmd = e.getActionCommand();
 
 		if (actionCmd.equals("start")) {
-
+		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+			System.out.println("start clicked");
 		} else if (actionCmd.equals("tick")) {
 
 		} else if (actionCmd.equals("stop")) {

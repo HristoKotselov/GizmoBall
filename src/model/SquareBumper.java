@@ -16,10 +16,14 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 	private Set<LineSegment> ls;
 
 	public SquareBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
+		/* NOTE -	The following methods are called by the superclass's constructor:
+		setupDrawingShape();
+		setupCircles();
+		 */
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
+		
 		ls = new HashSet<LineSegment>();
 		setupLineSeg();
-		setupCircles();
 	}
 
 	@Override
