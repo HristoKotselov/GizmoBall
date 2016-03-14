@@ -42,7 +42,7 @@ abstract public class AGizmoComponent {
 	 * of a Gizmo component is treated as 0; with the exception of Line, which
 	 * will automatically be calculated properly upon construction
 	 **/
-	private int rotationAngle;
+	protected int rotationAngle;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
 		gizmoID = name;

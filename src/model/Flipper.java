@@ -9,7 +9,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
-
 import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
@@ -28,18 +27,18 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color, boolean leftFlipper) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
-		//System.out.println(leftFlipper);
+		// System.out.println(leftFlipper);
 
 		this.rotation = 0;
 		this.flippingForward = false;
 		this.leftFlipper = leftFlipper;
 		if (!leftFlipper) {
-			this.setX((this.getX() + 10));
+//			this.setX((this.getX() + MainEngine.L + (MainEngine.L / 2)));
 		}
 
-		//circles = new HashSet<Circle>();
+		// circles = new HashSet<Circle>();
 		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);
-		//	circles.add(c);
+		// circles.add(c);
 
 	}
 
@@ -52,15 +51,16 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public Shape getDrawingShape() {
-		//	rotation += 15;
+		// rotation += 15;
 		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
 		AffineTransform transform = new AffineTransform();
 
+		// Apply flipper rotation
 		transform.rotate(Math.toRadians(rotation), r.getX() + 5, r.getY() + 5);
 		if (leftFlipper) {
 			try {
-				//	System.out.println("inverting");
+				// System.out.println("inverting");
 				transform.invert();
 			} catch (NoninvertibleTransformException e) {
 				// TODO Auto-generated catch block
@@ -68,9 +68,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			}
 		}
 
-		Shape transformedR = transform.createTransformedShape(r);
-		return transformedR;
-		// return new Rectangle(20, 20);
+		// Rotate to proper orientation
+		transform.rotate(Math.toRadians(rotationAngle), MainEngine.L, MainEngine.L);
+
+		// Position right flipper at RHS of bounding box
+		if (!leftFlipper) {
+			transform.translate(30, 0);
+		}
+
+		return transform.createTransformedShape(r);
 	}
 
 	@Override
@@ -87,7 +93,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public boolean rotate(int degree) {
-		// TODO Auto-generated method stub
+		// TODO Validation
+		rotationAngle = (rotationAngle + degree) % 360;
+
 		return false;
 	}
 

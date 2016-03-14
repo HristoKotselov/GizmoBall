@@ -51,11 +51,6 @@ public class BuildBoard extends JPanel implements Observer {
 
 			// Translate the gizmo to the appropriate position on the board
 			g2d.translate(giz.getX(), giz.getY());
-			// System.out.println(giz.getX() + ":" + giz.getY());
-			// Rotate gizmo around its center. Currently only works with 1x1
-			// gizmos because of hardcoded 10, but can be easily changed
-			// g2d.rotate(Math.toRadians(giz.getRotation()), giz.getWidth() / 2,
-			// giz.getHeight() / 2);
 
 			// Draw the shape
 			g2d.fill(s);
@@ -65,20 +60,25 @@ public class BuildBoard extends JPanel implements Observer {
 
 		}
 
-/** TODO START of Temporarily Block of code, REMOVE\CHANGE before final release **/
-		Ball ball = model.getBall();
-		g2d.setColor(ball.getColour());
-		g2d.translate(ball.getPreciseX(), ball.getPreciseY());
+		/**
+		 * TODO START of Temporarily Block of code, REMOVE\CHANGE before final
+		 * release
+		 **/
+//		Ball ball = model.getBall();
+//		g2d.setColor(ball.getColour());
+//		g2d.translate(ball.getPreciseX(), ball.getPreciseY());
 		// g2d.fill(ball.getDrawingShape());
-		//Shape s = new Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
-	//	Shape s = (Shape) new javafx.scene.shape.Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
-	//g2d.fill(s);	
-		g2d.fillRect(-(int) ball.getRadius(),-(int) ball.getRadius(),2*(int) ball.getRadius(),2*(int) ball.getRadius());
-		
-		
-		g2d.setTransform(old);
-/** TODO END of Temporarily Block of code **/
-		
+		// Shape s = new Circle(ball.getPreciseX(), ball.getPreciseY(),
+		// ball.getRadius());
+		// Shape s = (Shape) new javafx.scene.shape.Circle(ball.getPreciseX(),
+		// ball.getPreciseY(), ball.getRadius());
+		// g2d.fill(s);
+//		g2d.fillRect(-(int) ball.getRadius(),-(int) ball.getRadius(),2*(int) ball.getRadius(),2*(int) ball.getRadius());
+
+
+//		g2d.setTransform(old);
+		/** TODO END of Temporarily Block of code **/
+
 		// Draw grid
 		g2d.setColor(Color.WHITE);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));

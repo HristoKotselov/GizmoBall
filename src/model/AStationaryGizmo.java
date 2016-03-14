@@ -15,7 +15,6 @@ abstract public class AStationaryGizmo extends AGizmoComponent {
 
 	public AStationaryGizmo(String name, int x, int y, Color color) {
 		super(name, x , y , color);
-
 	}
 
 	public void stop() {

@@ -38,6 +38,8 @@ public class BuildMenu implements IMenu {
 	/* GUI */
 	private JPanel buttonMenu;
 	ButtonGroup bg;
+	JComboBox<String> addgizmo;
+	
 	/* Model */
 	private IMainEngine model;
 
@@ -209,8 +211,8 @@ public class BuildMenu implements IMenu {
 
 		JLabel addgizmolabel = new JLabel("  Add Gizmo:");
 		addgizmolabel.setFont(new Font("Arial", 1, 15));
-		String[] gizmos = { "Left Flipper", "Right Flipper", "Square", "Triangle", "Circle", "Absorber", "Ball" };
-		JComboBox<String> addgizmo = new JComboBox<String>(gizmos);
+		String[] gizmos = { "Left Flipper", "Right Flipper", "Square", "Triangle", "Circle", "Absorber", "Ball", "Delete", "Rotate" };
+		addgizmo = new JComboBox<String>(gizmos);
 		addgizmo.setSelectedIndex(6);
 
 		sliders.add(ballspeedlabel);
@@ -250,6 +252,10 @@ public class BuildMenu implements IMenu {
 
 	public ButtonGroup getGizmoSelector() {
 		return bg;
+	}
+	
+	public String getSelectedGizmo(){
+		return addgizmo.getSelectedItem().toString();
 	}
 
 	public JPanel getMenu() {

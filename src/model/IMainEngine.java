@@ -1,10 +1,8 @@
 package model;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
-import java.util.Set;
 import physics.Vect;
 
 public interface IMainEngine {
@@ -15,7 +13,9 @@ public interface IMainEngine {
 
 	public boolean removeGizmo(AGizmoComponent gizmo);
 
-	public Set<AGizmoComponent> getGizmoSet(Class<?> cls);
+	public void rotateGizmo(AGizmoComponent gizmo, int degree);
+
+	public AGizmoComponent getGizmoAt(int x, int y);
 
 	public Collection<AGizmoComponent> getAllGizmos();
 
@@ -28,13 +28,13 @@ public interface IMainEngine {
 	public void stop();
 
 	public boolean isPlaying();
-	
+
 	public void loadFile(String filePath);
-	
+
 	public void saveFile(String filePath);
 
 	public void addObserver(Observer o);
-	
+
 	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
 	public Ball getBall();
 }

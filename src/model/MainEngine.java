@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Set;
-
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
@@ -23,8 +22,8 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/* Game Component */
 	private Set<Ball> ballSet;
-	
-/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+
+	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
 	public Ball ball;// Using one ball to test, this is the only ball for now
 
 	private Map<String, AGizmoComponent> gizmos;
@@ -33,7 +32,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/* Game Mechanic */
 	private List<CollisionDetails> collisionList;
-	
+
 	private PhysicsConfig physicsSettings;
 	// TODO might change SpecialCollisionHandler to be static-based too
 	private SpecialCollisionHandler sCollisionHandler;
@@ -43,31 +42,34 @@ public class MainEngine extends Observable implements IMainEngine {
 	private boolean isPlaying; // used to tell Keyboard ActionListeners when
 								// they should be active (only when the game is
 								// running)
-	
+
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
 		collisionList = new ArrayList<CollisionDetails>();
-		
+
 		physicsSettings = new PhysicsConfig();
 		customConnections = new Connections();
-		
-/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
+
+		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+//		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
 	}
 
 	@Override
 	public void moveBall() {
 
-		double moveTime = 0.05; 		// 0.05 = 20 times per second as per Gizmoball
+		double moveTime = 0.05; // 0.05 = 20 times per second as per Gizmoball
 
 		/*
 		 * for (Ball ball : ballSet) { if (ball == null || ball.stopped()) {
 		 * System.out.println(
 		 * "ball null or stopped, main engine, top of move ball"); return; } }
 		 */
-		
-/** This method is single ball ONLY, why not develop for multBall instead? It will support single ball too. **/
+
+		/**
+		 * This method is single ball ONLY, why not develop for multBall
+		 * instead? It will support single ball too.
+		 **/
 		/*
 		CollisionDetails cd = timeUntilCollision();
 		double tuc = cd.getTuc();
@@ -83,8 +85,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		*/
 
 		// Notify observers ... redraw updated view
-		this.setChanged();
-		this.notifyObservers();
+		update();
 
 	}
 
@@ -101,9 +102,10 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	private void calcTimesUntilCollision() {
-		
-		for(Ball ball : ballSet){
-			// Find Time Until Collision and also, if there is a collision, the new
+
+		for (Ball ball : ballSet) {
+			// Find Time Until Collision and also, if there is a collision, the
+			// new
 			// speed vector.
 			// Create a physics.Circle from Ball
 			Circle ballCircle = ball.getCircle();
@@ -113,10 +115,12 @@ public class MainEngine extends Observable implements IMainEngine {
 			// Now find shortest time to hit a vertical line or a wall line
 			double shortestTime = Double.MAX_VALUE;
 			double time = 0.0;
-			
-			String colliderID = null;		// the Gizmo component that the ball will collide with in a collision prediction
 
-			
+			String colliderID = null; // the Gizmo component that the ball will
+										// collide with in a collision
+										// prediction
+
+
 			// Time to collide with 4 walls
 			ArrayList<LineSegment> lss = gws.getLineSegments();
 			for (LineSegment line : lss) {
@@ -127,19 +131,19 @@ public class MainEngine extends Observable implements IMainEngine {
 					colliderID = "Wall";
 				}
 			}
-			
+
 
 			// Time to collide with all Gizmos
 			Set<Circle> circleSet;
 			Set<LineSegment> lsSet;
-			
+
 			Collection<AGizmoComponent> allGizmos = getAllGizmos();
-			
-			for(AGizmoComponent gizmo: allGizmos){
+
+			for (AGizmoComponent gizmo : allGizmos) {
 				circleSet = gizmo.getCircles();
-				
+
 				// Checking collision with all the Circles
-				for(Circle circle : circleSet){
+				for (Circle circle : circleSet) {
 					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
 					if (time < shortestTime) {
 						shortestTime = time;
@@ -147,12 +151,12 @@ public class MainEngine extends Observable implements IMainEngine {
 						colliderID = gizmo.getGizmoID();
 					}
 				}
-				
-				if(gizmo instanceof ILineSegmentCollider){
+
+				if (gizmo instanceof ILineSegmentCollider) {
 					lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
-					
+
 					// Checking collision with all the Line Segments
-					for(LineSegment line : lss){
+					for (LineSegment line : lss) {
 						time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
 						if (time < shortestTime) {
 							shortestTime = time;
@@ -161,8 +165,8 @@ public class MainEngine extends Observable implements IMainEngine {
 						}
 					}
 				}
-			}		
-			
+			}
+
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
 			collisionList.add(cd);
 		}
@@ -171,42 +175,52 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
 		// TODO Validation
-		
-		AGizmoComponent g = getGizmoAt(gizmo.getX(), gizmo.getY());
+
+		AGizmoComponent g = getGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
 
 		if (g != null) {
 			removeGizmo(g);
 		}
 		gizmos.put(gizmo.getGizmoID(), gizmo);
-		
-		setChanged();
-		notifyObservers();
-		
+
+		update();
+
 		return false;
 	}
 
 	public AGizmoComponent getGizmoAt(int x, int y) {
 		for (AGizmoComponent g : gizmos.values()) {
-			if (g.getX() == x && g.getY() == y) {
+			if (g.getX() / L == x && g.getY() / L == y) {
 				return g;
+			}
+
+			if (g instanceof Flipper) {
+				if (g.getX() / L >= x - 1 && g.getX() / L <= x && g.getY() / L >= y - 1 && g.getY() / L <= y) {
+					return g;
+				}
 			}
 		}
 		return null;
 	}
 
-	@Override
-	public boolean removeGizmo(AGizmoComponent gizmo) {
-		gizmos.remove(gizmo.getGizmoID());
-		
-		// TODO remove connections
-		
-		return !(gizmos.containsValue(gizmo));
+	public AGizmoComponent getGizmo(String name) {
+		return gizmos.get(name);
+	}
+
+	public boolean rotateGizmo(int x, int y, int degree) {
+		// TODO Validation
+		return false;
 	}
 
 	@Override
-	public Set<AGizmoComponent> getGizmoSet(Class<?> cls) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean removeGizmo(AGizmoComponent gizmo) {
+		// TODO Handle null
+		// TODO remove connections
+
+		gizmos.remove(gizmo.getGizmoID());
+		update();
+
+		return !(gizmos.containsValue(gizmo));
 	}
 
 	@Override
@@ -214,7 +228,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		return gizmos.values();
 	}
 
-	
 	@Override
 	public Map<String, AGizmoComponent> getGizmosMap() {
 		return gizmos;
@@ -255,8 +268,20 @@ public class MainEngine extends Observable implements IMainEngine {
 		SaveDataEngine.saveFile(filePath, this);
 	}
 
-/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
 	public Ball getBall() {
 		return ball;
+	}
+
+	public void update() {
+		setChanged();
+		notifyObservers();
+	}
+
+	@Override
+	public void rotateGizmo(AGizmoComponent gizmo, int degree) {
+		// TODO handle null
+		gizmo.rotate(degree);
+		update();
 	}
 }
