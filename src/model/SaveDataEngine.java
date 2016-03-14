@@ -7,9 +7,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class SaveDataEngine {
 
-	public void loadFile(String filepath, MainEngine model) {
+/**
+ * NOTE: This is suppose to be a Static Class, so please do not try to instantiate it
+ *
+ */
+public final class SaveDataEngine{
+	
+	private SaveDataEngine(){}		// prevent instantiation
+
+	public static void loadFile(String filepath, MainEngine model) {
 		System.out.println("loading board from \"" + filepath + "\"");
 
 		try {
@@ -67,15 +74,14 @@ public class SaveDataEngine {
 						break;
 
 					case "RightFlipper":
-						 name = st.nextToken();
-						 x = Integer.parseInt(st.nextToken());
-						 y = Integer.parseInt(st.nextToken());
-						 System.out.println("Adding right flipper named \"" +
-						 name + "\" at (" + x + ", " + y + ")");
-						
-						 g = new Flipper(name, x, y, Color.ORANGE, false);
-							model.addGizmo(g);
-							break;
+						name = st.nextToken();
+						x = Integer.parseInt(st.nextToken());
+						y = Integer.parseInt(st.nextToken());
+						System.out.println("Adding right flipper named \"" + name + "\" at (" + x + ", " + y + ")");
+
+						g = new Flipper(name, x, y, Color.ORANGE, false);
+						model.addGizmo(g);
+						break;
 
 					case "Absorber":
 						// name = st.nextToken();
@@ -152,7 +158,9 @@ public class SaveDataEngine {
 		}
 	}
 
-	public void saveFile(String filePath) {
+	public static void saveFile(String filePath, MainEngine model) {
 		// TODO Auto-generated method stub
+		
 	}
+
 }

@@ -7,8 +7,10 @@ import physics.Vect;
 
 /**
  * TODO
- * Class designed for Gizmos that can actively move around on the Board. For these Gizmos, PreciseX & PreciseY methods should be used
- * instead of the standard position methods in AGizmoComponent DURING gameplay.
+ * Class designed for Gizmos that can actively move around on the Board. 
+ * For these Gizmos, PreciseX & PreciseY methods can be used instead if their position on the board need 
+ * be precise (i.e. move about rapidly). Keep in mind that preciseX/Y replaces the normal X/Y's role 
+ * in this class.
  * Examples:	Ball
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
@@ -35,15 +37,59 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		preciseYStartingPos = y;
 		velocity = new Vect(theta, velo);
 	}
-
-	public void setPreciseX(double x) {
-		// TODO Validation
-		preciseXPos = x;
+	
+	/** 
+	 * Same function as setPreciseX(), but rounding the parameter to whole number.
+	 * This method replaces the version from AGizmoComponent.
+	 * @see model.AGizmoComponent#setY(int)
+	 */
+	@Override
+	public boolean setX(int x) {
+		return setPreciseX(x);
 	}
 
-	public void setPreciseY(double y) {
+	/** 
+	 * Same function as setPreciseY(), but rounding the parameter to whole number.
+	 * This method replaces the version from AGizmoComponent.
+	 * @see model.AGizmoComponent#setY(int)
+	 */
+	@Override
+	public boolean setY(int y) {
+		return setPreciseY(y);
+	}
+	
+	/** 
+	 * Same function as getPreciseX(), but rounding to whole number first.
+	 * This method replaces the version from AGizmoComponent.
+	 * @see model.AGizmoComponent#getY(int)
+	 */
+	@Override
+	public int getX() {
+		return (int) preciseXPos;
+	}
+
+	/** 
+	 * Same function as getPreciseY(), but rounding to whole number first.
+	 * This method replaces the version from AGizmoComponent.
+	 * @see model.AGizmoComponent#getY(int)
+	 */
+	@Override
+	public int getY() {
+		return (int) preciseYPos;
+	}
+
+	public boolean setPreciseX(double x) {
+		// TODO Validation
+		preciseXPos = x;
+		
+		return true;
+	}
+
+	public boolean setPreciseY(double y) {
 		// TODO Validation
 		preciseYPos = y;
+		
+		return true;
 	}
 
 	public double getPreciseX() {
@@ -54,21 +100,25 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		return preciseYPos;
 	}
 
-	public void setExactStartingX(double x) {
+	public boolean setPreciseStartingX(double x) {
 		// TODO Validation
 		preciseXStartingPos = x;
+		
+		return true;
 	}
 
-	public void setExactStartingY(double y) {
+	public boolean setPreciseStartingY(double y) {
 		// TODO Validation
 		preciseYStartingPos = y;
+		
+		return true;
 	}
 
-	public double getExactStartingX() {
+	public double getPreciseStartingX() {
 		return preciseXStartingPos;
 	}
 
-	public double getExactStartingY() {
+	public double getPreciseStartingY() {
 		return preciseYStartingPos;
 	}
 
@@ -91,10 +141,6 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 
 	public Vect getVelo() {
 		return velocity;
-	}
-	
-	public void update(){
-		
 	}
 
 }

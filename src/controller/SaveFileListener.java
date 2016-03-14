@@ -2,16 +2,17 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import model.ISaveDataEngine;
+
+import model.IMainEngine;
 import view.IGameWindow;
 
 public class SaveFileListener implements ActionListener {
+	private IMainEngine model;
 	private IGameWindow window;
-	private ISaveDataEngine dataEngine;
 
-	public SaveFileListener(IGameWindow w, ISaveDataEngine s) {
+	public SaveFileListener(IMainEngine m, IGameWindow w) {
+		model = m;
 		window = w;
-		dataEngine = s;
 	}
 
 	@Override
@@ -22,7 +23,7 @@ public class SaveFileListener implements ActionListener {
 			String path = window.getFile();
 
 			if (path != null) {
-				dataEngine.saveFile(path);
+				model.saveFile(path);
 			}
 		}
 	}
