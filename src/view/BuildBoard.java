@@ -15,13 +15,14 @@ import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
 import physics.Circle;
+import model.Ball;
 
 public class BuildBoard extends JPanel implements Observer {
 	private IMainEngine model;
 
 	public BuildBoard(IMainEngine m) {
 		// TODO change to (400, 400)
-		setPreferredSize(new Dimension(500, 500));
+		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
 
 		model = m;
@@ -33,7 +34,7 @@ public class BuildBoard extends JPanel implements Observer {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
-		Map<String, AGizmoComponent> gizmos = model.getGizmos();
+		Map<String, AGizmoComponent> gizmos = model.getGizmosMap();
 
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -64,8 +65,20 @@ public class BuildBoard extends JPanel implements Observer {
 
 		}
 
-	
-
+/** TODO START of Temporarily Block of code, REMOVE\CHANGE before final release **/
+		Ball ball = model.getBall();
+		g2d.setColor(ball.getColour());
+		g2d.translate(ball.getPreciseX(), ball.getPreciseY());
+		// g2d.fill(ball.getDrawingShape());
+		//Shape s = new Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
+	//	Shape s = (Shape) new javafx.scene.shape.Circle(ball.getPreciseX(), ball.getPreciseY(), ball.getRadius());
+	//g2d.fill(s);	
+		g2d.fillRect(-(int) ball.getRadius(),-(int) ball.getRadius(),2*(int) ball.getRadius(),2*(int) ball.getRadius());
+		
+		
+		g2d.setTransform(old);
+/** TODO END of Temporarily Block of code **/
+		
 		// Draw grid
 		g2d.setColor(Color.WHITE);
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));

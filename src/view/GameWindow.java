@@ -16,7 +16,6 @@ import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
 import controller.SaveFileListener;
 import model.IMainEngine;
-import model.ISaveDataEngine;
 
 public class GameWindow implements IGameWindow {
 	private JFrame window1, window2;
@@ -35,13 +34,13 @@ public class GameWindow implements IGameWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public GameWindow(IMainEngine m, ISaveDataEngine s) {
+	public GameWindow(IMainEngine m) {
 		model = m;
 
-		loadFileAL = new LoadFileListener(this, s);
+		loadFileAL = new LoadFileListener(this, m);
 		saveFileAL = new SaveFileListener(m);
 		window1 = new JFrame("Play Mode");
-		window1.setBounds(100, 100, 720, 600);
+		window1.setBounds(100, 100, 750, 500);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// start of drop menu
@@ -72,16 +71,14 @@ public class GameWindow implements IGameWindow {
 		JSeparator separator1 = new JSeparator();
 		window1.getContentPane().add(separator1);
 
-
-
-		// TODO
-		buildmenu = new BuildMenu();
+		// TODO might need to change later
+		buildmenu = new BuildMenu(m);
 		buildboard = new BuildBoard(m);
 
 		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
 
 		buildboard.addMouseListener(l);
-//		buildboard.addMouseMotionListener(l);
+		//		buildboard.addMouseMotionListener(l);
 
 		window1.add(buildmenu.getMenu());
 		window1.add(buildboard);
@@ -91,14 +88,12 @@ public class GameWindow implements IGameWindow {
 		tips.setForeground(Color.BLUE);
 		window1.add(tips);
 
-		JTextArea textarea = new JTextArea(1, 50);
+		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
 		window1.add(textarea);
 
 		window1.setVisible(true);
-		
-		
 	}
 
 	@Override

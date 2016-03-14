@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import physics.Circle;
+import physics.LineSegment;
 
 /**
  * TODO
@@ -19,6 +20,7 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 	protected Shape drawingShape;
 	/** A set of Circles belonging to this Gizmo. They act as collision detectors with a ball, often at the edges of a shape. **/
 	protected Set<Circle> circleSet = new HashSet<Circle>();
+
 
 	public AStatueGizmo(String name, int x, int y, Color color) {
 		super(name, x, y, color);
@@ -51,7 +53,7 @@ abstract public class AStatueGizmo extends AGizmoComponent {
 	public Set<Circle> getCircles() {
 		return circleSet;
 	}
-	
+
 	abstract public void updateCollections();
 
 }

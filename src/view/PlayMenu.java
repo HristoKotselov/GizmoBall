@@ -41,12 +41,13 @@ public class PlayMenu implements IMenu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		playModeAL = new PlayModeMainListener(model);
+		// TODO the listeners should have been passed through parameter
+		//playModeAL = new PlayModeMainListener(model);
 		startGameAL = new StartGameListener(model);
 		stopGameAL = new StopGameListener(model);
 
 		buttonMenu = new JPanel();
-		buttonMenu.setPreferredSize(new Dimension(170, 500));
+		buttonMenu.setPreferredSize(new Dimension(170, 400));
 		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
 		buttonMenu.setLayout(new GridLayout(0, 1));
 

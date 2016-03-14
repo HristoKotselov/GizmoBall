@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 import java.util.Set;
@@ -14,8 +16,10 @@ public interface IMainEngine {
 	public boolean removeGizmo(AGizmoComponent gizmo);
 
 	public Set<AGizmoComponent> getGizmoSet(Class<?> cls);
-	
-	public Map<String, AGizmoComponent> getGizmos();
+
+	public Collection<AGizmoComponent> getAllGizmos();
+
+	public Map<String, AGizmoComponent> getGizmosMap();
 
 	public void setBallSpeed(Ball b, Vect velo);
 
@@ -25,5 +29,12 @@ public interface IMainEngine {
 
 	public boolean isPlaying();
 	
+	public void loadFile(String filePath);
+	
+	public void saveFile(String filePath);
+
 	public void addObserver(Observer o);
+	
+	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+	public Ball getBall();
 }

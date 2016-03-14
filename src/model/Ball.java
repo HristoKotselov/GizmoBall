@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Color;
 import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 import java.util.Set;
 
 import physics.Angle;
@@ -13,7 +14,7 @@ public class Ball extends AMovingGizmo {
 
 	// x, y coordinates and x,y velocity
 	public Ball(String name, Color color, double x, double y, Angle theta, double yv) {
-		super(name, y, x, color, theta, yv);
+		super(name, x, y, color, theta, yv);
 		start();
 
 		radius = 5;
@@ -27,8 +28,7 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public Shape getDrawingShape() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);
 	}
 
 	@Override
@@ -36,7 +36,6 @@ public class Ball extends AMovingGizmo {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 	@Override
 	public boolean rotate(int degree) {
@@ -53,6 +52,15 @@ public class Ball extends AMovingGizmo {
 	/* Ball specific methods */
 	public double getRadius() {
 		return radius;
+	}
+
+	/**
+	 * TODO
+	 * Shortcut method to retrieve the only Circle class within circleSets
+	 * @return
+	 */
+	public Circle getCircle() {
+		return new Circle(getPreciseX(), getPreciseY(), radius);
 	}
 
 }

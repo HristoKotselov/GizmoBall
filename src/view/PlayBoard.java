@@ -26,7 +26,7 @@ public class PlayBoard implements IBoard, Observer {
 	private void initialize() {
 		//start of right panel (the game panel)
 		gameBoard = new JPanel();
-		gameBoard.setPreferredSize(new Dimension(500, 500));
+		gameBoard.setPreferredSize(new Dimension(400, 400));
 		gameBoard.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
 		gameBoard.setBackground(Color.BLACK);
 		//end of the right panel
