@@ -20,45 +20,46 @@ public class AbsorberTests {
 		
 	}
 
-	@Test
-	public void testAbsorberSetGetHeight() {
-		a.setHeight(10);
-		b.setHeight(20);
-		c.setHeight(10);
-		
-		int aHeight = a.getHeight();
-		int bHeight = b.getHeight();
-		int cHeight = c.getHeight();
-		
-		assertTrue(aHeight == cHeight);
-		assertTrue(cHeight == aHeight);
-		assertTrue(aHeight == aHeight);
-		assertTrue(cHeight == cHeight);
-		assertFalse(aHeight == bHeight);
-		assertFalse(bHeight == aHeight);
-		assertFalse(cHeight == bHeight);
-		assertFalse(bHeight == cHeight);
-		}
-
-	@Test
-	public void testAbsorberSetGetWidth() {
-		a.setWidth(10);
-		b.setWidth(20);
-		c.setWidth(10);
-		
-		int aWidth = a.getWidth();
-		int bWidth = b.getWidth();
-		int cWidth = c.getWidth();
-		
-		assertTrue(aWidth == cWidth);
-		assertTrue(cWidth == aWidth);
-		assertTrue(aWidth == aWidth);
-		assertTrue(cWidth == cWidth);
-		assertFalse(aWidth == bWidth);
-		assertFalse(bWidth == aWidth);
-		assertFalse(cWidth == bWidth);
-		assertFalse(bWidth == cWidth);
-	}
+/* These two methods aren't needed, height and width set by constructor, and get methods are in superclass */
+//	@Test
+//	public void testAbsorberSetGetHeight() {
+//		a.setHeight(10);
+//		b.setHeight(20);
+//		c.setHeight(10);
+//		
+//		int aHeight = a.getHeight();
+//		int bHeight = b.getHeight();
+//		int cHeight = c.getHeight();
+//		
+//		assertTrue(aHeight == cHeight);
+//		assertTrue(cHeight == aHeight);
+//		assertTrue(aHeight == aHeight);
+//		assertTrue(cHeight == cHeight);
+//		assertFalse(aHeight == bHeight);
+//		assertFalse(bHeight == aHeight);
+//		assertFalse(cHeight == bHeight);
+//		assertFalse(bHeight == cHeight);
+//		}
+//
+//	@Test
+//	public void testAbsorberSetGetWidth() {
+//		a.setWidth(10);
+//		b.setWidth(20);
+//		c.setWidth(10);
+//		
+//		int aWidth = a.getWidth();
+//		int bWidth = b.getWidth();
+//		int cWidth = c.getWidth();
+//		
+//		assertTrue(aWidth == cWidth);
+//		assertTrue(cWidth == aWidth);
+//		assertTrue(aWidth == aWidth);
+//		assertTrue(cWidth == cWidth);
+//		assertFalse(aWidth == bWidth);
+//		assertFalse(bWidth == aWidth);
+//		assertFalse(cWidth == bWidth);
+//		assertFalse(bWidth == cWidth);
+//	}
 
 	@Test
 	public void testAbsorberSetGetX() {

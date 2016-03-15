@@ -14,8 +14,6 @@ import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
-import physics.Circle;
-import model.Ball;
 
 public class BuildBoard extends JPanel implements Observer {
 	private IMainEngine model;

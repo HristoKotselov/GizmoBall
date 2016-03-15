@@ -75,7 +75,7 @@ public class GameWindow implements IGameWindow {
 		buildmenu = new BuildMenu(m);
 		buildboard = new BuildBoard(m);
 
-		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
+		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
 
 		buildboard.addMouseListener(l);
 		// buildboard.addMouseMotionListener(l);
