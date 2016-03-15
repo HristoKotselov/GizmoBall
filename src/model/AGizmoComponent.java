@@ -44,6 +44,10 @@ abstract public class AGizmoComponent {
 	 **/
 	protected int rotationAngle;
 
+	protected int width;
+
+	protected int height;
+
 	public AGizmoComponent(String name, int x, int y, Color color) {
 		gizmoID = name;
 		xpos = x;
@@ -53,6 +57,8 @@ abstract public class AGizmoComponent {
 		// Default settings
 		visibility = true;
 		rotationAngle = 0;
+		width = 1;
+		height = 1;
 	}
 
 	/**
@@ -68,7 +74,7 @@ abstract public class AGizmoComponent {
 	abstract public Shape getDrawingShape();
 
 	abstract public Set<Circle> getCircles();
-	
+
 
 
 	public String getGizmoID() {
@@ -95,6 +101,14 @@ abstract public class AGizmoComponent {
 		return ypos;
 	}
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
 	public boolean setColour(Color color) {
 		// TODO some validation
 		this.colour = color;
@@ -108,22 +122,28 @@ abstract public class AGizmoComponent {
 	/**
 	 * Method called when the user decides to rotate a Gizmo component.
 	 * 
-	 * @param degree - the angle of rotation to add
+	 * @param degree
+	 *            - the angle of rotation to add
 	 * @modify this
-	 * @effect rotationAngle = new angle;  Circle Set is updated;	IF gizmo uses Line Segments, 
-	 * THEN the collection of Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, 
-	 * THEN drawingShape is updated. Can have additional effects, check individual Gizmo for them.
+	 * @effect rotationAngle = new angle; Circle Set is updated; IF gizmo uses
+	 *         Line Segments, THEN the collection of Line Segment is updated; IF
+	 *         gizmo is a supertype of AStatueGizmo, THEN drawingShape is
+	 *         updated. Can have additional effects, check individual Gizmo for
+	 *         them.
 	 */
 	abstract public boolean rotate(int degree);
 
 	/**
 	 * Method called when the user decides to move a Gizmo component.
 	 * 
-	 * @param newX - new X coordinate
-	 * @param newY - new Y coordinate
+	 * @param newX
+	 *            - new X coordinate
+	 * @param newY
+	 *            - new Y coordinate
 	 * @modify this
-	 * @effect Circle Set is updated;	IF gizmo uses Line Segments, THEN the collection of 
-	 * Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, THEN drawingShape is updated. 
+	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
+	 *         collection of Line Segment is updated; IF gizmo is a supertype of
+	 *         AStatueGizmo, THEN drawingShape is updated.
 	 */
 	abstract public boolean move(int newX, int newY);
 

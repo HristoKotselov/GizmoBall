@@ -176,24 +176,34 @@ public class MainEngine extends Observable implements IMainEngine {
 	public boolean addGizmo(AGizmoComponent gizmo) {
 		// TODO Validation
 
-		AGizmoComponent g = getGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
+		// Remove any overlapping gizmos
+		for (int i = 0; i < gizmo.getWidth(); i++) {
+			for (int j = 0; j < gizmo.getHeight(); j++) {
+				AGizmoComponent g = getGizmoAt((gizmo.getX() / L) + i, (gizmo.getY() / L) + j);
 
-		if (g != null) {
-			removeGizmo(g);
+				if (g != null) {
+					removeGizmo(g);
+				}
+			}
 		}
-		gizmos.put(gizmo.getGizmoID(), gizmo);
 
+		// Add new gizmo
+		gizmos.put(gizmo.getGizmoID(), gizmo);
+		
+		// Update view
 		update();
 
 		return false;
 	}
 
+	@Override
 	public AGizmoComponent getGizmoAt(int x, int y) {
 		for (AGizmoComponent g : gizmos.values()) {
 			if (g.getX() / L == x && g.getY() / L == y) {
 				return g;
 			}
 
+			//TODO Change to use gizmo getWidth() and getHeight() methods
 			if (g instanceof Flipper) {
 				if (g.getX() / L >= x - 1 && g.getX() / L <= x && g.getY() / L >= y - 1 && g.getY() / L <= y) {
 					return g;
@@ -205,11 +215,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);
-	}
-
-	public boolean rotateGizmo(int x, int y, int degree) {
-		// TODO Validation
-		return false;
 	}
 
 	@Override

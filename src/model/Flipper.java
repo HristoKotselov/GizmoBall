@@ -35,6 +35,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		if (!leftFlipper) {
 //			this.setX((this.getX() + MainEngine.L + (MainEngine.L / 2)));
 		}
+		
+		width = 2;
+		height = 2;
 
 		// circles = new HashSet<Circle>();
 		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);
