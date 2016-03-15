@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import java.util.Observable;
 import java.util.Set;
 import physics.Angle;
@@ -31,14 +32,16 @@ public class MainEngine extends Observable implements IMainEngine {
 	private Walls gws;
 
 	/* Game Mechanic */
-	private List<CollisionDetails> collisionList;
-
 	private PhysicsConfig physicsSettings;
 	// TODO might change SpecialCollisionHandler to be static-based too
-	private SpecialCollisionHandler sCollisionHandler;
+	private CollisionHandler collisionHandler;
 	private Connections customConnections;
 
 	/* Run time values */
+	/** How frequent each tick of the ball is. Essentially this is frame per seconds; the lower this value, 
+	 * the smoother the animation will be, but also more computationally expensive. **/
+	private double moveTime = 1/60;			// 60 fps
+	
 	private boolean isPlaying; // used to tell Keyboard ActionListeners when
 								// they should be active (only when the game is
 								// running)
@@ -46,7 +49,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
-		collisionList = new ArrayList<CollisionDetails>();
 
 		physicsSettings = new PhysicsConfig();
 		customConnections = new Connections();
@@ -56,40 +58,57 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public void moveBall() {
+	public void moveBalls() {
+		// Friction		- from 	6.170 Final Project  Gizmoball
+		double mu1 = physicsSettings.getFrictionCoef1();
+		double mu2 = physicsSettings.getFrictionCoef2();
 
-		double moveTime = 0.05; // 0.05 = 20 times per second as per Gizmoball
+		// Gravity		- from 	6.170 Final Project  Gizmoball
+		double gravity = physicsSettings.getGravity();
 
-		/*
-		 * for (Ball ball : ballSet) { if (ball == null || ball.stopped()) {
-		 * System.out.println(
-		 * "ball null or stopped, main engine, top of move ball"); return; } }
-		 */
+		
+		List<CollisionDetails> collisionList = calcTimesUntilCollision();		// called to get a list of collisions
 
-		/**
-		 * This method is single ball ONLY, why not develop for multBall
-		 * instead? It will support single ball too.
-		 **/
-		/*
-		CollisionDetails cd = timeUntilCollision();
-		double tuc = cd.getTuc();
-		if (tuc > moveTime) {
-			// No collision ...
-			ball = movelBallForTime(ball, moveTime);
-		} else {
-			// We've got a collision in tuc
-			ball = movelBallForTime(ball, tuc);
-			// Post collision velocity ...
-			ball.setVelo(cd.getVelo());
+		
+		// Temp variables setup
+		Ball ball;
+		double frictionScale;
+		double tuc;
+		AGizmoComponent collider;
+		
+		
+		for (CollisionDetails cd : collisionList) {
+			ball = cd.getBall();
+			
+			// Apply friction to Ball
+			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
+			ball.setVelo(ball.getVelo().times(frictionScale));
+			
+			// Apply gravity to Ball
+			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+			
+			tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
+			
+			if (tuc > moveTime) {
+				// No collision ...
+				ball = moveBallAtCurrentVelo(ball, moveTime);
+			} else {
+				// We've got a collision in tuc, so move the ball until it directly touches the collider
+				ball = moveBallAtCurrentVelo(ball, tuc);	
+
+				collider = getGizmo(cd.getColliderName());
+				// Now handle the collision
+				collisionHandler.handleCollision(cd, collider);
+			}
+
 		}
-		*/
 
 		// Notify observers ... redraw updated view
 		update();
 
 	}
 
-	private Ball moveBallAtCurrentVelo(Ball ball, double time) {
+	public Ball moveBallAtCurrentVelo(Ball ball, double time) {
 		double newX = 0.0;
 		double newY = 0.0;
 		double xVel = ball.getVelo().x();
@@ -101,8 +120,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		return ball;
 	}
 
-	private void calcTimesUntilCollision() {
+	private List<CollisionDetails> calcTimesUntilCollision() {
 
+		List<CollisionDetails> collisionList = new ArrayList<CollisionDetails>();
+		
 		for (Ball ball : ballSet) {
 			// Find Time Until Collision and also, if there is a collision, the
 			// new
@@ -156,7 +177,7 @@ public class MainEngine extends Observable implements IMainEngine {
 					lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
 
 					// Checking collision with all the Line Segments
-					for (LineSegment line : lss) {
+					for (LineSegment line : lsSet) {
 						time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
 						if (time < shortestTime) {
 							shortestTime = time;
@@ -170,6 +191,38 @@ public class MainEngine extends Observable implements IMainEngine {
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
 			collisionList.add(cd);
 		}
+		
+		return collisionList;
+	}
+	
+	@Override
+	public double getMoveTime(){
+		return moveTime;
+	}
+	
+	
+	@Override
+	public void setBallSpeed(Ball b, Vect velo) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean isPlaying() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -188,6 +241,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		return false;
 	}
 
+	@Override
 	public AGizmoComponent getGizmoAt(int x, int y) {
 		for (AGizmoComponent g : gizmos.values()) {
 			if (g.getX() / L == x && g.getY() / L == y) {
@@ -234,32 +288,8 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public void setBallSpeed(Ball b, Vect velo) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void start() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void stop() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean isPlaying() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public void loadFile(String filePath) {
-		gizmos = new HashMap<String, AGizmoComponent>();
+		gizmos = new HashMap<String, AGizmoComponent>();		// get rid of all existing Gizmos
 		SaveDataEngine.loadFile(filePath, this);
 	}
 
