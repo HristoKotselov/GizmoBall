@@ -7,7 +7,7 @@ import physics.Vect;
 
 public interface IMainEngine {
 
-	public void moveBall();
+	public void moveBalls();
 
 	public boolean addGizmo(AGizmoComponent gizmo);
 
@@ -21,6 +21,8 @@ public interface IMainEngine {
 
 	public Map<String, AGizmoComponent> getGizmosMap();
 
+	public double getMoveTime();
+	
 	public void setBallSpeed(Ball b, Vect velo);
 
 	public void start();

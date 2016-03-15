@@ -57,7 +57,7 @@ public class BuildModeMainListener extends AMainListener {
 			if (model == null) {
 				System.out.println("ITS NULL");
 			} else {
-				model.moveBall();
+				model.moveBalls();
 			}
 		/** TODO END of Temporarily Block of Code **/
 		}
