@@ -25,13 +25,15 @@ public class Ball extends AMovingGizmo {
 		// TODO Auto-generated method stub
 
 	}
-	@Override public double  getPreciseX() {
-		return getPreciseX();
+	
+	 public double  getPreciseXval() {
+		double xVal = getPreciseX();
+		return xVal;
 	};
 	
-	@Override public double  getPreciseY() {
-		return getPreciseY();
-		
+	public double  getPreciseYval() {
+		double yVal = getPreciseX();
+		return yVal;
 	};
 
 	@Override
@@ -52,13 +54,13 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public boolean move(int newX, int newY) {
-		if( newX == getPreciseX() || newY == getPreciseY()){
+		
 		super.move(newX, newY);
 		return true;
 	}
-	else{
-		return false;
-	}}
+	
+		
+	
 	
 
 	/* Ball specific methods */
