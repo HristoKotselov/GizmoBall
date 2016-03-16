@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -8,43 +11,23 @@ import java.awt.geom.AffineTransform;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JPanel;
-
 import model.AGizmoComponent;
 import model.IMainEngine;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.BorderFactory;
-
-public class PlayBoard extends JPanel implements IBoard, Observer {
-
-	private JPanel gameBoard;
-
+public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 
-	public PlayBoard(IMainEngine model) {
-		initialize();
-		
-		this.model = model;
-		this.model.addObserver(this);
-	}
-
-	private void initialize() {
+	public GameBoard(IMainEngine m) {
+		// TODO change to (400, 400)
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
-		//start of right panel (the game panel)
-		/*gameBoard = new JPanel();
-		gameBoard.setPreferredSize(new Dimension(400, 400));
-		gameBoard.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
-		gameBoard.setBackground(Color.BLACK);
-		*/
-		//end of the right panel
+
+		model = m;
+		model.addObserver(this);
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -102,10 +85,6 @@ public class PlayBoard extends JPanel implements IBoard, Observer {
 			g2d.drawLine(i * 20, 0, i * 20, 400);
 		}
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
-	}
-
-	public JPanel getBoard() {
-		return gameBoard;
 	}
 
 	@Override

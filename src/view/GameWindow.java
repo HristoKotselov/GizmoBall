@@ -23,9 +23,8 @@ public class GameWindow implements IGameWindow {
 	private JFrame buildModeWindow, playModeWindow;
 
 	private BuildMenu buildmenu;
-	private BuildBoard buildboard;
 	private PlayMenu playmenu;
-	private PlayBoard playboard;
+	private GameBoard board;
 	
 	/* Controllers */
 	private LoadFileListener loadFileAL;
@@ -44,7 +43,6 @@ public class GameWindow implements IGameWindow {
 		saveFileAL = new SaveFileListener(this, model);
 
 		initialiseBuildWindow();
-		initialisePlayWindow();
 	}
 	
 	private void initialiseBuildWindow(){
@@ -82,16 +80,16 @@ public class GameWindow implements IGameWindow {
 
 		// TODO might need to change later
 		buildmenu = new BuildMenu(model, this);
-		buildboard = new BuildBoard(model);
+		board = new GameBoard(model);
 
 		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
 
-		buildboard.addMouseListener(l);
+		board.addMouseListener(l);
 		// buildboard.addMouseMotionListener(l);
 
 		buildModeWindow.add(buildmenu.getMenu());
 		buildModeWindow.add(new JSeparator());
-		buildModeWindow.add(buildboard);
+		buildModeWindow.add(board);
 
 		JLabel tips = new JLabel("Action Tip:");
 		tips.setFont(new Font("Arial", 1, 12));
@@ -106,62 +104,10 @@ public class GameWindow implements IGameWindow {
 		buildModeWindow.setVisible(true);
 	}
 	
-	private void initialisePlayWindow(){
-		playModeWindow = new JFrame("Play Mode");
-		playModeWindow.setBounds(100, 100, 750, 500);
-		playModeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// start of drop menu
-		JMenuBar menuBar = new JMenuBar();
-		playModeWindow.setJMenuBar(menuBar);
-
-		JMenu mnFolio = new JMenu("Game");
-		menuBar.add(mnFolio);
-
-		JMenuItem mntmOpen = new JMenuItem("Load");
-		mntmOpen.setActionCommand("load");
-		mntmOpen.addActionListener(loadFileAL);
-		mnFolio.add(mntmOpen);
-
-		JMenuItem mntmSave = new JMenuItem("Save");
-		mntmSave.setActionCommand("save");
-		mntmSave.addActionListener(saveFileAL);
-		mnFolio.add(mntmSave);
-
-		JSeparator separator = new JSeparator();
-		mnFolio.add(separator);
-
-		JMenuItem mntmExit = new JMenuItem("Exit");
-		mnFolio.add(mntmExit);
-		playModeWindow.getContentPane().setLayout(new FlowLayout());
-		// end of menu bar
-
-		JSeparator separator1 = new JSeparator();
-		playModeWindow.add(separator1);
-		
-		// TODO might need to change later
-		playmenu = new PlayMenu(model, this);
-		playboard = new PlayBoard(model);
-
-		playModeWindow.add(playmenu.getMenu());
-		playModeWindow.add(new JSeparator());
-		playModeWindow.add(playboard);
-
-		JLabel tips = new JLabel("Action Tip:");
-		tips.setFont(new Font("Arial", 1, 12));
-		tips.setForeground(Color.BLUE);
-		playModeWindow.add(tips);
-
-		JTextArea textarea = new JTextArea(1, 45);
-		textarea.setBackground(Color.WHITE);
-		textarea.setEditable(false);
-		playModeWindow.add(textarea);
-
-		playModeWindow.setVisible(true);
-	}
-	
 	@Override
 	public void switchToPlayMode(){
+		// TODO 
+		
 		buildModeWindow.setVisible(false);
 	}
 
