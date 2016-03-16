@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
 
-public class BuildBoard extends JPanel implements IBoard, Observer {
+public class BuildBoard extends JPanel implements Observer {
 	private IMainEngine model;
 
 	public BuildBoard(IMainEngine m) {
@@ -91,5 +91,4 @@ public class BuildBoard extends JPanel implements IBoard, Observer {
 	public void update(Observable arg0, Object arg1) {
 		repaint();
 	}
-
 }

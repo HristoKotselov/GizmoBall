@@ -9,9 +9,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controller.AMainListener;
 import controller.ChangeBallConfigListener;
 import controller.PhysicsConfigListener;
-import controller.PlayModeButtonListener;
+import controller.PlayModeMainListener;
 import controller.StartGameListener;
 import controller.StopGameListener;
 import controller.UndoRedoListener;
@@ -22,21 +23,16 @@ public class PlayMenu implements IMenu {
 
 	/* GUI */
 	private JPanel buttonMenu;
-	
-	/** Required as a reference for Controllers **/
-	private IGameWindow gameWindow;
 
 	/* Model */
 	private IMainEngine model;
 
 	/* Controller */
-	private PlayModeButtonListener playModeAL;
+	private AMainListener playModeAL;
 	private StartGameListener startGameAL;
 	private StopGameListener stopGameAL;
 
-	public PlayMenu(IMainEngine model, IGameWindow gameWindow) {
-		this.model = model;
-		this.gameWindow = gameWindow;
+	public PlayMenu() {
 		initialize();
 	}
 
@@ -45,7 +41,7 @@ public class PlayMenu implements IMenu {
 	 */
 	private void initialize() {
 		// TODO the listeners should have been passed through parameter
-		playModeAL = new PlayModeButtonListener(model, gameWindow);
+		//playModeAL = new PlayModeMainListener(model);
 		startGameAL = new StartGameListener(model);
 		stopGameAL = new StopGameListener(model);
 

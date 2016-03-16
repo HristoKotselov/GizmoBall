@@ -12,8 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
-
-import controller.BuildModeButtonListener;
+import controller.AMainListener;
 import controller.BuildModeFunctionChangeListener;
 import controller.ChangeBallConfigListener;
 import controller.PhysicsConfigListener;
@@ -28,22 +27,18 @@ public class BuildMenu implements IMenu {
 	private ButtonGroup bg;
 	private JComboBox<String> functionCB;
 	private JPanel cards;
-	
-	/** Required as a reference for Controllers **/
-	private IGameWindow gameWindow;
 
 	/* Model */
 	private IMainEngine model;
 
 	/* Controller */
-	private BuildModeButtonListener buildModeAL;
+	private AMainListener buildModeAL;
 	private ChangeBallConfigListener changeBallConfigAL;
 	private PhysicsConfigListener physicsConfigAL;
 	private UndoRedoListener undoRedoAL;
 
-	public BuildMenu(IMainEngine model, IGameWindow gameWindow) {
+	public BuildMenu(IMainEngine model) {
 		this.model = model;
-		this.gameWindow = gameWindow;
 		initialize();
 	}
 
