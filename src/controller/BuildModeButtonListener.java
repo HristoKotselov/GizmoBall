@@ -1,30 +1,29 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import model.IMainEngine;
 import view.IBoard;
+import view.IGameWindow;
 import view.IMenu;
 
-public class BuildModeMainListener extends AMainListener {
+public class BuildModeButtonListener implements ActionListener {
+	private IMainEngine model;
+	private IGameWindow gameWindow;
 
-	// TODO Basically need to list all possible Controller associated with Build Mode here
-	private AddGizmoListener addGizmoAL;
-
-	public BuildModeMainListener(IMainEngine model, IBoard board, IMenu menu) {
-		super(model, board, menu);
-
-		addGizmoAL = new AddGizmoListener(model);
-		// TODO Auto-generated constructor stub
+	public BuildModeButtonListener(IMainEngine model, IGameWindow gameWindow) {
+		this.model = model;
+		this.gameWindow = gameWindow;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		// check out AMainListener's method!
 
 		String actionCmd = e.getActionCommand();
 		if (actionCmd.equals("addGizmo")) {
-			setBoardMouseListener(addGizmoAL);
+			
 		} else if (actionCmd.equals("addBall")) {
 
 		} else if (actionCmd.equals("connect")) {
@@ -51,8 +50,6 @@ public class BuildModeMainListener extends AMainListener {
 	// In the final release, this command should change from BUILD MODE to PLAY MODE
 			
 		/** TODO START of Temporarily Block of Code, REMOVE\CHANGE before final release **/
-			IMainEngine model = getModel();
-			
 			System.out.println("Tick " + System.nanoTime());
 			if (model == null) {
 				System.out.println("ITS NULL");
