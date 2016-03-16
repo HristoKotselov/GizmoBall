@@ -25,6 +25,14 @@ public class Ball extends AMovingGizmo {
 		// TODO Auto-generated method stub
 
 	}
+	@Override public double  getPreciseX() {
+		return getPreciseX();
+	};
+	
+	@Override public double  getPreciseY() {
+		return getPreciseY();
+		
+	};
 
 	@Override
 	public Shape getDrawingShape() {
@@ -39,17 +47,19 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public boolean rotate(int degree) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean move(int newX, int newY) {
+		if( newX == getPreciseX() || newY == getPreciseY()){
 		super.move(newX, newY);
-		
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
+	else{
+		return false;
+	}}
+	
 
 	/* Ball specific methods */
 	public double getRadius() {
