@@ -3,7 +3,6 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
-import java.util.HashSet;
 import java.util.Set;
 
 import physics.Angle;
@@ -34,11 +33,8 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public Set<Circle> getCircles() {
-		Set<Circle> circleSet = new HashSet<Circle>();
-		
-		circleSet.add(new Circle(getPreciseX(), getPreciseY(), radius));
-		
-		return circleSet;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

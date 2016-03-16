@@ -88,13 +88,13 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public Set<Circle> getCircles() {
 		// TODO
-		return new HashSet<Circle>();
+		return null;
 	}
 
 	@Override
 	public Set<LineSegment> getLineSeg() {
 		// TODO
-		return new HashSet<LineSegment>();
+		return null;
 	}
 
 	@Override

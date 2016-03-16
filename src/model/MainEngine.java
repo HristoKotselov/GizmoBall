@@ -40,7 +40,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	/* Run time values */
 	/** How frequent each tick of the ball is. Essentially this is frame per seconds; the lower this value, 
 	 * the smoother the animation will be, but also more computationally expensive. **/
-	private double moveTime = 1.0/60.0;			// 60 fps
+	private double moveTime = 1/60;			// 60 fps
 	
 	private boolean isPlaying; // used to tell Keyboard ActionListeners when
 								// they should be active (only when the game is
@@ -52,16 +52,9 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		physicsSettings = new PhysicsConfig();
 		customConnections = new Connections();
-		collisionHandler = new CollisionHandler(this);
 
-		// TODO change to get size form board
-		gws = new Walls(0, 0, 20 * L, 20 * L);
-		
-		ballSet = new HashSet<Ball>();
-		
 		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-		ball = new Ball("Ball", Color.RED, 50, 20, new Angle(0), 50 * L);
-		ballSet.add(ball);
+//		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
 	}
 
 	@Override
@@ -104,13 +97,6 @@ public class MainEngine extends Observable implements IMainEngine {
 				ball = moveBallAtCurrentVelo(ball, tuc);	
 
 				collider = getGizmo(cd.getColliderName());
-				
-
-				// TODO Temp line
-				if(collider != null){
-					System.out.println(collider.toString());
-				}
-				
 				// Now handle the collision
 				collisionHandler.handleCollision(cd, collider);
 			}
@@ -176,7 +162,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 			for (AGizmoComponent gizmo : allGizmos) {
 				circleSet = gizmo.getCircles();
-				
 
 				// Checking collision with all the Circles
 				for (Circle circle : circleSet) {
@@ -309,9 +294,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void loadFile(String filePath) {
-		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-		
-		//gizmos = new HashMap<String, AGizmoComponent>();		// get rid of all existing Gizmos
+		gizmos = new HashMap<String, AGizmoComponent>();		// get rid of all existing Gizmos
 		SaveDataEngine.loadFile(filePath, this);
 	}
 
