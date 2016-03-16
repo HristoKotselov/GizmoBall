@@ -101,7 +101,8 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 
 		updateCollections();
 
-		// TODO This rotates the shape for drawing purposes, but not the collision info
+		// TODO This rotates the shape for drawing purposes, but not the
+		// collision info
 		// TODO Also requires validation
 		return false;
 	}
@@ -118,5 +119,16 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 	@Override
 	public Set<LineSegment> getLineSeg() {
 		return ls;
+	}
+
+	@Override
+	public String toString() {
+		String s = "Triangle " + super.toString();
+
+		for (int i = rotationAngle; i > 0; i -= 90) {
+			s += "\nRotate " + gizmoID;
+		}
+
+		return s;
 	}
 }

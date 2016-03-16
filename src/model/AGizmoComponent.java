@@ -15,19 +15,19 @@ abstract public class AGizmoComponent {
 
 	/* The following attributes can be defined before the Gizmo is created **/
 	/** A String given to a Gizmo to identity it **/
-	private String gizmoID;
+	protected String gizmoID;
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with
 	 * x-coordinate, this determines the position of a Gizmo component on the
 	 * board. Where this is exactly depends on the type of Gizmo
 	 **/
-	private int xpos;
+	protected int xpos;
 	/**
 	 * The vertical-coordinate of the component (in pixel). Along with
 	 * y-coordinate, this determines the position of a Gizmo component on the
 	 * board. Where this is exactly depends on the type of Gizmo
 	 **/
-	private int ypos;
+	protected int ypos;
 	/**
 	 * Colour of the Gizmo, used by the view to determine what colour to paint
 	 **/
@@ -159,4 +159,8 @@ abstract public class AGizmoComponent {
 		return visibility;
 	}
 
+	@Override
+	public String toString() {
+		return gizmoID + " " + (xpos / MainEngine.L) + " " + (ypos / MainEngine.L);
+	}
 }

@@ -142,5 +142,10 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		return capturedBall;
 	}
 
+	public String toString() {
+		int x2 = (xpos / MainEngine.L) + width;
+		int y2 = (ypos / MainEngine.L) + height;
 
+		return "Absorber " + super.toString() + " " + x2 + " " + y2;
+	}
 }

@@ -69,4 +69,8 @@ public class CircularBumper extends AStatueGizmo {
 		return radius;
 	}
 
+	@Override
+	public String toString(){
+		return "Circle " + super.toString();
+	}
 }

@@ -14,7 +14,9 @@ import physics.Circle;
 import physics.LineSegment;
 
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
-	public double rotation;
+	public double rotation; // Angle of rotation of flipper relative to start
+							// point. Separate from rotationAngle, which defines
+							// the rotation of the flipper within bounding box.
 	public boolean flippingForward;
 	public boolean leftFlipper;
 	private int flipSpeed;
@@ -35,7 +37,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		if (!leftFlipper) {
 //			this.setX((this.getX() + MainEngine.L + (MainEngine.L / 2)));
 		}
-		
+
 		width = 2;
 		height = 2;
 
@@ -128,5 +130,22 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// Circle circle = new physics.Circle(new physics.Vect(this.getX(),
 		// this.getY()), 10);
 
+	}
+
+	@Override
+	public String toString() {
+		String s;
+
+		if (leftFlipper) {
+			s = "LeftFlipper " + super.toString();
+		} else {
+			s = "RightFlipper " + super.toString();
+		}
+
+		for (int i = rotationAngle; i > 0; i -= 90) {
+			s += "\nRotate " + gizmoID;
+		}
+
+		return s;
 	}
 }
