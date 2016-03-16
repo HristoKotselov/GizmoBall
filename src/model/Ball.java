@@ -3,6 +3,7 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+import java.util.HashSet;
 import java.util.Set;
 
 import physics.Angle;
@@ -20,12 +21,7 @@ public class Ball extends AMovingGizmo {
 		radius = 5;
 	}
 
-	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-
-	}
-
+/* Ball's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
 		return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);
@@ -33,8 +29,19 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public Set<Circle> getCircles() {
+		Set<Circle> circleSet = new HashSet<Circle>();
+		
+		circleSet.add(new Circle(getPreciseX(), getPreciseY(), radius));
+		
+		return circleSet;
+	}
+	
+
+/* Regular methods implementation */
+	@Override
+	public void triggerAction() {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	@Override
@@ -44,12 +51,13 @@ public class Ball extends AMovingGizmo {
 	}
 
 	@Override
-	public boolean move(int newX, int newY) {
+	public boolean move(double newX, double newY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	/* Ball specific methods */
+	
+/* Ball specific methods */
 	public double getRadius() {
 		return radius;
 	}

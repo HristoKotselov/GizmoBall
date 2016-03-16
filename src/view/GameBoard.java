@@ -8,11 +8,13 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
+import model.AStationaryGizmo;
 import model.IMainEngine;
 
 public class GameBoard extends JPanel implements IBoard, Observer {
@@ -32,7 +34,6 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
-		Map<String, AGizmoComponent> gizmos = model.getGizmosMap();
 
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -40,8 +41,11 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// Save the default transformation
 		AffineTransform old = g2d.getTransform();
 
-		// Iterate over all gizmos
-		for (AGizmoComponent giz : gizmos.values()) {
+		
+		// Iterate over all stationary gizmos
+		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
+
+		for (AStationaryGizmo giz : sGizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());

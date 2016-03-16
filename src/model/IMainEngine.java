@@ -17,9 +17,13 @@ public interface IMainEngine {
 
 	public AGizmoComponent getGizmoAt(int x, int y);
 
-	public Collection<AGizmoComponent> getAllGizmos();
-
 	public Map<String, AGizmoComponent> getGizmosMap();
+	
+	public Collection<AGizmoComponent> getAllGizmos();
+	
+	public Collection<AStationaryGizmo> getAllStationaryGizmos();
+
+	public Collection<AMovingGizmo> getAllMovingGizmos();
 
 	public double getMoveTime();
 	

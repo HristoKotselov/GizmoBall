@@ -15,21 +15,31 @@ import physics.Vect;
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
 
-	/** X-coordinate (pixel) of the Gizmo at any moment during gameplay **/
+	/** The horizontal-coordinate of the component (in pixel). Along with the preciseYPos,
+	 * This determines the position of a Gizmo component on the board, during gameplay. 
+	 * Where this is exactly depends on the type of Gizmo. **/
 	private double preciseXPos;
-	/** Y-coordinate (pixel) of the Gizmo at any moment during gameplay **/
+	
+	/** The vertical-coordinate of the component (in pixel). Along with the preciseXPos,
+	 * This determines the position of a Gizmo component on the board, during gameplay. 
+	 * Where this is exactly depends on the type of Gizmo. **/
 	private double preciseYPos;
-	/** X-coordinate (pixel) of the Gizmo before the game starts (i.e. during Build Mode) **/
+	
+	/** Same as preciseXPos, but this value is used to determine the Gizmo's position 
+	 * before the game starts (i.e. during Build Mode) **/
 	private double preciseXStartingPos;
-	/** Y-coordinate (pixel) of the Gizmo before the game starts (i.e. during Build Mode) **/
+	
+	/** Same as preciseYPos, but this value is used to determine the Gizmo's position 
+	 * before the game starts (i.e. during Build Mode) **/
 	private double preciseYStartingPos;
 
 	private Vect velocity;
 
 	private boolean stopped;
 
+	
 	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
-		super(name, (int) x, (int) y, color);
+		super(name, color);
 
 		preciseXPos = x; // Centre coordinates
 		preciseYPos = y;
@@ -37,69 +47,9 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		preciseYStartingPos = y;
 		velocity = new Vect(theta, velo);
 	}
-	
-	/** 
-	 * Same function as setPreciseX(), but rounding the parameter to whole number.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#setY(int)
-	 */
-	@Override
-	public boolean setX(int x) {
-		return setPreciseX(x);
-	}
 
-	/** 
-	 * Same function as setPreciseY(), but rounding the parameter to whole number.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#setY(int)
-	 */
-	@Override
-	public boolean setY(int y) {
-		return setPreciseY(y);
-	}
-	
-	/** 
-	 * Same function as getPreciseX(), but rounding to whole number first.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#getY(int)
-	 */
-	@Override
-	public int getX() {
-		return (int) preciseXPos;
-	}
 
-	/** 
-	 * Same function as getPreciseY(), but rounding to whole number first.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#getY(int)
-	 */
-	@Override
-	public int getY() {
-		return (int) preciseYPos;
-	}
-
-	public boolean setPreciseX(double x) {
-		// TODO Validation
-		preciseXPos = x;
-		
-		return true;
-	}
-
-	public boolean setPreciseY(double y) {
-		// TODO Validation
-		preciseYPos = y;
-		
-		return true;
-	}
-
-	public double getPreciseX() {
-		return preciseXPos;
-	}
-
-	public double getPreciseY() {
-		return preciseYPos;
-	}
-
+/* Exclusive Methods to this type of Gizmo */
 	public boolean setPreciseStartingX(double x) {
 		// TODO Validation
 		preciseXStartingPos = x;
@@ -142,5 +92,54 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public Vect getVelo() {
 		return velocity;
 	}
+	
+	
+/* Abstract methods that can be implemented already */
+	@Override
+	public String toString() {
+		
+		// TODO Adapt to new class
+		// return getGizmoID() + " " + (xpos / MainEngine.L) + " " + (ypos / MainEngine.L);
+		return null;
+	}
+	
+/* Shared methods across AStatueGizmo & AMovingGizmo, but with different parameters */
+	
+	public boolean setPreciseX(double x) {
+		// TODO Validation
+		preciseXPos = x;
+		
+		return true;
+	}
+
+	public boolean setPreciseY(double y) {
+		// TODO Validation
+		preciseYPos = y;
+		
+		return true;
+	}
+
+	public double getPreciseX() {
+		return preciseXPos;
+	}
+
+	public double getPreciseY() {
+		return preciseYPos;
+	}
+	
+	/**
+	 * Method called when the user decides to move a Gizmo component.
+	 * 
+	 * @param newX
+	 *            - new X coordinate
+	 * @param newY
+	 *            - new Y coordinate
+	 * @modify this
+	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
+	 *         collection of Line Segment is updated; IF gizmo is a supertype of
+	 *         AStatueGizmo, THEN drawingShape is updated.
+	 */
+	abstract public boolean move(double newX, double newY);
+
 
 }

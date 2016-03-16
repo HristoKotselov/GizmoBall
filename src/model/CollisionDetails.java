@@ -24,12 +24,12 @@ public class CollisionDetails {
 		return velo;
 	}
 
-	public String getColliderName() {
-		return clderName;
-	}
-
 	public Ball getBall() {
 		return b;
+	}
+
+	public String getColliderName() {
+		return clderName;
 	}
 
 }

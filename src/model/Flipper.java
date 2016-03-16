@@ -25,12 +25,14 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private long flipTime;
 	private long startedFlipping;
 
-	// private Set<Circle> circles;
-	// private Set<LineSegment> lines;
+	
 
 	public Flipper(String name, int grid_tile_x, int grid_tile_y, Color color, boolean leftFlipper) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
-		// System.out.println(leftFlipper);
+
+		bmWidth = 2;
+		bmHeight = 2;
+		
 
 		this.gameplayRotation = 0;
 		this.flippingForward = false;
@@ -38,23 +40,11 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		if (!leftFlipper) {
 //			this.setX((this.getX() + MainEngine.L + (MainEngine.L / 2)));
 		}
-		
-		bmWidth = 2;
-		bmHeight = 2;
-
-		// circles = new HashSet<Circle>();
-		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);
-		// circles.add(c);
 
 	}
 
-	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-		flippingForward = true;
-		startedFlipping = System.nanoTime();
-	}
-
+	
+/* Flipper's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
 		// rotation += 15;
@@ -97,6 +87,16 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		return null;
 	}
 
+	
+	
+/* Regular methods implementation */
+	@Override
+	public void triggerAction() {
+		// TODO Auto-generated method stub
+		flippingForward = true;
+		startedFlipping = System.nanoTime();
+	}
+	
 	@Override
 	public boolean rotate(int degree) {
 		// TODO Validation
@@ -110,8 +110,26 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		String s;
 
-	/* Flipper exclusive methods */
+		if (leftFlipper) {
+			s = "LeftFlipper " + super.toString();
+		} else {
+			s = "RightFlipper " + super.toString();
+		}
+
+		for (int i = rotationAngle; i > 0; i -= 90) {
+			s += "\nRotate " + getGizmoID();
+		}
+
+		return s;
+	}
+
+	
+/* Flipper exclusive methods */
 	public void update() {
 		if (flippingForward) {
 			gameplayRotation += flipSpeed;
@@ -133,20 +151,4 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	}
 
-	@Override
-	public String toString() {
-		String s;
-
-		if (leftFlipper) {
-			s = "LeftFlipper " + super.toString();
-		} else {
-			s = "RightFlipper " + super.toString();
-		}
-
-		for (int i = rotationAngle; i > 0; i -= 90) {
-			s += "\nRotate " + getGizmoID();
-		}
-
-		return s;
-	}
 }
