@@ -93,61 +93,64 @@ public class BuildModeMouseListener implements MouseListener {
 
 		int x = e.getX() / 20;
 		int y = e.getY() / 20;
-		String selectedType = "";
 
-//		for (Enumeration<AbstractButton> buttons = bm.getGizmoSelector().getElements(); buttons.hasMoreElements();) {
-//			AbstractButton button = buttons.nextElement();
-//
-//			if (button.isSelected()) {
-//				selectedType = button.getText();
-//			}
-//		}
-
-		selectedType = bm.getSelectedGizmo();
+		String selectedFunction = bm.getSelectedFunction();
 
 		AGizmoComponent g = null;
 
-		switch (selectedType) {
-			case "Square":
-				g = new SquareBumper("s" + x + "," + y, x, y, Color.GREEN);
-				m.addGizmo(g);
-				break;
-
-			case "Triangle":
-				g = new TriangularBumper("t" + x + "," + y, x, y, Color.RED);
-				m.addGizmo(g);
-				break;
-
-			case "Circle":
-				g = new CircularBumper("c" + x + "," + y, x, y, Color.BLUE);
-				m.addGizmo(g);
-				break;
-
-			case "Left Flipper":
-				g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, true);
-				m.addGizmo(g);
-				break;
-
-			case "Right Flipper":
-				g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, false);
-				m.addGizmo(g);
-				break;
-
-			case "Delete":
+		switch (selectedFunction) {
+			case "Remove Gizmo":
 				g = m.getGizmoAt(x, y);
-				m.removeGizmo(g);
+
+				if (g != null) {
+					m.removeGizmo(g);
+				}
+
 				break;
+
+			case "Rotate Gizmo":
+				g = m.getGizmoAt(x, y);
+
+				if (g != null) {
+					m.rotateGizmo(g, 90);
+				}
+
+				break;
+
+			case "Add Gizmo":
+				String selectedGizmo = bm.getSelectedGizmo();
 				
-			case "Rotate":
-				//TODO Make this work with flippers if any part of bounding box is clicked
-				g = m.getGizmoAt(x, y);
-				m.rotateGizmo(g, 90);
-				break;
+				switch (selectedGizmo) {
+					case "Square":
+						g = new SquareBumper("s" + x + "," + y, x, y, Color.GREEN);
+						m.addGizmo(g);
+						break;
 
-			default:
-				System.out.println(
-						"Not recognised or not Implemented, make sure the gizmo is in the BuildModeMouseListener.mouseClicked() case statement.");
-				return;
+					case "Triangle":
+						g = new TriangularBumper("t" + x + "," + y, x, y, Color.RED);
+						m.addGizmo(g);
+						break;
+
+					case "Circle":
+						g = new CircularBumper("c" + x + "," + y, x, y, Color.BLUE);
+						m.addGizmo(g);
+						break;
+
+					case "Left Flipper":
+						g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, true);
+						m.addGizmo(g);
+						break;
+
+					case "Right Flipper":
+						g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, false);
+						m.addGizmo(g);
+						break;
+
+					default:
+						System.out.println(
+								"Not recognised or not Implemented, make sure the gizmo is in the BuildModeMouseListener.mouseClicked() case statement.");
+						return;
+				}
 		}
 	}
 

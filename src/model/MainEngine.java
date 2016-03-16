@@ -229,27 +229,45 @@ public class MainEngine extends Observable implements IMainEngine {
 	public boolean addGizmo(AGizmoComponent gizmo) {
 		// TODO Validation
 
-		AGizmoComponent g = getGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
+		// Remove any overlapping gizmos
+		for (int i = 0; i < gizmo.getBMWidth(); i++) {
+			for (int j = 0; j < gizmo.getBMHeight(); j++) {
+				AGizmoComponent g = getGizmoAt((gizmo.getX() / L) + i, (gizmo.getY() / L) + j);
 
-		if (g != null) {
-			removeGizmo(g);
+				if (g != null) {
+					removeGizmo(g);
+				}
+			}
 		}
-		gizmos.put(gizmo.getGizmoID(), gizmo);
 
+		// Add new gizmo
+		gizmos.put(gizmo.getGizmoID(), gizmo);
+		
+		// Update view
 		update();
 
 		return false;
 	}
 
 	@Override
-	public AGizmoComponent getGizmoAt(int x, int y) {
+	public AGizmoComponent getGizmoAt(int grid_tile_x, int grid_tile_y) {
+		int gizmosX_in_L;
+		int gizmosY_in_L;
+		
+		
 		for (AGizmoComponent g : gizmos.values()) {
-			if (g.getX() / L == x && g.getY() / L == y) {
+			gizmosX_in_L = g.getX() / L;
+			gizmosY_in_L = g.getY() / L;
+			
+			if (gizmosX_in_L == grid_tile_x && gizmosY_in_L == grid_tile_y) {
 				return g;
 			}
 
-			if (g instanceof Flipper) {
-				if (g.getX() / L >= x - 1 && g.getX() / L <= x && g.getY() / L >= y - 1 && g.getY() / L <= y) {
+			// all Gizmo with width \ height of > 1
+			if (g.getBMHeight() > 1 || g.getBMHeight() > 1) {
+				if (grid_tile_x >= gizmosX_in_L   &&   grid_tile_x < gizmosX_in_L + g.getBMWidth()  && 
+					grid_tile_y >= gizmosY_in_L   &&   grid_tile_y < gizmosY_in_L + g.getBMHeight()
+				) {
 					return g;
 				}
 			}
@@ -259,11 +277,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);
-	}
-
-	public boolean rotateGizmo(int x, int y, int degree) {
-		// TODO Validation
-		return false;
 	}
 
 	@Override

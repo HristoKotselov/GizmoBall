@@ -43,6 +43,24 @@ abstract public class AGizmoComponent {
 	 * will automatically be calculated properly upon construction
 	 **/
 	protected int rotationAngle;
+	/**
+	 * The number of horizontal grid taken up by this Gizmo (+x). Whenever a
+	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
+	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
+	 * 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * store their dimensions.
+	 */
+	protected int bmWidth;
+	/**
+	 * The number of vertical grid taken up by this Gizmo (+y). Whenever a
+	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
+	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
+	 * 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * store their dimensions.
+	 */
+	protected int bmHeight;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
 		gizmoID = name;
@@ -53,6 +71,8 @@ abstract public class AGizmoComponent {
 		// Default settings
 		visibility = true;
 		rotationAngle = 0;
+		bmWidth = 1;
+		bmHeight = 1;
 	}
 
 	/**
@@ -68,7 +88,7 @@ abstract public class AGizmoComponent {
 	abstract public Shape getDrawingShape();
 
 	abstract public Set<Circle> getCircles();
-	
+
 
 
 	public String getGizmoID() {
@@ -95,6 +115,14 @@ abstract public class AGizmoComponent {
 		return ypos;
 	}
 
+	public int getBMWidth() {
+		return bmWidth;
+	}
+
+	public int getBMHeight() {
+		return bmHeight;
+	}
+
 	public boolean setColour(Color color) {
 		// TODO some validation
 		this.colour = color;
@@ -108,22 +136,28 @@ abstract public class AGizmoComponent {
 	/**
 	 * Method called when the user decides to rotate a Gizmo component.
 	 * 
-	 * @param degree - the angle of rotation to add
+	 * @param degree
+	 *            - the angle of rotation to add
 	 * @modify this
-	 * @effect rotationAngle = new angle;  Circle Set is updated;	IF gizmo uses Line Segments, 
-	 * THEN the collection of Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, 
-	 * THEN drawingShape is updated. Can have additional effects, check individual Gizmo for them.
+	 * @effect rotationAngle = new angle; Circle Set is updated; IF gizmo uses
+	 *         Line Segments, THEN the collection of Line Segment is updated; IF
+	 *         gizmo is a supertype of AStatueGizmo, THEN drawingShape is
+	 *         updated. Can have additional effects, check individual Gizmo for
+	 *         them.
 	 */
 	abstract public boolean rotate(int degree);
 
 	/**
 	 * Method called when the user decides to move a Gizmo component.
 	 * 
-	 * @param newX - new X coordinate
-	 * @param newY - new Y coordinate
+	 * @param newX
+	 *            - new X coordinate
+	 * @param newY
+	 *            - new Y coordinate
 	 * @modify this
-	 * @effect Circle Set is updated;	IF gizmo uses Line Segments, THEN the collection of 
-	 * Line Segment is updated;  IF gizmo is a supertype of AStatueGizmo, THEN drawingShape is updated. 
+	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
+	 *         collection of Line Segment is updated; IF gizmo is a supertype of
+	 *         AStatueGizmo, THEN drawingShape is updated.
 	 */
 	abstract public boolean move(int newX, int newY);
 

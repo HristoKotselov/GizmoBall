@@ -39,7 +39,7 @@ public class GameWindow implements IGameWindow {
 
 		loadFileAL = new LoadFileListener(this, m);
 		saveFileAL = new SaveFileListener(this, m);
-		window1 = new JFrame("Play Mode");
+		window1 = new JFrame("Build Mode");
 		window1.setBounds(100, 100, 750, 500);
 		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -69,7 +69,7 @@ public class GameWindow implements IGameWindow {
 		// end of menu bar
 
 		JSeparator separator1 = new JSeparator();
-		window1.getContentPane().add(separator1);
+		window1.add(separator1);
 
 		// TODO might need to change later
 		buildmenu = new BuildMenu(m);
@@ -78,9 +78,10 @@ public class GameWindow implements IGameWindow {
 		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);
 
 		buildboard.addMouseListener(l);
-		//		buildboard.addMouseMotionListener(l);
+		// buildboard.addMouseMotionListener(l);
 
 		window1.add(buildmenu.getMenu());
+		window1.add(new JSeparator());
 		window1.add(buildboard);
 
 		JLabel tips = new JLabel("Action Tip:");
@@ -98,6 +99,7 @@ public class GameWindow implements IGameWindow {
 
 	@Override
 	public String getFile() {
+		// TODO change to allow save button using string param
 		JFileChooser f = new JFileChooser();
 		f.showOpenDialog(window1);
 

@@ -40,18 +40,19 @@ public class CollisionHandler {
 
 		Ball ball = cd.getBall();
 		Absorber absorber = (Absorber) gizmo;
+		int width_in_pixels = absorber.bmWidth * MainEngine.L;
+		int height_in_pixels = absorber.bmHeight * MainEngine.L;
 		
 		// i.e. first collision BEFORE ball enter Absorber
 		if (absorber.getCapturedBall() != ball && 
-				(ball.getPreciseY() < absorber.getY()    ||    ball.getPreciseY() > absorber.getY() + absorber.getHeight())) { 			// check if Ball is at Top or Bottom of Absorber
+				(ball.getPreciseY() < absorber.getY()    ||    ball.getPreciseY() > absorber.getY() + height_in_pixels)) { 			// check if Ball is at Top or Bottom of Absorber
 			ball.stop();
-			ball.setPreciseX(absorber.getX() + absorber.getWidth() - (0.25 * MainEngine.L));
-			ball.setPreciseY(absorber.getY() + absorber.getHeight() - (0.25 * MainEngine.L));
+			ball.setPreciseX(absorber.getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setPreciseY(absorber.getY() + height_in_pixels - (0.25 * MainEngine.L));
 			absorber.setBall(ball);
 			return true;
 		} else { 		// i.e. second collision AFTER ball enter Absorber
-			absorber.setBall(null);
-			return false;
+			return false;		// nothing happens
 		}
 	}
 }
