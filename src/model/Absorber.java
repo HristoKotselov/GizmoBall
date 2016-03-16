@@ -12,16 +12,6 @@ import physics.Vect;
 
 public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	/**
-	 * The amount of width this absorber takes up in the board (in pixel).
-	 * Absorber will always at least take up 1L*1L worth of space
-	 **/
-	private int width;
-	/**
-	 * The amount of height this absorber takes up in the board (in pixel).
-	 * Absorber will always at least take up 1L*1L worth of space
-	 **/
-	private int height;
-	/**
 	 * A set of Line Segments around the edge of the absorber, which will act as
 	 * the collision detector with a ball
 	 **/
