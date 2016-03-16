@@ -2,9 +2,12 @@ package model;
 
 import java.awt.Color;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 
@@ -118,11 +121,11 @@ public final class SaveDataEngine {
 							// break;
 
 						case "Delete":
-							// name = st.nextToken();
-							// System.out.println("Deleting \"" + name + "\"");
-							//
-							// b.removeGizmo(name);
-							// break;
+							name = st.nextToken();
+							System.out.println("Deleting \"" + name + "\"");
+							g = model.getGizmo(name);
+							model.removeGizmo(g);
+							break;
 
 						case "Ball":
 							// name = st.nextToken();
@@ -161,8 +164,20 @@ public final class SaveDataEngine {
 	}
 
 	public static void saveFile(String filePath, MainEngine model) {
-		// TODO Auto-generated method stub
-
+		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
+		
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filePath)));
+			
+			for (AGizmoComponent g : gizmos){
+				bw.write(g.toString() + "\n");
+			}
+			
+			//TODO Ball(s), Connect, KeyConnect, Gravity, Friction 
+			
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
-
 }

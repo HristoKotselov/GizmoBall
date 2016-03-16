@@ -62,27 +62,27 @@ public class BuildModeMouseListener implements MouseListener {
 
 				switch (selectedGizmo) {
 					case "Square":
-						g = new SquareBumper("s" + x + "," + y, x, y, Color.GREEN);
+						g = new SquareBumper("s(" + x + "," + y + ")", x, y, Color.GREEN);
 						m.addGizmo(g);
 						break;
 
 					case "Triangle":
-						g = new TriangularBumper("t" + x + "," + y, x, y, Color.RED);
+						g = new TriangularBumper("t(" + x + "," + y+ ")", x, y, Color.RED);
 						m.addGizmo(g);
 						break;
 
 					case "Circle":
-						g = new CircularBumper("c" + x + "," + y, x, y, Color.BLUE);
+						g = new CircularBumper("c(" + x + "," + y+ ")", x, y, Color.BLUE);
 						m.addGizmo(g);
 						break;
 
 					case "Left Flipper":
-						g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, true);
+						g = new Flipper("lf(" + x + "," + y+ ")", x, y, Color.ORANGE, true);
 						m.addGizmo(g);
 						break;
 
 					case "Right Flipper":
-						g = new Flipper("f" + x + "," + y, x, y, Color.ORANGE, false);
+						g = new Flipper("rf(" + x + "," + y+ ")", x, y, Color.ORANGE, false);
 						m.addGizmo(g);
 						break;
 
@@ -101,7 +101,7 @@ public class BuildModeMouseListener implements MouseListener {
 							x2 = Math.max(x, x2) + 1;
 							y2 = Math.max(y, y2) + 1;
 
-							g = new Absorber("a" + x1 + "," + y1, x1, y1, x2 - x1, y2 - y1, Color.MAGENTA);
+							g = new Absorber("a(" + x1 + "," + y1+ ")", x1, y1, x2 - x1, y2 - y1, Color.MAGENTA);
 							m.addGizmo(g);
 
 							x2 = -1;

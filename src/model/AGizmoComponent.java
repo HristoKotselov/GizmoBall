@@ -173,4 +173,8 @@ abstract public class AGizmoComponent {
 		return visibility;
 	}
 
+	@Override
+	public String toString() {
+		return gizmoID + " " + (xpos / MainEngine.L) + " " + (ypos / MainEngine.L);
+	}
 }

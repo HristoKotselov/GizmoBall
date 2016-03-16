@@ -111,4 +111,8 @@ public class SquareBumper extends AStatueGizmo implements ILineSegmentCollider {
 		return ls;
 	}
 
+	@Override
+	public String toString(){
+		return "Square " + super.toString();
+	}
 }
