@@ -17,6 +17,7 @@ import controller.BuildModeButtonListener;
 import controller.BuildModeFunctionChangeListener;
 import controller.ChangeBallConfigListener;
 import controller.PhysicsConfigListener;
+import controller.TempRunListener;
 import controller.UndoRedoListener;
 import model.IMainEngine;
 
@@ -56,6 +57,9 @@ public class BuildMenu implements IMenu {
 		physicsConfigAL = new PhysicsConfigListener(model);
 		undoRedoAL = new UndoRedoListener(model);
 
+		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+		TempRunListener tempRunListener = new TempRunListener(model);
+		
 		buttonMenu = new JPanel();
 		buttonMenu.setPreferredSize(new Dimension(300, 400));
 		buttonMenu.setLayout(new BorderLayout());
@@ -202,7 +206,7 @@ public class BuildMenu implements IMenu {
 
 		JButton playMode = new JButton("Play!");
 		playMode.setActionCommand("playMode");
-		playMode.addActionListener(buildModeAL);
+		playMode.addActionListener(tempRunListener);
 		p.add(playMode);
 
 		buttonMenu.add(p, BorderLayout.SOUTH);
