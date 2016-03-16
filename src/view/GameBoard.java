@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.IMainEngine;
 
-public class BuildBoard extends JPanel implements Observer {
+public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 
-	public BuildBoard(IMainEngine m) {
+	public GameBoard(IMainEngine m) {
 		// TODO change to (400, 400)
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
@@ -91,4 +91,5 @@ public class BuildBoard extends JPanel implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		repaint();
 	}
+
 }

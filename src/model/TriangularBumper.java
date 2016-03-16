@@ -126,7 +126,7 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 		String s = "Triangle " + super.toString();
 
 		for (int i = rotationAngle; i > 0; i -= 90) {
-			s += "\nRotate " + gizmoID;
+			s += "\nRotate " + getGizmoID();
 		}
 
 		return s;

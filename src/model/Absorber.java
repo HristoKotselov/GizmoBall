@@ -11,6 +11,7 @@ import physics.LineSegment;
 import physics.Vect;
 
 public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
+
 	/**
 	 * A set of Line Segments around the edge of the absorber, which will act as
 	 * the collision detector with a ball
@@ -22,22 +23,21 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	 */
 	private Ball capturedBall;
 
-	public Absorber(String name, int grid_tile_x, int grid_tile_y, int widthInL, int heightInL, Color color) {
+	public Absorber(String name, int grid_tile_x, int grid_tile_y, int grid_tile_width, int grid_tile_height, Color color) {
 		/* NOTE -	The following methods are called by the superclass's constructor:
 		setupDrawingShape();
 		setupCircles();
 		 */
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 
-		width = widthInL;
-		height = heightInL;
+		bmWidth = grid_tile_width;
+		bmHeight = grid_tile_height;
 		capturedBall = null;
 
 		ls = new HashSet<LineSegment>();
-		setupLineSeg();
-
-		// Needs to be called again because when called by super() width/height
-		// haven't been set yet
+		/* Needs to be called again because when called by super() width/height
+		   haven't been set yet. But this time, Line Segments are also registered.
+		 */
 		// TODO Find better workaround
 		updateCollections();
 	}
@@ -45,27 +45,28 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	@Override
 	public void triggerAction() {
 		if (capturedBall != null) { // no ball in absorber = nothing happens
-			capturedBall.start();
+			setBall(null);		// Release the ball
 			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
 			// increasing clock-wise. 50L is the length, thus it is converted to
 			// pixels here
 			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
+			capturedBall.start();
 		}
 
 	}
 
 	@Override
 	protected void setupDrawingShape() {
-		drawingShape = new Rectangle(MainEngine.L * width, MainEngine.L * height);
+		drawingShape = new Rectangle(bmWidth * MainEngine.L, bmHeight * MainEngine.L);
 	}
 
 	/* Absorber's collision detector methods */
 	@Override
 	protected void setupCircles() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + getWidth();
+		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + getHeight();
+		int bCorner_Y = getY() + bmHeight * MainEngine.L;
 
 		Circle tlCorner = new Circle(lCorner_X, tCorner_Y, 0.0);
 		Circle trCorner = new Circle(rCorner_X, tCorner_Y, 0.0);
@@ -89,9 +90,9 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
-		int rCorner_X = getX() + getWidth();
+		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
-		int bCorner_Y = getY() + getHeight();
+		int bCorner_Y = getY() + bmHeight * MainEngine.L;
 
 		LineSegment tlCorner_trCorner = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
 		LineSegment trCorner_brCorner = new LineSegment(rCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
@@ -118,11 +119,8 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 	@Override
 	public boolean rotate(int degree) {
-//		Absorber shouldn't be rotatable so this method doesn't need to do anything
-//		updateCollections();
-
-		// TODO Auto-generated method stub
-		return false;
+		// Absorber shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
 	@Override
@@ -134,6 +132,7 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		return false;
 	}
 
+	/* Absorber exclusive methods */
 	public void setBall(Ball b) {
 		capturedBall = b;
 	}
@@ -142,9 +141,10 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		return capturedBall;
 	}
 
+	@Override
 	public String toString() {
-		int x2 = (xpos / MainEngine.L) + width;
-		int y2 = (ypos / MainEngine.L) + height;
+		int x2 = (getX() / MainEngine.L) + bmWidth;
+		int y2 = (getY() / MainEngine.L) + bmHeight;
 
 		return "Absorber " + super.toString() + " " + x2 + " " + y2;
 	}

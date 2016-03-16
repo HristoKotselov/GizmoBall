@@ -18,34 +18,41 @@ import controller.SaveFileListener;
 import model.IMainEngine;
 
 public class GameWindow implements IGameWindow {
-	private JFrame window1, window2;
+	
+	/* GUI components */
+	private JFrame buildModeWindow, playModeWindow;
 
-	private IMenu playmenu;
 	private BuildMenu buildmenu;
-	private BuildBoard buildboard;
-	// , playboard;
+	private PlayMenu playmenu;
+	private GameBoard board;
+	
+	/* Controllers */
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
+	
+	/* Model */
 	private IMainEngine model;
-	/* other GUI components */
-	private PlayBoard gameBoard;
-	private BuildBoard buildBoard;
+
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	public GameWindow(IMainEngine m) {
 		model = m;
+		loadFileAL = new LoadFileListener(this, model);
+		saveFileAL = new SaveFileListener(this, model);
 
-		loadFileAL = new LoadFileListener(this, m);
-		saveFileAL = new SaveFileListener(this, m);
-		window1 = new JFrame("Build Mode");
-		window1.setBounds(100, 100, 750, 500);
-		window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		initialiseBuildWindow();
+	}
+	
+	private void initialiseBuildWindow(){
+		buildModeWindow = new JFrame("Build Mode");
+		buildModeWindow.setBounds(100, 100, 750, 500);
+		buildModeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
-		window1.setJMenuBar(menuBar);
+		buildModeWindow.setJMenuBar(menuBar);
 
 		JMenu mnFolio = new JMenu("Game");
 		menuBar.add(mnFolio);
@@ -65,43 +72,50 @@ public class GameWindow implements IGameWindow {
 
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFolio.add(mntmExit);
-		window1.getContentPane().setLayout(new FlowLayout());
+		buildModeWindow.getContentPane().setLayout(new FlowLayout());
 		// end of menu bar
 
 		JSeparator separator1 = new JSeparator();
-		window1.add(separator1);
+		buildModeWindow.add(separator1);
 
 		// TODO might need to change later
-		buildmenu = new BuildMenu(m);
-		buildboard = new BuildBoard(m);
+		buildmenu = new BuildMenu(model, this);
+		board = new GameBoard(model);
 
 		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
 
-		buildboard.addMouseListener(l);
+		board.addMouseListener(l);
 		// buildboard.addMouseMotionListener(l);
 
-		window1.add(buildmenu.getMenu());
-		window1.add(new JSeparator());
-		window1.add(buildboard);
+		buildModeWindow.add(buildmenu.getMenu());
+		buildModeWindow.add(new JSeparator());
+		buildModeWindow.add(board);
 
 		JLabel tips = new JLabel("Action Tip:");
 		tips.setFont(new Font("Arial", 1, 12));
 		tips.setForeground(Color.BLUE);
-		window1.add(tips);
+		buildModeWindow.add(tips);
 
 		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
-		window1.add(textarea);
+		buildModeWindow.add(textarea);
 
-		window1.setVisible(true);
+		buildModeWindow.setVisible(true);
+	}
+	
+	@Override
+	public void switchToPlayMode(){
+		// TODO 
+		
+		buildModeWindow.setVisible(false);
 	}
 
 	@Override
 	public String getFile() {
 		// TODO change to allow save button using string param
 		JFileChooser f = new JFileChooser();
-		f.showOpenDialog(window1);
+		f.showOpenDialog(buildModeWindow);
 
 		File file = f.getSelectedFile();
 

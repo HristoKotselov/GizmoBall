@@ -15,19 +15,19 @@ abstract public class AGizmoComponent {
 
 	/* The following attributes can be defined before the Gizmo is created **/
 	/** A String given to a Gizmo to identity it **/
-	protected String gizmoID;
+	private String gizmoID;
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with
 	 * x-coordinate, this determines the position of a Gizmo component on the
 	 * board. Where this is exactly depends on the type of Gizmo
 	 **/
-	protected int xpos;
+	private int xpos;
 	/**
 	 * The vertical-coordinate of the component (in pixel). Along with
 	 * y-coordinate, this determines the position of a Gizmo component on the
 	 * board. Where this is exactly depends on the type of Gizmo
 	 **/
-	protected int ypos;
+	private int ypos;
 	/**
 	 * Colour of the Gizmo, used by the view to determine what colour to paint
 	 **/
@@ -43,10 +43,24 @@ abstract public class AGizmoComponent {
 	 * will automatically be calculated properly upon construction
 	 **/
 	protected int rotationAngle;
-
-	protected int width;
-
-	protected int height;
+	/**
+	 * The number of horizontal grid taken up by this Gizmo (+x). Whenever a
+	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
+	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
+	 * 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * store their dimensions.
+	 */
+	protected int bmWidth;
+	/**
+	 * The number of vertical grid taken up by this Gizmo (+y). Whenever a
+	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
+	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
+	 * 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * store their dimensions.
+	 */
+	protected int bmHeight;
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
 		gizmoID = name;
@@ -57,8 +71,8 @@ abstract public class AGizmoComponent {
 		// Default settings
 		visibility = true;
 		rotationAngle = 0;
-		width = 1;
-		height = 1;
+		bmWidth = 1;
+		bmHeight = 1;
 	}
 
 	/**
@@ -101,12 +115,12 @@ abstract public class AGizmoComponent {
 		return ypos;
 	}
 
-	public int getWidth() {
-		return width;
+	public int getBMWidth() {
+		return bmWidth;
 	}
 
-	public int getHeight() {
-		return height;
+	public int getBMHeight() {
+		return bmHeight;
 	}
 
 	public boolean setColour(Color color) {

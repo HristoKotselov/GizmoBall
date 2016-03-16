@@ -14,9 +14,10 @@ import physics.Circle;
 import physics.LineSegment;
 
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
-	public double rotation; // Angle of rotation of flipper relative to start
-							// point. Separate from rotationAngle, which defines
-							// the rotation of the flipper within bounding box.
+	/** Angle of rotation of flipper relative to start point, used during gameplay. 
+	 * Separate from rotationAngle, which defines the rotation of the flipper within 
+	 * bounding box. **/
+	public double gameplayRotation; 
 	public boolean flippingForward;
 	public boolean leftFlipper;
 	private int flipSpeed;
@@ -31,15 +32,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		// System.out.println(leftFlipper);
 
-		this.rotation = 0;
+		this.gameplayRotation = 0;
 		this.flippingForward = false;
 		this.leftFlipper = leftFlipper;
 		if (!leftFlipper) {
 //			this.setX((this.getX() + MainEngine.L + (MainEngine.L / 2)));
 		}
-
-		width = 2;
-		height = 2;
+		
+		bmWidth = 2;
+		bmHeight = 2;
 
 		// circles = new HashSet<Circle>();
 		Circle c = new physics.Circle(this.getX() + 10, this.getY() + 10, MainEngine.L * 0.5);
@@ -62,7 +63,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		AffineTransform transform = new AffineTransform();
 
 		// Apply flipper rotation
-		transform.rotate(Math.toRadians(rotation), r.getX() + 5, r.getY() + 5);
+		transform.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);
 		if (leftFlipper) {
 			try {
 				// System.out.println("inverting");
@@ -113,15 +114,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	/* Flipper exclusive methods */
 	public void update() {
 		if (flippingForward) {
-			rotation += flipSpeed;
+			gameplayRotation += flipSpeed;
 		} else {
-			rotation -= flipSpeed;
+			gameplayRotation -= flipSpeed;
 		}
 
-		if (rotation > 90) {
-			rotation = 90;
-		} else if (rotation < 0) {
-			rotation = 0;
+		if (gameplayRotation > 90) {
+			gameplayRotation = 90;
+		} else if (gameplayRotation < 0) {
+			gameplayRotation = 0;
 		}
 
 		if (System.nanoTime() - startedFlipping > flipTime) {
@@ -143,7 +144,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		}
 
 		for (int i = rotationAngle; i > 0; i -= 90) {
-			s += "\nRotate " + gizmoID;
+			s += "\nRotate " + getGizmoID();
 		}
 
 		return s;

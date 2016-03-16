@@ -1,15 +1,20 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import model.IMainEngine;
 import view.IBoard;
+import view.IGameWindow;
 import view.IMenu;
 
-public class PlayModeMainListener extends AMainListener {
-
-	public PlayModeMainListener(IMainEngine model, IBoard board, IMenu menu) {
-		super(model, board, menu);
-		// TODO Auto-generated constructor stub
+public class PlayModeButtonListener implements ActionListener {
+	private IMainEngine model;
+	private IGameWindow gameWindow;
+	
+	public PlayModeButtonListener(IMainEngine model, IGameWindow gameWindow) {
+		this.model = model;
+		this.gameWindow = gameWindow;
 	}
 
 	@Override
