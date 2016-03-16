@@ -26,7 +26,7 @@ public class CollisionHandler {
 					 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
 					 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/	
 					if(tuc == 0 && !handleAbsorberColi(cd, gizmo)){		// tuc == 0 occur when the Ball is directly in contact the Line Segment
-						ball = model.moveBallAtCurrentVelo(ball, model.getMoveTime());
+						model.moveBallAtCurrentVelo(ball, model.getMoveTime());
 					}
 					
 					break;

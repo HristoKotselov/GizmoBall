@@ -60,7 +60,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		ballSet = new HashSet<Ball>();
 		
 		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-		ball = new Ball("Ball", Color.RED, 50, 20, new Angle(0), 50 * L);
+		ball = new Ball("Ball", Color.RED, 5, 5, new Angle(0), 20 * L);
 		ballSet.add(ball);
 	}
 
@@ -73,35 +73,37 @@ public class MainEngine extends Observable implements IMainEngine {
 		// Gravity		- from 	6.170 Final Project  Gizmoball
 		double gravity = physicsSettings.getGravity();
 
-		
-		List<CollisionDetails> collisionList = calcTimesUntilCollision();		// called to get a list of collisions
-
-		
-		// Temp variables setup
-		Ball ball;
 		double frictionScale;
-		double tuc;
-		AGizmoComponent collider;
 		
-		
-		for (CollisionDetails cd : collisionList) {
-			ball = cd.getBall();
-			
+// CHANGE TODO CHANGE TO GET WORKING
+		for(Ball ball : ballSet){
 			// Apply friction to Ball
 			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(frictionScale));
 			
 			// Apply gravity to Ball
 			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+		}
+// CHANGE TODO CHANGE TO GET WORKING
+		
+		List<CollisionDetails> collisionList = calcTimesUntilCollision();		// called to get a list of collisions
+		
+		// Temp variables setup
+		Ball ball;
+		double tuc;
+		AGizmoComponent collider;
+		
+		for (CollisionDetails cd : collisionList) {
+			ball = cd.getBall();
 			
 			tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
 			
 			if (tuc > moveTime) {
 				// No collision ...
-				ball = moveBallAtCurrentVelo(ball, moveTime);
+				moveBallAtCurrentVelo(ball, moveTime);
 			} else {
 				// We've got a collision in tuc, so move the ball until it directly touches the collider
-				ball = moveBallAtCurrentVelo(ball, tuc);	
+				moveBallAtCurrentVelo(ball, tuc);	
 
 				collider = getGizmo(cd.getColliderName());
 				
@@ -122,7 +124,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	}
 
-	public Ball moveBallAtCurrentVelo(Ball ball, double time) {
+	public void moveBallAtCurrentVelo(Ball ball, double time) {
 		double newX = 0.0;
 		double newY = 0.0;
 		double xVel = ball.getVelo().x();
@@ -131,7 +133,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		newY = ball.getPreciseY() + (yVel * time);
 		ball.setPreciseX(newX);
 		ball.setPreciseY(newY);
-		return ball;
 	}
 
 	private List<CollisionDetails> calcTimesUntilCollision() {
