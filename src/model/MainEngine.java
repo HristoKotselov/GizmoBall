@@ -242,7 +242,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		// Add new gizmo
 		gizmos.put(gizmo.getGizmoID(), gizmo);
-		
+
 		// Update view
 		update();
 
@@ -259,17 +259,9 @@ public class MainEngine extends Observable implements IMainEngine {
 			gizmosX_in_L = g.getX() / L;
 			gizmosY_in_L = g.getY() / L;
 			
-			if (gizmosX_in_L == grid_tile_x && gizmosY_in_L == grid_tile_y) {
+			if (gizmosX_in_L <= grid_tile_x && gizmosX_in_L + g.bmWidth > grid_tile_x && 
+				gizmosY_in_L <= grid_tile_y && gizmosY_in_L + g.bmHeight > grid_tile_y) {
 				return g;
-			}
-
-			// all Gizmo with width \ height of > 1
-			if (g.getBMHeight() > 1 || g.getBMHeight() > 1) {
-				if (grid_tile_x >= gizmosX_in_L   &&   grid_tile_x < gizmosX_in_L + g.getBMWidth()  && 
-					grid_tile_y >= gizmosY_in_L   &&   grid_tile_y < gizmosY_in_L + g.getBMHeight()
-				) {
-					return g;
-				}
 			}
 		}
 		return null;

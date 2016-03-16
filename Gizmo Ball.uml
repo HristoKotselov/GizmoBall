@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;1124953978/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;74019237/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;1406799205/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3152334524/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1111799379/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;1713688537/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;3633811802/1;/GitHub-Gizmo Ball/src/model/Absorber.java;1189456113/1;/GitHub-Gizmo Ball/src/model/Ball.java;3302513512/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1985845689/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2681536146/1;/GitHub-Gizmo Ball/src/model/Connections.java;3752613450/1;/GitHub-Gizmo Ball/src/model/Flipper.java;1659789242/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;1157646845/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3237465244/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;238821865/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2959697313/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;2703818312/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;1112599983/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;3963437479/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3679326754/1;/GitHub-Gizmo Ball/src/view/IBoard.java;2379225686/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;616764295/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;4153060812/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;412073917/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;/GitHub-Gizmo Ball/src/model/AStationaryGizmo.java;2852567480/1;/GitHub-Gizmo Ball/src/model/AMovingGizmo.java;201140670/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;4147924675/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AMainListener.java;1124953978/1;/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/BuildModeMainListener.java;74019237/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;1406799205/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/PlayModeMainListener.java;3152334524/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1111799379/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;1713688537/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;3633811802/1;/GitHub-Gizmo Ball/src/model/Absorber.java;311921189/1;/GitHub-Gizmo Ball/src/model/Ball.java;3302513512/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1985845689/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;2681536146/1;/GitHub-Gizmo Ball/src/model/Connections.java;3752613450/1;/GitHub-Gizmo Ball/src/model/Flipper.java;1659789242/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;1157646845/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3237465244/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4176139110/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;3791300806/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;2959697313/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;2703818312/1;/GitHub-Gizmo Ball/src/model/Walls.java;2535839128/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;3155549507/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;159226763/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;3991031343/1;/GitHub-Gizmo Ball/src/view/IBoard.java;2379225686/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;616764295/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;29761920/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;412073917/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;/GitHub-Gizmo Ball/src/model/AStationaryGizmo.java;2852567480/1;/GitHub-Gizmo Ball/src/model/AMovingGizmo.java;201140670/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;4147924675/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -1402,14 +1402,20 @@ Also handle Tick</body>
 		capturedBall = null;&#xD;
 &#xD;
 		ls = new HashSet&lt;LineSegment>();&#xD;
-		setupLineSeg();&#xD;
+		/* Needs to be called again because when called by super() width/height&#xD;
+		   haven't been set yet. But this time, Line Segments are also registered.&#xD;
+		 */&#xD;
+		// TODO Find better workaround&#xD;
+		updateCollections();&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_n78lgNo-EeWZSOZzoCHXcg" name="triggerAction" specification="_akCBUM9KEeWD9JA5XZkC8g">
           <language>java</language>
           <body>if (capturedBall != null) { // no ball in absorber = nothing happens&#xD;
 			setBall(null);		// Release the ball&#xD;
-			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50L is the length, thus it is converted to pixels here&#xD;
+			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree&#xD;
+			// increasing clock-wise. 50L is the length, thus it is converted to&#xD;
+			// pixels here&#xD;
 			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));&#xD;
 			capturedBall.start();&#xD;
 		}&#xD;
@@ -1488,10 +1494,7 @@ Also handle Tick</body>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
           <language>java</language>
-          <body>updateCollections();&#xD;
-&#xD;
-		// TODO Auto-generated method stub&#xD;
-		return false;&#xD;
+          <body>return true;&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_atvCpOeCEeWktpDGdewXHA" name="move" specification="_aUkUsueCEeWktpDGdewXHA">
@@ -1539,10 +1542,13 @@ Also handle Tick</body>
         <ownedOperation xmi:id="_n7KiYNo-EeWZSOZzoCHXcg" name="setupCircles" visibility="protected" method="_n79zoNo-EeWZSOZzoCHXcg"/>
         <ownedOperation xmi:id="_n7Lwgdo-EeWZSOZzoCHXcg" name="setupLineSeg" visibility="private" method="_n79zodo-EeWZSOZzoCHXcg">
           <ownedComment xmi:id="_auNjwOeCEeWktpDGdewXHA">
-            <body>The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should&#xD;
-	 * set up their Line Segment objects here.&#xD;
+            <body>The setup of the Line Segment collection. Gizmo component that rely on&#xD;
+	 * Line Segments for collision detection should set up their Line Segment&#xD;
+	 * objects here.&#xD;
+	 * &#xD;
 	 * @modify this&#xD;
-	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects</body>
+	 * @effect Fill the collection which hold all the Line Segments in this&#xD;
+	 *         class with appropriate objects</body>
           </ownedComment>
         </ownedOperation>
         <ownedOperation xmi:id="_n7MXkNo-EeWZSOZzoCHXcg" name="getLineSeg" method="_n7-asNo-EeWZSOZzoCHXcg">
@@ -2336,7 +2342,7 @@ Also handle Tick</body>
 &#xD;
 		// Add new gizmo&#xD;
 		gizmos.put(gizmo.getGizmoID(), gizmo);&#xD;
-		&#xD;
+&#xD;
 		// Update view&#xD;
 		update();&#xD;
 &#xD;
@@ -2409,17 +2415,9 @@ Also handle Tick</body>
 			gizmosX_in_L = g.getX() / L;&#xD;
 			gizmosY_in_L = g.getY() / L;&#xD;
 			&#xD;
-			if (gizmosX_in_L == grid_tile_x &amp;&amp; gizmosY_in_L == grid_tile_y) {&#xD;
+			if (gizmosX_in_L &lt;= grid_tile_x &amp;&amp; gizmosX_in_L + g.bmWidth > grid_tile_x &amp;&amp; &#xD;
+				gizmosY_in_L &lt;= grid_tile_y &amp;&amp; gizmosY_in_L + g.bmHeight > grid_tile_y) {&#xD;
 				return g;&#xD;
-			}&#xD;
-&#xD;
-			// all Gizmo with width \ height of > 1&#xD;
-			if (g.getBMHeight() > 1 || g.getBMHeight() > 1) {&#xD;
-				if (grid_tile_x >= gizmosX_in_L   &amp;&amp;   grid_tile_x &lt; gizmosX_in_L + g.getBMWidth()  &amp;&amp; &#xD;
-					grid_tile_y >= gizmosY_in_L   &amp;&amp;   grid_tile_y &lt; gizmosY_in_L + g.getBMHeight()&#xD;
-				) {&#xD;
-					return g;&#xD;
-				}&#xD;
 			}&#xD;
 		}&#xD;
 		return null;&#xD;
@@ -2916,20 +2914,16 @@ instantiate it&#xD;
 							break;&#xD;
 &#xD;
 						case &quot;Absorber&quot;:&#xD;
-							// name = st.nextToken();&#xD;
-							// x = Integer.parseInt(st.nextToken());&#xD;
-							// y = Integer.parseInt(st.nextToken());&#xD;
-							// int w = Integer.parseInt(st.nextToken()) - x;&#xD;
-							// int h = Integer.parseInt(st.nextToken()) - y;&#xD;
-							// System.out.println(&quot;Adding absorber named \&quot;&quot; +&#xD;
-							// name&#xD;
-							// + &quot;\&quot; at (&quot; + x + &quot;, &quot; + y + &quot;) with w = &quot; + w +&#xD;
-							// &quot;, h&#xD;
-							// = &quot; + h);&#xD;
-							//&#xD;
-							// g = new Absorber(name, x, y, w, h);&#xD;
-							// b.addGizmo(name, g);&#xD;
-							// break;&#xD;
+							name = st.nextToken();&#xD;
+							x = Integer.parseInt(st.nextToken());&#xD;
+							y = Integer.parseInt(st.nextToken());&#xD;
+							int w = Integer.parseInt(st.nextToken()) - x;&#xD;
+							int h = Integer.parseInt(st.nextToken()) - y;&#xD;
+							System.out.println(&quot;Adding absorber named \&quot;&quot; + name + &quot;\&quot; at (&quot; + x + &quot;, &quot; + y + &quot;) with w = &quot; + w + &quot;, h = &quot; + h);&#xD;
+&#xD;
+							g = new Absorber(name, x, y, w, h, Color.MAGENTA);&#xD;
+							model.addGizmo(g);&#xD;
+							break;&#xD;
 &#xD;
 						case &quot;Move&quot;:&#xD;
 							// name = st.nextToken();&#xD;
@@ -4885,7 +4879,7 @@ Examples:	Flipper</body>
 		buildmenu = new BuildMenu(m);&#xD;
 		buildboard = new BuildBoard(m);&#xD;
 &#xD;
-		BuildModeMouseListener l = new BuildModeMouseListener(buildboard, model, buildmenu);&#xD;
+		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);&#xD;
 &#xD;
 		buildboard.addMouseListener(l);&#xD;
 		// buildboard.addMouseMotionListener(l);&#xD;

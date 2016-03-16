@@ -93,20 +93,16 @@ public final class SaveDataEngine {
 							break;
 
 						case "Absorber":
-							// name = st.nextToken();
-							// x = Integer.parseInt(st.nextToken());
-							// y = Integer.parseInt(st.nextToken());
-							// int w = Integer.parseInt(st.nextToken()) - x;
-							// int h = Integer.parseInt(st.nextToken()) - y;
-							// System.out.println("Adding absorber named \"" +
-							// name
-							// + "\" at (" + x + ", " + y + ") with w = " + w +
-							// ", h
-							// = " + h);
-							//
-							// g = new Absorber(name, x, y, w, h);
-							// b.addGizmo(name, g);
-							// break;
+							name = st.nextToken();
+							x = Integer.parseInt(st.nextToken());
+							y = Integer.parseInt(st.nextToken());
+							int w = Integer.parseInt(st.nextToken()) - x;
+							int h = Integer.parseInt(st.nextToken()) - y;
+							System.out.println("Adding absorber named \"" + name + "\" at (" + x + ", " + y + ") with w = " + w + ", h = " + h);
+
+							g = new Absorber(name, x, y, w, h, Color.MAGENTA);
+							model.addGizmo(g);
+							break;
 
 						case "Move":
 							// name = st.nextToken();

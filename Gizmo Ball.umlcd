@@ -2248,7 +2248,7 @@
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_cNT_AOeCEeWktpDGdewXHA" sourceConnectionVisual="_cNUmEOeCEeWktpDGdewXHA" text="@effects Acts on the given event as specified in the class overview" item="_yejgu8R4EeW_3q3XSh-SYw">
     <modelElement href="Gizmo%20Ball.uml#_auKgc-eCEeWktpDGdewXHA"/>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_cOGpMOeCEeWktpDGdewXHA" sourceConnectionVisual="_cOGpMeeCEeWktpDGdewXHA" text="The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should&#xD;&#xA;&#x9; * set up their Line Segment objects here.&#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects" item="_n8n68No-EeWZSOZzoCHXcg">
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_cOGpMOeCEeWktpDGdewXHA" sourceConnectionVisual="_cOGpMeeCEeWktpDGdewXHA" text="The setup of the Line Segment collection. Gizmo component that rely on&#xD;&#xA;&#x9; * Line Segments for collision detection should set up their Line Segment&#xD;&#xA;&#x9; * objects here.&#xD;&#xA;&#x9; * &#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect Fill the collection which hold all the Line Segments in this&#xD;&#xA;&#x9; *         class with appropriate objects" item="_n8n68No-EeWZSOZzoCHXcg">
     <modelElement href="Gizmo%20Ball.uml#_auNjwOeCEeWktpDGdewXHA"/>
   </nodes>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_cPoTMOeCEeWktpDGdewXHA" sourceConnectionVisual="_cPoTMeeCEeWktpDGdewXHA" text="Initialize the contents of the frame." item="_WXb7KMoSEeWsA83iBWrPKA">

@@ -5,16 +5,22 @@ import java.awt.Rectangle;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
-
 import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;
 import physics.Vect;
 
 public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
-	/** A set of Line Segments around the edge of the absorber, which will act as the collision detector with a ball **/
+
+	/**
+	 * A set of Line Segments around the edge of the absorber, which will act as
+	 * the collision detector with a ball
+	 **/
 	private Set<LineSegment> ls;
-	/** The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null. */
+	/**
+	 * The currently captured Ball within the Absorber. If there is no ball
+	 * within the absorber, then this object becomes null.
+	 */
 	private Ball capturedBall;
 
 	public Absorber(String name, int grid_tile_x, int grid_tile_y, int grid_tile_width, int grid_tile_height, Color color) {
@@ -29,14 +35,20 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 		capturedBall = null;
 
 		ls = new HashSet<LineSegment>();
-		setupLineSeg();
+		/* Needs to be called again because when called by super() width/height
+		   haven't been set yet. But this time, Line Segments are also registered.
+		 */
+		// TODO Find better workaround
+		updateCollections();
 	}
 
 	@Override
 	public void triggerAction() {
 		if (capturedBall != null) { // no ball in absorber = nothing happens
 			setBall(null);		// Release the ball
-			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree increasing clock-wise. 50L is the length, thus it is converted to pixels here
+			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
+			// increasing clock-wise. 50L is the length, thus it is converted to
+			// pixels here
 			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
 			capturedBall.start();
 		}
@@ -68,10 +80,13 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 	}
 
 	/**
-	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should
-	 * set up their Line Segment objects here.
+	 * The setup of the Line Segment collection. Gizmo component that rely on
+	 * Line Segments for collision detection should set up their Line Segment
+	 * objects here.
+	 * 
 	 * @modify this
-	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects
+	 * @effect Fill the collection which hold all the Line Segments in this
+	 *         class with appropriate objects
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
@@ -104,11 +119,8 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 	@Override
 	public boolean rotate(int degree) {
-
-		updateCollections();
-
-		// TODO Auto-generated method stub
-		return false;
+		// Absorber shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
 	@Override
