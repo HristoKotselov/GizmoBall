@@ -16,6 +16,8 @@ public interface IMainEngine {
 	public void rotateGizmo(AGizmoComponent gizmo, int degree);
 
 	public AGizmoComponent getGizmoAt(int x, int y);
+	
+	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y);
 
 	public Collection<AGizmoComponent> getAllGizmos();
 

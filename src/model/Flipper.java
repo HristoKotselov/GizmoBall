@@ -107,6 +107,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public boolean move(int newX, int newY) {
+		super.move(newX, newY);
+		
 		// TODO Auto-generated method stub
 		return false;
 	}

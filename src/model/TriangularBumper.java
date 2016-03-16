@@ -109,7 +109,8 @@ public class TriangularBumper extends AStatueGizmo implements ILineSegmentCollid
 
 	@Override
 	public boolean move(int newX, int newY) {
-
+		super.move(newX, newY);
+		
 		updateCollections();
 
 		// TODO Auto-generated method stub

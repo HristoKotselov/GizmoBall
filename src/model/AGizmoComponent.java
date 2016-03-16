@@ -48,16 +48,16 @@ abstract public class AGizmoComponent {
 	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
 	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
 	 * 
-	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to
 	 * store their dimensions.
 	 */
 	protected int bmWidth;
 	/**
-	 * The number of vertical grid taken up by this Gizmo (+y). Whenever a
-	 * user click on a pixel that is within the space of (xpos + xpos*bmWidth) &
+	 * The number of vertical grid taken up by this Gizmo (+y). Whenever a user
+	 * click on a pixel that is within the space of (xpos + xpos*bmWidth) &
 	 * (ypos + ypos*bmHeight), the selection will be directed to this Gizmo.
 	 * 
-	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to 
+	 * Can be used by Gizmo with variable Height/Width (such as Absorber) to
 	 * store their dimensions.
 	 */
 	protected int bmHeight;
@@ -159,7 +159,12 @@ abstract public class AGizmoComponent {
 	 *         collection of Line Segment is updated; IF gizmo is a supertype of
 	 *         AStatueGizmo, THEN drawingShape is updated.
 	 */
-	abstract public boolean move(int newX, int newY);
+	public boolean move(int newX, int newY) {
+		setX(newX * MainEngine.L);
+		setY(newY * MainEngine.L);
+		// TODO Validation
+		return false;
+	}
 
 	public int getRotation() {
 		return rotationAngle;

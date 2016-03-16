@@ -125,10 +125,10 @@ public class Absorber extends AStatueGizmo implements ILineSegmentCollider {
 
 	@Override
 	public boolean move(int newX, int newY) {
-
+		super.move(newX, newY);
+		
 		updateCollections();
-
-		// TODO Auto-generated method stub
+		// TODO Validation
 		return false;
 	}
 

@@ -57,7 +57,8 @@ public class CircularBumper extends AStatueGizmo {
 
 	@Override
 	public boolean move(int newX, int newY) {
-
+		super.move(newX, newY);
+		
 		updateCollections();
 
 		// TODO Auto-generated method stub
