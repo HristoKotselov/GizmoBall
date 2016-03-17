@@ -23,10 +23,10 @@ public class MainEngine extends Observable implements IMainEngine {
 /* Game Component */
 	private Map<String, AGizmoComponent> gizmos;
 
+	// Sub-set of All Gizmos
+	private Set<Ball> ballSet;
 	private Set<AStationaryGizmo> stationaryGizmos;
 	private Set<AMovingGizmo> movingGizmos;
-	
-	private Set<Ball> ballSet;
 
 	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
 	public Ball ball;// Using one ball to test, this is the only ball for now
@@ -52,9 +52,10 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
+		ballSet = new HashSet<Ball>();
+		
 		stationaryGizmos = new HashSet<AStationaryGizmo>();
 		movingGizmos = new HashSet<AMovingGizmo>();
-		ballSet = new HashSet<Ball>();
 
 		physicsSettings = new PhysicsConfig();
 		collisionHandler = new CollisionHandler(this);
@@ -303,6 +304,26 @@ public class MainEngine extends Observable implements IMainEngine {
 		update();
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.IMainEngine#moveGizmo(model.AGizmoComponent, int, int)
+	 */
+	@Override
+	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y) {
+		// TODO handle null
+		// TODO handle absorber off screen?
+		// TODO Validation
+		
+		
+		// TODO get L if it is a Stationary Gizmo
+		
+
+		gizmo.move(x, y);
+
+		update();
+
+		return false;
+	}
+	
 	@Override
 	public AGizmoComponent getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
@@ -337,6 +358,16 @@ public class MainEngine extends Observable implements IMainEngine {
 	public Collection<AGizmoComponent> getAllGizmos() {
 		return gizmos.values();
 	}
+	
+	@Override
+	public Collection<AStationaryGizmo> getAllStationaryGizmos() {
+		return stationaryGizmos;
+	}
+	
+	@Override
+	public Collection<AMovingGizmo> getAllMovingGizmos() {
+		return movingGizmos;
+	}
 
 	@Override
 	public void loadFile(String filePath) {
@@ -367,21 +398,5 @@ public class MainEngine extends Observable implements IMainEngine {
 		setChanged();
 		notifyObservers();
 	}
-
-	@Override
-	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y) {
-		// TODO handle null
-		// TODO handle absorber off screen?
-		// TODO Validation
-		
-		// Gizmo needs to be removed then re-added to properly handle overlap
-		// with other components
-		removeGizmo(gizmo);
-		gizmo.move(x, y);
-		addGizmo(gizmo);
-
-		update();
-
-		return false;
-	}
+	
 }

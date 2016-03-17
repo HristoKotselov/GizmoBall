@@ -111,7 +111,7 @@ abstract public class AGizmoComponent {
 	
 /* Concrete methods that might be overwritten */
 	/**
-	 * Method called when the user decides to move a Gizmo component.
+	 * Method called when the user decides to move this Gizmo component.
 	 * 
 	 * @param newX
 	 *            - new X coordinate (in pixels)
@@ -120,13 +120,11 @@ abstract public class AGizmoComponent {
 	 * @modify this
 	 * @effect xpos & ypos is updated with the new values.
 	 */
-	public boolean move(int newX, int newY) {
+	public void move(int newX, int newY) {
 		// TODO Validation
 	
 		setX(newX);
 		setY(newY);
-		
-		return false;
 	}
 	
 	
@@ -153,11 +151,11 @@ abstract public class AGizmoComponent {
 	 * @param degree
 	 *            - the angle of rotation to add
 	 * @modify this
-	 * @effect rotationAngle = new angle; Circle Set is updated; IF gizmo uses
-	 *         Line Segments, THEN the collection of Line Segment is updated; IF
-	 *         gizmo is a supertype of AStatueGizmo, THEN drawingShape is
-	 *         updated. Can have additional effects, check individual Gizmo for
-	 *         them.
+	 * @effect rotationAngle = degree;
+	 * @return TRUE if the rotate operation succeeded (even if a Gizmo cannot
+	 * be rotated usually, like CircularBumper for example), FALSE only if
+	 * rotating a Gizmo causes it to overlap another Gizmo (at least one of
+	 * the Gizmo in that case will need to be a Moving Gizmo)
 	 */
 	abstract public boolean rotate(int degree);
 	

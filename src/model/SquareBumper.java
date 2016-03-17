@@ -107,12 +107,18 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// Square shouldn't be rotatable so this method doesn't need to do anything
@@ -120,15 +126,16 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
-		
-		return false;
 	}
 	
 	@Override

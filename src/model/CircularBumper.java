@@ -63,27 +63,34 @@ public class CircularBumper extends AStationaryGizmo {
 	
 
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// Circle shouldn't be rotatable so this method doesn't need to do anything
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int newX, int newY) {
+	public void move(int newX, int newY) {
 		// TODO Validation
 		
 		super.move(newX, newY);
 		
 		updateCollections();
-
-		return false;
 	}
 	
 	

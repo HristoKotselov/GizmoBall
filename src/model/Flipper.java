@@ -90,6 +90,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
@@ -97,22 +100,26 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		startedFlipping = System.nanoTime();
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// TODO Validation
 		rotationAngle = (rotationAngle + degree) % 360;
 
-		return false;
+		return true;
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
-
-		return false;
 	}
 
 	@Override

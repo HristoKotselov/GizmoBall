@@ -114,12 +114,18 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		rotationAngle = (rotationAngle + degree) % 360;
@@ -129,19 +135,20 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		// TODO This rotates the shape for drawing purposes, but not the
 		// collision info
 		// TODO Also requires validation
-		return false;
+		return true;
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
-		
-		return false;
 	}
 	
 	@Override
