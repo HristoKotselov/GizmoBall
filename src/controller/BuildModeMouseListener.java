@@ -54,7 +54,7 @@ public class BuildModeMouseListener implements MouseListener {
 
 		switch (selectedFunction) {
 			case "Remove Gizmo":
-				g = m.getGizmoAt(x, y);
+				g = m.getStationaryGizmoAt(x, y);
 
 				if (g != null) {
 					m.removeGizmo(g);
@@ -63,7 +63,7 @@ public class BuildModeMouseListener implements MouseListener {
 				break;
 
 			case "Rotate Gizmo":
-				g = m.getGizmoAt(x, y);
+				g = m.getStationaryGizmoAt(x, y);
 
 				if (g != null) {
 					m.rotateGizmo(g, 90);
@@ -73,7 +73,7 @@ public class BuildModeMouseListener implements MouseListener {
 
 			case "Move Gizmo":
 				if (moveG == null) {
-					moveG = m.getGizmoAt(x, y);
+					moveG = m.getStationaryGizmoAt(x, y);
 				// TODO change ActionTip to remind user of the currently selected Gizmo
 				} else {
 					m.moveGizmo(moveG, x, y);

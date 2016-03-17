@@ -42,6 +42,8 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		AffineTransform old = g2d.getTransform();
 
 		
+	// TODO change this to draw Stationary Gizmos first, and then Moving Gizmos
+		
 		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
 		
 		// Iterate over all gizmos

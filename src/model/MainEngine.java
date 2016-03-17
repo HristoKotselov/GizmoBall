@@ -247,7 +247,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			// Remove any overlapping gizmos
 			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
 				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
-					AGizmoComponent g = getGizmoAt((sGizmo.getX() / L) + i, (sGizmo.getY() / L) + j);
+					AGizmoComponent g = getStationaryGizmoAt((sGizmo.getX() / L) + i, (sGizmo.getY() / L) + j);
 	
 					if (g != null) {
 						removeGizmo(g);
@@ -304,11 +304,9 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 	
 	@Override
-	public AGizmoComponent getGizmoAt(int grid_tile_x, int grid_tile_y) {
+	public AGizmoComponent getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
 		int gizmosY_in_L;
-
-		// TODO loop for AMovingGizmo first, as they cover a smaller area of the screen
 		
 		for (AStationaryGizmo sGizmo : stationaryGizmos) {
 			gizmosX_in_L = sGizmo.getX() / L;
@@ -322,6 +320,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		
 		return null;
 	}
+	
+
+	// TODO make alternate version of getGizmoAt (double), that one will get called first in the BuildModeMouseListener
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);
