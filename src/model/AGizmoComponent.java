@@ -48,6 +48,7 @@ abstract public class AGizmoComponent {
 	 **/
 	protected int rotationAngle;
 
+	
 	public AGizmoComponent(String name, int x , int y, Color color) {
 		gizmoID = name;
 		xpos = x;
@@ -107,6 +108,8 @@ abstract public class AGizmoComponent {
 		return visibility;
 	}
 	
+	
+/* Concrete methods that might be overwritten */
 	/**
 	 * Method called when the user decides to move a Gizmo component.
 	 * 
@@ -127,7 +130,7 @@ abstract public class AGizmoComponent {
 	}
 	
 	
-/* Collection-sped-up-able abstract methods*/
+/* Collection-sped-up-able abstract methods */
 	abstract public Shape getDrawingShape();
 
 	abstract public Set<Circle> getCircles();

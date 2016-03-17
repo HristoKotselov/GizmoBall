@@ -31,7 +31,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
 		super(name, (int) x, (int) y, color);
 
-		movingXPos = x; // Centre coordinates
+		movingXPos = x;
 		movingYPos = y;
 	}
 
@@ -48,15 +48,6 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public boolean stopped() {
 		return stopped;
 	}
-	
-/* Abstract methods that can be implemented already */
-	@Override
-	public String toString() {
-		
-		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
-	}
-	
-/* Shared methods across AStatueGizmo & AMovingGizmo, but with different parameters */
 	
 	public boolean setMovingX(double x) {
 		// TODO Validation
@@ -81,4 +72,12 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	}
 
 
+	
+/* Abstract methods that can be implemented already */
+	@Override
+	public String toString() {
+		
+		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
+	}
+	
 }
