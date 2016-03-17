@@ -47,12 +47,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 /* Flipper's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
+		int x = getX();
+		int y = getY();
+		
 		// rotation += 15;
-		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
+		RoundRectangle2D.Double r = new RoundRectangle2D.Double(x, y, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
 		AffineTransform transform = new AffineTransform();
 
-		// Apply flipper rotation
+		// Apply flipper rotation when triggered
 		transform.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);
 		if (leftFlipper) {
 			try {
@@ -64,8 +67,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			}
 		}
 
-		// Rotate to proper orientation
-		transform.rotate(Math.toRadians(rotationAngle), MainEngine.L, MainEngine.L);
+		// Rotate to proper orientation within the bounding box
+		transform.rotate(Math.toRadians(rotationAngle), x+MainEngine.L, y+MainEngine.L);
 
 		// Position right flipper at RHS of bounding box
 		if (!leftFlipper) {

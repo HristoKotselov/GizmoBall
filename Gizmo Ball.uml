@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_xd_bUMR4EeW_3q3XSh-SYw" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_xeACYMR4EeW_3q3XSh-SYw" source="codegen">
         <details xmi:id="_xeACYcR4EeW_3q3XSh-SYw" key="codegenDirectory" value="/GitHub-Gizmo Ball/src"/>
-        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;1406799205/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1111799379/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;2557701541/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;3633811802/1;/GitHub-Gizmo Ball/src/model/Absorber.java;1076510844/1;/GitHub-Gizmo Ball/src/model/Ball.java;544612853/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;190990637/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1375821778/1;/GitHub-Gizmo Ball/src/model/Connections.java;3752613450/1;/GitHub-Gizmo Ball/src/model/Flipper.java;664234613/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;240510845/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3140220982/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4077557850/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2444677121/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;4292200650/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;3395335359/1;/GitHub-Gizmo Ball/src/model/Walls.java;2645951051/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;800150216/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1741349870/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;73748556/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;3145532419/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;1704617342/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1311423221/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;/GitHub-Gizmo Ball/src/model/AStationaryGizmo.java;2119844561/1;/GitHub-Gizmo Ball/src/model/AMovingGizmo.java;1531385266/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;1881876252/1;/GitHub-Gizmo Ball/src/controller/BuildModeButtonListener.java;2063213892/1;/GitHub-Gizmo Ball/src/controller/PlayModeButtonListener.java;1202813349/1;/GitHub-Gizmo Ball/src/view/GameBoard.java;3891332088/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1893536694/1;"/>
+        <details xmi:id="_ydCdgMR4EeW_3q3XSh-SYw" key="AssociatedSourceCode" value="/GitHub-Gizmo Ball/src/controller/AddGizmoListener.java;2611145066/1;/GitHub-Gizmo Ball/src/controller/ChangeBallConfigListener.java;1353574560/1;/GitHub-Gizmo Ball/src/controller/ConnectGizmoListener.java;125141148/1;/GitHub-Gizmo Ball/src/controller/ConnectKeyListener.java;2183007945/1;/GitHub-Gizmo Ball/src/controller/DeleteGizmoListener.java;4023980371/1;/GitHub-Gizmo Ball/src/controller/LoadFileListener.java;1406799205/1;/GitHub-Gizmo Ball/src/controller/MagicKeyListenerWrapper.java;3942618863/1;/GitHub-Gizmo Ball/src/controller/MoveGizmoListener.java;3092957718/1;/GitHub-Gizmo Ball/src/controller/PhysicsConfigListener.java;4854713/1;/GitHub-Gizmo Ball/src/controller/PlayGameListener.java;4106492722/1;/GitHub-Gizmo Ball/src/controller/RotateGizmoListener.java;71144818/1;/GitHub-Gizmo Ball/src/controller/SaveFileListener.java;1111799379/1;/GitHub-Gizmo Ball/src/controller/StartGameListener.java;1053042881/1;/GitHub-Gizmo Ball/src/controller/StopGameListener.java;2898317036/1;/GitHub-Gizmo Ball/src/controller/UndoRedoListener.java;1680999987/1;/GitHub-Gizmo Ball/src/controller/WindowListener.java;2443356617/1;/GitHub-Gizmo Ball/src/model/AGizmoComponent.java;1119156983/1;/GitHub-Gizmo Ball/src/model/AStatueGizmo.java;3633811802/1;/GitHub-Gizmo Ball/src/model/Absorber.java;1527217162/1;/GitHub-Gizmo Ball/src/model/Ball.java;1762980836/1;/GitHub-Gizmo Ball/src/model/CircularBumper.java;1471133921/1;/GitHub-Gizmo Ball/src/model/CollisionDetails.java;1375821778/1;/GitHub-Gizmo Ball/src/model/Connections.java;3752613450/1;/GitHub-Gizmo Ball/src/model/Flipper.java;2554600034/1;/GitHub-Gizmo Ball/src/model/ILineSegmentCollider.java;412807130/1;/GitHub-Gizmo Ball/src/model/IMainEngine.java;240510845/1;/GitHub-Gizmo Ball/src/view/PlayBoard.java;3140220982/1;/GitHub-Gizmo Ball/src/model/PhysicsConfig.java;4077557850/1;/GitHub-Gizmo Ball/src/model/SaveDataEngine.java;2444677121/1;/GitHub-Gizmo Ball/src/model/SquareBumper.java;1248464435/1;/GitHub-Gizmo Ball/src/model/TriangularBumper.java;1486791277/1;/GitHub-Gizmo Ball/src/model/Walls.java;2645951051/1;/GitHub-Gizmo Ball/src/view/BuildBoard.java;800150216/1;/GitHub-Gizmo Ball/src/view/BuildMenu.java;1741349870/1;/GitHub-Gizmo Ball/src/view/GameWindow.java;73748556/1;/GitHub-Gizmo Ball/src/view/IGameWindow.java;3145532419/1;/GitHub-Gizmo Ball/src/view/IMenu.java;4008762887/1;/GitHub-Gizmo Ball/src/model/MainEngine.java;3757910986/1;/GitHub-Gizmo Ball/src/view/PlayMenu.java;1311423221/1;/GitHub-Gizmo Ball/src/model/SpecialCollisionHandler.java;2584468828/1;/GitHub-Gizmo Ball/src/model/AStationaryGizmo.java;2119844561/1;/GitHub-Gizmo Ball/src/model/AMovingGizmo.java;1531385266/1;/GitHub-Gizmo Ball/src/model/CollisionHandler.java;1881876252/1;/GitHub-Gizmo Ball/src/controller/BuildModeButtonListener.java;2063213892/1;/GitHub-Gizmo Ball/src/controller/PlayModeButtonListener.java;1202813349/1;/GitHub-Gizmo Ball/src/view/GameBoard.java;3975172684/1;/GitHub-Gizmo Ball/src/view/IBoard.java;1893536694/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WsMoQEeWsA83iBWrPKA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_Ee-WscoQEeWsA83iBWrPKA" source="com.yattasolutions.codegen.reverse">
@@ -1284,6 +1284,7 @@ Also handle Tick</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-f3IJs-aEeWOGvD12nE26A" name="getLineSegments" specification="_-fyPoM-aEeWOGvD12nE26A">
           <ownedParameter xmi:id="_jNH4gOxeEeWEsIbXcKrFDg" type="_-f1S8c-aEeWOGvD12nE26A" direction="return">
+            <name xsi:nil="true"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jNH4gexeEeWEsIbXcKrFDg" value="*"/>
           </ownedParameter>
           <language>java</language>
@@ -1431,7 +1432,7 @@ Also handle Tick</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_atubkOeCEeWktpDGdewXHA" name="setupDrawingShape" specification="_g_68gM-TEeWOGvD12nE26A">
           <language>java</language>
-          <body>drawingShape = new Rectangle(bmWidth * MainEngine.L, bmHeight * MainEngine.L);&#xD;
+          <body>drawingShape = new Rectangle(getX(), getY(), bmWidth * MainEngine.L, bmHeight * MainEngine.L);&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_atvCoOeCEeWktpDGdewXHA" name="updateCollections" specification="_aUhRYOeCEeWktpDGdewXHA">
@@ -1460,7 +1461,9 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_o-_sUOxlEeWEsIbXcKrFDg" name="grid_tile_y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_o-_sUexlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_o-_sUexlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);&#xD;
 		&#xD;
@@ -1576,7 +1579,9 @@ Also handle Tick</body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedAttribute>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_HY6zgM-bEeWOGvD12nE26A" name="Ball" specification="_HY0s4M-bEeWOGvD12nE26A">
-          <ownedParameter xmi:id="_reIoQOxlEeWEsIbXcKrFDg" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return"/>
+          <ownedParameter xmi:id="_reIoQOxlEeWEsIbXcKrFDg" type="_xwrGwMR4EeW_3q3XSh-SYw" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <ownedParameter xmi:id="_reIoQexlEeWEsIbXcKrFDg" name="name">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
@@ -1602,7 +1607,7 @@ Also handle Tick</body>
             <name xsi:nil="true"/>
           </ownedParameter>
           <language>java</language>
-          <body>return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);&#xD;
+          <body>return new Ellipse2D.Double(getMovingX() - this.radius, getMovingY() - this.radius, this.radius*2, this.radius*2);&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rC1kEt_HEeWOj8fPzW2xTA" name="getCircles" specification="_rAL4sd_HEeWOj8fPzW2xTA">
@@ -1637,7 +1642,9 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_reIoSOxlEeWEsIbXcKrFDg" name="y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_reIoSexlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_reIoSexlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(x, y);&#xD;
 	</body>
@@ -1747,7 +1754,7 @@ Also handle Tick</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_atxe4eeCEeWktpDGdewXHA" name="setupDrawingShape" specification="_g_9YwM-TEeWOGvD12nE26A">
           <language>java</language>
-          <body>drawingShape = new Ellipse2D.Double(0, 0, MainEngine.L, MainEngine.L);&#xD;
+          <body>drawingShape = new Ellipse2D.Double(getX(), getY(), MainEngine.L, MainEngine.L);&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_atxe4ueCEeWktpDGdewXHA" name="setupCircles" specification="_S1vxYNpKEeWelou951FNPg">
@@ -1781,7 +1788,9 @@ Also handle Tick</body>
           <ownedParameter xmi:id="_qVY3gOxlEeWEsIbXcKrFDg" name="newY">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_qVY3gexlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_qVY3gexlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(newX, newY);&#xD;
 		&#xD;
@@ -3193,7 +3202,7 @@ instantiate it&#xD;
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_at5as-eCEeWktpDGdewXHA" name="setupDrawingShape" specification="_S2FvoNpKEeWelou951FNPg">
           <language>java</language>
-          <body>drawingShape = new Rectangle(MainEngine.L, MainEngine.L);&#xD;
+          <body>drawingShape = new Rectangle(getX(), getY(), MainEngine.L, MainEngine.L);&#xD;
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_at6BwOeCEeWktpDGdewXHA" name="setupCircles" specification="_S2GWstpKEeWelou951FNPg">
@@ -3240,7 +3249,9 @@ instantiate it&#xD;
           <ownedParameter xmi:id="_uVFAMexlEeWEsIbXcKrFDg" name="grid_tile_y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_uVFnQOxlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_uVFnQOxlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);&#xD;
 		&#xD;
@@ -3396,15 +3407,18 @@ instantiate it&#xD;
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_at7P4eeCEeWktpDGdewXHA" name="setupDrawingShape" specification="_S2L2QNpKEeWelou951FNPg">
           <language>java</language>
-          <body>int[] xpoints = { 0, MainEngine.L, 0 };&#xD;
-		int[] ypoints = { 0, 0, MainEngine.L };&#xD;
+          <body>int x = getX();&#xD;
+		int y = getY();&#xD;
+		&#xD;
+		int[] xpoints = { x, x+MainEngine.L, x };&#xD;
+		int[] ypoints = { y, y, y+MainEngine.L };&#xD;
 &#xD;
 		// Create triangle&#xD;
 		drawingShape = new Polygon(xpoints, ypoints, xpoints.length);&#xD;
 &#xD;
 		// Rotate to correct orientation&#xD;
 		AffineTransform t = new AffineTransform();&#xD;
-		t.rotate(Math.toRadians(rotationAngle), MainEngine.L / 2, MainEngine.L / 2);&#xD;
+		t.rotate(Math.toRadians(rotationAngle), x+(MainEngine.L / 2), y+(MainEngine.L / 2));&#xD;
 		drawingShape = t.createTransformedShape(drawingShape);&#xD;
 	</body>
         </ownedBehavior>
@@ -3457,7 +3471,9 @@ instantiate it&#xD;
           <ownedParameter xmi:id="_vhCdAexlEeWEsIbXcKrFDg" name="grid_tile_y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_vhCdAuxlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_vhCdAuxlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);&#xD;
 		&#xD;
@@ -3719,12 +3735,22 @@ Gizmo should process.</body>
           <ownedParameter xmi:id="_mocEoexlEeWEsIbXcKrFDg" name="newY">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_mocEouxlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_mocEouxlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>// TODO Validation&#xD;
 	&#xD;
 		setX(newX);&#xD;
 		setY(newY);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xfHVcOx0EeWEsIbXcKrFDg" name="getBoundingBox" specification="_EI8MwOx0EeWEsIbXcKrFDg">
+          <ownedParameter xmi:id="_xfH8gOx0EeWEsIbXcKrFDg" type="_arwFoOeCEeWktpDGdewXHA" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return getDrawingShape().getBounds();&#xD;
 	</body>
         </ownedBehavior>
         <ownedOperation xmi:id="_akAzMM9KEeWD9JA5XZkC8g" name="getX" method="_ak6LEM9KEeWD9JA5XZkC8g">
@@ -3833,6 +3859,14 @@ Gizmo should process.</body>
           <ownedParameter xmi:id="_jMGk0OxeEeWEsIbXcKrFDg" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_EI8MwOx0EeWEsIbXcKrFDg" name="getBoundingBox" method="_xfHVcOx0EeWEsIbXcKrFDg">
+          <ownedComment xmi:id="_xfH8gex0EeWEsIbXcKrFDg">
+            <body>@return A rectangular object that can be used for to check whether a moving&#xD;
+	 * Gizmo overlap a Stationary Gizmo, since moving Gizmos such as ball can get&#xD;
+	 * placed in the middle of grid squares.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_EI8Mwex0EeWEsIbXcKrFDg" type="_arwFoOeCEeWktpDGdewXHA" direction="return"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_PF7uUMoQEeWsA83iBWrPKA" name="IMainEngine">
@@ -4001,11 +4035,15 @@ Gizmo should process.</body>
             <name xsi:nil="true"/>
           </ownedParameter>
           <language>java</language>
-          <body>RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,&#xD;
+          <body>int x = getX();&#xD;
+		int y = getY();&#xD;
+		&#xD;
+		// rotation += 15;&#xD;
+		RoundRectangle2D.Double r = new RoundRectangle2D.Double(x, y, 0.5 * MainEngine.L, 2 * MainEngine.L,&#xD;
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);&#xD;
 		AffineTransform transform = new AffineTransform();&#xD;
 &#xD;
-		// Apply flipper rotation&#xD;
+		// Apply flipper rotation when triggered&#xD;
 		transform.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);&#xD;
 		if (leftFlipper) {&#xD;
 			try {&#xD;
@@ -4017,8 +4055,8 @@ Gizmo should process.</body>
 			}&#xD;
 		}&#xD;
 &#xD;
-		// Rotate to proper orientation&#xD;
-		transform.rotate(Math.toRadians(rotationAngle), MainEngine.L, MainEngine.L);&#xD;
+		// Rotate to proper orientation within the bounding box&#xD;
+		transform.rotate(Math.toRadians(rotationAngle), x+MainEngine.L, y+MainEngine.L);&#xD;
 &#xD;
 		// Position right flipper at RHS of bounding box&#xD;
 		if (!leftFlipper) {&#xD;
@@ -4097,7 +4135,9 @@ Gizmo should process.</body>
           <ownedParameter xmi:id="_tEEEQexlEeWEsIbXcKrFDg" name="grid_tile_y">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_tEEEQuxlEeWEsIbXcKrFDg" direction="return"/>
+          <ownedParameter xmi:id="_tEEEQuxlEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
           <language>java</language>
           <body>super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);&#xD;
 	</body>
@@ -4253,20 +4293,22 @@ Examples:	Ball</body>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedAttribute>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_m-RVQOeEEeWktpDGdewXHA" name="AMovingGizmo" specification="_m-Nq4OeEEeWktpDGdewXHA">
-          <ownedParameter xmi:id="_jNBx4OxeEeWEsIbXcKrFDg" type="_asu9EOeCEeWktpDGdewXHA" direction="return"/>
-          <ownedParameter xmi:id="_jNBx4exeEeWEsIbXcKrFDg" name="name">
+          <ownedParameter xmi:id="_2uXAgOx_EeWEsIbXcKrFDg" type="_asu9EOeCEeWktpDGdewXHA" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_2uXnkOx_EeWEsIbXcKrFDg" name="name">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_jNBx4uxeEeWEsIbXcKrFDg" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
-          <ownedParameter xmi:id="_jNBx4-xeEeWEsIbXcKrFDg" name="theta" type="_nOTqAM-WEeWOGvD12nE26A"/>
-          <ownedParameter xmi:id="_jNBx5OxeEeWEsIbXcKrFDg" name="velo">
+          <ownedParameter xmi:id="_2uXnkex_EeWEsIbXcKrFDg" name="starting_x">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_2uXnkux_EeWEsIbXcKrFDg" name="starting_y">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_2uXnk-x_EeWEsIbXcKrFDg" name="color" type="_E3j10MoQEeWsA83iBWrPKA"/>
+          <ownedParameter xmi:id="_2uXnlOx_EeWEsIbXcKrFDg" name="theta" type="_nOTqAM-WEeWOGvD12nE26A"/>
+          <ownedParameter xmi:id="_2uXnlex_EeWEsIbXcKrFDg" name="velo">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jNBx5exeEeWEsIbXcKrFDg" name="starting_x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:id="_jNBx5uxeEeWEsIbXcKrFDg" name="starting_y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedParameter>
           <language>java</language>
           <body>super(name, starting_x, starting_y, color);&#xD;
@@ -4313,6 +4355,7 @@ Examples:	Ball</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yndYk-fJEeWVx6NyXcLJXg" name="getMovingX" specification="_ylMHsOfJEeWVx6NyXcLJXg">
           <ownedParameter xmi:id="_jNBx6-xeEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
@@ -4321,6 +4364,7 @@ Examples:	Ball</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yndYlefJEeWVx6NyXcLJXg" name="getMovingY" specification="_ylMuwufJEeWVx6NyXcLJXg">
           <ownedParameter xmi:id="_jNBx7OxeEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
@@ -4328,8 +4372,12 @@ Examples:	Ball</body>
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_jNBx5-xeEeWEsIbXcKrFDg" name="setMovingX" specification="_m-ILVOeEEeWktpDGdewXHA">
-          <ownedParameter xmi:id="_jNBx6OxeEeWEsIbXcKrFDg" direction="return">
+          <ownedParameter xmi:id="_2uXnlux_EeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_2uXnl-x_EeWEsIbXcKrFDg" name="x">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
           <body>// TODO Validation&#xD;
@@ -4339,8 +4387,12 @@ Examples:	Ball</body>
 	</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_jNBx6exeEeWEsIbXcKrFDg" name="setMovingY" specification="_ymsjkOfJEeWVx6NyXcLJXg">
-          <ownedParameter xmi:id="_jNBx6uxeEeWEsIbXcKrFDg" direction="return">
+          <ownedParameter xmi:id="_2uXnmOx_EeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_2uXnmex_EeWEsIbXcKrFDg" name="y">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           </ownedParameter>
           <language>java</language>
           <body>// TODO Validation&#xD;
@@ -4351,6 +4403,7 @@ Examples:	Ball</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_jNCY8OxeEeWEsIbXcKrFDg" name="toString" specification="_jKT1EOxeEeWEsIbXcKrFDg">
           <ownedParameter xmi:id="_jNCY8exeEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
           <language>java</language>
@@ -4442,9 +4495,6 @@ at any given time (e.g. rotation).&#xD;
 Examples:	Square Bumper, Circular Bumper, Flipper</body>
         </ownedComment>
         <generalization xmi:id="_jts_8OfSEeWVx6NyXcLJXg" general="_E3x4QMoQEeWsA83iBWrPKA"/>
-        <ownedAttribute xmi:id="_jts_8efSEeWVx6NyXcLJXg" name="stopped" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_aIw00urZEeWtle2eerTWgQ" name="bmWidth" visibility="protected">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedAttribute>
@@ -4474,6 +4524,7 @@ Examples:	Square Bumper, Circular Bumper, Flipper</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_jttnAOfSEeWVx6NyXcLJXg" name="toString" specification="_jtpVkefSEeWVx6NyXcLJXg">
           <ownedParameter xmi:id="_jNCY8uxeEeWEsIbXcKrFDg" direction="return">
+            <name xsi:nil="true"/>
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
           <language>java</language>
@@ -5515,9 +5566,6 @@ Examples:	Square Bumper, Circular Bumper, Flipper</body>
 			g2d.setColor(giz.getColour());&#xD;
 			Shape s = giz.getDrawingShape();&#xD;
 &#xD;
-			// Translate the gizmo to the appropriate position on the board&#xD;
-			g2d.translate(giz.getX(), giz.getY());&#xD;
-&#xD;
 			// Draw the shape&#xD;
 			g2d.fill(s);&#xD;
 &#xD;
@@ -5534,9 +5582,6 @@ Examples:	Square Bumper, Circular Bumper, Flipper</body>
 			// System.out.println(giz.getGizmoID());&#xD;
 			g2d.setColor(giz.getColour());&#xD;
 			Shape s = giz.getDrawingShape();&#xD;
-&#xD;
-			// Translate the gizmo to the appropriate position on the board&#xD;
-			g2d.translate(giz.getMovingX(), giz.getMovingY());&#xD;
 &#xD;
 			// Draw the shape&#xD;
 			g2d.fill(s);&#xD;
@@ -6538,7 +6583,9 @@ Examples:	Square Bumper, Circular Bumper, Flipper</body>
     <annotations xmi:id="_o-8B8exlEeWEsIbXcKrFDg" name="Override"/>
   </UMLLabProfile:Annotations>
   <uml:OpaqueBehavior xmi:id="_o--eMOxlEeWEsIbXcKrFDg" name="getDrawingShape" specification="_m-HkQ-eEEeWktpDGdewXHA">
-    <ownedParameter xmi:id="_o-_FQOxlEeWEsIbXcKrFDg" type="_hBFaIM-TEeWOGvD12nE26A" direction="return"/>
+    <ownedParameter xmi:id="_o-_FQOxlEeWEsIbXcKrFDg" type="_hBFaIM-TEeWOGvD12nE26A" direction="return">
+      <name xsi:nil="true"/>
+    </ownedParameter>
     <language>java</language>
     <body>return drawingShape;&#xD;
 	</body>
@@ -6549,4 +6596,11 @@ Examples:	Square Bumper, Circular Bumper, Flipper</body>
   <UMLLabProfile:Reference xmi:id="_1GqE4OxpEeWEsIbXcKrFDg" base_Element="_1Gpd0OxpEeWEsIbXcKrFDg"/>
   <UMLLabProfile:Reference xmi:id="_1GtvQOxpEeWEsIbXcKrFDg" base_Element="_1GtIMexpEeWEsIbXcKrFDg"/>
   <UMLLabProfile:Reference xmi:id="_rseXgOxrEeWEsIbXcKrFDg" base_Element="_rsdwcOxrEeWEsIbXcKrFDg"/>
+  <UMLLabProfile:StyledElement xmi:id="_xfGuYOx0EeWEsIbXcKrFDg" base_Element="_EI8MwOx0EeWEsIbXcKrFDg"/>
+  <UMLLabProfile:Annotations xmi:id="_2tSpgOx_EeWEsIbXcKrFDg" base_Element="_jKT1EOxeEeWEsIbXcKrFDg">
+    <annotations xmi:id="_2tSpgex_EeWEsIbXcKrFDg" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_2tT3oOx_EeWEsIbXcKrFDg" base_Element="_jtpVkefSEeWVx6NyXcLJXg">
+    <annotations xmi:id="_2tUesOx_EeWEsIbXcKrFDg" name="Override"/>
+  </UMLLabProfile:Annotations>
 </xmi:XMI>

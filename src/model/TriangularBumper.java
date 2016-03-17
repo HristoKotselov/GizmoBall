@@ -44,15 +44,18 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	}
 	
 	private void setupDrawingShape() {
-		int[] xpoints = { 0, MainEngine.L, 0 };
-		int[] ypoints = { 0, 0, MainEngine.L };
+		int x = getX();
+		int y = getY();
+		
+		int[] xpoints = { x, x+MainEngine.L, x };
+		int[] ypoints = { y, y, y+MainEngine.L };
 
 		// Create triangle
 		drawingShape = new Polygon(xpoints, ypoints, xpoints.length);
 
 		// Rotate to correct orientation
 		AffineTransform t = new AffineTransform();
-		t.rotate(Math.toRadians(rotationAngle), MainEngine.L / 2, MainEngine.L / 2);
+		t.rotate(Math.toRadians(rotationAngle), x+(MainEngine.L / 2), y+(MainEngine.L / 2));
 		drawingShape = t.createTransformedShape(drawingShape);
 	}
 	

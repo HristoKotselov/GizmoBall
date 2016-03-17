@@ -43,7 +43,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	}
 	
 	private void setupDrawingShape() {
-		drawingShape = new Rectangle(MainEngine.L, MainEngine.L);
+		drawingShape = new Rectangle(getX(), getY(), MainEngine.L, MainEngine.L);
 	}
 
 	@Override

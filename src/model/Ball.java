@@ -24,7 +24,7 @@ public class Ball extends AMovingGizmo {
 /* Ball's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
-		return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);
+		return new Ellipse2D.Double(getMovingX() - this.radius, getMovingY() - this.radius, this.radius*2, this.radius*2);
 	}
 
 	@Override

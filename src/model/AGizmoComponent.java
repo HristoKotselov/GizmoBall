@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,15 +21,17 @@ abstract public class AGizmoComponent {
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with
 	 * x-coordinate, this determines the position of a Gizmo component on the
-	 * board. For moving Gizmos, this determines their starting position when
-	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 * board. For stationary Gizmos, this point should always be the left 
+	 * corner of a grid square. For moving Gizmos, this determines their 
+	 * starting position when the game starts. 
 	 **/
 	private int xpos;
 	/**
 	 * The vertical-coordinate of the component (in pixel). Along with
 	 * y-coordinate, this determines the position of a Gizmo component on the
-	 * board. For moving Gizmos, this determines their starting position when
-	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 * board. For stationary Gizmos, this point should always be the left 
+	 * corner of a grid square. For moving Gizmos, this determines their 
+	 * starting position when the game starts. 
 	 **/
 	private int ypos;
 	
@@ -130,6 +133,15 @@ abstract public class AGizmoComponent {
 	
 /* Collection-sped-up-able abstract methods */
 	abstract public Shape getDrawingShape();
+	
+	/**
+	 * @return A rectangular object that can be used for to check whether a moving
+	 * Gizmo overlap a Stationary Gizmo, since moving Gizmos such as ball can get
+	 * placed in the middle of grid squares.
+	 */
+	public Rectangle getBoundingBox(){
+		return getDrawingShape().getBounds();
+	}
 
 	abstract public Set<Circle> getCircles();
 	

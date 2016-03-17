@@ -597,23 +597,11 @@
       <cardinality xmi:id="_WXbUFcoSEeWsA83iBWrPKA" label="1" max="1" min="1"/>
     </targetRole>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_vzSTUMomEeWI07Wu9tqfCA" dashed="true" subClass="_PR8xEMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_vzQeIMomEeWI07Wu9tqfCA"/>
-  </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_ynhVgMomEeWI07Wu9tqfCA" dashed="true" subClass="_PRyZAMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_yngHYMomEeWI07Wu9tqfCA"/>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_zS7C8MomEeWI07Wu9tqfCA" dashed="true" subClass="_PRsSYMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_zS500MomEeWI07Wu9tqfCA"/>
-  </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_z-YawMomEeWI07Wu9tqfCA" dashed="true" subClass="_yejgcMR4EeW_3q3XSh-SYw">
     <modelElement href="Gizmo%20Ball.uml#_z8j10MomEeWI07Wu9tqfCA"/>
-  </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_ERigMMonEeWI07Wu9tqfCA" dashed="true" subClass="_PRW7MMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_ERgrAMonEeWI07Wu9tqfCA"/>
-  </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_FwvCEMonEeWI07Wu9tqfCA" dashed="true" subClass="_PRHqoMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_Fwtz8MonEeWI07Wu9tqfCA"/>
   </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_bMbeEM9KEeWD9JA5XZkC8g" source="_izFOYMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_alEjIM9KEeWD9JA5XZkC8g"/>
@@ -1622,12 +1610,6 @@
       <cardinality xmi:id="_PcGBiOr_EeWtle2eerTWgQ" label="1" max="1" min="1"/>
     </targetRole>
   </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_JyIZQOsIEeWtle2eerTWgQ" dashed="true" subClass="_PQxsYMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_G5R-gMonEeWI07Wu9tqfCA"/>
-  </edges>
-  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_J1a90OsIEeWtle2eerTWgQ" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
-    <modelElement href="Gizmo%20Ball.uml#_E9sbkMonEeWI07Wu9tqfCA"/>
-  </edges>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_6tlQcOsREeWtle2eerTWgQ" source="_WXb7IMoSEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_6tdUp-sREeWtle2eerTWgQ"/>
     <stereotypes xmi:id="_6tlQcesREeWtle2eerTWgQ" name="Reference">
@@ -2210,6 +2192,10 @@
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_r64m8OxrEeWEsIbXcKrFDg" subClass="_yfWxsMR4EeW_3q3XSh-SYw">
     <modelElement href="Gizmo%20Ball.uml#_pvgv0MoiEeWI07Wu9tqfCA"/>
   </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_xfK_0Ox0EeWEsIbXcKrFDg" targetItem="_EI_QEOx0EeWEsIbXcKrFDg" sourceItem="_xfKYwOx0EeWEsIbXcKrFDg"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:GeneralizationVisual" xmi:id="_DT3ZYOyJEeWEsIbXcKrFDg" dashed="true" subClass="_PRQNgMoQEeWsA83iBWrPKA">
+    <modelElement href="Gizmo%20Ball.uml#_E9sbkMonEeWI07Wu9tqfCA"/>
+  </edges>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_hXu_kM-TEeWOGvD12nE26A" sourceConnectionVisual="_hX27YM-TEeWOGvD12nE26A" text="Method called when the user decides to rotate a Gizmo component.&#xD;&#xA;&#x9; * @param degree - the angle of rotation to add&#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect varies with each Gizmo component; see individual class" item="_hX3icM-TEeWOGvD12nE26A">
     <modelElement href="Gizmo%20Ball.uml#_hBmXgM-TEeWOGvD12nE26A"/>
   </nodes>
@@ -2290,6 +2276,21 @@
   </nodes>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_bFimIOrZEeWtle2eerTWgQ" sourceConnectionVisual="_bFtlQOrZEeWtle2eerTWgQ" text="NOTE: This is suppose to be a Static Class, so please do not try to&#xD;&#xA;instantiate it&#xD;&#xA; *" item="_yfZN8MR4EeW_3q3XSh-SYw">
     <modelElement href="Gizmo%20Ball.uml#_aIhkQOrZEeWtle2eerTWgQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_ks30AOxeEeWEsIbXcKrFDg" sourceConnectionVisual="_ks9TkOxeEeWEsIbXcKrFDg" text="Method called when the user decides to move this Gizmo component.&#xD;&#xA;&#x9; * &#xD;&#xA;&#x9; * @param newX&#xD;&#xA;&#x9; *            - new X coordinate (in pixels)&#xD;&#xA;&#x9; * @param newY&#xD;&#xA;&#x9; *            - new Y coordinate (in pixels)&#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect xpos &amp; ypos is updated with the new values." item="_bA1k0OeCEeWktpDGdewXHA">
+    <modelElement href="Gizmo%20Ball.uml#_jNP0UOxeEeWEsIbXcKrFDg"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_kuFU8OxeEeWEsIbXcKrFDg" sourceConnectionVisual="_kuK0gOxeEeWEsIbXcKrFDg" text="Helper method for Line Segments, Circles &amp; Shapes *" item="_bLLzoOeCEeWktpDGdewXHA">
+    <modelElement href="Gizmo%20Ball.uml#_jNRCcOxeEeWEsIbXcKrFDg"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_kyNnAOxeEeWEsIbXcKrFDg" sourceConnectionVisual="_kyWJ4OxeEeWEsIbXcKrFDg" text="Set the preferred Wall width &amp; height for the Gizmo Board (pixels). &#xD;&#xA;&#x9; * This method will change the Wall object inside the MainEngine to the&#xD;&#xA;&#x9; * appropriate height/width. &#xD;&#xA;&#x9; * @param width - the new width for the walls of the board, in pixels.&#xD;&#xA;&#x9; * @param height - the new height for the walls of the board, in pixels." item="_kyWJ4exeEeWEsIbXcKrFDg">
+    <modelElement href="Gizmo%20Ball.uml#_jNRphOxeEeWEsIbXcKrFDg"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_Fo628OxiEeWEsIbXcKrFDg" sourceConnectionVisual="_Fo7eAOxiEeWEsIbXcKrFDg" text="Method called when the user decides to move a Gizmo.&#xD;&#xA;&#x9; * @param gizmo - the Gizmo to move.&#xD;&#xA;&#x9; * @param x - new X coordinate (in pixels)&#xD;&#xA;&#x9; * @param y - new Y coordinate (in pixels)&#xD;&#xA;&#x9; * @return TRUE if the move operation succeeded (i.e. a Gizmo is moved&#xD;&#xA;&#x9; * into an empty space), FALSE if the move operation failed (i.e. the&#xD;&#xA;&#x9; * destination is already occupied with another Gizmo)" item="_f3Ds8NqJEeW7l6s7iyoCaQ">
+    <modelElement href="Gizmo%20Ball.uml#_Fnrg0OxiEeWEsIbXcKrFDg"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_xfKYwOx0EeWEsIbXcKrFDg" sourceConnectionVisual="_xfK_0Ox0EeWEsIbXcKrFDg" text="@return A rectangular object that can be used for to check whether a moving&#xD;&#xA;&#x9; * Gizmo overlap a Stationary Gizmo, since moving Gizmos such as ball can get&#xD;&#xA;&#x9; * placed in the middle of grid squares." item="_EI_QEOx0EeWEsIbXcKrFDg">
+    <modelElement href="Gizmo%20Ball.uml#_xfH8gex0EeWEsIbXcKrFDg"/>
   </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_yfO14MR4EeW_3q3XSh-SYw" name="Ball" associationsIn="_n1gosMR5EeW_3q3XSh-SYw _oAYZkNo-EeWZSOZzoCHXcg _U0v5ENpoEeWelou951FNPg _aK1RYOrZEeWtle2eerTWgQ _bHnCsOrZEeWtle2eerTWgQ" generalizations="_nIExg-eEEeWktpDGdewXHA">
     <modelElement href="Gizmo%20Ball.uml#_xwrGwMR4EeW_3q3XSh-SYw"/>
@@ -2620,7 +2621,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsOut="_PQxFUMoQEeWsA83iBWrPKA" generalizations="_JyIZQOsIEeWtle2eerTWgQ">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PQxsYMoQEeWsA83iBWrPKA" name="AddGizmoListener" associationsOut="_PQxFUMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_E3mSEMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PQxsYcoQEeWsA83iBWrPKA" position="-1710.0,2389.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PQxsYsoQEeWsA83iBWrPKA" label="+"/>
@@ -2846,7 +2847,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_J1a90OsIEeWtle2eerTWgQ">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRQNgMoQEeWsA83iBWrPKA" name="ConnectKeyListener" associationsOut="_PROYUMoQEeWsA83iBWrPKA" generalizations="_DT3ZYOyJEeWEsIbXcKrFDg">
     <modelElement href="Gizmo%20Ball.uml#_PFELoMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRQNgcoQEeWsA83iBWrPKA" position="-1030.0,2496.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRQNgsoQEeWsA83iBWrPKA" label="+"/>
@@ -4579,6 +4580,20 @@
         <modelElement href="Gizmo%20Ball.uml#_jMGk0OxeEeWEsIbXcKrFDg"/>
         <type xmi:id="_kkO1ZOxeEeWEsIbXcKrFDg" name="String">
           <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_EI_QEOx0EeWEsIbXcKrFDg" comments="_xfKYwOx0EeWEsIbXcKrFDg" targetConnectionVisual="_xfK_0Ox0EeWEsIbXcKrFDg" name="getBoundingBox">
+      <modelElement href="Gizmo%20Ball.uml#_EI8MwOx0EeWEsIbXcKrFDg"/>
+      <stereotypes xmi:id="_xfLm4Ox0EeWEsIbXcKrFDg" name="StyledElement">
+        <modelElement href="Gizmo%20Ball.uml#_xfGuYOx0EeWEsIbXcKrFDg"/>
+      </stereotypes>
+      <visibility xmi:id="_EI_QEex0EeWEsIbXcKrFDg" label="+"/>
+      <cardinality xmi:id="_EI_QEux0EeWEsIbXcKrFDg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_EI_QE-x0EeWEsIbXcKrFDg">
+        <modelElement href="Gizmo%20Ball.uml#_EI8Mwex0EeWEsIbXcKrFDg"/>
+        <type xmi:id="_EI_QFOx0EeWEsIbXcKrFDg" name="Rectangle">
+          <modelElement href="Gizmo%20Ball.uml#_arwFoOeCEeWktpDGdewXHA"/>
         </type>
       </outParameters>
     </operations>
@@ -7111,7 +7126,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRsSYMoQEeWsA83iBWrPKA" name="MoveGizmoListener" associationsOut="_PRp2IMoQEeWsA83iBWrPKA" generalizations="_zS7C8MomEeWI07Wu9tqfCA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRsSYMoQEeWsA83iBWrPKA" name="MoveGizmoListener" associationsOut="_PRp2IMoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_PFKSQMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRsSYcoQEeWsA83iBWrPKA" position="-1308.0,2921.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRsSYsoQEeWsA83iBWrPKA" label="+"/>
@@ -7743,7 +7758,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRW7MMoQEeWsA83iBWrPKA" name="DeleteGizmoListener" associationsOut="_PRT34coQEeWsA83iBWrPKA" generalizations="_ERigMMonEeWI07Wu9tqfCA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRW7MMoQEeWsA83iBWrPKA" name="DeleteGizmoListener" associationsOut="_PRT34coQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_PFGA0MoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRW7McoQEeWsA83iBWrPKA" position="-689.0,3234.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRW7MsoQEeWsA83iBWrPKA" label="+"/>
@@ -7969,7 +7984,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRHqoMoQEeWsA83iBWrPKA" name="ConnectGizmoListener" associationsOut="_PRDZMcoQEeWsA83iBWrPKA" generalizations="_FwvCEMonEeWI07Wu9tqfCA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PRHqoMoQEeWsA83iBWrPKA" name="ConnectGizmoListener" associationsOut="_PRDZMcoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_E3m5IMoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PRHqocoQEeWsA83iBWrPKA" position="-2014.0,1768.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PRHqosoQEeWsA83iBWrPKA" label="+"/>
@@ -8262,7 +8277,7 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PR8xEMoQEeWsA83iBWrPKA" name="RotateGizmoListener" associationsOut="_PR674MoQEeWsA83iBWrPKA" generalizations="_vzSTUMomEeWI07Wu9tqfCA">
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_PR8xEMoQEeWsA83iBWrPKA" name="RotateGizmoListener" associationsOut="_PR674MoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_PFQ_8MoQEeWsA83iBWrPKA"/>
     <visualProperties xmi:id="_PR8xEcoQEeWsA83iBWrPKA" position="-2456.0,2081.0" size="-1.0,-1.0"/>
     <visibility xmi:id="_PR8xEsoQEeWsA83iBWrPKA" label="+"/>
@@ -10367,15 +10382,6 @@
       <cardinality xmi:id="_PbwqUur_EeWtle2eerTWgQ" label="1" max="1" min="1"/>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_ks30AOxeEeWEsIbXcKrFDg" sourceConnectionVisual="_ks9TkOxeEeWEsIbXcKrFDg" text="Method called when the user decides to move this Gizmo component.&#xD;&#xA;&#x9; * &#xD;&#xA;&#x9; * @param newX&#xD;&#xA;&#x9; *            - new X coordinate (in pixels)&#xD;&#xA;&#x9; * @param newY&#xD;&#xA;&#x9; *            - new Y coordinate (in pixels)&#xD;&#xA;&#x9; * @modify this&#xD;&#xA;&#x9; * @effect xpos &amp; ypos is updated with the new values." item="_bA1k0OeCEeWktpDGdewXHA">
-    <modelElement href="Gizmo%20Ball.uml#_jNP0UOxeEeWEsIbXcKrFDg"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_kuFU8OxeEeWEsIbXcKrFDg" sourceConnectionVisual="_kuK0gOxeEeWEsIbXcKrFDg" text="Helper method for Line Segments, Circles &amp; Shapes *" item="_bLLzoOeCEeWktpDGdewXHA">
-    <modelElement href="Gizmo%20Ball.uml#_jNRCcOxeEeWEsIbXcKrFDg"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_kyNnAOxeEeWEsIbXcKrFDg" sourceConnectionVisual="_kyWJ4OxeEeWEsIbXcKrFDg" text="Set the preferred Wall width &amp; height for the Gizmo Board (pixels). &#xD;&#xA;&#x9; * This method will change the Wall object inside the MainEngine to the&#xD;&#xA;&#x9; * appropriate height/width. &#xD;&#xA;&#x9; * @param width - the new width for the walls of the board, in pixels.&#xD;&#xA;&#x9; * @param height - the new height for the walls of the board, in pixels." item="_kyWJ4exeEeWEsIbXcKrFDg">
-    <modelElement href="Gizmo%20Ball.uml#_jNRphOxeEeWEsIbXcKrFDg"/>
-  </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_j4eFgOfSEeWVx6NyXcLJXg" comments="_j4bpQOfSEeWVx6NyXcLJXg" targetConnectionVisual="_j4bpQefSEeWVx6NyXcLJXg" name="AStationaryGizmo" abstractClass="true" associationsIn="_khpbcOxeEeWEsIbXcKrFDg" associationsOut="_kgY3MOxeEeWEsIbXcKrFDg" generalizations="_j4bCMOfSEeWVx6NyXcLJXg" subclassedBy="_nIExhOeEEeWktpDGdewXHA _izDZMMoQEeWsA83iBWrPKA _izDZMsoQEeWsA83iBWrPKA _izEAQMoQEeWsA83iBWrPKA _izDZNcoQEeWsA83iBWrPKA">
     <modelElement href="Gizmo%20Ball.uml#_ynPWIOfJEeWVx6NyXcLJXg"/>
     <visualProperties xmi:id="_j4eFgefSEeWVx6NyXcLJXg" position="-2400.0,-1714.0" size="-1.0,-1.0"/>
@@ -10383,14 +10389,6 @@
       <modelElement href="Gizmo%20Ball.uml#_jtpVkOfSEeWVx6NyXcLJXg"/>
     </stereotypes>
     <visibility xmi:id="_j4eFg-fSEeWVx6NyXcLJXg" label="+"/>
-    <attributes xmi:id="_j4eFhOfSEeWVx6NyXcLJXg" name="stopped">
-      <modelElement href="Gizmo%20Ball.uml#_jts_8efSEeWVx6NyXcLJXg"/>
-      <visibility xmi:id="_j4eFhefSEeWVx6NyXcLJXg" label="-"/>
-      <cardinality xmi:id="_j4eFhufSEeWVx6NyXcLJXg" label="1" max="1" min="1"/>
-      <type xmi:id="_j4eFh-fSEeWVx6NyXcLJXg" name="boolean">
-        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
-      </type>
-    </attributes>
     <attributes xmi:id="_kfCzYOxeEeWEsIbXcKrFDg" name="bmWidth">
       <modelElement href="Gizmo%20Ball.uml#_aIw00urZEeWtle2eerTWgQ"/>
       <visibility xmi:id="_kfCzYexeEeWEsIbXcKrFDg" label="#"/>
@@ -10409,6 +10407,9 @@
     </attributes>
     <operations xmi:id="_j4eFiOfSEeWVx6NyXcLJXg" name="toString">
       <modelElement href="Gizmo%20Ball.uml#_jtpVkefSEeWVx6NyXcLJXg"/>
+      <stereotypes xmi:id="_3giEUOx_EeWEsIbXcKrFDg" name="Annotations">
+        <modelElement href="Gizmo%20Ball.uml#_2tT3oOx_EeWEsIbXcKrFDg"/>
+      </stereotypes>
       <visibility xmi:id="_j4eFiufSEeWVx6NyXcLJXg" label="+"/>
       <cardinality xmi:id="_j4eFi-fSEeWVx6NyXcLJXg" label="1" max="1" min="1"/>
       <outParameters xmi:id="_ktdC0OxeEeWEsIbXcKrFDg">
@@ -10723,6 +10724,9 @@
     </operations>
     <operations xmi:id="_jo3ZUOxeEeWEsIbXcKrFDg" name="toString">
       <modelElement href="Gizmo%20Ball.uml#_jKT1EOxeEeWEsIbXcKrFDg"/>
+      <stereotypes xmi:id="_3eyX4Ox_EeWEsIbXcKrFDg" name="Annotations">
+        <modelElement href="Gizmo%20Ball.uml#_2tSpgOx_EeWEsIbXcKrFDg"/>
+      </stereotypes>
       <visibility xmi:id="_jo3ZUexeEeWEsIbXcKrFDg" label="+"/>
       <cardinality xmi:id="_jo3ZUuxeEeWEsIbXcKrFDg" label="1" max="1" min="1"/>
       <outParameters xmi:id="_jo3ZU-xeEeWEsIbXcKrFDg">
@@ -10732,8 +10736,5 @@
         </type>
       </outParameters>
     </operations>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_Fo628OxiEeWEsIbXcKrFDg" sourceConnectionVisual="_Fo7eAOxiEeWEsIbXcKrFDg" text="Method called when the user decides to move a Gizmo.&#xD;&#xA;&#x9; * @param gizmo - the Gizmo to move.&#xD;&#xA;&#x9; * @param x - new X coordinate (in pixels)&#xD;&#xA;&#x9; * @param y - new Y coordinate (in pixels)&#xD;&#xA;&#x9; * @return TRUE if the move operation succeeded (i.e. a Gizmo is moved&#xD;&#xA;&#x9; * into an empty space), FALSE if the move operation failed (i.e. the&#xD;&#xA;&#x9; * destination is already occupied with another Gizmo)" item="_f3Ds8NqJEeW7l6s7iyoCaQ">
-    <modelElement href="Gizmo%20Ball.uml#_Fnrg0OxiEeWEsIbXcKrFDg"/>
   </nodes>
 </com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

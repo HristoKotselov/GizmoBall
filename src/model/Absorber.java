@@ -57,7 +57,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 	
 	private void setupDrawingShape() {
-		drawingShape = new Rectangle(bmWidth * MainEngine.L, bmHeight * MainEngine.L);
+		drawingShape = new Rectangle(getX(), getY(), bmWidth * MainEngine.L, bmHeight * MainEngine.L);
 	}
 
 	@Override

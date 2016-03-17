@@ -41,7 +41,7 @@ public class CircularBumper extends AStationaryGizmo {
 	}
 	
 	private void setupDrawingShape() {
-		drawingShape = new Ellipse2D.Double(0, 0, MainEngine.L, MainEngine.L);
+		drawingShape = new Ellipse2D.Double(getX(), getY(), MainEngine.L, MainEngine.L);
 	}
 	
 	@Override

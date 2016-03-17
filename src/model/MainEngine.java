@@ -314,9 +314,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO Validation
 		
 		
-		// TODO get L if it is a Stationary Gizmo
+	// TODO get L if it is a Stationary Gizmo
 		
-
+		
 		gizmo.move(x, y);
 
 		update();

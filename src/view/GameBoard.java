@@ -52,9 +52,6 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
 
-			// Translate the gizmo to the appropriate position on the board
-			g2d.translate(giz.getX(), giz.getY());
-
 			// Draw the shape
 			g2d.fill(s);
 
@@ -71,9 +68,6 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
-
-			// Translate the gizmo to the appropriate position on the board
-			g2d.translate(giz.getMovingX(), giz.getMovingY());
 
 			// Draw the shape
 			g2d.fill(s);
