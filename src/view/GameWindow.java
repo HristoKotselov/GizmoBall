@@ -104,6 +104,8 @@ public class GameWindow implements IGameWindow {
 		buildModeWindow.setVisible(true);
 	}
 	
+	
+	
 	@Override
 	public void switchToPlayMode(){
 		// TODO 
