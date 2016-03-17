@@ -150,7 +150,9 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	
+/* Overwritting methods */
 	@Override
 	public String toString() {
 		int x2 = (getX() / MainEngine.L) + bmWidth;

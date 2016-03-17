@@ -141,6 +141,7 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		return false;
 	}
 
+/* Overwritting methods */
 	@Override
 	public String toString() {
 		String s = "Triangle " + super.toString();

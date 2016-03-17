@@ -131,6 +131,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 		return false;
 	}
 
+/* Overwritting methods */
 	@Override
 	public String toString(){
 		return "Square " + super.toString();

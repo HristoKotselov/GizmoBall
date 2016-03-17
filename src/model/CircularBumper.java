@@ -87,6 +87,8 @@ public class CircularBumper extends AStationaryGizmo {
 		return false;
 	}
 	
+	
+/* Overwritting methods */
 	@Override
 	public String toString(){
 		return "Circle " + super.toString();

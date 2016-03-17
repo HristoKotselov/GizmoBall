@@ -9,22 +9,6 @@ import java.awt.Color;
  * Examples:	Square Bumper, Circular Bumper, Flipper
  */
 abstract public class AStationaryGizmo extends AGizmoComponent {
-	
-/* The following attributes have to be decided before the Gizmo is created **/
-	/**
-	 * The horizontal-coordinate of the component (in pixel). Along with
-	 * ypos, this determines the position of a Gizmo component on the
-	 * board. Where this is exactly depends on the type of Gizmo
-	 **/
-	private int xpos;
-	
-	/**
-	 * The vertical-coordinate of the component (in pixel). Along with
-	 * xpos, this determines the position of a Gizmo component on the
-	 * board. Where this is exactly depends on the type of Gizmo
-	 **/
-	private int ypos;
-
 /* The following attributes have default values for each Gizmo components (will be defined automatically in sub-classes)
  * or will be modified in the constructor of sub-classes */
 	/**
@@ -49,11 +33,8 @@ abstract public class AStationaryGizmo extends AGizmoComponent {
 
 	
 	public AStationaryGizmo(String name, int x, int y, Color color) {
-		super(name, color);
+		super(name, x, y, color);
 		
-		xpos = x;
-		ypos = y;
-
 		bmWidth = 1;
 		bmHeight = 1;
 	}
@@ -72,44 +53,7 @@ abstract public class AStationaryGizmo extends AGizmoComponent {
 /* Abstract methods that can be implemented already */
 	@Override
 	public String toString() {
-		return getGizmoID() + " " + (xpos / MainEngine.L) + " " + (ypos / MainEngine.L);
+		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
 	}
-	
-	
-/* Shared methods across AStatueGizmo & AMovingGizmo, but with different parameters */
-	
-	public boolean setX(int x) {
-		// TODO some validation
-		xpos = x;
-		return true;
-	}
-
-	public int getX() {
-		return xpos;
-	}
-
-	public boolean setY(int y) {
-		// TODO some validation
-		ypos = y;
-		return true;
-	}
-
-	public int getY() {
-		return ypos;
-	}
-	
-	/**
-	 * Method called when the user decides to move a Gizmo component.
-	 * 
-	 * @param newX
-	 *            - new X coordinate
-	 * @param newY
-	 *            - new Y coordinate
-	 * @modify this
-	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
-	 *         collection of Line Segment is updated; IF gizmo is a supertype of
-	 *         AStatueGizmo, THEN drawingShape is updated.
-	 */
-	abstract public boolean move(int newX, int newY);
 
 }

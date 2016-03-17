@@ -15,63 +15,28 @@ import physics.Vect;
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
 
-	/** The horizontal-coordinate of the component (in pixel). Along with the preciseYPos,
+	/** The horizontal-coordinate of the component (in pixel). Along with the movingYPos,
 	 * This determines the position of a Gizmo component on the board, during gameplay. 
 	 * Where this is exactly depends on the type of Gizmo. **/
-	private double preciseXPos;
+	private double movingXPos;
 	
-	/** The vertical-coordinate of the component (in pixel). Along with the preciseXPos,
+	/** The vertical-coordinate of the component (in pixel). Along with the movingXPos,
 	 * This determines the position of a Gizmo component on the board, during gameplay. 
 	 * Where this is exactly depends on the type of Gizmo. **/
-	private double preciseYPos;
-	
-	/** Same as preciseXPos, but this value is used to determine the Gizmo's position 
-	 * before the game starts (i.e. during Build Mode) **/
-	private double preciseXStartingPos;
-	
-	/** Same as preciseYPos, but this value is used to determine the Gizmo's position 
-	 * before the game starts (i.e. during Build Mode) **/
-	private double preciseYStartingPos;
-
-	private Vect velocity;
+	private double movingYPos;
 
 	private boolean stopped;
 
 	
 	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
-		super(name, color);
+		super(name, (int) x, (int) y, color);
 
-		preciseXPos = x; // Centre coordinates
-		preciseYPos = y;
-		preciseXStartingPos = x;
-		preciseYStartingPos = y;
-		velocity = new Vect(theta, velo);
+		movingXPos = x; // Centre coordinates
+		movingYPos = y;
 	}
 
 
 /* Exclusive Methods to this type of Gizmo */
-	public boolean setPreciseStartingX(double x) {
-		// TODO Validation
-		preciseXStartingPos = x;
-		
-		return true;
-	}
-
-	public boolean setPreciseStartingY(double y) {
-		// TODO Validation
-		preciseYStartingPos = y;
-		
-		return true;
-	}
-
-	public double getPreciseStartingX() {
-		return preciseXStartingPos;
-	}
-
-	public double getPreciseStartingY() {
-		return preciseYStartingPos;
-	}
-
 	public void stop() {
 		stopped = true;
 	}
@@ -83,63 +48,37 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public boolean stopped() {
 		return stopped;
 	}
-
-	public void setVelo(Vect v) {
-		// TODO Validation
-		velocity = v;
-	}
-
-	public Vect getVelo() {
-		return velocity;
-	}
-	
 	
 /* Abstract methods that can be implemented already */
 	@Override
 	public String toString() {
 		
-		// TODO Adapt to new class
-		// return getGizmoID() + " " + (xpos / MainEngine.L) + " " + (ypos / MainEngine.L);
-		return null;
+		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
 	}
 	
 /* Shared methods across AStatueGizmo & AMovingGizmo, but with different parameters */
 	
-	public boolean setPreciseX(double x) {
+	public boolean setMovingX(double x) {
 		// TODO Validation
-		preciseXPos = x;
+		movingXPos = x;
 		
 		return true;
 	}
 
-	public boolean setPreciseY(double y) {
+	public boolean setMovingY(double y) {
 		// TODO Validation
-		preciseYPos = y;
+		movingYPos = y;
 		
 		return true;
 	}
 
-	public double getPreciseX() {
-		return preciseXPos;
+	public double getMovingX() {
+		return movingXPos;
 	}
 
-	public double getPreciseY() {
-		return preciseYPos;
+	public double getMovingY() {
+		return movingYPos;
 	}
-	
-	/**
-	 * Method called when the user decides to move a Gizmo component.
-	 * 
-	 * @param newX
-	 *            - new X coordinate
-	 * @param newY
-	 *            - new Y coordinate
-	 * @modify this
-	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
-	 *         collection of Line Segment is updated; IF gizmo is a supertype of
-	 *         AStatueGizmo, THEN drawingShape is updated.
-	 */
-	abstract public boolean move(double newX, double newY);
 
 
 }

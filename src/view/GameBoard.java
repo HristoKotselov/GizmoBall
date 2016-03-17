@@ -21,11 +21,11 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 
 	public GameBoard(IMainEngine m) {
-		// TODO change to (400, 400)
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
 
 		model = m;
+		model.setWallDimensions(getPreferredSize().width, getPreferredSize().height);
 		model.addObserver(this);
 	}
 
@@ -42,10 +42,10 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		AffineTransform old = g2d.getTransform();
 
 		
-		// Iterate over all stationary gizmos
-		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
-
-		for (AStationaryGizmo giz : sGizmos) {
+		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
+		
+		// Iterate over all gizmos
+		for (AGizmoComponent giz : gizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());

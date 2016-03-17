@@ -110,7 +110,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
+/* Overwritting methods */
 	@Override
 	public String toString() {
 		String s;

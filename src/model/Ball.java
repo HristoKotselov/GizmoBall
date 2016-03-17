@@ -8,16 +8,20 @@ import java.util.Set;
 
 import physics.Angle;
 import physics.Circle;
+import physics.Vect;
 
 public class Ball extends AMovingGizmo {
-
+	
+	private Vect velocity;
+	
 	private double radius;
 
 	// x, y coordinates and x,y velocity
-	public Ball(String name, Color color, double x, double y, Angle theta, double yv) {
-		super(name, x, y, color, theta, yv);
+	public Ball(String name, Color color, double x, double y, Angle theta, double velo) {
+		super(name, x, y, color, theta, velo);
 		start();
 
+		velocity = new Vect(theta, velo);
 		radius = 5;
 	}
 
@@ -31,7 +35,7 @@ public class Ball extends AMovingGizmo {
 	public Set<Circle> getCircles() {
 		Set<Circle> circleSet = new HashSet<Circle>();
 		
-		circleSet.add(new Circle(getPreciseX(), getPreciseY(), radius));
+		circleSet.add(new Circle(getMovingX(), getMovingY(), radius));
 		
 		return circleSet;
 	}
@@ -51,7 +55,7 @@ public class Ball extends AMovingGizmo {
 	}
 
 	@Override
-	public boolean move(double newX, double newY) {
+	public boolean move(int newX, int newY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -61,6 +65,17 @@ public class Ball extends AMovingGizmo {
 	public double getRadius() {
 		return radius;
 	}
+	
+
+	public void setVelo(Vect v) {
+		// TODO Validation
+		velocity = v;
+	}
+
+	public Vect getVelo() {
+		return velocity;
+	}
+	
 
 	/**
 	 * TODO
@@ -68,7 +83,7 @@ public class Ball extends AMovingGizmo {
 	 * @return
 	 */
 	public Circle getCircle() {
-		return new Circle(getPreciseX(), getPreciseY(), radius);
+		return new Circle(getMovingX(), getMovingY(), radius);
 	}
 
 }

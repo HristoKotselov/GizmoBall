@@ -16,6 +16,22 @@ abstract public class AGizmoComponent {
 /* The following attributes have to be decided before the Gizmo is created **/
 	/** A String given to a Gizmo to identity it **/
 	private String gizmoID;
+	
+	/**
+	 * The horizontal-coordinate of the component (in pixel). Along with
+	 * x-coordinate, this determines the position of a Gizmo component on the
+	 * board. For moving Gizmos, this determines their starting position when
+	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 **/
+	private int xpos;
+	/**
+	 * The vertical-coordinate of the component (in pixel). Along with
+	 * y-coordinate, this determines the position of a Gizmo component on the
+	 * board. For moving Gizmos, this determines their starting position when
+	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 **/
+	private int ypos;
+	
 	/**
 	 * Colour of the Gizmo, used by the view to determine what colour to paint
 	 **/
@@ -25,6 +41,7 @@ abstract public class AGizmoComponent {
  * or will be modified in the constructor of sub-classes */
 	/** Whether the Gizmo is visible on the board or not */
 	private boolean visibility;
+	
 	/**
 	 * The angle of rotation of a Gizmo. In this project, the default position
 	 * of a Gizmo component is treated as 0.
@@ -32,9 +49,10 @@ abstract public class AGizmoComponent {
 	protected int rotationAngle;
 	
 
-	public AGizmoComponent(String name, Color color) {
+	public AGizmoComponent(String name, int x , int y, Color color) {
 		gizmoID = name;
-
+		xpos = x;
+		ypos = y;
 		this.colour = color;
 
 		// Default settings
@@ -46,6 +64,26 @@ abstract public class AGizmoComponent {
 /* Concrete methods */
 	public String getGizmoID() {
 		return gizmoID;
+	}
+	
+	public boolean setX(int x) {
+		// TODO some validation
+		xpos = x;
+		return true;
+	}
+
+	public int getX() {
+		return xpos;
+	}
+
+	public boolean setY(int y) {
+		// TODO some validation
+		ypos = y;
+		return true;
+	}
+
+	public int getY() {
+		return ypos;
 	}
 
 	public boolean setColour(Color color) {
@@ -101,6 +139,21 @@ abstract public class AGizmoComponent {
 	 *         them.
 	 */
 	abstract public boolean rotate(int degree);
+	
+	
+	/**
+	 * Method called when the user decides to move a Gizmo component.
+	 * 
+	 * @param newX
+	 *            - new X coordinate
+	 * @param newY
+	 *            - new Y coordinate
+	 * @modify this
+	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
+	 *         collection of Line Segment is updated; IF gizmo is a supertype of
+	 *         AStatueGizmo, THEN drawingShape is updated.
+	 */
+	abstract public boolean move(int newX, int newY);
 	
 	abstract public String toString();
 

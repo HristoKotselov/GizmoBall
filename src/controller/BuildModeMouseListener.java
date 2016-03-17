@@ -17,6 +17,10 @@ public class BuildModeMouseListener implements MouseListener {
 	private IMainEngine m;
 
 	private int x, y;
+	/** Values used when a Gizmo can have variable width\height (e.g. Absorber) 
+	 * -1 is the default value that indicates the 1st click is required to 
+	 * start the size-selection procedures.
+	 **/
 	private int x2 = -1, y2 = -1;
 
 	public BuildModeMouseListener(IMainEngine m, BuildMenu bm) {
