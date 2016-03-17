@@ -8,22 +8,24 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
+import model.AStationaryGizmo;
 import model.IMainEngine;
 
 public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 
 	public GameBoard(IMainEngine m) {
-		// TODO change to (400, 400)
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
 
 		model = m;
+		model.setWallDimensions(getPreferredSize().width, getPreferredSize().height);
 		model.addObserver(this);
 	}
 
@@ -32,7 +34,6 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
-		Map<String, AGizmoComponent> gizmos = model.getGizmosMap();
 
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -40,8 +41,11 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// Save the default transformation
 		AffineTransform old = g2d.getTransform();
 
+		
+		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
+		
 		// Iterate over all gizmos
-		for (AGizmoComponent giz : gizmos.values()) {
+		for (AGizmoComponent giz : gizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());

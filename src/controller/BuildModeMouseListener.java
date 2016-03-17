@@ -17,8 +17,20 @@ public class BuildModeMouseListener implements MouseListener {
 	private IMainEngine m;
 
 	private int x, y;
+	/** 
+	 * Memory values used when adding a Gizmo can have variable width\height (e.g. Absorber)
+	 * 
+	 * -1 is the default value that indicates the 1st click is required to 
+	 * start the size-selection procedures.
+	 **/
 	private int x2 = -1, y2 = -1;
 
+	/**
+	 * Memory value used when moving a Gizmo to a different position.
+	 * 
+	 * null is the default value that indicates the 1st click is required to 
+	 * start the moving procedure.
+	 */
 	private AGizmoComponent moveG;
 
 	public BuildModeMouseListener(IMainEngine m, BuildMenu bm) {
@@ -62,6 +74,7 @@ public class BuildModeMouseListener implements MouseListener {
 			case "Move Gizmo":
 				if (moveG == null) {
 					moveG = m.getGizmoAt(x, y);
+				// TODO change ActionTip to remind user of the currently selected Gizmo
 				} else {
 					m.moveGizmo(moveG, x, y);
 					moveG = null;
@@ -102,7 +115,7 @@ public class BuildModeMouseListener implements MouseListener {
 						if (x2 == -1 && y2 == -1) {
 							x2 = x;
 							y2 = y;
-
+						// TODO change ActionTip to remind user of the currently selected Absorber
 						} else {
 							// Top left corner
 							int x1 = Math.min(x, x2);

@@ -15,113 +15,28 @@ import physics.Vect;
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
 
-	/** X-coordinate (pixel) of the Gizmo at any moment during gameplay **/
-	private double preciseXPos;
-	/** Y-coordinate (pixel) of the Gizmo at any moment during gameplay **/
-	private double preciseYPos;
-	/** X-coordinate (pixel) of the Gizmo before the game starts (i.e. during Build Mode) **/
-	private double preciseXStartingPos;
-	/** Y-coordinate (pixel) of the Gizmo before the game starts (i.e. during Build Mode) **/
-	private double preciseYStartingPos;
-
-	private Vect velocity;
+	/** The horizontal-coordinate of the component (in pixel). Along with the movingYPos,
+	 * This determines the position of a Gizmo component on the board, during gameplay. 
+	 * Where this is exactly depends on the type of Gizmo. **/
+	private double movingXPos;
+	
+	/** The vertical-coordinate of the component (in pixel). Along with the movingXPos,
+	 * This determines the position of a Gizmo component on the board, during gameplay. 
+	 * Where this is exactly depends on the type of Gizmo. **/
+	private double movingYPos;
 
 	private boolean stopped;
 
+	
 	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
 		super(name, (int) x, (int) y, color);
 
-		preciseXPos = x; // Centre coordinates
-		preciseYPos = y;
-		preciseXStartingPos = x;
-		preciseYStartingPos = y;
-		velocity = new Vect(theta, velo);
-	}
-	
-	/** 
-	 * Same function as setPreciseX(), but rounding the parameter to whole number.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#setY(int)
-	 */
-	@Override
-	public boolean setX(int x) {
-		return setPreciseX(x);
+		movingXPos = x; // Centre coordinates
+		movingYPos = y;
 	}
 
-	/** 
-	 * Same function as setPreciseY(), but rounding the parameter to whole number.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#setY(int)
-	 */
-	@Override
-	public boolean setY(int y) {
-		return setPreciseY(y);
-	}
-	
-	/** 
-	 * Same function as getPreciseX(), but rounding to whole number first.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#getY(int)
-	 */
-	@Override
-	public int getX() {
-		return (int) preciseXPos;
-	}
 
-	/** 
-	 * Same function as getPreciseY(), but rounding to whole number first.
-	 * This method replaces the version from AGizmoComponent.
-	 * @see model.AGizmoComponent#getY(int)
-	 */
-	@Override
-	public int getY() {
-		return (int) preciseYPos;
-	}
-
-	public boolean setPreciseX(double x) {
-		// TODO Validation
-		preciseXPos = x;
-		
-		return true;
-	}
-
-	public boolean setPreciseY(double y) {
-		// TODO Validation
-		preciseYPos = y;
-		
-		return true;
-	}
-
-	public double getPreciseX() {
-		return preciseXPos;
-	}
-
-	public double getPreciseY() {
-		return preciseYPos;
-	}
-
-	public boolean setPreciseStartingX(double x) {
-		// TODO Validation
-		preciseXStartingPos = x;
-		
-		return true;
-	}
-
-	public boolean setPreciseStartingY(double y) {
-		// TODO Validation
-		preciseYStartingPos = y;
-		
-		return true;
-	}
-
-	public double getPreciseStartingX() {
-		return preciseXStartingPos;
-	}
-
-	public double getPreciseStartingY() {
-		return preciseYStartingPos;
-	}
-
+/* Exclusive Methods to this type of Gizmo */
 	public void stop() {
 		stopped = true;
 	}
@@ -133,14 +48,37 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public boolean stopped() {
 		return stopped;
 	}
-
-	public void setVelo(Vect v) {
+	
+/* Abstract methods that can be implemented already */
+	@Override
+	public String toString() {
+		
+		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
+	}
+	
+/* Shared methods across AStatueGizmo & AMovingGizmo, but with different parameters */
+	
+	public boolean setMovingX(double x) {
 		// TODO Validation
-		velocity = v;
+		movingXPos = x;
+		
+		return true;
 	}
 
-	public Vect getVelo() {
-		return velocity;
+	public boolean setMovingY(double y) {
+		// TODO Validation
+		movingYPos = y;
+		
+		return true;
 	}
+
+	public double getMovingX() {
+		return movingXPos;
+	}
+
+	public double getMovingY() {
+		return movingYPos;
+	}
+
 
 }

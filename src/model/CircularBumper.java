@@ -3,75 +3,101 @@ package model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+import java.util.HashSet;
 import java.util.Set;
 
 import physics.Circle;
+import physics.LineSegment;
 
-public class CircularBumper extends AStatueGizmo {
+public class CircularBumper extends AStationaryGizmo {
 
 	private int radius;
+	
+	/* Collections used to optimise up game performance */
+	/** The visual representation of the Gizmo. Used by drawing code to determine 
+	 * what a Gizmo will look like on screen. **/
+	private Shape drawingShape;
+	/** A set of Circles belonging to this Gizmo. They act as collision detectors
+	 * with a ball, often at the edges of a shape. **/
+	protected Set<Circle> circleSet = new HashSet<Circle>();
 
 	public CircularBumper(String name, int grid_tile_x, int grid_tile_y, Color color) {
-		/* NOTE -	The following methods are called by the superclass's constructor:
-			setupDrawingShape();
-			setupCircles();
-		*/
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
 		
 		radius = 10;
 		
 
+		// Collection-speed up initialisation
+		circleSet = new HashSet<Circle>();
+		updateCollections();
 	}
 
+
+
+/* Ball's Collection-sped up methods (Circle, DrawingShape) */
+	@Override
+	public Shape getDrawingShape() {
+		return drawingShape;
+	}
+	
+	private void setupDrawingShape() {
+		drawingShape = new Ellipse2D.Double(0, 0, MainEngine.L, MainEngine.L);
+	}
+	
+	@Override
+	public Set<Circle> getCircles() {
+		return circleSet;
+	}
+
+	private void setupCircles() {
+		Circle circle = new Circle(getX() + 10, getY() + 10, 10);
+		circleSet.add(circle);
+	}
+	
+	private void updateCollections() {
+		setupDrawingShape();
+		setupCircles();
+	}
+
+	
+	
+
+/* Regular methods implementation */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	protected void setupDrawingShape() {
-		drawingShape = new Ellipse2D.Double(0, 0, MainEngine.L, MainEngine.L);
-	}
-
-	@Override
-	protected void setupCircles() {
-		Circle circle = new Circle(getX() + 10, getY() + 10, 10);
-		circleSet.add(circle);
-	}
-
-	@Override
-	public void updateCollections() {
-		setupDrawingShape();
-		setupCircles();
-	}
-
+	
 	@Override
 	public boolean rotate(int degree) {
-
-		updateCollections();
-
-		// TODO Auto-generated method stub
-		return false;
+		// Circle shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
 	@Override
 	public boolean move(int newX, int newY) {
+		// TODO Validation
+		
 		super.move(newX, newY);
 		
 		updateCollections();
 
-		// TODO Auto-generated method stub
 		return false;
 	}
-
-	/* CircularBumper exclusive methods */
-	public double getRadius() {
-		return radius;
-	}
-
+	
+	
+/* Overwritting methods */
 	@Override
 	public String toString(){
 		return "Circle " + super.toString();
 	}
+	
+
+/* CircularBumper exclusive methods */
+	public double getRadius() {
+		return radius;
+	}
+
+
 }

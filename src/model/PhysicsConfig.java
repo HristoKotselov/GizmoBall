@@ -2,8 +2,6 @@ package model;
 
 public class PhysicsConfig {
 
-	private double moveTime;
-
 	// Friction
 	private double mu1;
 	private double mu2;
@@ -13,8 +11,6 @@ public class PhysicsConfig {
 
 	/* Default settings */
 	public PhysicsConfig() {
-		moveTime = 1.0 / 60.0; // 60 FPS
-
 		// Friction
 		mu1 = 0.025;
 		mu2 = 0.025 / MainEngine.L;
@@ -26,16 +22,6 @@ public class PhysicsConfig {
 	/* Custom Settings */
 	public PhysicsConfig(double mu, double mu2, double g) {
 		// TODO some validation
-	}
-
-	public boolean setMoveTime(double newMoveTime) {
-		// TODO some validation
-		moveTime = newMoveTime;
-		return true;
-	}
-
-	public double getMoveTime() {
-		return moveTime;
 	}
 
 	public boolean setGravity(double newGravity) {
