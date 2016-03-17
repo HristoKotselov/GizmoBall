@@ -132,16 +132,18 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		return false;
 	}
 
+/* Overwritten methods */
 	@Override
-	public boolean move(int newX, int newY) {
-
+	public boolean move(int grid_tile_x, int grid_tile_y) {
+		// TODO Validation
+		
+		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
 		updateCollections();
-
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
-
-/* Overwritting methods */
+	
 	@Override
 	public String toString() {
 		String s = "Triangle " + super.toString();

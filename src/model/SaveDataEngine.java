@@ -108,17 +108,14 @@ public final class SaveDataEngine {
 							break;
 
 						case "Move":
-							// name = st.nextToken();
-							// x = Integer.parseInt(st.nextToken());
-							// y = Integer.parseInt(st.nextToken());
-							// System.out.println("Moving \"" + name + "\" to ("
-							// + x
-							// + ", " + y + ")");
-							//
-							// g = b.getGizmo(name);
-							// g.setX(x);
-							// g.setY(y);
-							// break;
+							name = st.nextToken();
+							x = Integer.parseInt(st.nextToken());
+							y = Integer.parseInt(st.nextToken());
+							System.out.println("Moving \"" + name + "\" to (" + x + ", " + y + ")");
+
+							g = model.getGizmo(name);
+							model.moveGizmo(g, x, y);
+							break;
 
 						case "Delete":
 							name = st.nextToken();
@@ -165,19 +162,19 @@ public final class SaveDataEngine {
 
 	public static void saveFile(String filePath, MainEngine model) {
 		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
-		
+
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filePath)));
-			
-			for (AGizmoComponent g : gizmos){
+
+			for (AGizmoComponent g : gizmos) {
 				bw.write(g.toString() + "\n");
 			}
-			
-			//TODO Ball(s), Connect, KeyConnect, Gravity, Friction 
-			
+
+			// TODO Ball(s), Connect, KeyConnect, Gravity, Friction
+
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 }

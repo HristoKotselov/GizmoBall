@@ -115,23 +115,22 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 
 	@Override
 	public boolean rotate(int degree) {
-
-		updateCollections();
-
-		// TODO Auto-generated method stub
-		return false;
+		// Square shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
+/* Overwritten methods */
 	@Override
-	public boolean move(int newX, int newY) {
-
+	public boolean move(int grid_tile_x, int grid_tile_y) {
+		// TODO Validation
+		
+		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
 		updateCollections();
-
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
-
-/* Overwritting methods */
+	
 	@Override
 	public String toString(){
 		return "Square " + super.toString();

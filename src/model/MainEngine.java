@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import java.util.Observable;
 import java.util.Set;
 import physics.Angle;
@@ -38,6 +37,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	private PhysicsConfig physicsSettings;
 	private CollisionHandler collisionHandler;
 	private Connections customConnections;
+
 
 /* Run time values */
 	
@@ -69,40 +69,43 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void moveBalls() {
-		// Friction		- from 	6.170 Final Project  Gizmoball
+		// Friction - from 6.170 Final Project Gizmoball
 		double mu1 = physicsSettings.getFrictionCoef1();
 		double mu2 = physicsSettings.getFrictionCoef2();
 
-		// Gravity		- from 	6.170 Final Project  Gizmoball
+		// Gravity - from 6.170 Final Project Gizmoball
 		double gravity = physicsSettings.getGravity();
 
+		// called to get a list of collisions
+		List<CollisionDetails> collisionList = calcTimesUntilCollision(); 
 		
-		List<CollisionDetails> collisionList = calcTimesUntilCollision();		// called to get a list of collisions
 
-		
 		// Temp variables setup
 		Ball ball;
 		double frictionScale;
 		double tuc;
 		AGizmoComponent collider;
-		
-		
+
+
 		for (CollisionDetails cd : collisionList) {
 			ball = cd.getBall();
-			
+
+		// TODO need to move all the Physics out of this loop, to before calcTimesUntilCollision() above
 			// Apply friction to Ball
 			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(frictionScale));
-			
+
 			// Apply gravity to Ball
 			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
-			
-			tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
-			
+
+			tuc = cd.getTuc(); // i.e. what is the time to the nearest future
+								// collision...?
+
 			if (tuc > moveTime) {
 				// No collision ...
 				moveBallAtCurrentVelo(ball, moveTime);
 			} else {
+
 				// We've got a collision in tuc, so move the ball until it directly touches the collider
 				moveBallAtCurrentVelo(ball, tuc);	
 
@@ -132,7 +135,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	private List<CollisionDetails> calcTimesUntilCollision() {
 
 		List<CollisionDetails> collisionList = new ArrayList<CollisionDetails>();
-		
+
 		for (Ball ball : ballSet) {
 			// Find Time Until Collision and also, if there is a collision, the
 			// new
@@ -200,16 +203,16 @@ public class MainEngine extends Observable implements IMainEngine {
 			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
 			collisionList.add(cd);
 		}
-		
+
 		return collisionList;
 	}
-	
+
 	@Override
-	public double getMoveTime(){
+	public double getMoveTime() {
 		return moveTime;
 	}
-	
-	
+
+
 	@Override
 	public void setBallSpeed(Ball b, Vect velo) {
 		// TODO Auto-generated method stub
@@ -304,8 +307,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	public AGizmoComponent getGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
 		int gizmosY_in_L;
-		
-		
+
 		// TODO loop for AMovingGizmo first, as they cover a smaller area of the screen
 		
 		for (AStationaryGizmo sGizmo : stationaryGizmos) {
@@ -337,7 +339,8 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void loadFile(String filePath) {
-		gizmos = new HashMap<String, AGizmoComponent>();		// get rid of all existing Gizmos
+		gizmos = new HashMap<String, AGizmoComponent>(); // get rid of all
+															// existing Gizmos
 		SaveDataEngine.loadFile(filePath, this);
 	}
 
@@ -363,5 +366,21 @@ public class MainEngine extends Observable implements IMainEngine {
 		setChanged();
 		notifyObservers();
 	}
-	
+
+	@Override
+	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y) {
+		// TODO handle null
+		// TODO handle absorber off screen?
+		// TODO Validation
+		
+		// Gizmo needs to be removed then re-added to properly handle overlap
+		// with other components
+		removeGizmo(gizmo);
+		gizmo.move(x, y);
+		addGizmo(gizmo);
+
+		update();
+
+		return false;
+	}
 }

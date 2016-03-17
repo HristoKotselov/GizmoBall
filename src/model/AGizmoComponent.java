@@ -47,7 +47,6 @@ abstract public class AGizmoComponent {
 	 * of a Gizmo component is treated as 0.
 	 **/
 	protected int rotationAngle;
-	
 
 	public AGizmoComponent(String name, int x , int y, Color color) {
 		gizmoID = name;
@@ -108,6 +107,25 @@ abstract public class AGizmoComponent {
 		return visibility;
 	}
 	
+	/**
+	 * Method called when the user decides to move a Gizmo component.
+	 * 
+	 * @param newX
+	 *            - new X coordinate (in pixels)
+	 * @param newY
+	 *            - new Y coordinate (in pixels)
+	 * @modify this
+	 * @effect xpos & ypos is updated with the new values.
+	 */
+	public boolean move(int newX, int newY) {
+		// TODO Validation
+	
+		setX(newX);
+		setY(newY);
+		
+		return false;
+	}
+	
 	
 /* Collection-sped-up-able abstract methods*/
 	abstract public Shape getDrawingShape();
@@ -139,21 +157,6 @@ abstract public class AGizmoComponent {
 	 *         them.
 	 */
 	abstract public boolean rotate(int degree);
-	
-	
-	/**
-	 * Method called when the user decides to move a Gizmo component.
-	 * 
-	 * @param newX
-	 *            - new X coordinate
-	 * @param newY
-	 *            - new Y coordinate
-	 * @modify this
-	 * @effect Circle Set is updated; IF gizmo uses Line Segments, THEN the
-	 *         collection of Line Segment is updated; IF gizmo is a supertype of
-	 *         AStatueGizmo, THEN drawingShape is updated.
-	 */
-	abstract public boolean move(int newX, int newY);
 	
 	abstract public String toString();
 

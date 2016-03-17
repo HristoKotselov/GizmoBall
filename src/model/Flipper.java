@@ -105,13 +105,16 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		return false;
 	}
 
+/* Overwritten methods */
 	@Override
-	public boolean move(int newX, int newY) {
-		// TODO Auto-generated method stub
+	public boolean move(int grid_tile_x, int grid_tile_y) {
+		// TODO Validation
+		
+		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+
 		return false;
 	}
 
-/* Overwritting methods */
 	@Override
 	public String toString() {
 		String s;

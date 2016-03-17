@@ -50,13 +50,17 @@ public class Ball extends AMovingGizmo {
 
 	@Override
 	public boolean rotate(int degree) {
-		// TODO Auto-generated method stub
-		return false;
+		// Ball shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
+/* Overwritten methods */
 	@Override
-	public boolean move(int newX, int newY) {
-		// TODO Auto-generated method stub
+	public boolean move(int x, int y) {
+		// TODO Validation
+		
+		super.move(x, y);
+
 		return false;
 	}
 

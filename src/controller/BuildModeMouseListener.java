@@ -17,11 +17,21 @@ public class BuildModeMouseListener implements MouseListener {
 	private IMainEngine m;
 
 	private int x, y;
-	/** Values used when a Gizmo can have variable width\height (e.g. Absorber) 
+	/** 
+	 * Memory values used when adding a Gizmo can have variable width\height (e.g. Absorber)
+	 * 
 	 * -1 is the default value that indicates the 1st click is required to 
 	 * start the size-selection procedures.
 	 **/
 	private int x2 = -1, y2 = -1;
+
+	/**
+	 * Memory value used when moving a Gizmo to a different position.
+	 * 
+	 * null is the default value that indicates the 1st click is required to 
+	 * start the moving procedure.
+	 */
+	private AGizmoComponent moveG;
 
 	public BuildModeMouseListener(IMainEngine m, BuildMenu bm) {
 		this.m = m;
@@ -61,6 +71,17 @@ public class BuildModeMouseListener implements MouseListener {
 
 				break;
 
+			case "Move Gizmo":
+				if (moveG == null) {
+					moveG = m.getGizmoAt(x, y);
+				// TODO change ActionTip to remind user of the currently selected Gizmo
+				} else {
+					m.moveGizmo(moveG, x, y);
+					moveG = null;
+				}
+
+				break;
+
 			case "Add Gizmo":
 				String selectedGizmo = bm.getSelectedGizmo();
 
@@ -71,22 +92,22 @@ public class BuildModeMouseListener implements MouseListener {
 						break;
 
 					case "Triangle":
-						g = new TriangularBumper("t(" + x + "," + y+ ")", x, y, Color.RED);
+						g = new TriangularBumper("t(" + x + "," + y + ")", x, y, Color.RED);
 						m.addGizmo(g);
 						break;
 
 					case "Circle":
-						g = new CircularBumper("c(" + x + "," + y+ ")", x, y, Color.BLUE);
+						g = new CircularBumper("c(" + x + "," + y + ")", x, y, Color.BLUE);
 						m.addGizmo(g);
 						break;
 
 					case "Left Flipper":
-						g = new Flipper("lf(" + x + "," + y+ ")", x, y, Color.ORANGE, true);
+						g = new Flipper("lf(" + x + "," + y + ")", x, y, Color.ORANGE, true);
 						m.addGizmo(g);
 						break;
 
 					case "Right Flipper":
-						g = new Flipper("rf(" + x + "," + y+ ")", x, y, Color.ORANGE, false);
+						g = new Flipper("rf(" + x + "," + y + ")", x, y, Color.ORANGE, false);
 						m.addGizmo(g);
 						break;
 
@@ -94,7 +115,7 @@ public class BuildModeMouseListener implements MouseListener {
 						if (x2 == -1 && y2 == -1) {
 							x2 = x;
 							y2 = y;
-
+						// TODO change ActionTip to remind user of the currently selected Absorber
 						} else {
 							// Top left corner
 							int x1 = Math.min(x, x2);
@@ -105,7 +126,7 @@ public class BuildModeMouseListener implements MouseListener {
 							x2 = Math.max(x, x2) + 1;
 							y2 = Math.max(y, y2) + 1;
 
-							g = new Absorber("a(" + x1 + "," + y1+ ")", x1, y1, x2 - x1, y2 - y1, Color.MAGENTA);
+							g = new Absorber("a(" + x1 + "," + y1 + ")", x1, y1, x2 - x1, y2 - y1, Color.MAGENTA);
 							m.addGizmo(g);
 
 							x2 = -1;

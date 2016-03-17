@@ -141,18 +141,19 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		// Absorber shouldn't be rotatable so this method doesn't need to do anything
 		return true;
 	}
-
+	
+/* Overwritten methods */
 	@Override
-	public boolean move(int newX, int newY) {
-
+	public boolean move(int grid_tile_x, int grid_tile_y) {
+		// TODO Validation
+		
+		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
 		updateCollections();
-
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
-
 	
-/* Overwritting methods */
 	@Override
 	public String toString() {
 		int x2 = (getX() / MainEngine.L) + bmWidth;
@@ -160,7 +161,6 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 		return "Absorber " + super.toString() + " " + x2 + " " + y2;
 	}
-
 
 /* Absorber exclusive methods */
 	public void setBall(Ball b) {

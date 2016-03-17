@@ -71,19 +71,18 @@ public class CircularBumper extends AStationaryGizmo {
 	
 	@Override
 	public boolean rotate(int degree) {
-
-		updateCollections();
-
-		// TODO Auto-generated method stub
-		return false;
+		// Circle shouldn't be rotatable so this method doesn't need to do anything
+		return true;
 	}
 
 	@Override
 	public boolean move(int newX, int newY) {
-
+		// TODO Validation
+		
+		super.move(newX, newY);
+		
 		updateCollections();
 
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
