@@ -365,7 +365,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		if(gizmo instanceof AStationaryGizmo){
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			
-			// Check for any overlapping gizmos
+			// Check for any overlapping Stationary Gizmos
 			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
 				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
 					AGizmoComponent g = getStationaryGizmoAt(grid_tile_x + i, grid_tile_y + j);
@@ -375,7 +375,9 @@ public class MainEngine extends Observable implements IMainEngine {
 						spaceOccupied = true;
 					}
 				}
-			}	
+			}
+			
+			// TODO Check for any overlapping Moving Gizmos (i.e. Ball)
 		}
 		
 		if(!spaceOccupied){
