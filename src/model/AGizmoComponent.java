@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.Shape;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,15 +21,17 @@ abstract public class AGizmoComponent {
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with
 	 * x-coordinate, this determines the position of a Gizmo component on the
-	 * board. For moving Gizmos, this determines their starting position when
-	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 * board. For stationary Gizmos, this point should always be the left 
+	 * corner of a grid square. For moving Gizmos, this determines their 
+	 * starting position when the game starts. 
 	 **/
 	private int xpos;
 	/**
 	 * The vertical-coordinate of the component (in pixel). Along with
 	 * y-coordinate, this determines the position of a Gizmo component on the
-	 * board. For moving Gizmos, this determines their starting position when
-	 * the game starts. Where this is exactly depends on the type of Gizmo.
+	 * board. For stationary Gizmos, this point should always be the left 
+	 * corner of a grid square. For moving Gizmos, this determines their 
+	 * starting position when the game starts. 
 	 **/
 	private int ypos;
 	
@@ -111,7 +114,7 @@ abstract public class AGizmoComponent {
 	
 /* Concrete methods that might be overwritten */
 	/**
-	 * Method called when the user decides to move a Gizmo component.
+	 * Method called when the user decides to move this Gizmo component.
 	 * 
 	 * @param newX
 	 *            - new X coordinate (in pixels)
@@ -120,18 +123,29 @@ abstract public class AGizmoComponent {
 	 * @modify this
 	 * @effect xpos & ypos is updated with the new values.
 	 */
-	public boolean move(int newX, int newY) {
+	public void move(int newX, int newY) {
 		// TODO Validation
 	
 		setX(newX);
 		setY(newY);
-		
-		return false;
 	}
 	
 	
 /* Collection-sped-up-able abstract methods */
 	abstract public Shape getDrawingShape();
+	
+	/**
+	 * @return A rectangular object that can be used to check whether a moving
+	 * Gizmo overlap a Stationary Gizmo, since moving Gizmos such as ball can get
+	 * placed in the middle of grid squares. In a way, this box can be thought of
+	 * like the concept of "Hitbox" in video games.
+	 * Note that this the bounding box of the actual Gizmo shape. E.g. A Flipper
+	 * will not return 2L * 2L Rectangle, but rather, the size of the actual
+	 * Flipper graphic.
+	 */
+	public Rectangle getShapeBoundingBox(){
+		return getDrawingShape().getBounds();
+	}
 
 	abstract public Set<Circle> getCircles();
 	
@@ -153,11 +167,11 @@ abstract public class AGizmoComponent {
 	 * @param degree
 	 *            - the angle of rotation to add
 	 * @modify this
-	 * @effect rotationAngle = new angle; Circle Set is updated; IF gizmo uses
-	 *         Line Segments, THEN the collection of Line Segment is updated; IF
-	 *         gizmo is a supertype of AStatueGizmo, THEN drawingShape is
-	 *         updated. Can have additional effects, check individual Gizmo for
-	 *         them.
+	 * @effect rotationAngle = degree;
+	 * @return TRUE if the rotate operation succeeded (even if a Gizmo cannot
+	 * be rotated usually, like CircularBumper for example), FALSE only if
+	 * rotating a Gizmo causes it to overlap another Gizmo (at least one of
+	 * the Gizmo in that case will need to be a Moving Gizmo)
 	 */
 	abstract public boolean rotate(int degree);
 	

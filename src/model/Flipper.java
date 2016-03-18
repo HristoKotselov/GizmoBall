@@ -9,9 +9,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
-import physics.Angle;
-import physics.Circle;
-import physics.LineSegment;
+import physics.*;
 
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	/** Angle of rotation of flipper relative to start point, used during gameplay. 
@@ -24,6 +22,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	private long flipTime;
 	private long startedFlipping;
+	
+	/** A set of Circles belonging to this Gizmo. They act as collision detectors
+	 * with a ball, often at the edges of a shape. **/
+	protected Set<Circle> circleSet;
+	/**
+	 * A set of Line Segments around the edge of the absorber, which will act as
+	 * the collision detector with a ball
+	 **/
+	private Set<LineSegment> ls;
 
 	
 
@@ -47,12 +54,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 /* Flipper's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
+		int x = getX();
+		int y = getY();
+		
 		// rotation += 15;
-		RoundRectangle2D.Double r = new RoundRectangle2D.Double(0, 0, 0.5 * MainEngine.L, 2 * MainEngine.L,
+		RoundRectangle2D.Double r = new RoundRectangle2D.Double(x, y, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
 		AffineTransform transform = new AffineTransform();
 
-		// Apply flipper rotation
+		// Apply flipper rotation when triggered
 		transform.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);
 		if (leftFlipper) {
 			try {
@@ -64,8 +74,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			}
 		}
 
-		// Rotate to proper orientation
-		transform.rotate(Math.toRadians(rotationAngle), MainEngine.L, MainEngine.L);
+		// Rotate to proper orientation within the bounding box
+		transform.rotate(Math.toRadians(rotationAngle), x+MainEngine.L, y+MainEngine.L);
 
 		// Position right flipper at RHS of bounding box
 		if (!leftFlipper) {
@@ -77,19 +87,78 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	@Override
 	public Set<Circle> getCircles() {
-		// TODO
-		return null;
+		return circleSet;
+	}
+	
+	private void setupCircles() {
+		int lCorner_X = getX();
+		int rCorner_X = getX() + MainEngine.L * 2;
+		int tCorner_Y = getY();
+		int bCorner_Y = getY() + MainEngine.L * 2;
+		
+		if(leftFlipper){
+			Circle top = new Circle(lCorner_X + 5, tCorner_Y + 5, 5);
+			Circle bottom = new Circle(lCorner_X + 5, bCorner_Y - 5, 5);
+
+			circleSet.add(top);
+			circleSet.add(bottom);
+		}
+		else {
+			Circle top = new Circle(rCorner_X - 5, tCorner_Y + 5, 5);
+			Circle bottom = new Circle(rCorner_X - 5, bCorner_Y - 5, 5);
+
+			circleSet.add(top);
+			circleSet.add(bottom);
+		}
 	}
 
 	@Override
 	public Set<LineSegment> getLineSeg() {
-		// TODO
-		return null;
+		return ls;
+	}
+	
+	/**
+	 * The setup of the Line Segment collection. Gizmo component that rely on
+	 * Line Segments for collision detection should set up their Line Segment
+	 * objects here.
+	 * 
+	 * @modify this
+	 * @effect Fill the collection which hold all the Line Segments in this
+	 *         class with appropriate objects
+	 */
+	private void setupLineSeg() {
+		int lCorner_X = getX();
+		int rCorner_X = getX() + MainEngine.L * 2;
+		int tCorner_Y = getY();
+		int bCorner_Y = getY() + MainEngine.L * 2;
+
+		if(leftFlipper){
+			LineSegment left = new LineSegment(lCorner_X, tCorner_Y + 5, lCorner_X, bCorner_Y - 5);
+			LineSegment right = new LineSegment(lCorner_X + 10, tCorner_Y + 5, lCorner_X + 10, bCorner_Y - 5);
+
+			ls.add(right);
+			ls.add(left);
+		}
+		else {
+			LineSegment left = new LineSegment(rCorner_X - 10, tCorner_Y + 5, rCorner_X - 10, bCorner_Y - 5);
+			LineSegment right = new LineSegment(rCorner_X, tCorner_Y + 5, rCorner_X, bCorner_Y - 5);
+
+			ls.add(right);
+			ls.add(left);
+		}
+	}
+
+	public void updateCollections() {
+		setupLineSeg();
+		setupCircles();
 	}
 
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
@@ -97,22 +166,26 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		startedFlipping = System.nanoTime();
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// TODO Validation
 		rotationAngle = (rotationAngle + degree) % 360;
 
-		return false;
+		return true;
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
-
-		return false;
 	}
 
 	@Override
@@ -154,5 +227,66 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// this.getY()), 10);
 
 	}
+	
+	// use this method TWICE for each flipper for a full 90-degree rotation
+	public void rotate45degrees(){
+		Vect rotationPoint;
+		double SQRT = Math.sqrt(0.5); // calculation for 45-degree angle
+		if (flippingForward){
+		if (leftFlipper) {
+			rotationPoint = new Vect(getX() + 5, getY() + 5);
+			for (Circle each : circleSet){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate 45 degrees
+			}
+			for (LineSegment each : ls){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate 45 degrees
+			}
+		}
+		else {
+			rotationPoint = new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
+			for (Circle each : circleSet){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate 315 degrees
+			}
+			for (LineSegment each : ls){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate 315 degrees
+			}
+		}
+		}
+	}
+	
+	// use this method TWICE for each flipper for a full 90-degree rotation BACKWARDS
+	public void rotateback45degrees(){
+		Vect rotationPoint;
+		double SQRT = Math.sqrt(0.5); // calculation for 45-degree angle
+		if (!flippingForward){
+		if (leftFlipper) {
+			rotationPoint = new Vect(getX() + 5, getY() + 5);
+			for (Circle each : circleSet){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate 315 degrees
+			}
+			for (LineSegment each : ls){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate 315 degrees
+			}
+		}
+		else {
+			rotationPoint = new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
+			for (Circle each : circleSet){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate 45 degrees
+			}
+			for (LineSegment each : ls){
+				Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate 45 degrees
+			}
+		}
+		}
+	}
 
+	public Vect getRotationPoint(){
+		if (leftFlipper) {return new Vect(getX() + 5, getY() + 5);}
+		else return new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
+	}
+	
+	// returns true if left flipper, false - if right flipper
+	public boolean isLeftFlipper(){
+		return leftFlipper;
+	}
 }

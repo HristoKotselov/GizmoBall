@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import model.AGizmoComponent;
+import model.AMovingGizmo;
+import model.AStationaryGizmo;
 import model.Absorber;
 import model.CircularBumper;
 import model.Flipper;
@@ -45,8 +47,11 @@ public class BuildModeMouseListener implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		x = e.getX() / 20;
-		y = e.getY() / 20;
+		x = e.getX();
+		y = e.getY();
+		int L = m.getLInPixels();
+		int grid_tile_x = x/L;
+		int grid_tile_y = y/L;
 
 		String selectedFunction = bm.getSelectedFunction();
 
@@ -54,7 +59,8 @@ public class BuildModeMouseListener implements MouseListener {
 
 		switch (selectedFunction) {
 			case "Remove Gizmo":
-				g = m.getStationaryGizmoAt(x, y);
+				// TODO add method for to check for AMovingGizmo first, i.e. Ball
+				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
 					m.removeGizmo(g);
@@ -63,7 +69,8 @@ public class BuildModeMouseListener implements MouseListener {
 				break;
 
 			case "Rotate Gizmo":
-				g = m.getStationaryGizmoAt(x, y);
+				// TODO add method for to check for AMovingGizmo first, i.e. Ball
+				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
 					m.rotateGizmo(g, 90);
@@ -73,10 +80,16 @@ public class BuildModeMouseListener implements MouseListener {
 
 			case "Move Gizmo":
 				if (moveG == null) {
-					moveG = m.getStationaryGizmoAt(x, y);
+					// TODO add method for to check for AMovingGizmo first, i.e. Ball
+					moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 				// TODO change ActionTip to remind user of the currently selected Gizmo
 				} else {
-					m.moveGizmo(moveG, x, y);
+					if(moveG instanceof AStationaryGizmo){
+						m.moveGizmoByL(moveG, grid_tile_x, grid_tile_y);
+					}
+					if(moveG instanceof AMovingGizmo){
+						// TODO moveGizmoByPixels()
+					}
 					moveG = null;
 				}
 
@@ -87,44 +100,44 @@ public class BuildModeMouseListener implements MouseListener {
 
 				switch (selectedGizmo) {
 					case "Square":
-						g = new SquareBumper("s(" + x + "," + y + ")", x, y, Color.GREEN);
+						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.GREEN);
 						m.addGizmo(g);
 						break;
 
 					case "Triangle":
-						g = new TriangularBumper("t(" + x + "," + y + ")", x, y, Color.RED);
+						g = new TriangularBumper("t(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);
 						m.addGizmo(g);
 						break;
 
 					case "Circle":
-						g = new CircularBumper("c(" + x + "," + y + ")", x, y, Color.BLUE);
+						g = new CircularBumper("c(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.BLUE);
 						m.addGizmo(g);
 						break;
 
 					case "Left Flipper":
-						g = new Flipper("lf(" + x + "," + y + ")", x, y, Color.ORANGE, true);
+						g = new Flipper("lf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, true);
 						m.addGizmo(g);
 						break;
 
 					case "Right Flipper":
-						g = new Flipper("rf(" + x + "," + y + ")", x, y, Color.ORANGE, false);
+						g = new Flipper("rf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, false);
 						m.addGizmo(g);
 						break;
 
 					case "Absorber":
 						if (x2 == -1 && y2 == -1) {
-							x2 = x;
-							y2 = y;
+							x2 = grid_tile_x;
+							y2 = grid_tile_y;
 						// TODO change ActionTip to remind user of the currently selected Absorber
 						} else {
 							// Top left corner
-							int x1 = Math.min(x, x2);
-							int y1 = Math.min(y, y2);
+							int x1 = Math.min(grid_tile_x, x2);
+							int y1 = Math.min(grid_tile_y, y2);
 
 							// Bottom right corner. + 1 because coords start at
 							// 0, 0 so width calculation doesn't work otherwise
-							x2 = Math.max(x, x2) + 1;
-							y2 = Math.max(y, y2) + 1;
+							x2 = Math.max(grid_tile_x, x2) + 1;
+							y2 = Math.max(grid_tile_y, y2) + 1;
 
 							g = new Absorber("a(" + x1 + "," + y1 + ")", x1, y1, x2 - x1, y2 - y1, Color.MAGENTA);
 							m.addGizmo(g);

@@ -114,7 +114,13 @@ public final class SaveDataEngine {
 							System.out.println("Moving \"" + name + "\" to (" + x + ", " + y + ")");
 
 							g = model.getGizmo(name);
-							model.moveGizmo(g, x, y);
+							if(g instanceof AStationaryGizmo){
+								model.moveGizmoByL(g, x, y);
+							}
+							if(g instanceof AMovingGizmo){
+								// TODO moveGizmoByPixels()
+							}
+								
 							break;
 
 						case "Delete":

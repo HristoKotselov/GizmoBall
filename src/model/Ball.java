@@ -11,24 +11,20 @@ import physics.Circle;
 import physics.Vect;
 
 public class Ball extends AMovingGizmo {
-	
-	private Vect velocity;
-	
+
 	private double radius;
 
 	// x, y coordinates and x,y velocity
-	public Ball(String name, Color color, double x, double y, Angle theta, double velo) {
-		super(name, x, y, color, theta, velo);
-		start();
+	public Ball(String name, Color color, int starting_x, int starting_y, Angle theta, double velo) {
+		super(name, starting_x, starting_y, color, theta, velo);
 
-		velocity = new Vect(theta, velo);
 		radius = 5;
 	}
 
 /* Ball's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
-		return new Ellipse2D.Double(0-this.radius, 0-this.radius, this.radius*2, this.radius*2);
+		return new Ellipse2D.Double(getMovingX() - this.radius, getMovingY() - this.radius, this.radius*2, this.radius*2);
 	}
 
 	@Override
@@ -42,12 +38,18 @@ public class Ball extends AMovingGizmo {
 	
 
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// Ball shouldn't be rotatable so this method doesn't need to do anything
@@ -55,13 +57,14 @@ public class Ball extends AMovingGizmo {
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int x, int y) {
+	public void move(int x, int y) {
 		// TODO Validation
 		
 		super.move(x, y);
-
-		return false;
 	}
 
 	
@@ -69,17 +72,6 @@ public class Ball extends AMovingGizmo {
 	public double getRadius() {
 		return radius;
 	}
-	
-
-	public void setVelo(Vect v) {
-		// TODO Validation
-		velocity = v;
-	}
-
-	public Vect getVelo() {
-		return velocity;
-	}
-	
 
 	/**
 	 * TODO

@@ -24,31 +24,23 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	 * This determines the position of a Gizmo component on the board, during gameplay. 
 	 * Where this is exactly depends on the type of Gizmo. **/
 	private double movingYPos;
-
+	
+	private Vect velocity;
+	
 	private boolean stopped;
 
 	
-	public AMovingGizmo(String name, double x, double y, Color color, Angle theta, double velo) {
-		super(name, (int) x, (int) y, color);
+	public AMovingGizmo(String name, int starting_x, int starting_y, Color color, Angle theta, double velo) {
+		super(name, starting_x, starting_y, color);
 
-		movingXPos = x;
-		movingYPos = y;
+		movingXPos = starting_x;
+		movingYPos = starting_y;
+		velocity = new Vect(theta, velo);
+		start();
 	}
 
 
-/* Exclusive Methods to this type of Gizmo */
-	public void stop() {
-		stopped = true;
-	}
-
-	public void start() {
-		stopped = false;
-	}
-
-	public boolean stopped() {
-		return stopped;
-	}
-	
+/* Exclusive Methods to this type of Gizmo */	
 	public boolean setMovingX(double x) {
 		// TODO Validation
 		movingXPos = x;
@@ -71,6 +63,26 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		return movingYPos;
 	}
 
+	public void setVelo(Vect v) {
+		// TODO Validation
+		velocity = v;
+	}
+
+	public Vect getVelo() {
+		return velocity;
+	}
+	
+	public void stop() {
+		stopped = true;
+	}
+
+	public void start() {
+		stopped = false;
+	}
+
+	public boolean stopped() {
+		return stopped;
+	}
 
 	
 /* Abstract methods that can be implemented already */

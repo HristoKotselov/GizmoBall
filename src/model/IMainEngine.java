@@ -25,13 +25,26 @@ public interface IMainEngine {
 
 	public void rotateGizmo(AGizmoComponent gizmo, int degree);
 
-	public AGizmoComponent getStationaryGizmoAt(int x, int y);
-	
-	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y);
+	/**
+	 * Method called when the user decides to move a Gizmo.
+	 * @param gizmo - the Gizmo to move.
+	 * @param grid_tile_x - new X coordinate (in L)
+	 * @param grid_tile_y - new Y coordinate (in L)
+	 * @return TRUE if the move operation succeeded (i.e. a Gizmo is moved
+	 * into an empty space), FALSE if the move operation failed (i.e. the
+	 * destination is already occupied with another Gizmo)
+	 */
+	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y);
+
+	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y);
 
 	public Map<String, AGizmoComponent> getGizmosMap();
 	
 	public Collection<AGizmoComponent> getAllGizmos();
+	
+	public Collection<AStationaryGizmo> getAllStationaryGizmos();
+	
+	public Collection<AMovingGizmo> getAllMovingGizmos();
 
 	public void loadFile(String filePath);
 
@@ -45,6 +58,8 @@ public interface IMainEngine {
 	 * @param height - the new height for the walls of the board, in pixels.
 	 */
 	public void setWallDimensions(int width, int height);
+	
+	public int getLInPixels();
 	
 	public void addObserver(Observer o);
 

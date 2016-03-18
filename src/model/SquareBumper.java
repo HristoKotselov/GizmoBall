@@ -16,7 +16,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	private Shape drawingShape;
 	/** A set of Circles belonging to this Gizmo. They act as collision detectors
 	 * with a ball, often at the edges of a shape. **/
-	protected Set<Circle> circleSet = new HashSet<Circle>();
+	private Set<Circle> circleSet;
 	/**
 	 * A set of Line Segments around the edge of the absorber, which will act as
 	 * the collision detector with a ball
@@ -43,7 +43,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	}
 	
 	private void setupDrawingShape() {
-		drawingShape = new Rectangle(MainEngine.L, MainEngine.L);
+		drawingShape = new Rectangle(getX(), getY(), MainEngine.L, MainEngine.L);
 	}
 
 	@Override
@@ -107,12 +107,18 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// Square shouldn't be rotatable so this method doesn't need to do anything
@@ -120,15 +126,16 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
-		
-		return false;
 	}
 	
 	@Override

@@ -57,7 +57,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 	
 	private void setupDrawingShape() {
-		drawingShape = new Rectangle(bmWidth * MainEngine.L, bmHeight * MainEngine.L);
+		drawingShape = new Rectangle(getX(), getY(), bmWidth * MainEngine.L, bmHeight * MainEngine.L);
 	}
 
 	@Override
@@ -123,6 +123,9 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	
 /* Regular methods implementation */
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		if (capturedBall != null) { // no ball in absorber = nothing happens
@@ -136,6 +139,9 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		// Absorber shouldn't be rotatable so this method doesn't need to do anything
@@ -143,15 +149,16 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 	
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
-		
-		return false;
 	}
 	
 	@Override

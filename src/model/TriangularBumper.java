@@ -44,15 +44,18 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	}
 	
 	private void setupDrawingShape() {
-		int[] xpoints = { 0, MainEngine.L, 0 };
-		int[] ypoints = { 0, 0, MainEngine.L };
+		int x = getX();
+		int y = getY();
+		
+		int[] xpoints = { x, x+MainEngine.L, x };
+		int[] ypoints = { y, y, y+MainEngine.L };
 
 		// Create triangle
 		drawingShape = new Polygon(xpoints, ypoints, xpoints.length);
 
 		// Rotate to correct orientation
 		AffineTransform t = new AffineTransform();
-		t.rotate(Math.toRadians(rotationAngle), MainEngine.L / 2, MainEngine.L / 2);
+		t.rotate(Math.toRadians(rotationAngle), x+(MainEngine.L / 2), y+(MainEngine.L / 2));
 		drawingShape = t.createTransformedShape(drawingShape);
 	}
 	
@@ -114,12 +117,18 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	
 	
 /* Regular methods implementation */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggerAction()
+	 */
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 
 	}
 	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#rotate(int)
+	 */
 	@Override
 	public boolean rotate(int degree) {
 		rotationAngle = (rotationAngle + degree) % 360;
@@ -129,19 +138,20 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		// TODO This rotates the shape for drawing purposes, but not the
 		// collision info
 		// TODO Also requires validation
-		return false;
+		return true;
 	}
 
 /* Overwritten methods */
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#move(int, int)
+	 */
 	@Override
-	public boolean move(int grid_tile_x, int grid_tile_y) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
-		
-		return false;
 	}
 	
 	@Override

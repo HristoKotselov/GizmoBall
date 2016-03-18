@@ -14,6 +14,7 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
+import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.IMainEngine;
 
@@ -41,47 +42,40 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// Save the default transformation
 		AffineTransform old = g2d.getTransform();
 
+
+		// Iterate over all stationary gizmos
+		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
 		
-	// TODO change this to draw Stationary Gizmos first, and then Moving Gizmos
-		
-		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
-		
-		// Iterate over all gizmos
-		for (AGizmoComponent giz : gizmos) {
+		for (AStationaryGizmo giz : sGizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
-
-			// Translate the gizmo to the appropriate position on the board
-			g2d.translate(giz.getX(), giz.getY());
 
 			// Draw the shape
 			g2d.fill(s);
 
 			// Reset transformation before drawing the next object
 			g2d.setTransform(old);
-
 		}
 
-		/**
-		 * TODO START of Temporarily Block of code, REMOVE\CHANGE before final
-		 * release
-		 **/
-//		Ball ball = model.getBall();
-//		g2d.setColor(ball.getColour());
-//		g2d.translate(ball.getPreciseX(), ball.getPreciseY());
-		// g2d.fill(ball.getDrawingShape());
-		// Shape s = new Circle(ball.getPreciseX(), ball.getPreciseY(),
-		// ball.getRadius());
-		// Shape s = (Shape) new javafx.scene.shape.Circle(ball.getPreciseX(),
-		// ball.getPreciseY(), ball.getRadius());
-		// g2d.fill(s);
-//		g2d.fillRect(-(int) ball.getRadius(),-(int) ball.getRadius(),2*(int) ball.getRadius(),2*(int) ball.getRadius());
+		
+		// Iterate over all moving gizmos
+		Collection<AMovingGizmo> mGizmos = model.getAllMovingGizmos();
+		
+		for (AMovingGizmo giz : mGizmos) {
+			// Get the colour and shape of the gizmo
+			// System.out.println(giz.getGizmoID());
+			g2d.setColor(giz.getColour());
+			Shape s = giz.getDrawingShape();
 
+			// Draw the shape
+			g2d.fill(s);
 
-//		g2d.setTransform(old);
-		/** TODO END of Temporarily Block of code **/
+			// Reset transformation before drawing the next object
+			g2d.setTransform(old);
+		}
+				
 
 		// Draw grid
 		g2d.setColor(Color.WHITE);
