@@ -30,6 +30,8 @@ public class GameWindow implements IGameWindow {
 	private PlayMenu playmenu;
 	private GameBoard board;
 
+	private JLabel coords;
+
 	/* Controllers */
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
@@ -93,8 +95,9 @@ public class GameWindow implements IGameWindow {
 
 
 		board = new GameBoard(model);
-		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
+		BuildModeMouseListener l = new BuildModeMouseListener(this, model, buildmenu);
 		board.addMouseListener(l);
+		board.addMouseMotionListener(l);
 
 		// buildboard.addMouseMotionListener(l);
 
@@ -112,10 +115,11 @@ public class GameWindow implements IGameWindow {
 		textarea.setEditable(false);
 		gameWindow.add(textarea);
 
+		coords = new JLabel("X: 100 (10), Y: 100 (10)");
+		gameWindow.add(coords);
+
 		gameWindow.setVisible(true);
 	}
-
-
 
 	@Override
 	public void setMode(String mode) {
@@ -123,13 +127,28 @@ public class GameWindow implements IGameWindow {
 		cl.show(sidebarPanel, mode);
 
 		gameWindow.setTitle(mode);
+		setCoords(0, 0);
 	}
 
 	@Override
-	public String getFile() {
-		// TODO change to allow save button using string param
+	public void setCoords(int x, int y) {
+		if (gameWindow.getTitle().equals("Build Mode")) {
+			String xP = String.format("%03d", x);
+			String yP = String.format("%03d", y);
+			String xG = String.format("%02d", x / model.getLInPixels());
+			String yG = String.format("%02d", y / model.getLInPixels());
+
+			coords.setText("X: " + xG + " (" + xP + "), Y: " + yG + " (" + yP + ")");
+		} else {
+			coords.setText("");
+		}
+	}
+
+	@Override
+	public String getFile(String buttonText) {
 		JFileChooser f = new JFileChooser();
-		f.showOpenDialog(gameWindow);
+//		f.showOpenDialog(gameWindow);
+		f.showDialog(gameWindow, buttonText);
 
 		File file = f.getSelectedFile();
 

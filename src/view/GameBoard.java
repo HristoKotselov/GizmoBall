@@ -45,7 +45,7 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 
 		// Iterate over all stationary gizmos
 		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
-		
+
 		for (AStationaryGizmo giz : sGizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
@@ -59,10 +59,10 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 			g2d.setTransform(old);
 		}
 
-		
+
 		// Iterate over all moving gizmos
 		Collection<AMovingGizmo> mGizmos = model.getAllMovingGizmos();
-		
+
 		for (AMovingGizmo giz : mGizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
@@ -75,7 +75,7 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 			// Reset transformation before drawing the next object
 			g2d.setTransform(old);
 		}
-				
+
 
 		// Draw grid
 		g2d.setColor(Color.WHITE);
@@ -91,5 +91,4 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	public void update(Observable arg0, Object arg1) {
 		repaint();
 	}
-
 }

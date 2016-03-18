@@ -20,7 +20,7 @@ public class LoadFileListener implements ActionListener {
 		String actionCmd = e.getActionCommand();
 
 		if (actionCmd.equals("load")) {
-			String path = window.getFile();
+			String path = window.getFile("Open");
 
 			if (path != null) {
 				model.loadFile(path);
