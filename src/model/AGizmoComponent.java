@@ -135,11 +135,15 @@ abstract public class AGizmoComponent {
 	abstract public Shape getDrawingShape();
 	
 	/**
-	 * @return A rectangular object that can be used for to check whether a moving
+	 * @return A rectangular object that can be used to check whether a moving
 	 * Gizmo overlap a Stationary Gizmo, since moving Gizmos such as ball can get
-	 * placed in the middle of grid squares.
+	 * placed in the middle of grid squares. In a way, this box can be thought of
+	 * like the concept of "Hitbox" in video games.
+	 * Note that this the bounding box of the actual Gizmo shape. E.g. A Flipper
+	 * will not return 2L * 2L Rectangle, but rather, the size of the actual
+	 * Flipper graphic.
 	 */
-	public Rectangle getBoundingBox(){
+	public Rectangle getShapeBoundingBox(){
 		return getDrawingShape().getBounds();
 	}
 

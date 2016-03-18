@@ -244,11 +244,13 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		if(gizmo instanceof AStationaryGizmo){
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
+			int grid_tile_x = sGizmo.getX() / L;
+			int grid_tile_y = sGizmo.getY() / L;
 			
 			// Remove any overlapping gizmos
 			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
 				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
-					AGizmoComponent g = getStationaryGizmoAt((sGizmo.getX() / L) + i, (sGizmo.getY() / L) + j);
+					AGizmoComponent g = getStationaryGizmoAt(grid_tile_x + i, grid_tile_y + j);
 	
 					if (g != null) {
 						removeGizmo(g);
@@ -312,12 +314,29 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO handle null
 		// TODO handle absorber off screen?
 		// TODO Validation
+		boolean spaceOccupied = false;
 		
+		if(gizmo instanceof AStationaryGizmo){
+			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
+			int grid_tile_x = x;
+			int grid_tile_y = y;
+			
+			// Check for any overlapping gizmos
+			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
+				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
+					AGizmoComponent g = getStationaryGizmoAt(grid_tile_x + i, grid_tile_y + j);
+				
+					if (g != null && 
+						g != sGizmo) {		// no need to get against the same Gizmo! If this happens, Flipper will be not able to move 1 square left/right
+						spaceOccupied = true;
+					}
+				}
+			}	
+		}
 		
-	// TODO get L if it is a Stationary Gizmo
-		
-		
-		gizmo.move(x, y);
+		if(!spaceOccupied){
+			gizmo.move(x, y);
+		}
 
 		update();
 
@@ -371,8 +390,10 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void loadFile(String filePath) {
-		gizmos = new HashMap<String, AGizmoComponent>(); // get rid of all
-															// existing Gizmos
+		// get rid of all existing Gizmos
+		gizmos = new HashMap<String, AGizmoComponent>(); 
+		stationaryGizmos = new HashSet<AStationaryGizmo>();
+		movingGizmos = new HashSet<AMovingGizmo>();
 		SaveDataEngine.loadFile(filePath, this);
 	}
 

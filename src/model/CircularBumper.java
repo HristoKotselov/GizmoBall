@@ -85,10 +85,10 @@ public class CircularBumper extends AStationaryGizmo {
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
 	@Override
-	public void move(int newX, int newY) {
+	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
 		
-		super.move(newX, newY);
+		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
 	}
