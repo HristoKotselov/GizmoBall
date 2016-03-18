@@ -77,27 +77,31 @@ public class MainEngine extends Observable implements IMainEngine {
 		// Gravity - from 6.170 Final Project Gizmoball
 		double gravity = physicsSettings.getGravity();
 
+		double frictionScale;
+		
+		// Need to apply the Physics to all the balls before the collision prediction happen
+		for(Ball ball : ballSet){
+			// Apply friction to Ball
+			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
+			ball.setVelo(ball.getVelo().times(frictionScale));
+	
+			// Apply gravity to Ball
+			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+		}
+		
+		
 		// called to get a list of collisions
 		List<CollisionDetails> collisionList = calcTimesUntilCollision(); 
 		
 
 		// Temp variables setup
 		Ball ball;
-		double frictionScale;
 		double tuc;
 		AGizmoComponent collider;
 
 
 		for (CollisionDetails cd : collisionList) {
 			ball = cd.getBall();
-
-		// TODO need to move all the Physics out of this loop, to before calcTimesUntilCollision() above
-			// Apply friction to Ball
-			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
-			ball.setVelo(ball.getVelo().times(frictionScale));
-
-			// Apply gravity to Ball
-			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
 
 			tuc = cd.getTuc(); // i.e. what is the time to the nearest future
 								// collision...?
