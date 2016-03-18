@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import model.IMainEngine;
 import view.IGameWindow;
 
@@ -20,7 +19,7 @@ public class SaveFileListener implements ActionListener {
 		String actionCmd = e.getActionCommand();
 
 		if (actionCmd.equals("save")) {
-			String path = window.getFile();
+			String path = window.getFile("Save");
 
 			if (path != null) {
 				model.saveFile(path);

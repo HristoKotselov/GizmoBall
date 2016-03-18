@@ -2,7 +2,7 @@ package controller;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
@@ -13,29 +13,33 @@ import model.IMainEngine;
 import model.SquareBumper;
 import model.TriangularBumper;
 import view.BuildMenu;
+import view.IGameWindow;
 
-public class BuildModeMouseListener implements MouseListener {
+public class BuildModeMouseListener implements MouseInputListener {
+	private IGameWindow gw;
 	private BuildMenu bm;
 	private IMainEngine m;
 
 	private int x, y;
-	/** 
-	 * Memory values used when adding a Gizmo can have variable width\height (e.g. Absorber)
+	/**
+	 * Memory values used when adding a Gizmo can have variable width\height
+	 * (e.g. Absorber)
 	 * 
-	 * -1 is the default value that indicates the 1st click is required to 
-	 * start the size-selection procedures.
+	 * -1 is the default value that indicates the 1st click is required to start
+	 * the size-selection procedures.
 	 **/
 	private int x2 = -1, y2 = -1;
 
 	/**
 	 * Memory value used when moving a Gizmo to a different position.
 	 * 
-	 * null is the default value that indicates the 1st click is required to 
+	 * null is the default value that indicates the 1st click is required to
 	 * start the moving procedure.
 	 */
 	private AGizmoComponent moveG;
 
-	public BuildModeMouseListener(IMainEngine m, BuildMenu bm) {
+	public BuildModeMouseListener(IGameWindow gw, IMainEngine m, BuildMenu bm) {
+		this.gw = gw;
 		this.m = m;
 		this.bm = bm;
 	}
@@ -50,8 +54,8 @@ public class BuildModeMouseListener implements MouseListener {
 		x = e.getX();
 		y = e.getY();
 		int L = m.getLInPixels();
-		int grid_tile_x = x/L;
-		int grid_tile_y = y/L;
+		int grid_tile_x = x / L;
+		int grid_tile_y = y / L;
 
 		String selectedFunction = bm.getSelectedFunction();
 
@@ -59,7 +63,8 @@ public class BuildModeMouseListener implements MouseListener {
 
 		switch (selectedFunction) {
 			case "Remove Gizmo":
-				// TODO add method for to check for AMovingGizmo first, i.e. Ball
+				// TODO add method for to check for AMovingGizmo first, i.e.
+				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
@@ -69,7 +74,8 @@ public class BuildModeMouseListener implements MouseListener {
 				break;
 
 			case "Rotate Gizmo":
-				// TODO add method for to check for AMovingGizmo first, i.e. Ball
+				// TODO add method for to check for AMovingGizmo first, i.e.
+				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
@@ -80,14 +86,16 @@ public class BuildModeMouseListener implements MouseListener {
 
 			case "Move Gizmo":
 				if (moveG == null) {
-					// TODO add method for to check for AMovingGizmo first, i.e. Ball
+					// TODO add method for to check for AMovingGizmo first, i.e.
+					// Ball
 					moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				// TODO change ActionTip to remind user of the currently selected Gizmo
+					// TODO change ActionTip to remind user of the currently
+					// selected Gizmo
 				} else {
-					if(moveG instanceof AStationaryGizmo){
+					if (moveG instanceof AStationaryGizmo) {
 						m.moveGizmoByL(moveG, grid_tile_x, grid_tile_y);
 					}
-					if(moveG instanceof AMovingGizmo){
+					if (moveG instanceof AMovingGizmo) {
 						// TODO moveGizmoByPixels()
 					}
 					moveG = null;
@@ -128,7 +136,8 @@ public class BuildModeMouseListener implements MouseListener {
 						if (x2 == -1 && y2 == -1) {
 							x2 = grid_tile_x;
 							y2 = grid_tile_y;
-						// TODO change ActionTip to remind user of the currently selected Absorber
+							// TODO change ActionTip to remind user of the
+							// currently selected Absorber
 						} else {
 							// Top left corner
 							int x1 = Math.min(grid_tile_x, x2);
@@ -169,5 +178,15 @@ public class BuildModeMouseListener implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		gw.setCoords(e.getX(), e.getY());
 	}
 }
