@@ -20,11 +20,7 @@ public class BuildModeButtonListener implements ActionListener {
 		if (actionCmd.equals("resetBoard")) {
 
 		} else if (actionCmd.equals("playMode")) {
-<<<<<<< HEAD
 			gameWindow.setMode("Play Mode");
-=======
-			gameWindow.switchMode();
->>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 
 			// In the final release, this command should change from BUILD MODE
 			// to PLAY MODE
