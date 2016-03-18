@@ -33,7 +33,11 @@ public class PlayModeButtonListener implements ActionListener {
 		} else if (actionCmd.equals("reload")) {
 
 		} else if (actionCmd.equals("buildMode")) {
+<<<<<<< HEAD
 			gameWindow.setMode("Build Mode");
+=======
+			gameWindow.switchMode();
+>>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 		}
 	}
 

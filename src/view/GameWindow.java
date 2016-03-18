@@ -26,6 +26,8 @@ public class GameWindow implements IGameWindow {
 
 	private JPanel sidebarPanel;
 
+	private JPanel sidebarPanel;
+
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
@@ -50,9 +52,15 @@ public class GameWindow implements IGameWindow {
 	}
 
 	private void initialiseBuildWindow() {
+<<<<<<< HEAD
 		gameWindow = new JFrame("Build Mode");
 		gameWindow.setBounds(100, 100, 750, 500);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+		buildModeWindow = new JFrame("Build Mode");
+		buildModeWindow.setBounds(100, 100, 750, 500);
+		buildModeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+>>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
@@ -85,6 +93,12 @@ public class GameWindow implements IGameWindow {
 
 		sidebarPanel = new JPanel(new CardLayout());
 
+<<<<<<< HEAD
+=======
+
+		sidebarPanel = new JPanel(new CardLayout());
+
+>>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 		buildmenu = new BuildMenu(model, this);
 		playmenu = new PlayMenu(model, this);
 
@@ -98,9 +112,15 @@ public class GameWindow implements IGameWindow {
 
 		// buildboard.addMouseMotionListener(l);
 
+<<<<<<< HEAD
 		gameWindow.add(sidebarPanel);
 		gameWindow.add(new JSeparator());
 		gameWindow.add(board);
+=======
+		buildModeWindow.add(sidebarPanel);
+		buildModeWindow.add(new JSeparator());
+		buildModeWindow.add(board);
+>>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 
 		JLabel tips = new JLabel("Action Tip:");
 		tips.setFont(new Font("Arial", 1, 12));
@@ -118,11 +138,17 @@ public class GameWindow implements IGameWindow {
 
 
 	@Override
+<<<<<<< HEAD
 	public void setMode(String mode) {
 		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
 		cl.show(sidebarPanel, mode);
 		
 		gameWindow.setTitle(mode);
+=======
+	public void switchMode() {
+		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
+		cl.next(sidebarPanel);
+>>>>>>> a69c9af6b4ae9748e1b967950373ffc10dd1903a
 	}
 
 	@Override
