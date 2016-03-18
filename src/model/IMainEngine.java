@@ -28,15 +28,15 @@ public interface IMainEngine {
 	/**
 	 * Method called when the user decides to move a Gizmo.
 	 * @param gizmo - the Gizmo to move.
-	 * @param x - new X coordinate (in pixels)
-	 * @param y - new Y coordinate (in pixels)
+	 * @param grid_tile_x - new X coordinate (in L)
+	 * @param grid_tile_y - new Y coordinate (in L)
 	 * @return TRUE if the move operation succeeded (i.e. a Gizmo is moved
 	 * into an empty space), FALSE if the move operation failed (i.e. the
 	 * destination is already occupied with another Gizmo)
 	 */
-	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y);
+	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y);
 
-	public AGizmoComponent getStationaryGizmoAt(int x, int y);
+	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y);
 
 	public Map<String, AGizmoComponent> getGizmosMap();
 	
@@ -58,6 +58,8 @@ public interface IMainEngine {
 	 * @param height - the new height for the walls of the board, in pixels.
 	 */
 	public void setWallDimensions(int width, int height);
+	
+	public int getLInPixels();
 	
 	public void addObserver(Observer o);
 

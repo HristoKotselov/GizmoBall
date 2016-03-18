@@ -310,7 +310,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	 * @see model.IMainEngine#moveGizmo(model.AGizmoComponent, int, int)
 	 */
 	@Override
-	public boolean moveGizmo(AGizmoComponent gizmo, int x, int y) {
+	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
 		// TODO handle null
 		// TODO handle absorber off screen?
 		// TODO Validation
@@ -318,8 +318,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		
 		if(gizmo instanceof AStationaryGizmo){
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
-			int grid_tile_x = x;
-			int grid_tile_y = y;
 			
 			// Check for any overlapping gizmos
 			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
@@ -335,16 +333,18 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 		
 		if(!spaceOccupied){
-			gizmo.move(x, y);
+			gizmo.move(grid_tile_x, grid_tile_y);
 		}
 
 		update();
 
-		return false;
+		return (!spaceOccupied);
 	}
 	
+	 // TODO make moveGizmoByPixel()
+	
 	@Override
-	public AGizmoComponent getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
+	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
 		int gizmosY_in_L;
 		
@@ -408,6 +408,11 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public void setWallDimensions(int width, int height){
 		gws = new Walls(0, 0, width, height);
+	}
+	
+	@Override
+	public int getLInPixels(){
+		return L;
 	}
 
 	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
