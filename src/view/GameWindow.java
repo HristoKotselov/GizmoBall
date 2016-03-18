@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import controller.BuildModeMouseListener;
@@ -18,18 +20,20 @@ import controller.SaveFileListener;
 import model.IMainEngine;
 
 public class GameWindow implements IGameWindow {
-	
+
 	/* GUI components */
 	private JFrame buildModeWindow, playModeWindow;
+
+	private JPanel sidebarPanel;
 
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-	
+
 	/* Controllers */
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
-	
+
 	/* Model */
 	private IMainEngine model;
 
@@ -44,8 +48,8 @@ public class GameWindow implements IGameWindow {
 
 		initialiseBuildWindow();
 	}
-	
-	private void initialiseBuildWindow(){
+
+	private void initialiseBuildWindow() {
 		buildModeWindow = new JFrame("Build Mode");
 		buildModeWindow.setBounds(100, 100, 750, 500);
 		buildModeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,16 +82,23 @@ public class GameWindow implements IGameWindow {
 		JSeparator separator1 = new JSeparator();
 		buildModeWindow.add(separator1);
 
-		// TODO might need to change later
+
+		sidebarPanel = new JPanel(new CardLayout());
+
 		buildmenu = new BuildMenu(model, this);
+		playmenu = new PlayMenu(model, this);
+
+		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
+		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
+
+
 		board = new GameBoard(model);
-
 		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
-
 		board.addMouseListener(l);
+
 		// buildboard.addMouseMotionListener(l);
 
-		buildModeWindow.add(buildmenu.getMenu());
+		buildModeWindow.add(sidebarPanel);
 		buildModeWindow.add(new JSeparator());
 		buildModeWindow.add(board);
 
@@ -103,14 +114,13 @@ public class GameWindow implements IGameWindow {
 
 		buildModeWindow.setVisible(true);
 	}
-	
-	
-	
+
+
+
 	@Override
-	public void switchToPlayMode(){
-		// TODO 
-		
-		buildModeWindow.setVisible(false);
+	public void switchMode() {
+		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
+		cl.next(sidebarPanel);
 	}
 
 	@Override

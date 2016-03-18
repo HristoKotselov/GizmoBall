@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
-
 import controller.BuildModeButtonListener;
 import controller.BuildModeFunctionChangeListener;
 import controller.ChangeBallConfigListener;
@@ -28,7 +27,7 @@ public class BuildMenu implements IMenu {
 	private ButtonGroup bg;
 	private JComboBox<String> functionCB;
 	private JPanel cards;
-	
+
 	/** Required as a reference for Controllers **/
 	private IGameWindow gameWindow;
 
@@ -54,6 +53,7 @@ public class BuildMenu implements IMenu {
 		// TODO the listeners should have been passed through parameter
 		// buildModeAL = new BuildModeMainListener(model);
 		physicsConfigAL = new PhysicsConfigListener(model);
+		buildModeAL = new BuildModeButtonListener(model, gameWindow);
 		undoRedoAL = new UndoRedoListener(model);
 
 		buttonMenu = new JPanel();
@@ -181,31 +181,31 @@ public class BuildMenu implements IMenu {
 
 
 		// Button panel
-		JPanel p = new JPanel();
-		p.setPreferredSize(new Dimension(260, 70));
-		p.setLayout(new GridLayout(2, 2));
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setPreferredSize(new Dimension(260, 70));
+		buttonPanel.setLayout(new GridLayout(2, 2));
 
 		JButton undo = new JButton("Undo");
 		undo.setActionCommand("undo");
 		undo.addActionListener(undoRedoAL);
-		p.add(undo);
+		buttonPanel.add(undo);
 
 		JButton redo = new JButton("Redo");
 		redo.setActionCommand("redo");
 		redo.addActionListener(undoRedoAL);
-		p.add(redo);
+		buttonPanel.add(redo);
 
 		JButton reload = new JButton("Reset Board");
-		reload.setActionCommand("reloadBoard");
+		reload.setActionCommand("resetBoard");
 		reload.addActionListener(buildModeAL);
-		p.add(reload);
+		buttonPanel.add(reload);
 
 		JButton playMode = new JButton("Play!");
 		playMode.setActionCommand("playMode");
 		playMode.addActionListener(buildModeAL);
-		p.add(playMode);
+		buttonPanel.add(playMode);
 
-		buttonMenu.add(p, BorderLayout.SOUTH);
+		buttonMenu.add(buttonPanel, BorderLayout.SOUTH);
 
 
 

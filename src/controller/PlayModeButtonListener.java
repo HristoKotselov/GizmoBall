@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import model.IMainEngine;
 import view.IBoard;
 import view.IGameWindow;
@@ -11,7 +10,7 @@ import view.IMenu;
 public class PlayModeButtonListener implements ActionListener {
 	private IMainEngine model;
 	private IGameWindow gameWindow;
-	
+
 	public PlayModeButtonListener(IMainEngine model, IGameWindow gameWindow) {
 		this.model = model;
 		this.gameWindow = gameWindow;
@@ -20,12 +19,12 @@ public class PlayModeButtonListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-	/** Check out AMainListener's method! **/
+		/** Check out AMainListener's method! **/
 
 		String actionCmd = e.getActionCommand();
 
 		if (actionCmd.equals("start")) {
-		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+			/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
 			System.out.println("start clicked");
 		} else if (actionCmd.equals("tick")) {
 
@@ -34,7 +33,7 @@ public class PlayModeButtonListener implements ActionListener {
 		} else if (actionCmd.equals("reload")) {
 
 		} else if (actionCmd.equals("buildMode")) {
-
+			gameWindow.switchMode();
 		}
 	}
 
