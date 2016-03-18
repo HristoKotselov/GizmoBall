@@ -2,13 +2,12 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import controller.ChangeBallConfigListener;
 import controller.PhysicsConfigListener;
 import controller.PlayModeButtonListener;
@@ -22,7 +21,7 @@ public class PlayMenu implements IMenu {
 
 	/* GUI */
 	private JPanel buttonMenu;
-	
+
 	/** Required as a reference for Controllers **/
 	private IGameWindow gameWindow;
 
@@ -50,9 +49,7 @@ public class PlayMenu implements IMenu {
 		stopGameAL = new StopGameListener(model);
 
 		buttonMenu = new JPanel();
-		buttonMenu.setPreferredSize(new Dimension(170, 400));
-		buttonMenu.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1, true));
-		buttonMenu.setLayout(new GridLayout(0, 1));
+		buttonMenu.setLayout(new GridLayout(0, 1, 0, 30));
 
 		JButton start = new JButton("Start");
 		start.setActionCommand("start");
@@ -74,10 +71,10 @@ public class PlayMenu implements IMenu {
 		reload.addActionListener(playModeAL);
 		reload.setFont(new Font("Arial", Font.PLAIN, 40));
 
-		//JButton shoot = new JButton("<html>Shoot ball<br />(idea)</html>");
-		//shoot.setFont(new Font("Arial", Font.PLAIN, 30));
+		// JButton shoot = new JButton("<html>Shoot ball<br />(idea)</html>");
+		// shoot.setFont(new Font("Arial", Font.PLAIN, 30));
 
-		JButton buildMode = new JButton("<html>Build<br />Mode</html>");
+		JButton buildMode = new JButton("Build Mode");
 		buildMode.setActionCommand("buildMode");
 		buildMode.addActionListener(playModeAL);
 		buildMode.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -86,7 +83,7 @@ public class PlayMenu implements IMenu {
 		buttonMenu.add(stop);
 		buttonMenu.add(tick);
 		buttonMenu.add(reload);
-		//buttonMenu.add(shoot);
+		// buttonMenu.add(shoot);
 		buttonMenu.add(buildMode);
 
 	}

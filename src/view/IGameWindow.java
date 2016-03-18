@@ -2,7 +2,7 @@ package view;
 
 public interface IGameWindow {
 
-	public void switchToPlayMode();
+	public void setMode(String mode);
 	
 	public String getFile();
 }

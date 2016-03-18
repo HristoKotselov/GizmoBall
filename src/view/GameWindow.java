@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import controller.BuildModeMouseListener;
@@ -18,18 +20,20 @@ import controller.SaveFileListener;
 import model.IMainEngine;
 
 public class GameWindow implements IGameWindow {
-	
+
 	/* GUI components */
-	private JFrame buildModeWindow, playModeWindow;
+	private JFrame gameWindow;
+
+	private JPanel sidebarPanel;
 
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-	
+
 	/* Controllers */
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
-	
+
 	/* Model */
 	private IMainEngine model;
 
@@ -44,15 +48,15 @@ public class GameWindow implements IGameWindow {
 
 		initialiseBuildWindow();
 	}
-	
-	private void initialiseBuildWindow(){
-		buildModeWindow = new JFrame("Build Mode");
-		buildModeWindow.setBounds(100, 100, 750, 500);
-		buildModeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	private void initialiseBuildWindow() {
+		gameWindow = new JFrame("Build Mode");
+		gameWindow.setBounds(100, 100, 750, 500);
+		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
-		buildModeWindow.setJMenuBar(menuBar);
+		gameWindow.setJMenuBar(menuBar);
 
 		JMenu mnFolio = new JMenu("Game");
 		menuBar.add(mnFolio);
@@ -72,52 +76,60 @@ public class GameWindow implements IGameWindow {
 
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFolio.add(mntmExit);
-		buildModeWindow.getContentPane().setLayout(new FlowLayout());
+		gameWindow.getContentPane().setLayout(new FlowLayout());
 		// end of menu bar
 
 		JSeparator separator1 = new JSeparator();
-		buildModeWindow.add(separator1);
+		gameWindow.add(separator1);
 
-		// TODO might need to change later
+
+		sidebarPanel = new JPanel(new CardLayout());
+
 		buildmenu = new BuildMenu(model, this);
+		playmenu = new PlayMenu(model, this);
+
+		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
+		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
+
+
 		board = new GameBoard(model);
-
 		BuildModeMouseListener l = new BuildModeMouseListener(model, buildmenu);
-
 		board.addMouseListener(l);
+
 		// buildboard.addMouseMotionListener(l);
 
-		buildModeWindow.add(buildmenu.getMenu());
-		buildModeWindow.add(new JSeparator());
-		buildModeWindow.add(board);
+		gameWindow.add(sidebarPanel);
+		gameWindow.add(new JSeparator());
+		gameWindow.add(board);
 
 		JLabel tips = new JLabel("Action Tip:");
 		tips.setFont(new Font("Arial", 1, 12));
 		tips.setForeground(Color.BLUE);
-		buildModeWindow.add(tips);
+		gameWindow.add(tips);
 
 		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
-		buildModeWindow.add(textarea);
+		gameWindow.add(textarea);
 
-		buildModeWindow.setVisible(true);
+		gameWindow.setVisible(true);
 	}
-	
-	
-	
+
+
+
 	@Override
-	public void switchToPlayMode(){
-		// TODO 
+	public void setMode(String mode) {
+		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
+		cl.show(sidebarPanel, mode);
 		
-		buildModeWindow.setVisible(false);
+		gameWindow.setTitle(mode);
 	}
 
 	@Override
 	public String getFile() {
 		// TODO change to allow save button using string param
 		JFileChooser f = new JFileChooser();
-		f.showOpenDialog(buildModeWindow);
+		f.showOpenDialog(gameWindow);
 
 		File file = f.getSelectedFile();
 
