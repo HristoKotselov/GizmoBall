@@ -40,6 +40,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		bmWidth = 2;
 		bmHeight = 2;
 		
+		circleSet = new HashSet<Circle>();
+		ls = new HashSet<LineSegment>();
 
 		this.gameplayRotation = 0;
 		this.flippingForward = false;
@@ -203,6 +205,14 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		}
 
 		return s;
+	}
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		// TODO get Flipper to default position
 	}
 
 	

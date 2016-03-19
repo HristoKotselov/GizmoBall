@@ -56,6 +56,8 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L;
+		
+		circleSet.clear();
 
 		Circle topleft = new Circle(lCorner_X, tCorner_Y, 0);
 		Circle topright = new Circle(rCorner_X, tCorner_Y, 0);
@@ -87,6 +89,8 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L;
+		
+		ls.clear();
 
 		LineSegment top = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
 		LineSegment right = new LineSegment(rCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
@@ -136,6 +140,14 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
+	}
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		setColour(getInitialColour());
 	}
 	
 	@Override

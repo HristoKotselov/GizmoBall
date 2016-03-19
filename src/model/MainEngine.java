@@ -41,8 +41,9 @@ public class MainEngine extends Observable implements IMainEngine {
 
 /* Run time values */
 	
-	/** How frequent each tick of the ball is. Essentially this is frame per seconds; the lower this value, 
-	 * the smoother the animation will be, but also more computationally expensive. **/
+	/** How long each tick of the ball is. While this value on its doesn't determine how many frames are
+	 * drawn per second, it provides the Physics code the required time variable to be as realistic as 
+	 * possible **/
 	private double moveTime = 1.0/60.0;			// 60 fps
 	
 	private boolean isPlaying; // used to tell Keyboard ActionListeners when
@@ -81,6 +82,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		
 		// Need to apply the Physics to all the balls before the collision prediction happen
 		for(Ball ball : ballSet){
+			if(ball.stopped()){		// if ball stopped, then no calculation will be needed
+				continue;
+			}
+			
 			// Apply friction to Ball
 			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
 			ball.setVelo(ball.getVelo().times(frictionScale));
@@ -142,6 +147,12 @@ public class MainEngine extends Observable implements IMainEngine {
 		List<CollisionDetails> collisionList = new ArrayList<CollisionDetails>();
 
 		for (Ball ball : ballSet) {
+			
+			if(ball.stopped()){		// if ball stopped, then no calculation will be needed
+				continue;
+			}
+			
+			
 			// Find Time Until Collision and also, if there is a collision, the
 			// new
 			// speed vector.
@@ -272,22 +283,30 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-
+		isPlaying = true;
 	}
 
 	@Override
 	public void stop() {
-		// TODO Auto-generated method stub
-
+		isPlaying = false;
 	}
 
 	@Override
 	public boolean isPlaying() {
 		// TODO Auto-generated method stub
-		return false;
+		return isPlaying;
 	}
-
+	
+	@Override
+	public void reset(){
+		for(AGizmoComponent gizmo : getAllGizmos()){
+			gizmo.reset();
+		}
+		
+		// Update view
+		update();
+	}
+	
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
 		// TODO Validation
@@ -320,6 +339,12 @@ public class MainEngine extends Observable implements IMainEngine {
 			
 			// Add stationary gizmo to Stationary Gizmo Set
 			movingGizmos.add(mGizmo);
+			
+			// if moving Gizmo is a Ball, then we add it to a special subset
+			if(mGizmo instanceof Ball){
+				ballSet.add((Ball) mGizmo);
+			}
+			
 		}
 
 		// Add new gizmo to the map of ALL Gizmos

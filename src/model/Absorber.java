@@ -70,6 +70,8 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + bmHeight * MainEngine.L;
+		
+		circleSet.clear();
 
 		Circle tlCorner = new Circle(lCorner_X, tCorner_Y, 0.0);
 		Circle trCorner = new Circle(rCorner_X, tCorner_Y, 0.0);
@@ -101,6 +103,8 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + bmHeight * MainEngine.L;
+		
+		ls.clear();
 
 		LineSegment tlCorner_trCorner = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
 		LineSegment trCorner_brCorner = new LineSegment(rCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
@@ -129,12 +133,12 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void triggerAction() {
 		if (capturedBall != null) { // no ball in absorber = nothing happens
-			setBall(null);		// Release the ball
 			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
 			// increasing clock-wise. 50L is the length, thus it is converted to
 			// pixels here
 			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
 			capturedBall.start();
+			setBall(null);		// Release the ball
 		}
 
 	}
@@ -159,6 +163,14 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
+	}
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		capturedBall = null;
 	}
 	
 	@Override

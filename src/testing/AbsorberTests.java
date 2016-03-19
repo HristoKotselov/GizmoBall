@@ -1,16 +1,22 @@
 package testing;
 
 import static org.junit.Assert.*;
-
+import physics.Circle;
 import java.awt.Color;
-
+import java.awt.Shape;
+import java.util.Set;
 import org.junit.Test;
 import model.*;
-
+import physics.LineSegment;
+import physics.Angle;
+import java.awt.Color;
 public class AbsorberTests {
 	Absorber a = new Absorber("A1", 1, 1, 1, 1, Color.red);
 	Absorber b = new Absorber("B1", 2, 2, 2, 2, Color.blue);
 	Absorber c = new Absorber("A1", 1, 1, 1, 1, Color.red);
+	Angle test1 = new Angle(25);
+	
+	Ball ball = new Ball("test", Color.RED, 1, 1, test1, 2.0);
 
 	@Test
 	public void testAbsorberCreation() {
@@ -20,51 +26,22 @@ public class AbsorberTests {
 		
 	}
 	
-	// TODO need to rewrite
-/*
 	@Test
-	public void testAbsorberSetGetHeight() {
-		a.setHeight(10);
-		b.setHeight(20);
-		c.setHeight(10);
-		
-		int aHeight = a.getHeight();
-		int bHeight = b.getHeight();
-		int cHeight = c.getHeight();
-		
-		assertTrue(aHeight == cHeight);
-		assertTrue(cHeight == aHeight);
-		assertTrue(aHeight == aHeight);
-		assertTrue(cHeight == cHeight);
-		assertFalse(aHeight == bHeight);
-		assertFalse(bHeight == aHeight);
-		assertFalse(cHeight == bHeight);
-		assertFalse(bHeight == cHeight);
-		}
-*/
+	public void testRoation(){
+		assertTrue(a.rotate(11));
+		assertTrue(a.rotate(12));
+		assertTrue(a.rotate(13));
+	};
 	
-	// TODO need to rewrite
-/*
 	@Test
-	public void testAbsorberSetGetWidth() {
-		a.setWidth(10);
-		b.setWidth(20);
-		c.setWidth(10);
+	public void testCapturedBall(){
+		a.setBall(ball);
 		
-		int aWidth = a.getWidth();
-		int bWidth = b.getWidth();
-		int cWidth = c.getWidth();
-		
-		assertTrue(aWidth == cWidth);
-		assertTrue(cWidth == aWidth);
-		assertTrue(aWidth == aWidth);
-		assertTrue(cWidth == cWidth);
-		assertFalse(aWidth == bWidth);
-		assertFalse(bWidth == aWidth);
-		assertFalse(cWidth == bWidth);
-		assertFalse(bWidth == cWidth);
-	}
-	*/
+		assertTrue(a.getCapturedBall() == ball);
+		a.reset();
+		assertTrue(a.getCapturedBall() == null);
+		}
+	
 
 	@Test
 	public void testAbsorberSetGetX() {
@@ -78,8 +55,6 @@ public class AbsorberTests {
 		
 		assertTrue(aX == cX);
 		assertTrue(cX == aX);
-		assertTrue(aX == aX);
-		assertTrue(cX == cX);
 		assertFalse(aX == bX);
 		assertFalse(bX == aX);
 		assertFalse(cX == bX);
@@ -98,8 +73,6 @@ public class AbsorberTests {
 		
 		assertTrue(aY == cY);
 		assertTrue(cY == aY);
-		assertTrue(aY == aY);
-		assertTrue(cY == cY);
 		assertFalse(aY == bY);
 		assertFalse(bY == aY);
 		assertFalse(cY == bY);
@@ -118,11 +91,59 @@ public class AbsorberTests {
 		
 		assertTrue(aColour == cColour);
 		assertTrue(cColour == aColour);
-		assertTrue(aColour == aColour);
-		assertTrue(cColour == cColour);
 		assertFalse(aColour == bColour);
 		assertFalse(bColour == aColour);
 		assertFalse(cColour == bColour);
 		assertFalse(bColour == cColour);
+	}
+	
+	@Test
+	public void testAbsorberMove(){
+		Absorber a1 = new Absorber("test", 1, 1, 1, 1, Color.red);
+		Absorber b1 = new Absorber("test", 1, 1, 1, 1, Color.red);
+		assertFalse(a1 == b1);
+/*
+		System.out.println(a1.getX());
+		System.out.println(b1.getY());
+		a1.move(1, 1);
+		System.out.println("break");
+		System.out.println(a1.getX());
+		System.out.println(b1.getY());
+		*/
+		a1.move(10, 10);
+		//deliberate fail
+		assertEquals(a1, b1);
+	}
+	
+	@Test
+	public void circleSetTest(){
+		
+		Set<Circle> testCirc = a.getCircles();
+		assertNotNull(testCirc);
+	}
+	
+	@Test
+	public void returnDrawingShape(){
+		Shape s = a.getDrawingShape();
+		assertNotNull(s);
+	}
+	
+	@Test
+	public void lineSegSetTest(){
+		
+		Set<LineSegment> testSeg = a.getLineSeg();
+		assertNotNull(testSeg);
+	}
+	
+	@Test
+	public void triggerTest(){
+		//imitating a ball being captured in the absorber
+		a.setBall(ball);
+		//triggering the absorber, which should mean capturedBall == null
+		a.triggerAction();
+		//assigning the absorber's captured ball to a variable (SHOULD be null)
+		Ball newBall = a.getCapturedBall();
+		//fails if not null
+		assertNull(newBall);
 	}
 }
