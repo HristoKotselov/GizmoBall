@@ -11,10 +11,7 @@ import physics.Vect;
  * that preciseX/Y replaces the normal X/Y's role in this class. Examples: Ball
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
-
-	private double xpos;
-	private double ypos;
-
+	
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with the
 	 * movingYPos, This determines the position of a Gizmo component on the
