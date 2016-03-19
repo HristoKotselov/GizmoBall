@@ -1,35 +1,41 @@
 package model;
 
 import java.awt.Color;
-
 import physics.Angle;
 import physics.Vect;
 
 /**
- * TODO
- * Class designed for Gizmos that can actively move around on the Board. 
- * For these Gizmos, PreciseX & PreciseY methods can be used instead if their position on the board need 
- * be precise (i.e. move about rapidly). Keep in mind that preciseX/Y replaces the normal X/Y's role 
- * in this class.
- * Examples:	Ball
+ * TODO Class designed for Gizmos that can actively move around on the Board.
+ * For these Gizmos, PreciseX & PreciseY methods can be used instead if their
+ * position on the board need be precise (i.e. move about rapidly). Keep in mind
+ * that preciseX/Y replaces the normal X/Y's role in this class. Examples: Ball
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
 
-	/** The horizontal-coordinate of the component (in pixel). Along with the movingYPos,
-	 * This determines the position of a Gizmo component on the board, during gameplay. 
-	 * Where this is exactly depends on the type of Gizmo. **/
+	private double xpos;
+	private double ypos;
+
+	/**
+	 * The horizontal-coordinate of the component (in pixel). Along with the
+	 * movingYPos, This determines the position of a Gizmo component on the
+	 * board, during gameplay. Where this is exactly depends on the type of
+	 * Gizmo.
+	 **/
 	private double movingXPos;
-	
-	/** The vertical-coordinate of the component (in pixel). Along with the movingXPos,
-	 * This determines the position of a Gizmo component on the board, during gameplay. 
-	 * Where this is exactly depends on the type of Gizmo. **/
+
+	/**
+	 * The vertical-coordinate of the component (in pixel). Along with the
+	 * movingXPos, This determines the position of a Gizmo component on the
+	 * board, during gameplay. Where this is exactly depends on the type of
+	 * Gizmo.
+	 **/
 	private double movingYPos;
-	
+
 	private Vect velocity;
-	
+
 	private boolean stopped;
 
-	
+
 	public AMovingGizmo(String name, int starting_x, int starting_y, Color color, Angle theta, double velo) {
 		super(name, starting_x, starting_y, color);
 
@@ -40,18 +46,18 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	}
 
 
-/* Exclusive Methods to this type of Gizmo */	
+	/* Exclusive Methods to this type of Gizmo */
 	public boolean setMovingX(double x) {
 		// TODO Validation
 		movingXPos = x;
-		
+
 		return true;
 	}
 
 	public boolean setMovingY(double y) {
 		// TODO Validation
 		movingYPos = y;
-		
+
 		return true;
 	}
 
@@ -71,7 +77,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public Vect getVelo() {
 		return velocity;
 	}
-	
+
 	public void stop() {
 		stopped = true;
 	}
@@ -84,12 +90,14 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		return stopped;
 	}
 
-	
-/* Abstract methods that can be implemented already */
+
+	/* Abstract methods that can be implemented already */
 	@Override
 	public String toString() {
-		
-		return getGizmoID() + " " + (getX() / MainEngine.L) + " " + (getY() / MainEngine.L);
+		double x = (double) getX() / MainEngine.L;
+		double y = (double) getY() / MainEngine.L;
+
+		return getGizmoID() + " " + x + " " + y + " " + velocity.x() + " " + velocity.y();
 	}
-	
+
 }

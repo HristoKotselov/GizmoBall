@@ -5,7 +5,6 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
-
 import physics.Angle;
 import physics.Circle;
 import physics.Vect;
@@ -21,23 +20,23 @@ public class Ball extends AMovingGizmo {
 		radius = 5;
 	}
 
-/* Ball's non-sped up get methods */
+	/* Ball's non-sped up get methods */
 	@Override
 	public Shape getDrawingShape() {
-		return new Ellipse2D.Double(getMovingX() - this.radius, getMovingY() - this.radius, this.radius*2, this.radius*2);
+		return new Ellipse2D.Double(getMovingX() - this.radius, getMovingY() - this.radius, this.radius * 2, this.radius * 2);
 	}
 
 	@Override
 	public Set<Circle> getCircles() {
 		Set<Circle> circleSet = new HashSet<Circle>();
-		
+
 		circleSet.add(new Circle(getMovingX(), getMovingY(), radius));
-		
+
 		return circleSet;
 	}
-	
 
-/* Regular methods implementation */
+
+	/* Regular methods implementation */
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
@@ -52,34 +51,39 @@ public class Ball extends AMovingGizmo {
 	 */
 	@Override
 	public boolean rotate(int degree) {
-		// Ball shouldn't be rotatable so this method doesn't need to do anything
+		// Ball shouldn't be rotatable so this method doesn't need to do
+		// anything
 		return true;
 	}
 
-/* Overwritten methods */
+	/* Overwritten methods */
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
 	@Override
 	public void move(int x, int y) {
 		// TODO Validation
-		
+
 		super.move(x, y);
 	}
 
-	
-/* Ball specific methods */
+
+	/* Ball specific methods */
 	public double getRadius() {
 		return radius;
 	}
 
 	/**
-	 * TODO
-	 * Shortcut method to retrieve the only Circle class within circleSets
+	 * TODO Shortcut method to retrieve the only Circle class within circleSets
+	 * 
 	 * @return
 	 */
 	public Circle getCircle() {
 		return new Circle(getMovingX(), getMovingY(), radius);
 	}
 
+	@Override
+	public String toString() {
+		return "Ball " + super.toString();
+	}
 }

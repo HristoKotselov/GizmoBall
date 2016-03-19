@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.StringTokenizer;
+import physics.Vect;
 
 
 /**
@@ -114,13 +115,13 @@ public final class SaveDataEngine {
 							System.out.println("Moving \"" + name + "\" to (" + x + ", " + y + ")");
 
 							g = model.getGizmo(name);
-							if(g instanceof AStationaryGizmo){
+							if (g instanceof AStationaryGizmo) {
 								model.moveGizmoByL(g, x, y);
 							}
-							if(g instanceof AMovingGizmo){
+							if (g instanceof AMovingGizmo) {
 								// TODO moveGizmoByPixels()
 							}
-								
+
 							break;
 
 						case "Delete":
@@ -131,20 +132,18 @@ public final class SaveDataEngine {
 							break;
 
 						case "Ball":
-							// name = st.nextToken();
-							// double xpos = Double.parseDouble(st.nextToken());
-							// double ypos = Double.parseDouble(st.nextToken());
-							// double xvel = Double.parseDouble(st.nextToken());
-							// double yvel = Double.parseDouble(st.nextToken());
-							// System.out.println("Adding ball named \"" + name
-							// +
-							// "\" at (" + xpos + ", " + ypos + ") with xvel = "
-							// +
-							// xvel + ", yvel = " + yvel);
-							//
-							// Ball ball = new Ball(xpos, ypos, xvel, yvel);
-							// b.addBall(name, ball);
-							// break;
+							name = st.nextToken();
+							int xpos = (int) Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							int ypos = (int) Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double xvel = Double.parseDouble(st.nextToken());
+							double yvel = Double.parseDouble(st.nextToken());
+							System.out.println("Adding ball named \"" + name + "\" at (" + xpos + ", " + ypos + ") with xvel = " + xvel + ", yvel = " + yvel);
+
+							Vect v = new Vect(xvel, yvel);
+
+							g = new Ball(name, Color.BLUE, xpos, ypos, v.angle(), v.length());
+							model.addGizmo(g);
+							break;
 
 						case "Connect":
 						case "KeyConnect":
