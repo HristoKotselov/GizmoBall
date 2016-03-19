@@ -133,8 +133,10 @@ public final class SaveDataEngine {
 
 						case "Ball":
 							name = st.nextToken();
-							int xpos = (int) Double.parseDouble(st.nextToken()) * model.getLInPixels();
-							int ypos = (int) Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							
+							int xpos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
+							int ypos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
+							
 							double xvel = Double.parseDouble(st.nextToken());
 							double yvel = Double.parseDouble(st.nextToken());
 							System.out.println("Adding ball named \"" + name + "\" at (" + xpos + ", " + ypos + ") with xvel = " + xvel + ", yvel = " + yvel);
@@ -161,7 +163,6 @@ public final class SaveDataEngine {
 
 			br.close();
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -175,11 +176,10 @@ public final class SaveDataEngine {
 				bw.write(g.toString() + "\n");
 			}
 
-			// TODO Ball(s), Connect, KeyConnect, Gravity, Friction
+			// TODO Connect, KeyConnect, Gravity, Friction
 
 			bw.close();
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
