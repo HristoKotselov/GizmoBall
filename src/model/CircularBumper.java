@@ -50,6 +50,7 @@ public class CircularBumper extends AStationaryGizmo {
 	}
 
 	private void setupCircles() {
+		circleSet.clear();
 		Circle circle = new Circle(getX() + 10, getY() + 10, 10);
 		circleSet.add(circle);
 	}
@@ -91,6 +92,14 @@ public class CircularBumper extends AStationaryGizmo {
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
+	}
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		setColour(getInitialColour());
 	}
 	
 	

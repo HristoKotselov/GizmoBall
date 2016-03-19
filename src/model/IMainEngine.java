@@ -19,6 +19,8 @@ public interface IMainEngine {
 
 	public boolean isPlaying();
 	
+	public void reset();
+	
 	public boolean addGizmo(AGizmoComponent gizmo);
 
 	public boolean removeGizmo(AGizmoComponent gizmo);

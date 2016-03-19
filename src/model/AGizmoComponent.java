@@ -36,6 +36,11 @@ abstract public class AGizmoComponent {
 	private int ypos;
 	
 	/**
+	 * Initial Colour of Gizmo
+	 **/
+	private Color initialColour;
+	
+	/**
 	 * Colour of the Gizmo, used by the view to determine what colour to paint
 	 **/
 	private Color colour;
@@ -56,7 +61,12 @@ abstract public class AGizmoComponent {
 		gizmoID = name;
 		xpos = x;
 		ypos = y;
+		
+		// clone Color to initialColor
 		this.colour = color;
+		float[] compArray = colour.getColorComponents(null);
+		initialColour = new Color(colour.getColorSpace(), compArray, 1.0f);
+		
 
 		// Default settings
 		visibility = true;
@@ -97,6 +107,10 @@ abstract public class AGizmoComponent {
 
 	public Color getColour() {
 		return colour;
+	}
+	
+	public Color getInitialColour(){
+		return initialColour;
 	}
 	
 	public int getRotation() {
@@ -174,6 +188,15 @@ abstract public class AGizmoComponent {
 	 * the Gizmo in that case will need to be a Moving Gizmo)
 	 */
 	abstract public boolean rotate(int degree);
+	
+	/**
+	 * Method called when the game is reset in Play Mode. For most Gizmos, this
+	 * method will just change one or two fields that can be changed during
+	 * gameplay (e.g. Color).
+	 * @modify this
+	 * @effect varies with each Gizmo component; see individual class;
+	 */
+	abstract public void reset();
 	
 	abstract public String toString();
 
