@@ -30,8 +30,8 @@ public class PlayMenu implements IMenu {
 
 	/* Controller */
 	private PlayModeButtonListener playModeAL;
-	private StartGameListener startGameAL;
-	private StopGameListener stopGameAL;
+	//private StartGameListener startGameAL;
+	//private StopGameListener stopGameAL;
 
 	public PlayMenu(IMainEngine model, IGameWindow gameWindow) {
 		this.model = model;
@@ -45,25 +45,25 @@ public class PlayMenu implements IMenu {
 	private void initialize() {
 		// TODO the listeners should have been passed through parameter
 		playModeAL = new PlayModeButtonListener(model, gameWindow);
-		startGameAL = new StartGameListener(model);
-		stopGameAL = new StopGameListener(model);
+		//startGameAL = new StartGameListener(model);
+		//stopGameAL = new StopGameListener(model);
 
 		buttonMenu = new JPanel();
 		buttonMenu.setLayout(new GridLayout(0, 1, 0, 30));
 
 		JButton start = new JButton("Start");
 		start.setActionCommand("start");
-		start.addActionListener(startGameAL);
+		start.addActionListener(playModeAL);
 		start.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton tick = new JButton("Tick");
 		tick.setActionCommand("tick");
-		tick.addActionListener(startGameAL);
+		tick.addActionListener(playModeAL);
 		tick.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton stop = new JButton("Stop");
 		stop.setActionCommand("stop");
-		stop.addActionListener(stopGameAL);
+		stop.addActionListener(playModeAL);
 		stop.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton reload = new JButton("Reload");

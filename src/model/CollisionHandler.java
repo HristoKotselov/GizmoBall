@@ -15,22 +15,30 @@ public class CollisionHandler {
 		Ball ball = cd.getBall();
 		
 		
-		switch(gizmo.getClass().getSimpleName()){
-			case "Absorber": 
-				/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
-				 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
-				 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/	
-				if(tuc == 0 && !handleAbsorberColi(cd, gizmo)){		// tuc == 0 occur when the Ball is directly in contact the Line Segment
-					model.moveBallAtCurrentVelo(ball, model.getMoveTime());
-				}
-				
-				break;
-
-		// TODO add Flipper stuff here	
-				
-			default:		// procedures for a normal collision
-				ball.setVelo(cd.getVelo());		// Post collision velocity ...
-				break;
+		// gizmo == null means its the wall
+		if(gizmo != null){
+			
+			switch(gizmo.getClass().getSimpleName()){
+				case "Absorber": 
+					/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
+					 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
+					 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/	
+					if(tuc == 0 && !handleAbsorberColi(cd, gizmo)){		// tuc == 0 occur when the Ball is directly in contact the Line Segment
+						model.moveBallAtCurrentVelo(ball, model.getMoveTime());
+					}
+					
+					break;
+	
+			// TODO add Flipper stuff here	
+					
+				default:		// procedures for a normal collision (that is not wall collision)
+					ball.setVelo(cd.getVelo());		// Post collision velocity ...
+					break;
+			}
+		}
+		else{
+			// procedures for a wall collision
+			ball.setVelo(cd.getVelo());		// Post collision velocity ...
 		}
 
 	}

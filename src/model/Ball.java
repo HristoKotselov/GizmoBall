@@ -66,6 +66,18 @@ public class Ball extends AMovingGizmo {
 
 		super.move(x, y);
 	}
+	
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		setMovingX(getX());
+		setMovingY(getY());
+		setVelo(getInitialVelo());
+		start();
+	}
 
 
 	/* Ball specific methods */

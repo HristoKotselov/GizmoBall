@@ -21,18 +21,6 @@ public class BuildModeButtonListener implements ActionListener {
 
 		} else if (actionCmd.equals("playMode")) {
 			gameWindow.setMode("Play Mode");
-
-			// In the final release, this command should change from BUILD MODE
-			// to PLAY MODE
-
-			/* TODO START of Temporarily Block of Code, REMOVE\CHANGE before final release
-				System.out.println("Tick " + System.nanoTime());
-				if (model == null) {
-					System.out.println("ITS NULL");
-				} else {
-					model.moveBalls();
-				}
-			 TODO END of Temporarily Block of Code **/
 		}
 	}
 

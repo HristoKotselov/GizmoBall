@@ -69,14 +69,35 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		int rCorner_X = getX() + MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L;
-
+		
+		circleSet.clear();
+		
 		Circle topleft = new Circle(lCorner_X, tCorner_Y, 0);
 		Circle topright = new Circle(rCorner_X, tCorner_Y, 0);
 		Circle bottomleft = new Circle(lCorner_X, bCorner_Y, 0);
-
-		circleSet.add(topleft);
-		circleSet.add(topright);
-		circleSet.add(bottomleft);
+		Circle bottomright = new Circle(rCorner_X, bCorner_Y, 0);
+		
+		// not the best way to do this, but good enough for the spec!
+		if(rotationAngle == 0){
+			circleSet.add(topleft);
+			circleSet.add(topright);
+			circleSet.add(bottomleft);
+		}
+		else if(rotationAngle == 90){
+			circleSet.add(topleft);
+			circleSet.add(topright);
+			circleSet.add(bottomright);
+		}
+		else if(rotationAngle == 180){
+			circleSet.add(topright);
+			circleSet.add(bottomleft);
+			circleSet.add(bottomright);
+		}
+		else if(rotationAngle == 270){
+			circleSet.add(topleft);
+			circleSet.add(bottomleft);
+			circleSet.add(bottomright);
+		}
 	}
 	
 	@Override
@@ -99,13 +120,36 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L;
 
+		ls.clear();
+		
 		LineSegment top = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
-		LineSegment middle = new LineSegment(rCorner_X, tCorner_Y, lCorner_X, bCorner_Y);
-		LineSegment left = new LineSegment(lCorner_X, bCorner_Y, lCorner_X, tCorner_Y);
-
-		ls.add(top);
-		ls.add(middle);
-		ls.add(left);
+		LineSegment right = new LineSegment(rCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
+		LineSegment bottom = new LineSegment(lCorner_X, bCorner_Y, rCorner_X, bCorner_Y);
+		LineSegment left = new LineSegment(lCorner_X, tCorner_Y, lCorner_X, bCorner_Y);
+		LineSegment tlCorner_brCorner = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, bCorner_Y);
+		LineSegment trCorner_blCorner = new LineSegment(rCorner_X, tCorner_Y, lCorner_X, bCorner_Y);
+		
+		// not the best way to do this, but good enough for the spec!
+		if(rotationAngle == 0){
+			ls.add(top);
+			ls.add(left);
+			ls.add(trCorner_blCorner);
+		}
+		else if(rotationAngle == 90){
+			ls.add(top);
+			ls.add(right);
+			ls.add(tlCorner_brCorner);
+		}
+		else if(rotationAngle == 180){
+			ls.add(right);
+			ls.add(bottom);
+			ls.add(trCorner_blCorner);
+		}
+		else if(rotationAngle == 270){
+			ls.add(bottom);
+			ls.add(left);
+			ls.add(tlCorner_brCorner);
+		}
 	}
 
 	private void updateCollections() {
@@ -134,9 +178,6 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		rotationAngle = (rotationAngle + degree) % 360;
 
 		updateCollections();
-
-		// TODO This rotates the shape for drawing purposes, but not the
-		// collision info
 		// TODO Also requires validation
 		return true;
 	}
@@ -152,6 +193,14 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		updateCollections();
+	}
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#reset()
+	 */
+	@Override
+	public void reset() {
+		setColour(getInitialColour());
 	}
 	
 	@Override

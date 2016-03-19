@@ -6,10 +6,10 @@ import java.awt.event.KeyListener;
 import model.IMainEngine;
 import model.MainEngine;
 
-public class PlayGameListener implements KeyListener {
+public class PlayGameKeyListener implements KeyListener {
 	private IMainEngine model;
 
-	public PlayGameListener(IMainEngine m) {
+	public PlayGameKeyListener(IMainEngine m) {
 		model = m;
 	}
 

@@ -30,6 +30,8 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	 * Gizmo.
 	 **/
 	private double movingYPos;
+	
+	private Vect initialVelo;
 
 	private Vect velocity;
 
@@ -42,6 +44,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		movingXPos = starting_x;
 		movingYPos = starting_y;
 		velocity = new Vect(theta, velo);
+		initialVelo = new Vect(theta, velo);
 		start();
 	}
 
@@ -78,6 +81,10 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		return velocity;
 	}
 
+	public Vect getInitialVelo() {
+		return initialVelo;
+	}
+	
 	public void stop() {
 		stopped = true;
 	}
