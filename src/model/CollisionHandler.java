@@ -52,12 +52,12 @@ public class CollisionHandler {
 		int height_in_pixels = absorber.bmHeight * MainEngine.L;
 		
 		// i.e. first collision BEFORE ball enter Absorber
-		if (absorber.getCapturedBall() != ball && 
+		if (!absorber.getCapturedBalls().contains(ball) && 
 				(ball.getMovingY() < absorber.getY()    ||    ball.getMovingY() > absorber.getY() + height_in_pixels)) { 			// check if Ball is at Top or Bottom of Absorber
 			ball.stop();
 			ball.setMovingX(absorber.getX() + width_in_pixels - (0.25 * MainEngine.L));
 			ball.setMovingY(absorber.getY() + height_in_pixels - (0.25 * MainEngine.L));
-			absorber.setBall(ball);
+			absorber.addCapturedBall(ball);
 			return true;
 		} else { 		// i.e. second collision AFTER ball enter Absorber
 			return false;		// nothing happens

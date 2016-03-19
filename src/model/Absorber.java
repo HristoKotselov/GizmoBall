@@ -3,7 +3,9 @@ package model;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import physics.Angle;
 import physics.Circle;
@@ -18,7 +20,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	 * The currently captured Ball within the Absorber. If there is no ball
 	 * within the absorber, then this object becomes null.
 	 */
-	private Ball capturedBall;
+	private List<Ball> capturedBalls;
 	
 /* Collections used to optimise up game performance */
 	/** The visual representation of the Gizmo. Used by drawing code to determine 
@@ -39,7 +41,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 		bmWidth = grid_tile_width;
 		bmHeight = grid_tile_height;
-		capturedBall = null;
+		capturedBalls = new ArrayList<Ball>();
 
 		
 		// Collection-speed up initialisation
@@ -132,13 +134,14 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void triggerAction() {
-		if (capturedBall != null) { // no ball in absorber = nothing happens
+		if (!capturedBalls.isEmpty()) { // no ball in absorber = nothing happens
+			Ball ball = capturedBalls.remove(0);
+			
 			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
 			// increasing clock-wise. 50L is the length, thus it is converted to
 			// pixels here
-			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
-			capturedBall.start();
-			setBall(null);		// Release the ball
+			ball.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
+			ball.start();
 		}
 
 	}
@@ -170,7 +173,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void reset() {
-		capturedBall = null;
+		capturedBalls.clear();
 	}
 	
 	@Override
@@ -182,12 +185,12 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 /* Absorber exclusive methods */
-	public void setBall(Ball b) {
-		capturedBall = b;
+	public void addCapturedBall(Ball b) {
+		capturedBalls.add(b);
 	}
 
-	public Ball getCapturedBall() {
-		return capturedBall;
+	public List<Ball> getCapturedBalls() {
+		return capturedBalls;
 	}
 
 
