@@ -7,11 +7,13 @@ import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.Absorber;
+import model.Ball;
 import model.CircularBumper;
 import model.Flipper;
 import model.IMainEngine;
 import model.SquareBumper;
 import model.TriangularBumper;
+import physics.Angle;
 import view.BuildMenu;
 import view.IGameWindow;
 
@@ -99,6 +101,18 @@ public class BuildModeMouseListener implements MouseInputListener {
 						// TODO moveGizmoByPixels()
 					}
 					moveG = null;
+				}
+
+				break;
+
+			case "Add Ball":
+				try {
+					double angle = bm.getBallDirection();
+					double speed = bm.getBallSpeed();
+
+					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
+					m.addGizmo(g);
+				} catch (NumberFormatException ex) {
 				}
 
 				break;

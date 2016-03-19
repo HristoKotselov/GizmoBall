@@ -99,8 +99,6 @@ public class GameWindow implements IGameWindow {
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
 
-		// buildboard.addMouseMotionListener(l);
-
 		gameWindow.add(sidebarPanel);
 		gameWindow.add(new JSeparator());
 		gameWindow.add(board);
@@ -147,7 +145,6 @@ public class GameWindow implements IGameWindow {
 	@Override
 	public String getFile(String buttonText) {
 		JFileChooser f = new JFileChooser();
-//		f.showOpenDialog(gameWindow);
 		f.showDialog(gameWindow, buttonText);
 
 		File file = f.getSelectedFile();

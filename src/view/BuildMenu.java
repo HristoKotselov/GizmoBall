@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import controller.BuildModeButtonListener;
 import controller.BuildModeFunctionChangeListener;
 import controller.ChangeBallConfigListener;
@@ -27,6 +28,9 @@ public class BuildMenu implements IMenu {
 	private ButtonGroup bg;
 	private JComboBox<String> functionCB;
 	private JPanel cards;
+
+	private JTextField ballDirection;
+	private JTextField ballSpeed;
 
 	/** Required as a reference for Controllers **/
 	private IGameWindow gameWindow;
@@ -62,7 +66,7 @@ public class BuildMenu implements IMenu {
 
 
 		// Function Selection
-		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
+		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Add Ball", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
 		functionCB = new JComboBox<String>(functions);
 		functionCB.addItemListener(new BuildModeFunctionChangeListener(this));
 		menuPanel.add(functionCB, BorderLayout.NORTH);
@@ -70,7 +74,6 @@ public class BuildMenu implements IMenu {
 
 		// Add Gizmo panel
 		JPanel addGizmo = new JPanel(new GridLayout(0, 2));
-		addGizmo.setPreferredSize(new Dimension(170, 20));
 
 		JLabel label = new JLabel(" Choose a gizmo to add:");
 		label.setFont(new Font("Arial", 1, 13));
@@ -102,10 +105,6 @@ public class BuildMenu implements IMenu {
 		rightFlipper.setActionCommand("Right Flipper");
 		bg.add(rightFlipper);
 
-		JRadioButton ball = new JRadioButton("Ball");
-		ball.setActionCommand("Ball");
-		bg.add(ball);
-
 		square.setSelected(true);
 		addGizmo.add(square);
 		addGizmo.add(circle);
@@ -113,21 +112,62 @@ public class BuildMenu implements IMenu {
 		addGizmo.add(absorber);
 		addGizmo.add(leftFlipper);
 		addGizmo.add(rightFlipper);
-		addGizmo.add(ball);
+
+
+		// Add Ball panel
+		// TODO Low priority: be fancy and change font colour to red if numbers
+		// not properly formatted
+		JPanel addBall = new JPanel();
+
+		JPanel controls = new JPanel(new GridLayout(0, 2, 5, 10));
+
+		JLabel selectBallLabel = new JLabel("Ball: ", JLabel.RIGHT);
+		selectBallLabel.setFont(new Font("Arial", 1, 15));
+
+		String[] ballsString = { "<New Ball>" };
+		JComboBox<String> balls = new JComboBox<String>(ballsString);
+
+		controls.add(selectBallLabel);
+		controls.add(balls);
+
+		JLabel xcoordLabel = new JLabel("X: ", JLabel.RIGHT);
+		JTextField xcoord = new JTextField(4);
+		xcoordLabel.setFont(new Font("Arial", 1, 15));
+		xcoord.setFont(new Font("Arial", 1, 15));
+
+		JLabel ycoordLabel = new JLabel("Y: ", JLabel.RIGHT);
+		JTextField ycoord = new JTextField(4);
+		ycoordLabel.setFont(new Font("Arial", 1, 15));
+		ycoord.setFont(new Font("Arial", 1, 15));
+
+		JLabel directionLabel = new JLabel("Initial Direction: ", JLabel.RIGHT);
+		ballDirection = new JTextField("0.0", 4);
+		directionLabel.setFont(new Font("Arial", 1, 15));
+		ballDirection.setFont(new Font("Arial", 1, 15));
+
+		JLabel speedLabel = new JLabel("Initial Speed: ", JLabel.RIGHT);
+		ballSpeed = new JTextField("50.0", 4);
+		speedLabel.setFont(new Font("Arial", 1, 15));
+		ballSpeed.setFont(new Font("Arial", 1, 15));
+
+		controls.add(xcoordLabel);
+		controls.add(xcoord);
+		controls.add(ycoordLabel);
+		controls.add(ycoord);
+		controls.add(directionLabel);
+		controls.add(ballDirection);
+		controls.add(speedLabel);
+		controls.add(ballSpeed);
+
+		JButton apply = new JButton("Apply Settings");
+		apply.setFont(new Font("Arial", 1, 15));
+
+		addBall.add(controls);
+		addBall.add(apply);
 
 
 		// Physics Constants panel
-		JPanel physicsConstants = new JPanel(new GridLayout(4, 2));
-		physicsConstants.setPreferredSize(new Dimension(280, 250));
-
-		JLabel ballspeedlabel = new JLabel("  Ball speed:");
-		ballspeedlabel.setFont(new Font("Arial", 1, 15));
-		JSlider ballspeed = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
-		ballspeed.setMinorTickSpacing(5);
-		ballspeed.setMajorTickSpacing(10);
-		ballspeed.setPaintTicks(true);
-		ballspeed.setPaintLabels(true);
-		ballspeed.setLabelTable(ballspeed.createStandardLabels(10));
+		JPanel physicsConstants = new JPanel(new GridLayout(0, 2));
 
 		JLabel mu1label = new JLabel("  Friciton mu1:");
 		mu1label.setFont(new Font("Arial", 1, 15));
@@ -136,7 +176,7 @@ public class BuildMenu implements IMenu {
 		mu1.setMajorTickSpacing(5);
 		mu1.setPaintTicks(true);
 		mu1.setPaintLabels(true);
-		mu1.setLabelTable(ballspeed.createStandardLabels(5));
+		mu1.setLabelTable(mu1.createStandardLabels(5));
 
 		JLabel mu2label = new JLabel("  Friciton mu2:");
 		mu2label.setFont(new Font("Arial", 1, 15));
@@ -145,7 +185,7 @@ public class BuildMenu implements IMenu {
 		mu2.setMajorTickSpacing(5);
 		mu2.setPaintTicks(true);
 		mu2.setPaintLabels(true);
-		mu2.setLabelTable(ballspeed.createStandardLabels(5));
+		mu2.setLabelTable(mu2.createStandardLabels(5));
 
 		JLabel gravitylabel = new JLabel("  Gravity:");
 		gravitylabel.setFont(new Font("Arial", 1, 15));
@@ -154,10 +194,8 @@ public class BuildMenu implements IMenu {
 		gravity.setMajorTickSpacing(10);
 		gravity.setPaintTicks(true);
 		gravity.setPaintLabels(true);
-		gravity.setLabelTable(ballspeed.createStandardLabels(10));
+		gravity.setLabelTable(gravity.createStandardLabels(10));
 
-		physicsConstants.add(ballspeedlabel);
-		physicsConstants.add(ballspeed);
 		physicsConstants.add(mu1label);
 		physicsConstants.add(mu1);
 		physicsConstants.add(mu2label);
@@ -172,9 +210,10 @@ public class BuildMenu implements IMenu {
 		cards.add(new JPanel(), functions[1]);
 		cards.add(new JPanel(), functions[2]);
 		cards.add(new JPanel(), functions[3]);
-		cards.add(new JPanel(), functions[4]);
+		cards.add(addBall, functions[4]);
 		cards.add(new JPanel(), functions[5]);
-		cards.add(physicsConstants, functions[6]);
+		cards.add(new JPanel(), functions[6]);
+		cards.add(physicsConstants, functions[7]);
 
 		menuPanel.add(cards, BorderLayout.CENTER);
 
@@ -217,6 +256,14 @@ public class BuildMenu implements IMenu {
 
 	public String getSelectedFunction() {
 		return functionCB.getSelectedItem().toString();
+	}
+
+	public double getBallDirection() {
+		return Double.parseDouble(ballDirection.getText());
+	}
+
+	public double getBallSpeed() {
+		return Double.parseDouble(ballSpeed.getText());
 	}
 
 	public void setCard() {
