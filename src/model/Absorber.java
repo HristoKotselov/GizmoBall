@@ -133,12 +133,12 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void triggerAction() {
 		if (capturedBall != null) { // no ball in absorber = nothing happens
-			setBall(null);		// Release the ball
 			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
 			// increasing clock-wise. 50L is the length, thus it is converted to
 			// pixels here
 			capturedBall.setVelo(new Vect(Angle.DEG_270, 50 * MainEngine.L));
 			capturedBall.start();
+			setBall(null);		// Release the ball
 		}
 
 	}
