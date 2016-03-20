@@ -108,7 +108,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 			case "Add Ball":
 				try {
 					double angle = bm.getBallDirection();
-					double speed = bm.getBallSpeed();
+					double speed = bm.getBallSpeed() * m.getLInPixels();
 
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
@@ -122,17 +122,17 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 				switch (selectedGizmo) {
 					case "Square":
-						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.GREEN);
+						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);
 						m.addGizmo(g);
 						break;
 
 					case "Triangle":
-						g = new TriangularBumper("t(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);
+						g = new TriangularBumper("t(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.BLUE);
 						m.addGizmo(g);
 						break;
 
 					case "Circle":
-						g = new CircularBumper("c(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.BLUE);
+						g = new CircularBumper("c(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.GREEN);
 						m.addGizmo(g);
 						break;
 
@@ -170,11 +170,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 						}
 
 						break;
-
-					default:
-						System.out.println(
-								"Not recognised or not Implemented, make sure the gizmo is in the BuildModeMouseListener.mouseClicked() case statement.");
-						return;
 				}
 		}
 	}

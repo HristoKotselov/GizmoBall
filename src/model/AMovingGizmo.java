@@ -11,7 +11,7 @@ import physics.Vect;
  * that preciseX/Y replaces the normal X/Y's role in this class. Examples: Ball
  */
 abstract public class AMovingGizmo extends AGizmoComponent {
-	
+
 	/**
 	 * The horizontal-coordinate of the component (in pixel). Along with the
 	 * movingYPos, This determines the position of a Gizmo component on the
@@ -27,7 +27,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	 * Gizmo.
 	 **/
 	private double movingYPos;
-	
+
 	private Vect initialVelo;
 
 	private Vect velocity;
@@ -81,7 +81,7 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public Vect getInitialVelo() {
 		return initialVelo;
 	}
-	
+
 	public void stop() {
 		stopped = true;
 	}
@@ -94,14 +94,15 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 		return stopped;
 	}
 
-
 	/* Abstract methods that can be implemented already */
 	@Override
 	public String toString() {
 		double x = (double) getX() / MainEngine.L;
 		double y = (double) getY() / MainEngine.L;
+		double xvel = initialVelo.x() / MainEngine.L;
+		double yvel = initialVelo.y() / MainEngine.L;
 
-		return getGizmoID() + " " + x + " " + y + " " + velocity.x() + " " + velocity.y();
+		return getGizmoID() + " " + x + " " + y + " " + String.format("%.2f", xvel) + " " + String.format("%.2f", yvel);
 	}
 
 }
