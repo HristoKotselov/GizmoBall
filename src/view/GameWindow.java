@@ -32,6 +32,7 @@ public class GameWindow implements IGameWindow {
 	private GameBoard board;
 
 	private JLabel coords;
+	private JTextArea actionTipsTextArea;
 
 	/* Controllers */
 	private LoadFileListener loadFileAL;
@@ -96,7 +97,7 @@ public class GameWindow implements IGameWindow {
 
 
 		board = new GameBoard(model, buildmenu, this);
-		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu);
+		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu, this);
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
 
@@ -109,10 +110,10 @@ public class GameWindow implements IGameWindow {
 		tips.setForeground(Color.BLUE);
 		gameWindow.add(tips);
 
-		JTextArea textarea = new JTextArea(1, 45);
-		textarea.setBackground(Color.WHITE);
-		textarea.setEditable(false);
-		gameWindow.add(textarea);
+		actionTipsTextArea = new JTextArea(1, 45);
+		actionTipsTextArea.setBackground(Color.WHITE);
+		actionTipsTextArea.setEditable(false);
+		gameWindow.add(actionTipsTextArea);
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");
 		gameWindow.add(coords);
@@ -160,5 +161,10 @@ public class GameWindow implements IGameWindow {
 		} else {
 			return null;
 		}
+	}
+	
+	@Override
+	public void setActionTipsTextArea(String message){
+		actionTipsTextArea.setText(message);
 	}
 }

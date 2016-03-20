@@ -1,18 +1,7 @@
 package model;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 /*
- * A simple class to hold a bunch of JLabels which can be used when the used
+ * A simple class to hold a bunch of Messages which can be used when the used
  * to display a certain "action tip" when the user clicks on a button
  * 
  * This keeps the MVC structure intact and keeps the action tips separated 
@@ -22,82 +11,69 @@ import javax.swing.JTextField;
 
 public class ActionTipDialogue {
 
-	public static JLabel addGizmoActionTip() {
+	public static String addGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a square to add a Gizmo");
-		return jl;
+		return "Click on a square to add a Gizmo";
 	}
 
-	public static JLabel setFrictionActionTip() {
+	public static String setFrictionActionTip() {
 
-		JLabel jl = new JLabel("Slide the friciton value to your desired level");
-		return jl;
+		return "Slide the friciton value to your desired level";
 	}
 
-	public static JLabel setGravityActionTip() {
+	public static String setGravityActionTip() {
 
-		JLabel jl = new JLabel("Slide the gravity value to your desired level");
-		return jl;
+		return "Slide the gravity value to your desired level";
 	}
 	
-	public static JLabel rotateGizmoActionTip() {
+	public static String rotateGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on the gizmo you wish to rotate");
-		return jl;
+		return "Click on the gizmo you wish to rotate";
 	}
 	
-	public static JLabel deleteGizmoActionTip() {
+	public static String deleteGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on the gizmo you wish to delete");
-		return jl;
+		return "Click on the gizmo you wish to delete";
 	}
 
-	public static JLabel loadFileActionTip() {
+	public static String loadFileActionTip() {
 
-		JLabel jl = new JLabel("Select a file that you wish to load in to the editor");
-		return jl;
+		return "Select a file that you wish to load in to the editor";
 	}
 	
-	public static JLabel saveFileActionTip() {
+	public static String saveFileActionTip() {
 
-		JLabel jl = new JLabel("Choose a location where you wish to save the current board");
-		return jl;
+		return "Choose a location where you wish to save the current board";
 	}
 	
-	public static JLabel watchTickActionTip() {
+	public static String watchTickActionTip() {
 
-		JLabel jl = new JLabel("Keep clicking 'tick' to watch the game step by step");
-		return jl;
+		return "Keep clicking 'tick' to watch the game step by step";
 	}
 	
-	public static JLabel addAbsorberActionTip() {
+	public static String addAbsorberActionTip() {
 
-		JLabel jl = new JLabel("Choose a location on the board to place the absorber");
-		return jl;
+		return "Choose a location on the board to place the absorber";
 	}
 	
-	public static JLabel connectGizmoActionTip() {
+	public static String connectGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on two gizmos you wish to connect");
-		return jl;
+		return "Click on two gizmos you wish to connect";
 	}
 	
-	public static JLabel disconnectGizmoActionTip() {
+	public static String disconnectGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on two gizmos you wish to disconnect from each other");
-		return jl;
+		return "Click on two gizmos you wish to disconnect from each other";
 	}
 	
-	public static JLabel connectKeyToGizmoActionTip() {
+	public static String connectKeyToGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a gizmo you wish to assign a key to");
-		return jl;
+		return "Click on a gizmo you wish to assign a key to";
 	}
 	
-	public static JLabel disconnectKeyFromGizmoActionTip() {
+	public static String disconnectKeyFromGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a gizmo you wish to remove a key from");
-		return jl;
+		return "Click on a gizmo you wish to remove a key from";
 	}
 	
 	

@@ -7,6 +7,7 @@ import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.Absorber;
+import model.ActionTipDialogue;
 import model.Ball;
 import model.CircularBumper;
 import model.Flipper;
@@ -21,6 +22,8 @@ import view.IGameWindow;
 public class BuildModeMouseListener implements MouseInputListener {
 	private IBoard board;
 	private IBuildMenu bm;
+	/** Need to change ActionTips that involves clicking on the Board **/
+	private IGameWindow gw;
 	private IMainEngine m;
 
 	private int x, y;
@@ -41,10 +44,11 @@ public class BuildModeMouseListener implements MouseInputListener {
 	 */
 	private AGizmoComponent moveG;
 
-	public BuildModeMouseListener(IBoard board, IMainEngine m, IBuildMenu bm) {
+	public BuildModeMouseListener(IBoard board, IMainEngine m, IBuildMenu bm, IGameWindow gw) {
 		this.board = board;
 		this.m = m;
 		this.bm = bm;
+		this.gw = gw;
 	}
 
 	@Override
@@ -119,6 +123,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				break;
 
 			case "Add Gizmo":
+				
 				String selectedGizmo = bm.getSelectedGizmo();
 
 				switch (selectedGizmo) {
