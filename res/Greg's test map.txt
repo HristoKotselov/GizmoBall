@@ -1,0 +1,46 @@
+Circle c(17,3) 17 3
+Triangle t(5,8) 5 8
+Triangle t(3,12) 3 12
+Triangle t(14,10) 14 10
+Triangle t(12,11) 12 11
+Triangle t(5,11) 5 11
+Ball Ball(47,56) 2.35 2.8 50.0 0.0
+Triangle t(11,6) 11 6
+Ball Ball(232,42) 11.6 2.1 50.0 0.0
+Ball Ball(182,42) 9.1 2.1 50.0 0.0
+Triangle t(13,6) 13 6
+Triangle t(10,12) 10 12
+Ball Ball(272,14) 13.6 0.7 50.0 0.0
+Triangle t(18,9) 18 9
+Circle c(5,14) 5 14
+Triangle t(7,5) 7 5
+Circle c(17,6) 17 6
+Triangle t(17,8) 17 8
+Triangle t(3,11) 3 11
+Triangle t(5,9) 5 9
+Circle c(3,5) 3 5
+Triangle t(7,15) 7 15
+Circle c(7,3) 7 3
+Ball Ball(24,21) 1.2 1.05 50.0 0.0
+Ball Ball(103,6) 5.15 0.3 50.0 0.0
+Triangle t(15,15) 15 15
+Circle c(9,3) 9 3
+Triangle t(12,4) 12 4
+Ball Ball(302,20) 15.1 1.0 50.0 0.0
+Triangle t(13,13) 13 13
+Triangle t(10,15) 10 15
+Circle c(9,7) 9 7
+Ball Ball(55,6) 2.75 0.3 50.0 0.0
+Ball Ball(77,47) 3.85 2.35 50.0 0.0
+Triangle t(11,9) 11 9
+Circle c(1,10) 1 10
+Ball Ball(337,38) 16.85 1.9 50.0 0.0
+Triangle t(13,9) 13 9
+Ball Ball(343,27) 17.15 1.35 50.0 0.0
+Triangle t(15,9) 15 9
+Ball Ball(203,5) 10.15 0.25 50.0 0.0
+Triangle t(8,10) 8 10
+Triangle t(6,1) 6 1
+Triangle t(0,7) 0 7
+Triangle t(18,13) 18 13
+Triangle t(2,5) 2 5
