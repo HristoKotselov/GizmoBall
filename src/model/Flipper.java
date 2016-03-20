@@ -22,8 +22,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 * gameplay. Separate from rotationAngle, which defines the rotation of the
 	 * flipper within bounding box.
 	 **/
-	private double gameplayRotation = 0;
-	private boolean flippingForward = false;
+	private double gameplayRotation;
+	private boolean flippingForward;
 	private int orientation;
 	private int flipSpeed;
 
@@ -50,7 +50,11 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		circleSet = new HashSet<Circle>();
 		ls = new HashSet<LineSegment>();
 
+		this.gameplayRotation = 0;
+		this.flippingForward = false;
 		this.orientation = orientation;
+
+		updateCollections();
 	}
 
 
@@ -98,19 +102,49 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		int rCorner_X = getX() + MainEngine.L * 2;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L * 2;
-
-		if (orientation == LEFT) {
-			Circle top = new Circle(lCorner_X + 5, tCorner_Y + 5, 5);
-			Circle bottom = new Circle(lCorner_X + 5, bCorner_Y - 5, 5);
-
-			circleSet.add(top);
-			circleSet.add(bottom);
-		} else {
-			Circle top = new Circle(rCorner_X - 5, tCorner_Y + 5, 5);
-			Circle bottom = new Circle(rCorner_X - 5, bCorner_Y - 5, 5);
-
-			circleSet.add(top);
-			circleSet.add(bottom);
+		
+		circleSet.clear();
+		
+		Circle topleft = new Circle(lCorner_X + 5, tCorner_Y + 5, 5);
+		Circle topright = new Circle(rCorner_X - 5, tCorner_Y + 5, 5);
+		Circle bottomleft = new Circle(lCorner_X + 5, bCorner_Y - 5, 5);
+		Circle bottomright = new Circle(rCorner_X - 5, bCorner_Y - 5, 5);
+		
+		if(orientation == LEFT){
+			if(rotationAngle == 0){
+				circleSet.add(topleft);
+				circleSet.add(bottomleft);
+			}
+			else if(rotationAngle == 90){
+				circleSet.add(topleft);
+				circleSet.add(topright);
+			}
+			else if(rotationAngle == 180){
+				circleSet.add(topright);
+				circleSet.add(bottomright);
+			}
+			else if(rotationAngle == 270){
+				circleSet.add(bottomright);
+				circleSet.add(bottomleft);
+			}
+		}
+		else {
+			if(rotationAngle == 0){
+				circleSet.add(topright);
+				circleSet.add(bottomright);
+			}
+			else if(rotationAngle == 90){
+				circleSet.add(bottomright);
+				circleSet.add(bottomleft);
+			}
+			else if(rotationAngle == 180){
+				circleSet.add(bottomleft);
+				circleSet.add(topleft);
+			}
+			else if(rotationAngle == 270){
+				circleSet.add(topleft);
+				circleSet.add(topright);
+			}
 		}
 	}
 
@@ -133,19 +167,57 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		int rCorner_X = getX() + MainEngine.L * 2;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L * 2;
+		
+		ls.clear();
+		
+		LineSegment leftleft = new LineSegment(lCorner_X, tCorner_Y + 5, lCorner_X, bCorner_Y - 5);
+		LineSegment leftright = new LineSegment(lCorner_X + 10, tCorner_Y + 5, lCorner_X + 10, bCorner_Y - 5);
+		
+		LineSegment toptop = new LineSegment(lCorner_X + 5, tCorner_Y, rCorner_X - 5, tCorner_Y);
+		LineSegment topbottom = new LineSegment(lCorner_X + 5, tCorner_Y + 10, rCorner_X - 5, tCorner_Y + 10);
+		
+		LineSegment rightright = new LineSegment(rCorner_X, tCorner_Y + 5, rCorner_X, bCorner_Y - 5);
+		LineSegment rightleft = new LineSegment(rCorner_X - 10, tCorner_Y + 5, rCorner_X - 10, bCorner_Y - 5);
+		
+		LineSegment bottombottom = new LineSegment(lCorner_X + 5, bCorner_Y, rCorner_X - 5, bCorner_Y);
+		LineSegment bottomtop = new LineSegment(lCorner_X + 5, bCorner_Y - 10, rCorner_X - 5, bCorner_Y - 10);
+		
 
-		if (orientation == LEFT) {
-			LineSegment left = new LineSegment(lCorner_X, tCorner_Y + 5, lCorner_X, bCorner_Y - 5);
-			LineSegment right = new LineSegment(lCorner_X + 10, tCorner_Y + 5, lCorner_X + 10, bCorner_Y - 5);
-
-			ls.add(right);
-			ls.add(left);
-		} else {
-			LineSegment left = new LineSegment(rCorner_X - 10, tCorner_Y + 5, rCorner_X - 10, bCorner_Y - 5);
-			LineSegment right = new LineSegment(rCorner_X, tCorner_Y + 5, rCorner_X, bCorner_Y - 5);
-
-			ls.add(right);
-			ls.add(left);
+		if(orientation == LEFT){
+			if(rotationAngle == 0){
+				ls.add(leftleft);
+				ls.add(leftright);
+			}
+			else if(rotationAngle == 90){
+				ls.add(toptop);
+				ls.add(topbottom);
+			}
+			else if(rotationAngle == 180){
+				ls.add(rightright);
+				ls.add(rightleft);
+			}
+			else if(rotationAngle == 270){
+				ls.add(bottombottom);
+				ls.add(bottomtop);
+			}
+		}
+		else {
+			if(rotationAngle == 0){
+				ls.add(rightright);
+				ls.add(rightleft);
+			}
+			else if(rotationAngle == 90){
+				ls.add(bottombottom);
+				ls.add(bottomtop);
+			}
+			else if(rotationAngle == 180){
+				ls.add(leftleft);
+				ls.add(leftright);
+			}
+			else if(rotationAngle == 270){
+				ls.add(toptop);
+				ls.add(topbottom);
+			}
 		}
 	}
 
@@ -173,6 +245,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Validation
 		rotationAngle = (rotationAngle + degree) % 360;
 
+		updateCollections();
+		
 		return true;
 	}
 
@@ -185,6 +259,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Validation
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
+		updateCollections();
 	}
 
 	@Override
