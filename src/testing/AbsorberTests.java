@@ -1,5 +1,7 @@
 package testing;
-
+/*
+ * A test case to test the Absorber class
+ */
 import static org.junit.Assert.*;
 import physics.Circle;
 import java.awt.Color;

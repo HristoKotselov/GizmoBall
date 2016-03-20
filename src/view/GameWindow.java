@@ -30,7 +30,6 @@ public class GameWindow implements IGameWindow {
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-
 	private JLabel coords;
 	private JTextArea actionTipsTextArea;
 
@@ -162,7 +161,7 @@ public class GameWindow implements IGameWindow {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void setActionTipsTextArea(String message){
 		actionTipsTextArea.setText(message);
