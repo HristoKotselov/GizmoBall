@@ -75,7 +75,7 @@ public class AbsorberTests {
 		for(int i=0; i<capturedBalls.size(); i++){
 		System.out.println(capturedBalls.get(i));
 		}
-	assertTrue(capturedBalls.isEmpty());
+	assertTrue(a.getCapturedBalls().isEmpty());
 		}
 	
 
