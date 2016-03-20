@@ -112,7 +112,7 @@ public class GameWindow implements IGameWindow {
 		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
-		textarea.setText("asasasas");
+		textarea.setText("");
 		gameWindow.add(textarea);
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");
@@ -168,7 +168,7 @@ public class GameWindow implements IGameWindow {
 		return textArea;
 	}
 
-	public static void setTextArea(JTextArea textArea) {
-		GameWindow.textArea = textArea;
+	public static void setTextArea(String s) {
+		GameWindow.textArea.setText(s);
 	}
 }

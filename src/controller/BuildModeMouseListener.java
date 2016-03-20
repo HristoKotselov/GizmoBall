@@ -2,14 +2,13 @@ package controller;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
-
+import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.Absorber;
-import model.ActionTipDialogue;
 import model.Ball;
 import model.CircularBumper;
 import model.Flipper;
@@ -74,9 +73,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
-				System.out.println("remove pressed");
-				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
+				GameWindow.setTextArea("Select a gizmo you wish to remove");
 				if (g != null) {
 					m.removeGizmo(g);
 				}
@@ -87,7 +84,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				GameWindow.setTextArea(ActionTipDialogue.rotateGizmoActionTip());
+				GameWindow.setTextArea("Select a gizmo you wish to rotate");
 				if (g != null) {
 					m.rotateGizmo(g, 90);
 				}
@@ -117,7 +114,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				try {
 					double angle = bm.getBallDirection();
 					double speed = bm.getBallSpeed() * m.getLInPixels();
-					GameWindow.setTextArea(ActionTipDialogue.addGizmoActionTip());
+					GameWindow.setTextArea("Select a ball you wish to remove");
 					System.out.println("sq");
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
@@ -128,34 +125,40 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Add Gizmo":
 				String selectedGizmo = bm.getSelectedGizmo();
-				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
+				GameWindow.setTextArea("hello");
 				switch (selectedGizmo) {
 					case "Square":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);
 						m.addGizmo(g);
 						break;
 
 					case "Triangle":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						g = new TriangularBumper("t(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.BLUE);
 						m.addGizmo(g);
 						break;
 
 					case "Circle":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						g = new CircularBumper("c(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.GREEN);
 						m.addGizmo(g);
 						break;
 
 					case "Left Flipper":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						g = new Flipper("lf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, Flipper.LEFT);
 						m.addGizmo(g);
 						break;
 
 					case "Right Flipper":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						g = new Flipper("rf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, Flipper.RIGHT);
 						m.addGizmo(g);
 						break;
 
 					case "Absorber":
+						GameWindow.setTextArea("Select a square to add the gizmo to");
 						if (x2 == -1 && y2 == -1) {
 							x2 = grid_tile_x;
 							y2 = grid_tile_y;
