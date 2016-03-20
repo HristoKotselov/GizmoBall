@@ -16,6 +16,7 @@ import physics.Vect;
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public static final int LEFT = 0;
 	public static final int RIGHT = 1;
+	private static int flipSpeed = 45;
 
 	/**
 	 * Angle of rotation of flipper relative to start point, used during
@@ -25,7 +26,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private double gameplayRotation;
 	private boolean flippingForward;
 	private int orientation;
-	private int flipSpeed;
 
 	private long flipTime;
 	private long startedFlipping;
@@ -319,25 +319,25 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				rotationPoint = new Vect(getX() + 5, getY() + 5);
 				for (Circle each : circleSet) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-																						// 45
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
+																						// 315
 																						// degrees
 				}
 				for (LineSegment each : ls) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-																						// 45
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
+																						// 315
 																						// degrees
 				}
 			} else {
 				rotationPoint = new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
 				for (Circle each : circleSet) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-																						// 315
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
+																						// 45
 																						// degrees
 				}
 				for (LineSegment each : ls) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-																						// 315
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
+																						// 45
 																						// degrees
 				}
 			}
@@ -353,25 +353,25 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				rotationPoint = new Vect(getX() + 5, getY() + 5);
 				for (Circle each : circleSet) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-																						// 315
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
+																						// 45
 																						// degrees
 				}
 				for (LineSegment each : ls) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-																						// 315
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
+																						// 45
 																						// degrees
 				}
 			} else {
 				rotationPoint = new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
 				for (Circle each : circleSet) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-																						// 45
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
+																						// 315
 																						// degrees
 				}
 				for (LineSegment each : ls) {
-					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-																						// 45
+					Geometry.rotateAround(each, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
+																						// 315
 																						// degrees
 				}
 			}
@@ -387,5 +387,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	public int getOrientation() {
 		return orientation;
+	}
+	
+	public boolean getFlippingStatus() {
+		return flippingForward;
 	}
 }
