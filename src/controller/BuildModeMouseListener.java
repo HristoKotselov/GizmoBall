@@ -137,12 +137,12 @@ public class BuildModeMouseListener implements MouseInputListener {
 						break;
 
 					case "Left Flipper":
-						g = new Flipper("lf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, true);
+						g = new Flipper("lf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, Flipper.LEFT);
 						m.addGizmo(g);
 						break;
 
 					case "Right Flipper":
-						g = new Flipper("rf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, false);
+						g = new Flipper("rf(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.ORANGE, Flipper.RIGHT);
 						m.addGizmo(g);
 						break;
 
