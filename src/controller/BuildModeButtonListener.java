@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import model.ActionTipDialogue;
 import model.IMainEngine;
 import view.IGameWindow;
 
@@ -49,6 +50,7 @@ public class BuildModeButtonListener implements ActionListener {
 				
 			case "playMode":
 				gameWindow.setMode("Play Mode");
+				gameWindow.setActionTipsTextArea(ActionTipDialogue.playModeActionTip());
 				break;
 		}
 		
