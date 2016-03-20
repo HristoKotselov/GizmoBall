@@ -10,7 +10,7 @@ public interface IGameWindow {
 
 	public Point getCoords();
 
-	public String getFile(String buttonText);
+	public String getFile(String buttonText, String lastLocation);
 	
 	public void setActionTipsTextArea(String message);
 }

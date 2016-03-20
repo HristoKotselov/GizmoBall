@@ -149,8 +149,14 @@ public class GameWindow implements IGameWindow {
 	}
 
 	@Override
-	public String getFile(String buttonText) {
+	public String getFile(String buttonText, String lastLocation) {
 		JFileChooser f = new JFileChooser();
+		
+		// set JFileChooser to user's last location, for quickness
+		if(lastLocation != null){
+			File fileLoc = new File(lastLocation);
+			f.setCurrentDirectory(fileLoc);
+		}
 		f.showDialog(gameWindow, buttonText);
 
 		File file = f.getSelectedFile();

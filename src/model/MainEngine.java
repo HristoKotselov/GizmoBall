@@ -482,6 +482,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		gizmos = new HashMap<String, AGizmoComponent>(); 
 		stationaryGizmos = new HashSet<AStationaryGizmo>();
 		movingGizmos = new HashSet<AMovingGizmo>();
+		
 		SaveDataEngine.loadFile(filePath, this);
 	}
 
