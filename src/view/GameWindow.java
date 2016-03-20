@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Point;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -94,8 +95,8 @@ public class GameWindow implements IGameWindow {
 		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
 
 
-		board = new GameBoard(model);
-		BuildModeMouseListener l = new BuildModeMouseListener(this, model, buildmenu);
+		board = new GameBoard(model, buildmenu, this);
+		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu);
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
 
@@ -125,11 +126,10 @@ public class GameWindow implements IGameWindow {
 		cl.show(sidebarPanel, mode);
 
 		gameWindow.setTitle(mode);
-		setCoords(0, 0);
+		updateCoordsLabel(0, 0);
 	}
 
-	@Override
-	public void setCoords(int x, int y) {
+	public void updateCoordsLabel(int x, int y) {
 		if (gameWindow.getTitle().equals("Build Mode")) {
 			String xP = String.format("%03d", x);
 			String yP = String.format("%03d", y);
@@ -140,6 +140,12 @@ public class GameWindow implements IGameWindow {
 		} else {
 			coords.setText("");
 		}
+	}
+
+	@Override
+	public Point getCoords() {
+		Point p = new Point();
+		return p;
 	}
 
 	@Override

@@ -14,11 +14,12 @@ import model.IMainEngine;
 import model.SquareBumper;
 import model.TriangularBumper;
 import physics.Angle;
-import view.IGameWindow;
+import view.IBoard;
 import view.IBuildMenu;
+import view.IGameWindow;
 
 public class BuildModeMouseListener implements MouseInputListener {
-	private IGameWindow gw;
+	private IBoard board;
 	private IBuildMenu bm;
 	private IMainEngine m;
 
@@ -40,8 +41,8 @@ public class BuildModeMouseListener implements MouseInputListener {
 	 */
 	private AGizmoComponent moveG;
 
-	public BuildModeMouseListener(IGameWindow gw, IMainEngine m, IBuildMenu bm) {
-		this.gw = gw;
+	public BuildModeMouseListener(IBoard board, IMainEngine m, IBuildMenu bm) {
+		this.board = board;
 		this.m = m;
 		this.bm = bm;
 	}
@@ -167,6 +168,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 							x2 = -1;
 							y2 = -1;
+							board.setP2(-1, -1);
 						}
 
 						break;
@@ -191,11 +193,19 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-
+		if (x2 == -1) {
+			board.setP1(e.getX(), e.getY());
+		} else {
+			board.setP2(e.getX(), e.getY());
+		}
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		gw.setCoords(e.getX(), e.getY());
+		if (x2 == -1) {
+			board.setP1(e.getX(), e.getY());
+		} else {
+			board.setP2(e.getX(), e.getY());
+		}
 	}
 }
