@@ -73,7 +73,6 @@ public final class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Adding left flipper named \"" + name + "\" at (" + x + ", " + y + ")");
 
 							g = new Flipper(name, x, y, Color.ORANGE, true);
 							model.addGizmo(g);
@@ -83,7 +82,6 @@ public final class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Adding right flipper named \"" + name + "\" at (" + x + ", " + y + ")");
 
 							g = new Flipper(name, x, y, Color.ORANGE, false);
 							model.addGizmo(g);
@@ -91,7 +89,6 @@ public final class SaveDataEngine {
 
 						case "Rotate":
 							name = st.nextToken();
-							System.out.println("Rotating \"" + name + "\" by 90 degrees");
 							g = model.getGizmo(name);
 							model.rotateGizmo(g, 90);
 							break;
@@ -102,7 +99,6 @@ public final class SaveDataEngine {
 							y = Integer.parseInt(st.nextToken());
 							int w = Integer.parseInt(st.nextToken()) - x;
 							int h = Integer.parseInt(st.nextToken()) - y;
-							System.out.println("Adding absorber named \"" + name + "\" at (" + x + ", " + y + ") with w = " + w + ", h = " + h);
 
 							g = new Absorber(name, x, y, w, h, Color.MAGENTA);
 							model.addGizmo(g);
@@ -112,7 +108,6 @@ public final class SaveDataEngine {
 							name = st.nextToken();
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
-							System.out.println("Moving \"" + name + "\" to (" + x + ", " + y + ")");
 
 							g = model.getGizmo(name);
 							if (g instanceof AStationaryGizmo) {
@@ -126,20 +121,18 @@ public final class SaveDataEngine {
 
 						case "Delete":
 							name = st.nextToken();
-							System.out.println("Deleting \"" + name + "\"");
 							g = model.getGizmo(name);
 							model.removeGizmo(g);
 							break;
 
 						case "Ball":
 							name = st.nextToken();
-							
+
 							int xpos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
 							int ypos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
-							
-							double xvel = Double.parseDouble(st.nextToken());
-							double yvel = Double.parseDouble(st.nextToken());
-							System.out.println("Adding ball named \"" + name + "\" at (" + xpos + ", " + ypos + ") with xvel = " + xvel + ", yvel = " + yvel);
+
+							double xvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double yvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
 
 							Vect v = new Vect(xvel, yvel);
 

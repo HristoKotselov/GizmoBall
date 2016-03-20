@@ -221,7 +221,7 @@ public class MainEngine extends Observable implements IMainEngine {
 					circleSet = flipper.getCircles();
 					
 					// Checking collision with left flipper
-					if (flipper.isLeftFlipper()){
+					if (flipper.getOrientation() == Flipper.LEFT){
 						for (Circle circle : circleSet) {
 							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), 12.5664, ballCircle, ballVelocity);
 							if (time < shortestTime) {
