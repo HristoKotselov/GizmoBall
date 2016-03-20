@@ -30,7 +30,7 @@ public class GameWindow implements IGameWindow {
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-	private static JLabel tips;
+	private static JTextArea textArea;
 	private JLabel coords;
 
 	/* Controllers */
@@ -112,6 +112,7 @@ public class GameWindow implements IGameWindow {
 		JTextArea textarea = new JTextArea(1, 45);
 		textarea.setBackground(Color.WHITE);
 		textarea.setEditable(false);
+		textarea.setText("asasasas");
 		gameWindow.add(textarea);
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");
@@ -162,11 +163,12 @@ public class GameWindow implements IGameWindow {
 		}
 	}
 
-	public static JLabel getTips() {
-		return tips;
+
+	public static JTextArea getTextArea() {
+		return textArea;
 	}
 
-	public static void setTips(JLabel tips) {
-		GameWindow.tips = tips;
+	public static void setTextArea(JTextArea textArea) {
+		GameWindow.textArea = textArea;
 	}
 }

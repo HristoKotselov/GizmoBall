@@ -6,13 +6,13 @@ import java.awt.Insets;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /*
- * A simple class to hold a bunch of JLabels which can be used when the used
+ * A simple class to hold a bunch of JTextAreas which can be used when the used
  * to display a certain "action tip" when the user clicks on a button
  * 
  * This keeps the MVC structure intact and keeps the action tips separated 
@@ -22,81 +22,81 @@ import javax.swing.JTextField;
 
 public class ActionTipDialogue {
 
-	public static JLabel addGizmoActionTip() {
+	public static JTextArea addGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a square to add a Gizmo");
+		JTextArea jl = new JTextArea("Click on a square to add a Gizmo");
 		return jl;
 	}
 
-	public static JLabel setFrictionActionTip() {
+	public static JTextArea setFrictionActionTip() {
 
-		JLabel jl = new JLabel("Slide the friciton value to your desired level");
+		JTextArea jl = new JTextArea("Slide the friciton value to your desired level");
 		return jl;
 	}
 
-	public static JLabel setGravityActionTip() {
+	public static JTextArea setGravityActionTip() {
 
-		JLabel jl = new JLabel("Slide the gravity value to your desired level");
-		return jl;
-	}
-	
-	public static JLabel rotateGizmoActionTip() {
-
-		JLabel jl = new JLabel("Click on the gizmo you wish to rotate");
+		JTextArea jl = new JTextArea("Slide the gravity value to your desired level");
 		return jl;
 	}
 	
-	public static JLabel deleteGizmoActionTip() {
+	public static JTextArea rotateGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on the gizmo you wish to delete");
-		return jl;
-	}
-
-	public static JLabel loadFileActionTip() {
-
-		JLabel jl = new JLabel("Select a file that you wish to load in to the editor");
+		JTextArea jl = new JTextArea("Click on the gizmo you wish to rotate");
 		return jl;
 	}
 	
-	public static JLabel saveFileActionTip() {
+	public static JTextArea deleteGizmoActionTip() {
 
-		JLabel jl = new JLabel("Choose a location where you wish to save the current board");
+		JTextArea jl = new JTextArea("Click on the gizmo you wish to delete");
+		return jl;
+	}
+
+	public static JTextArea loadFileActionTip() {
+
+		JTextArea jl = new JTextArea("Select a file that you wish to load in to the editor");
 		return jl;
 	}
 	
-	public static JLabel watchTickActionTip() {
+	public static JTextArea saveFileActionTip() {
 
-		JLabel jl = new JLabel("Keep clicking 'tick' to watch the game step by step");
+		JTextArea jl = new JTextArea("Choose a location where you wish to save the current board");
 		return jl;
 	}
 	
-	public static JLabel addAbsorberActionTip() {
+	public static JTextArea watchTickActionTip() {
 
-		JLabel jl = new JLabel("Choose a location on the board to place the absorber");
+		JTextArea jl = new JTextArea("Keep clicking 'tick' to watch the game step by step");
 		return jl;
 	}
 	
-	public static JLabel connectGizmoActionTip() {
+	public static JTextArea addAbsorberActionTip() {
 
-		JLabel jl = new JLabel("Click on two gizmos you wish to connect");
+		JTextArea jl = new JTextArea("Choose a location on the board to place the absorber");
 		return jl;
 	}
 	
-	public static JLabel disconnectGizmoActionTip() {
+	public static JTextArea connectGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on two gizmos you wish to disconnect from each other");
+		JTextArea jl = new JTextArea("Click on two gizmos you wish to connect");
 		return jl;
 	}
 	
-	public static JLabel connectKeyToGizmoActionTip() {
+	public static JTextArea disconnectGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a gizmo you wish to assign a key to");
+		JTextArea jl = new JTextArea("Click on two gizmos you wish to disconnect from each other");
 		return jl;
 	}
 	
-	public static JLabel disconnectKeyFromGizmoActionTip() {
+	public static JTextArea connectKeyToGizmoActionTip() {
 
-		JLabel jl = new JLabel("Click on a gizmo you wish to remove a key from");
+		JTextArea jl = new JTextArea("Click on a gizmo you wish to assign a key to");
+		return jl;
+	}
+	
+	public static JTextArea disconnectKeyFromGizmoActionTip() {
+
+		JTextArea jl = new JTextArea("Click on a gizmo you wish to remove a key from");
 		return jl;
 	}
 	

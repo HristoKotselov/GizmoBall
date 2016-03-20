@@ -74,9 +74,9 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
+				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
 				System.out.println("remove pressed");
-				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
+				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
 				if (g != null) {
 					m.removeGizmo(g);
 				}
@@ -87,7 +87,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				GameWindow.setTips(ActionTipDialogue.rotateGizmoActionTip());
+				GameWindow.setTextArea(ActionTipDialogue.rotateGizmoActionTip());
 				if (g != null) {
 					m.rotateGizmo(g, 90);
 				}
@@ -117,7 +117,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				try {
 					double angle = bm.getBallDirection();
 					double speed = bm.getBallSpeed() * m.getLInPixels();
-					GameWindow.setTips(ActionTipDialogue.addGizmoActionTip());
+					GameWindow.setTextArea(ActionTipDialogue.addGizmoActionTip());
 					System.out.println("sq");
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
@@ -128,7 +128,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Add Gizmo":
 				String selectedGizmo = bm.getSelectedGizmo();
-				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
+				GameWindow.setTextArea(ActionTipDialogue.deleteGizmoActionTip());
 				switch (selectedGizmo) {
 					case "Square":
 						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);
