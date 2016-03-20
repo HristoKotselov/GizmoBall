@@ -115,8 +115,7 @@ public class MainEngine extends Observable implements IMainEngine {
 				// No collision ...
 				moveBallAtCurrentVelo(ball, moveTime);
 			} else {
-
-				// We've got a collision in tuc, so move the ball until it directly touches the collider
+				// We've got a collision in tuc, so move the ball until it directly (occasionally with a very small margin of error) touches the collider
 				moveBallAtCurrentVelo(ball, tuc);	
 
 				collider = getGizmo(cd.getColliderName());
@@ -221,42 +220,43 @@ public class MainEngine extends Observable implements IMainEngine {
 					circleSet = flipper.getCircles();
 					
 					// Checking collision with left flipper
-					if (flipper.getOrientation() == Flipper.LEFT){
-						for (Circle circle : circleSet) {
-							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), 12.5664, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), 12.5664, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-						for (LineSegment line : lsSet) {
-							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), 12.5664, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), 12.5664, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-					}
-					else { // collision with right flipper
-						for (Circle circle : circleSet) {
-							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), -12.5664, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), -12.5664, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-						for (LineSegment line : lsSet) {
-							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), -12.5664, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), -12.5664, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-					}
+
+//					if (flipper.isLeftFlipper()){
+//						for (Circle circle : circleSet) {
+//							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity);
+//							if (time < shortestTime) {
+//								shortestTime = time;
+//								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity, 2.0);
+//								colliderID = flipper.getGizmoID();
+//							}
+//						}
+//						for (LineSegment line : lsSet) {
+//							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity);
+//							if (time < shortestTime) {
+//								shortestTime = time;
+//								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity, 2.0);
+//								colliderID = flipper.getGizmoID();
+//							}
+//						}
+//					}
+//					else { // collision with right flipper
+//						for (Circle circle : circleSet) {
+//							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity);
+//							if (time < shortestTime) {
+//								shortestTime = time;
+//								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity, 2.0);
+//								colliderID = flipper.getGizmoID();
+//							}
+//						}
+//						for (LineSegment line : lsSet) {
+//							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity);
+//							if (time < shortestTime) {
+//								shortestTime = time;
+//								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity, 2.0);
+//								colliderID = flipper.getGizmoID();
+//							}
+//						}
+//					}
 					
 					
 				}
