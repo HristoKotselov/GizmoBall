@@ -91,5 +91,10 @@ public class ActionTipDialogue {
 		return "Select the physics values of your choice";
 	}
 	
+	public static String playModeActionTip() {
+
+		return "Have fun!";
+	}
+	
 	
 }
