@@ -74,7 +74,7 @@ public final class SaveDataEngine {
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
 
-							g = new Flipper(name, x, y, Color.ORANGE, true);
+							g = new Flipper(name, x, y, Color.ORANGE, Flipper.LEFT);
 							model.addGizmo(g);
 							break;
 
@@ -83,7 +83,7 @@ public final class SaveDataEngine {
 							x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
 
-							g = new Flipper(name, x, y, Color.ORANGE, false);
+							g = new Flipper(name, x, y, Color.ORANGE, Flipper.RIGHT);
 							model.addGizmo(g);
 							break;
 
