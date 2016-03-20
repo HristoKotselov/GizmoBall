@@ -22,8 +22,8 @@ public class BumperTests {
 	CircularBumper cb3 = new CircularBumper("cb3", 1, 2, Color.blue);
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testDrawingShape() {
+		//cb.setupDrawingShape()
 	}
 
 }

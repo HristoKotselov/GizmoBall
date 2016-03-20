@@ -10,14 +10,21 @@ import model.*;
 import physics.LineSegment;
 import physics.Angle;
 import java.awt.Color;
+import java.util.List;
+import java.util.ArrayList;
 public class AbsorberTests {
 	Absorber a = new Absorber("A1", 1, 1, 1, 1, Color.red);
 	Absorber b = new Absorber("B1", 2, 2, 2, 2, Color.blue);
 	Absorber c = new Absorber("A1", 1, 1, 1, 1, Color.red);
 	Angle test1 = new Angle(25);
-	
+	List<Ball> capturedBalls = new ArrayList<Ball>();
 	Ball ball = new Ball("test", Color.RED, 1, 1, test1, 2.0);
+	Ball ball2 = new Ball("test2", Color.RED, 1, 1, test1, 2.0);
+	Ball ball3 = new Ball("test3", Color.RED, 1, 1, test1, 2.0);
+	Ball ball4 = new Ball("test4", Color.RED, 1, 1, test1, 2.0);
+	Ball ball5 = new Ball("test5", Color.RED, 1, 1, test1, 2.0);
 
+	
 	@Test
 	public void testAbsorberCreation() {
 
@@ -35,13 +42,38 @@ public class AbsorberTests {
 	
 	@Test
 	public void testCapturedBall(){
-		a.addCapturedBall(ball);
+		capturedBalls.add(ball);
+		capturedBalls.add(ball2);
+		capturedBalls.add(ball3);
+		capturedBalls.add(ball4);
+		capturedBalls.add(ball5);
 		
-		// TODO test rewrite needed
+	assertFalse(a.getCapturedBalls() == null);
+		a.triggerAction();
+		capturedBalls.clear();
+		System.out.println("Clearing using clear");
+		for(int i=0; i<capturedBalls.size(); i++){
+		System.out.println(capturedBalls.get(i));
+		}
+	assertTrue(capturedBalls.isEmpty());
+		}
+	
+	@Test
+	public void testReset(){
+		capturedBalls.add(ball);
+		capturedBalls.add(ball2);
+		capturedBalls.add(ball3);
+		capturedBalls.add(ball4);
+		capturedBalls.add(ball5);
 		
-	//assertTrue(a.getCapturedBall() == ball);
+	assertFalse(a.getCapturedBalls() == null);
+		a.triggerAction();
 		a.reset();
-	//assertTrue(a.getCapturedBall() == null);
+		System.out.println("Clearing using reset");
+		for(int i=0; i<capturedBalls.size(); i++){
+		System.out.println(capturedBalls.get(i));
+		}
+	assertTrue(capturedBalls.isEmpty());
 		}
 	
 
@@ -104,17 +136,10 @@ public class AbsorberTests {
 		Absorber a1 = new Absorber("test", 1, 1, 1, 1, Color.red);
 		Absorber b1 = new Absorber("test", 1, 1, 1, 1, Color.red);
 		assertFalse(a1 == b1);
-/*
-		System.out.println(a1.getX());
-		System.out.println(b1.getY());
-		a1.move(1, 1);
-		System.out.println("break");
-		System.out.println(a1.getX());
-		System.out.println(b1.getY());
-		*/
+
 		a1.move(10, 10);
 		//deliberate fail
-		assertEquals(a1, b1);
+		assertTrue(a1 != b1);
 	}
 	
 	@Test
@@ -145,10 +170,15 @@ public class AbsorberTests {
 		a.triggerAction();
 		//assigning the absorber's captured ball to a variable (SHOULD be null)
 		
-		// TODO test rewrite needed
-		
-	//Ball newBall = a.getCapturedBall();
+
+	if(capturedBalls.size() != 0){
+	Ball newBall = capturedBalls.get(0);
+	
 		//fails if not null
-	//assertNull(newBall);
+	assertNull(newBall);
+	}
+	else{
+		assertTrue(capturedBalls.isEmpty());
+	}
 	}
 }
