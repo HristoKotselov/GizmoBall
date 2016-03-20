@@ -2,11 +2,14 @@ package controller;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JLabel;
 import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.Absorber;
+import model.ActionTipDialogue;
 import model.Ball;
 import model.CircularBumper;
 import model.Flipper;
@@ -14,6 +17,7 @@ import model.IMainEngine;
 import model.SquareBumper;
 import model.TriangularBumper;
 import physics.Angle;
+import view.GameWindow;
 import view.IBoard;
 import view.IBuildMenu;
 import view.IGameWindow;
@@ -46,6 +50,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 		this.m = m;
 		this.bm = bm;
 	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -69,7 +74,9 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-
+				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
+				System.out.println("remove pressed");
+				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
 				if (g != null) {
 					m.removeGizmo(g);
 				}
@@ -80,7 +87,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				// TODO add method for to check for AMovingGizmo first, i.e.
 				// Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-
+				GameWindow.setTips(ActionTipDialogue.rotateGizmoActionTip());
 				if (g != null) {
 					m.rotateGizmo(g, 90);
 				}
@@ -110,7 +117,8 @@ public class BuildModeMouseListener implements MouseInputListener {
 				try {
 					double angle = bm.getBallDirection();
 					double speed = bm.getBallSpeed() * m.getLInPixels();
-
+					GameWindow.setTips(ActionTipDialogue.addGizmoActionTip());
+					System.out.println("sq");
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
 				} catch (NumberFormatException ex) {
@@ -120,7 +128,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Add Gizmo":
 				String selectedGizmo = bm.getSelectedGizmo();
-
+				GameWindow.setTips(ActionTipDialogue.deleteGizmoActionTip());
 				switch (selectedGizmo) {
 					case "Square":
 						g = new SquareBumper("s(" + grid_tile_x + "," + grid_tile_y + ")", grid_tile_x, grid_tile_y, Color.RED);

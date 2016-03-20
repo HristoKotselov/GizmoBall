@@ -30,7 +30,7 @@ public class GameWindow implements IGameWindow {
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-
+	private static JLabel tips;
 	private JLabel coords;
 
 	/* Controllers */
@@ -160,5 +160,13 @@ public class GameWindow implements IGameWindow {
 		} else {
 			return null;
 		}
+	}
+
+	public static JLabel getTips() {
+		return tips;
+	}
+
+	public static void setTips(JLabel tips) {
+		GameWindow.tips = tips;
 	}
 }

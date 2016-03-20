@@ -1,7 +1,9 @@
 package testing;
 
 import static org.junit.Assert.*;
-
+/*
+ * A test case to test the Circular, Triangular and Square bumper classes
+ */
 import org.junit.Test;
 import java.awt.Shape;
 import java.awt.Color;
