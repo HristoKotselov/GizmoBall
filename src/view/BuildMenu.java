@@ -20,8 +20,7 @@ import controller.PhysicsConfigListener;
 import controller.UndoRedoListener;
 import model.IMainEngine;
 
-//TODO Make model/controller use interface rather than implementation
-public class BuildMenu implements IMenu {
+public class BuildMenu implements IBuildMenu {
 
 	/* GUI */
 	private JPanel menuPanel;
@@ -246,26 +245,27 @@ public class BuildMenu implements IMenu {
 		menuPanel.add(buttonPanel, BorderLayout.SOUTH);
 	}
 
-	public ButtonGroup getGizmoSelector() {
-		return bg;
-	}
-
+	@Override
 	public String getSelectedGizmo() {
 		return bg.getSelection().getActionCommand();
 	}
 
+	@Override
 	public String getSelectedFunction() {
 		return functionCB.getSelectedItem().toString();
 	}
 
+	@Override
 	public double getBallDirection() {
 		return Double.parseDouble(ballDirection.getText());
 	}
 
+	@Override
 	public double getBallSpeed() {
 		return Double.parseDouble(ballSpeed.getText());
 	}
 
+	@Override
 	public void setCard() {
 		CardLayout cl = (CardLayout) cards.getLayout();
 		cl.show(cards, getSelectedFunction());

@@ -14,12 +14,12 @@ import model.IMainEngine;
 import model.SquareBumper;
 import model.TriangularBumper;
 import physics.Angle;
-import view.BuildMenu;
 import view.IGameWindow;
+import view.IBuildMenu;
 
 public class BuildModeMouseListener implements MouseInputListener {
 	private IGameWindow gw;
-	private BuildMenu bm;
+	private IBuildMenu bm;
 	private IMainEngine m;
 
 	private int x, y;
@@ -40,7 +40,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 	 */
 	private AGizmoComponent moveG;
 
-	public BuildModeMouseListener(IGameWindow gw, IMainEngine m, BuildMenu bm) {
+	public BuildModeMouseListener(IGameWindow gw, IMainEngine m, IBuildMenu bm) {
 		this.gw = gw;
 		this.m = m;
 		this.bm = bm;

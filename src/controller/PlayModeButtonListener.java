@@ -8,7 +8,7 @@ import javax.swing.Timer;
 import model.IMainEngine;
 import view.IBoard;
 import view.IGameWindow;
-import view.IMenu;
+import view.IBuildMenu;
 
 public class PlayModeButtonListener implements ActionListener {
 	private IMainEngine model;

@@ -17,7 +17,7 @@ import controller.UndoRedoListener;
 import controller.WindowListener;
 import model.IMainEngine;
 
-public class PlayMenu implements IMenu {
+public class PlayMenu {
 
 	/* GUI */
 	private JPanel buttonMenu;
