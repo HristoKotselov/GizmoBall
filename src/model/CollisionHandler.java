@@ -1,5 +1,8 @@
 package model;
 
+import java.awt.Point;
+import java.awt.geom.Point2D;
+
 public class CollisionHandler {
 
 	private MainEngine model;
@@ -52,8 +55,11 @@ public class CollisionHandler {
 		int height_in_pixels = absorber.bmHeight * MainEngine.L;
 		
 		// i.e. first collision BEFORE ball enter Absorber
+		Point2D ballCentre = new Point2D.Double(ball.getMovingX(), ball.getMovingY());
+		
 		if (!absorber.getCapturedBalls().contains(ball) && 
-				(ball.getMovingY() < absorber.getY()    ||    ball.getMovingY() > absorber.getY() + height_in_pixels)) { 			// check if Ball is at Top or Bottom of Absorber
+			!absorber.getDrawingShape().contains(ballCentre)		// check if Ball is NOT inside Absorber
+		) { 			
 			ball.stop();
 			ball.setMovingX(absorber.getX() + width_in_pixels - (0.25 * MainEngine.L));
 			ball.setMovingY(absorber.getY() + height_in_pixels - (0.25 * MainEngine.L));

@@ -115,8 +115,7 @@ public class MainEngine extends Observable implements IMainEngine {
 				// No collision ...
 				moveBallAtCurrentVelo(ball, moveTime);
 			} else {
-
-				// We've got a collision in tuc, so move the ball until it directly touches the collider
+				// We've got a collision in tuc, so move the ball until it directly (occasionally with a very small margin of error) touches the collider
 				moveBallAtCurrentVelo(ball, tuc);	
 
 				collider = getGizmo(cd.getColliderName());
