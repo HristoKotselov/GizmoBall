@@ -51,6 +51,7 @@ public class AbsorberTests {
 	assertFalse(a.getCapturedBalls() == null);
 		a.triggerAction();
 		capturedBalls.clear();
+		System.out.println("");
 		System.out.println("Clearing using clear");
 		for(int i=0; i<capturedBalls.size(); i++){
 		System.out.println(capturedBalls.get(i));
@@ -69,6 +70,7 @@ public class AbsorberTests {
 	assertFalse(a.getCapturedBalls() == null);
 		a.triggerAction();
 		a.reset();
+		System.out.println("");
 		System.out.println("Clearing using reset");
 		for(int i=0; i<capturedBalls.size(); i++){
 		System.out.println(capturedBalls.get(i));
@@ -180,5 +182,14 @@ public class AbsorberTests {
 	else{
 		assertTrue(capturedBalls.isEmpty());
 	}
+	}
+	
+	@Test
+	public void testToString(){
+		String test = "Absorber A1 1 1 2 2";
+		System.out.println("");
+		System.out.println(a.toString());
+		System.out.println(test);
+		assertEquals(test, a.toString());
 	}
 }
