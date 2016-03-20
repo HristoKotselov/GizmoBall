@@ -47,6 +47,8 @@ public interface IMainEngine {
 	public Collection<AStationaryGizmo> getAllStationaryGizmos();
 	
 	public Collection<AMovingGizmo> getAllMovingGizmos();
+	
+	public void clearAllGizmos();
 
 	public void loadFile(String filePath);
 

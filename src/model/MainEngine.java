@@ -465,6 +465,16 @@ public class MainEngine extends Observable implements IMainEngine {
 	public Collection<AMovingGizmo> getAllMovingGizmos() {
 		return movingGizmos;
 	}
+	
+
+	@Override
+	public void clearAllGizmos() {
+		gizmos.clear();
+		stationaryGizmos.clear();
+		movingGizmos.clear();
+		
+		update();
+	}
 
 	@Override
 	public void loadFile(String filePath) {
@@ -502,5 +512,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		setChanged();
 		notifyObservers();
 	}
+
 	
 }
