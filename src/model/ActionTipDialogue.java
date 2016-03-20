@@ -76,5 +76,20 @@ public class ActionTipDialogue {
 		return "Click on a gizmo you wish to remove a key from";
 	}
 	
+	public static String moveGizmoActionTip() {
+
+		return "Click on a gizmo you wish to move";
+	}
+	
+	public static String addBallActionTip() {
+
+		return "Click where you would like to add a ball";
+	}
+	
+	public static String physicsActionTip() {
+
+		return "Select the physics values of your choice";
+	}
+	
 	
 }
