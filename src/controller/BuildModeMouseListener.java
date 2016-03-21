@@ -103,8 +103,8 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Add Ball":
 				try {
-					double angle = bm.getBallDirection();
-					double speed = bm.getBallSpeed() * m.getLInPixels();
+					double angle = bm.getBallDirectionFromGUI();
+					double speed = bm.getBallSpeedFromGUI() * m.getLInPixels();
 
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);

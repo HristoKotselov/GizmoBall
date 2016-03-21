@@ -27,22 +27,22 @@ public class GameWindow implements IGameWindow {
 
 	/* GUI components */
 	private JFrame gameWindow;
-
 	private JPanel sidebarPanel;
-	private BuildModeButtonListener buildModeAL;
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
+	
 	private JLabel coords;
 	private JTextArea actionTipsTextArea;
 
 	/* Controllers */
+	/** Just there for New Board command **/
+	private BuildModeButtonListener buildModeAL;
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
 
 	/* Model */
 	private IMainEngine model;
-	private IGameWindow gw;
 
 	/**
 	 * Initialize the contents of the frame.
@@ -60,7 +60,8 @@ public class GameWindow implements IGameWindow {
 		gameWindow.setBounds(100, 100, 750, 500);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		buildModeAL = new BuildModeButtonListener(model, gw);
+		IBuildMenu iBuildMenu = buildmenu;			// must be passed as interface instead to hide implementation
+		buildModeAL = new BuildModeButtonListener(model, this, iBuildMenu);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
