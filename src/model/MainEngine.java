@@ -13,6 +13,7 @@ import java.util.Set;
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
+import physics.Geometry.VectPair;
 import physics.LineSegment;
 import physics.Vect;
 
@@ -186,13 +187,23 @@ public class MainEngine extends Observable implements IMainEngine {
 			Set<LineSegment> lsSet;
 
 			Collection<AGizmoComponent> allGizmos = getAllGizmos();
+			
+			VectPair vp;
 
 			for (AGizmoComponent gizmo : allGizmos) {
 				circleSet = gizmo.getCircles();
-
+				
 				// Checking collision with all the Circles
 				for (Circle circle : circleSet) {
-					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+					if(gizmo instanceof Ball){
+						Ball ball2 = (Ball) gizmo;
+						
+						time = Geometry.timeUntilBallBallCollision(ballCircle, ballVelocity, ball2.getCircle(), ball2.getVelo());
+					}
+					else{
+						time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+					}
+					
 					if (time < shortestTime) {
 						shortestTime = time;
 						newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);

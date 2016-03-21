@@ -3,6 +3,9 @@ package model;
 import java.awt.Point;
 import java.awt.geom.Point2D;
 
+import physics.Geometry;
+import physics.Geometry.VectPair;
+
 public class CollisionHandler {
 
 	private MainEngine model;
@@ -29,6 +32,15 @@ public class CollisionHandler {
 					if(tuc == 0 && !handleAbsorberColi(cd, gizmo)){		// tuc == 0 occur when the Ball is directly in contact the Line Segment
 						model.moveBallAtCurrentVelo(ball, model.getMoveTime());
 					}
+					
+					break;
+					
+				case "Ball":
+					Ball ball2 = (Ball) gizmo;
+					
+					VectPair vp = Geometry.reflectBalls(ball.getCircle().getCenter(), 0.25, ball.getVelo(), ball2.getCircle().getCenter(), 0.25, ball2.getVelo());
+					ball.setVelo(vp.v1);
+					ball2.setVelo(vp.v2);
 					
 					break;
 	
