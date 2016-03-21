@@ -1,13 +1,13 @@
 package controller;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
 import model.Absorber;
-import model.ActionTipDialogue;
 import model.Ball;
 import model.CircularBumper;
 import model.Flipper;
@@ -28,19 +28,16 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 	private int x, y;
 	/**
-	 * Memory values used when adding a Gizmo can have variable width\height
-	 * (e.g. Absorber)
+	 * Memory values used when adding a Gizmo can have variable width\height (e.g. Absorber)
 	 * 
-	 * -1 is the default value that indicates the 1st click is required to start
-	 * the size-selection procedures.
+	 * -1 is the default value that indicates the 1st click is required to start the size-selection procedures.
 	 **/
 	private int x2 = -1, y2 = -1;
 
 	/**
 	 * Memory value used when moving a Gizmo to a different position.
 	 * 
-	 * null is the default value that indicates the 1st click is required to
-	 * start the moving procedure.
+	 * null is the default value that indicates the 1st click is required to start the moving procedure.
 	 */
 	private AGizmoComponent moveG;
 
@@ -48,7 +45,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 		this.board = board;
 		this.m = m;
 		this.bm = bm;
-		this.gw = gw;
 	}
 
 	@Override
@@ -70,8 +66,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 		switch (selectedFunction) {
 			case "Remove Gizmo":
-				// TODO add method for to check for AMovingGizmo first, i.e.
-				// Ball
+				// TODO add method for to check for AMovingGizmo first, i.e. Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
@@ -81,8 +76,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				break;
 
 			case "Rotate Gizmo":
-				// TODO add method for to check for AMovingGizmo first, i.e.
-				// Ball
+				// TODO add method for to check for AMovingGizmo first, i.e. Ball
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
@@ -93,11 +87,9 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Move Gizmo":
 				if (moveG == null) {
-					// TODO add method for to check for AMovingGizmo first, i.e.
-					// Ball
+					// TODO add method for to check for AMovingGizmo first, i.e. Ball
 					moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-					// TODO change ActionTip to remind user of the currently
-					// selected Gizmo
+					// TODO change ActionTip to remind user of the currently selected Gizmo
 				} else {
 					if (moveG instanceof AStationaryGizmo) {
 						m.moveGizmoByL(moveG, grid_tile_x, grid_tile_y);
@@ -122,8 +114,37 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 				break;
 
-			case "Add Gizmo":
+			case "Bind Key":
+				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 				
+
+				if (g != null) {						
+					KeyBindPopupListener l;
+
+					if (bm.getKeyEventType().equals("keypress")) {
+						l = new KeyBindPopupListener(m, g, KeyEvent.KEY_PRESSED);
+					} else {
+						l = new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
+					}
+					
+//				if (g != null) {						
+//					if (bm.getKeyEventType().equals("keypress")) {
+//						bm.bindKey(g, KeyEvent.KEY_PRESSED);
+//					} else {
+//						bm.bindKey(g, KeyEvent.KEY_RELEASED);
+//					}
+
+//					if (bm.getKeyEventType().equals("keypress")) {
+//						m.bindKey(g, key, KeyEvent.KEY_PRESSED);
+//					} else {
+//						m.bindKey(g, key, KeyEvent.KEY_RELEASED);
+//					}
+				}
+
+				break;
+
+			case "Add Gizmo":
+
 				String selectedGizmo = bm.getSelectedGizmo();
 
 				switch (selectedGizmo) {
@@ -156,15 +177,13 @@ public class BuildModeMouseListener implements MouseInputListener {
 						if (x2 == -1 && y2 == -1) {
 							x2 = grid_tile_x;
 							y2 = grid_tile_y;
-							// TODO change ActionTip to remind user of the
-							// currently selected Absorber
+							// TODO change ActionTip to remind user of the currently selected Absorber
 						} else {
 							// Top left corner
 							int x1 = Math.min(grid_tile_x, x2);
 							int y1 = Math.min(grid_tile_y, y2);
 
-							// Bottom right corner. + 1 because coords start at
-							// 0, 0 so width calculation doesn't work otherwise
+							// Bottom right corner. + 1 because coords start at 0, 0 so width calculation doesn't work otherwise
 							x2 = Math.max(grid_tile_x, x2) + 1;
 							y2 = Math.max(grid_tile_y, y2) + 1;
 

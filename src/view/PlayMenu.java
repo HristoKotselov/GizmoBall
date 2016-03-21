@@ -53,21 +53,25 @@ public class PlayMenu {
 
 		JButton start = new JButton("Start");
 		start.setActionCommand("start");
+		start.setFocusable(false);
 		start.addActionListener(playModeAL);
 		start.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton tick = new JButton("Tick");
 		tick.setActionCommand("tick");
+		tick.setFocusable(false);
 		tick.addActionListener(playModeAL);
 		tick.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton stop = new JButton("Stop");
 		stop.setActionCommand("stop");
+		stop.setFocusable(false);
 		stop.addActionListener(playModeAL);
 		stop.setFont(new Font("Arial", Font.PLAIN, 40));
 
 		JButton reload = new JButton("Reload");
 		reload.setActionCommand("reload");
+		reload.setFocusable(false);
 		reload.addActionListener(playModeAL);
 		reload.setFont(new Font("Arial", Font.PLAIN, 40));
 
@@ -76,6 +80,7 @@ public class PlayMenu {
 
 		JButton buildMode = new JButton("Build Mode");
 		buildMode.setActionCommand("buildMode");
+		buildMode.setFocusable(false);
 		buildMode.addActionListener(playModeAL);
 		buildMode.setFont(new Font("Arial", Font.PLAIN, 30));
 

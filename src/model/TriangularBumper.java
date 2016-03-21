@@ -167,7 +167,7 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		System.out.println("Triangle bumper triggered");
 	}
 	
 	/* (non-Javadoc)

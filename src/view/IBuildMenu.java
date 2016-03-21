@@ -11,4 +11,6 @@ public interface IBuildMenu {
 	public double getBallSpeed();
 
 	public String getSelectedGizmo();
+
+	public String getKeyEventType();
 }

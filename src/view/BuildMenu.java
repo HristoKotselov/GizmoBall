@@ -24,12 +24,13 @@ public class BuildMenu implements IBuildMenu {
 
 	/* GUI */
 	private JPanel menuPanel;
-	private ButtonGroup bg;
+	private ButtonGroup gizmoRButton, keyeventRButton;
 	private JComboBox<String> functionCB;
 	private JPanel cards;
 
 	private JTextField ballDirection;
 	private JTextField ballSpeed;
+	private int key;
 
 	/** Required as a reference for Controllers **/
 	private IGameWindow gameWindow;
@@ -78,31 +79,31 @@ public class BuildMenu implements IBuildMenu {
 		label.setFont(new Font("Arial", 1, 13));
 		menuPanel.add(label);
 
-		bg = new ButtonGroup();
+		gizmoRButton = new ButtonGroup();
 
 		JRadioButton square = new JRadioButton("Square Bumper");
 		square.setActionCommand("Square");
-		bg.add(square);
+		gizmoRButton.add(square);
 
 		JRadioButton circle = new JRadioButton("Circle Bumper");
 		circle.setActionCommand("Circle");
-		bg.add(circle);
+		gizmoRButton.add(circle);
 
 		JRadioButton triangle = new JRadioButton("Triangle Bumper");
 		triangle.setActionCommand("Triangle");
-		bg.add(triangle);
+		gizmoRButton.add(triangle);
 
 		JRadioButton absorber = new JRadioButton("Absorber");
 		absorber.setActionCommand("Absorber");
-		bg.add(absorber);
+		gizmoRButton.add(absorber);
 
 		JRadioButton leftFlipper = new JRadioButton("Left Flipper");
 		leftFlipper.setActionCommand("Left Flipper");
-		bg.add(leftFlipper);
+		gizmoRButton.add(leftFlipper);
 
 		JRadioButton rightFlipper = new JRadioButton("Right Flipper");
 		rightFlipper.setActionCommand("Right Flipper");
-		bg.add(rightFlipper);
+		gizmoRButton.add(rightFlipper);
 
 		square.setSelected(true);
 		addGizmo.add(square);
@@ -114,8 +115,7 @@ public class BuildMenu implements IBuildMenu {
 
 
 		// Add Ball panel
-		// TODO Low priority: be fancy and change font colour to red if numbers
-		// not properly formatted
+		// TODO Low priority: be fancy and change font colour to red if numbers not properly formatted
 		JPanel addBall = new JPanel();
 
 		JPanel controls = new JPanel(new GridLayout(0, 2, 5, 10));
@@ -165,6 +165,28 @@ public class BuildMenu implements IBuildMenu {
 		addBall.add(apply);
 
 
+		// Add Key Binding panel
+		JPanel keyBind = new JPanel(new GridLayout(0, 1));
+
+		keyeventRButton = new ButtonGroup();
+
+		JRadioButton keypress = new JRadioButton("Key Pressed");
+		keypress.setActionCommand("keypress");
+		keyeventRButton.add(keypress);
+
+		JRadioButton keyrelease = new JRadioButton("Key Released");
+		keyrelease.setActionCommand("keyrelease");
+		keyeventRButton.add(keyrelease);
+
+		keypress.setSelected(true);
+		keyBind.add(keypress);
+		keyBind.add(keyrelease);
+
+//		KeyEvent.getKeyText(keyCode)
+		JComboBox cb = new JComboBox<>();
+
+
+
 		// Physics Constants panel
 		JPanel physicsConstants = new JPanel(new GridLayout(0, 2));
 
@@ -211,7 +233,7 @@ public class BuildMenu implements IBuildMenu {
 		cards.add(new JPanel(), functions[3]);
 		cards.add(addBall, functions[4]);
 		cards.add(new JPanel(), functions[5]);
-		cards.add(new JPanel(), functions[6]);
+		cards.add(keyBind, functions[6]);
 		cards.add(physicsConstants, functions[7]);
 
 		menuPanel.add(cards, BorderLayout.CENTER);
@@ -247,12 +269,17 @@ public class BuildMenu implements IBuildMenu {
 
 	@Override
 	public String getSelectedGizmo() {
-		return bg.getSelection().getActionCommand();
+		return gizmoRButton.getSelection().getActionCommand();
 	}
 
 	@Override
 	public String getSelectedFunction() {
 		return functionCB.getSelectedItem().toString();
+	}
+
+	@Override
+	public String getKeyEventType() {
+		return keyeventRButton.getSelection().getActionCommand();
 	}
 
 	@Override

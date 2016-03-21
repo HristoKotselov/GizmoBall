@@ -5,9 +5,7 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
-
 import physics.Circle;
-import physics.LineSegment;
 
 public class CircularBumper extends AStationaryGizmo {
 
@@ -70,7 +68,7 @@ public class CircularBumper extends AStationaryGizmo {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		System.out.println("Circle bumper triggered");
 	}
 	
 	/* (non-Javadoc)

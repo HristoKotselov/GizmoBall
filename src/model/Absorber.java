@@ -14,27 +14,27 @@ import physics.Vect;
 
 public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
-	
-/* Absorber exclusive variables */
+
+	/* Absorber exclusive variables */
 	/**
-	 * The currently captured Ball within the Absorber. If there is no ball
-	 * within the absorber, then this object becomes null.
+	 * The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null.
 	 */
 	private List<Ball> capturedBalls;
-	
-/* Collections used to optimise up game performance */
-	/** The visual representation of the Gizmo. Used by drawing code to determine 
-	 * what a Gizmo will look like on screen. **/
+
+	/* Collections used to optimise up game performance */
+	/**
+	 * The visual representation of the Gizmo. Used by drawing code to determine what a Gizmo will look like on screen.
+	 **/
 	private Shape drawingShape;
-	/** A set of Circles belonging to this Gizmo. They act as collision detectors
-	 * with a ball, often at the edges of a shape. **/
+	/**
+	 * A set of Circles belonging to this Gizmo. They act as collision detectors with a ball, often at the edges of a shape.
+	 **/
 	protected Set<Circle> circleSet = new HashSet<Circle>();
 	/**
-	 * A set of Line Segments around the edge of the absorber, which will act as
-	 * the collision detector with a ball
+	 * A set of Line Segments around the edge of the absorber, which will act as the collision detector with a ball
 	 **/
 	private Set<LineSegment> ls;
-	
+
 
 	public Absorber(String name, int grid_tile_x, int grid_tile_y, int grid_tile_width, int grid_tile_height, Color color) {
 		super(name, grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L, color);
@@ -43,21 +43,21 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		bmHeight = grid_tile_height;
 		capturedBalls = new ArrayList<Ball>();
 
-		
+
 		// Collection-speed up initialisation
 		circleSet = new HashSet<Circle>();
 		ls = new HashSet<LineSegment>();
 		updateCollections();
 	}
 
-	
 
-/* Absorber's Collection-sped up methods (Circle, DrawingShape, LineSegment) */
+
+	/* Absorber's Collection-sped up methods (Circle, DrawingShape, LineSegment) */
 	@Override
 	public Shape getDrawingShape() {
 		return drawingShape;
 	}
-	
+
 	private void setupDrawingShape() {
 		drawingShape = new Rectangle(getX(), getY(), bmWidth * MainEngine.L, bmHeight * MainEngine.L);
 	}
@@ -66,13 +66,13 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public Set<Circle> getCircles() {
 		return circleSet;
 	}
-	
+
 	private void setupCircles() {
 		int lCorner_X = getX();
 		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + bmHeight * MainEngine.L;
-		
+
 		circleSet.clear();
 
 		Circle tlCorner = new Circle(lCorner_X, tCorner_Y, 0.0);
@@ -90,22 +90,20 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public Set<LineSegment> getLineSeg() {
 		return ls;
 	}
-	
+
 	/**
-	 * The setup of the Line Segment collection. Gizmo component that rely on
-	 * Line Segments for collision detection should set up their Line Segment
-	 * objects here.
+	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should set up their Line
+	 * Segment objects here.
 	 * 
 	 * @modify this
-	 * @effect Fill the collection which hold all the Line Segments in this
-	 *         class with appropriate objects
+	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
 		int rCorner_X = getX() + bmWidth * MainEngine.L;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + bmHeight * MainEngine.L;
-		
+
 		ls.clear();
 
 		LineSegment tlCorner_trCorner = new LineSegment(lCorner_X, tCorner_Y, rCorner_X, tCorner_Y);
@@ -118,25 +116,27 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		ls.add(brCorner_blCorner);
 		ls.add(blCorner_tlCorner);
 	}
-	
+
 	/** Helper method for Line Segments, Circles & Shapes **/
 	private void updateCollections() {
 		setupDrawingShape();
 		setupLineSeg();
 		setupCircles();
 	}
-	
-	
-/* Regular methods implementation */
-	
+
+
+	/* Regular methods implementation */
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
 	public void triggerAction() {
+		System.out.println("Absorber triggered");
+		
 		if (!capturedBalls.isEmpty()) { // no ball in absorber = nothing happens
 			Ball ball = capturedBalls.remove(0);
-			
+
 			// In this physics package, ANGLE.ZERO is RHS of x-axis; degree
 			// increasing clock-wise. 50L is the length, thus it is converted to
 			// pixels here
@@ -154,20 +154,20 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		// Absorber shouldn't be rotatable so this method doesn't need to do anything
 		return true;
 	}
-	
-/* Overwritten methods */
+
+	/* Overwritten methods */
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
 		// TODO Validation
-		
+
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
-		
+
 		updateCollections();
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#reset()
 	 */
@@ -175,7 +175,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public void reset() {
 		capturedBalls.clear();
 	}
-	
+
 	@Override
 	public String toString() {
 		int x2 = (getX() / MainEngine.L) + bmWidth;
@@ -184,7 +184,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		return "Absorber " + super.toString() + " " + x2 + " " + y2;
 	}
 
-/* Absorber exclusive methods */
+	/* Absorber exclusive methods */
 	public void addCapturedBall(Ball b) {
 		capturedBalls.add(b);
 	}

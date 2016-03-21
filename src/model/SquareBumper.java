@@ -117,7 +117,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		System.out.println("Square bumper triggered");
 	}
 
 	/* (non-Javadoc)

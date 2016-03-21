@@ -17,6 +17,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
+import controller.PlayModeKeyListener;
 import controller.SaveFileListener;
 import model.IMainEngine;
 
@@ -99,6 +100,8 @@ public class GameWindow implements IGameWindow {
 		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu, this);
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
+		
+		board.addKeyListener(new PlayModeKeyListener(model));
 
 		gameWindow.add(sidebarPanel);
 		gameWindow.add(new JSeparator());
@@ -112,6 +115,7 @@ public class GameWindow implements IGameWindow {
 		actionTipsTextArea = new JTextArea(1, 45);
 		actionTipsTextArea.setBackground(Color.WHITE);
 		actionTipsTextArea.setEditable(false);
+		actionTipsTextArea.setFocusable(false);
 		gameWindow.add(actionTipsTextArea);
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");

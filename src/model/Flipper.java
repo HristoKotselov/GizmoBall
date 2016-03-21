@@ -233,8 +233,12 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
+		System.out.println("Flipper triggered");
+		
 		flippingForward = true;
 		startedFlipping = System.nanoTime();
+		
+		update();
 	}
 
 	/* (non-Javadoc)

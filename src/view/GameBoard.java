@@ -35,6 +35,7 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	public GameBoard(IMainEngine m, BuildMenu bm, GameWindow gw) {
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
+		setFocusable(true);
 
 		model = m;
 		gameWindow = gw;
