@@ -235,15 +235,6 @@ public class BuildMenu implements IBuildMenu {
 		buttonPanel.setPreferredSize(new Dimension(260, 70));
 		buttonPanel.setLayout(new GridLayout(2, 2));
 
-		JButton undo = new JButton("Undo");
-		undo.setActionCommand("undo");
-		undo.addActionListener(buildModeAL);
-		buttonPanel.add(undo);
-
-		JButton redo = new JButton("Redo");
-		redo.setActionCommand("redo");
-		redo.addActionListener(buildModeAL);
-		buttonPanel.add(redo);
 
 
 		JButton playMode = new JButton("Play!");

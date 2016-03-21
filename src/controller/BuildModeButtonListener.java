@@ -52,6 +52,16 @@ public class BuildModeButtonListener implements ActionListener {
 				gameWindow.setMode("Play Mode");
 				gameWindow.setActionTipsTextArea(ActionTipDialogue.playModeActionTip());
 				break;
+				
+			case "undo":
+				//TODO
+				System.out.println("undo pressed");
+				break;
+				
+			case "redo":
+				//TODO
+				System.out.println("redo pressed");
+				break;
 		}
 		
 	}
