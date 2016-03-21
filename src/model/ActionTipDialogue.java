@@ -86,9 +86,19 @@ public class ActionTipDialogue {
 		return "Click where you would like to add a ball";
 	}
 	
+	public static String addBallSettingsError() {
+
+		return "Invalid Ball settings!      Please enter some other value.";
+	}
+	
 	public static String physicsActionTip() {
 
-		return "Select the physics values of your choice";
+		return "Enter the physics values of your choice";
+	}
+	
+	public static String physicsActionTipError() {
+
+		return "Invalid Physics settings!       Please enter some other value.";
 	}
 	
 	public static String playModeActionTip() {

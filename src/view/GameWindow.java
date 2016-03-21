@@ -21,28 +21,29 @@ import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
 import controller.PlayModeKeyListener;
 import controller.SaveFileListener;
+import model.ActionTipDialogue;
 import model.IMainEngine;
 
 public class GameWindow implements IGameWindow {
 
 	/* GUI components */
 	private JFrame gameWindow;
-
 	private JPanel sidebarPanel;
-	private BuildModeButtonListener buildModeAL;
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
+	
 	private JLabel coords;
 	private JTextArea actionTipsTextArea;
 
 	/* Controllers */
+	/** Just there for New Board command **/
+	private BuildModeButtonListener buildModeAL;
 	private LoadFileListener loadFileAL;
 	private SaveFileListener saveFileAL;
 
 	/* Model */
 	private IMainEngine model;
-	private IGameWindow gw;
 
 	/**
 	 * Initialize the contents of the frame.
@@ -60,7 +61,8 @@ public class GameWindow implements IGameWindow {
 		gameWindow.setBounds(100, 100, 750, 500);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		buildModeAL = new BuildModeButtonListener(model, gw);
+		IBuildMenu iBuildMenu = buildmenu;			// must be passed as interface instead to hide implementation
+		buildModeAL = new BuildModeButtonListener(model, this, iBuildMenu);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
@@ -140,6 +142,8 @@ public class GameWindow implements IGameWindow {
 		actionTipsTextArea.setEditable(false);
 		actionTipsTextArea.setFocusable(false);
 		gameWindow.add(actionTipsTextArea);
+		// Default ActionTip when loaded up
+		setActionTipsTextArea(ActionTipDialogue.addGizmoActionTip());
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");
 		gameWindow.add(coords);
@@ -197,6 +201,12 @@ public class GameWindow implements IGameWindow {
 
 	@Override
 	public void setActionTipsTextArea(String message){
+		actionTipsTextArea.setForeground(Color.black);
 		actionTipsTextArea.setText(message);
+	}
+	
+	@Override
+	public void setActionTipsTextAreaColour(Color colour){
+		actionTipsTextArea.setForeground(colour);
 	}
 }

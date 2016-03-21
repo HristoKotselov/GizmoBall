@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,18 +8,21 @@ import javax.swing.JOptionPane;
 
 import model.ActionTipDialogue;
 import model.IMainEngine;
+import view.IBuildMenu;
 import view.IGameWindow;
 
 public class BuildModeButtonListener implements ActionListener {
 	private IMainEngine model;
 	private IGameWindow gameWindow;
+	private IBuildMenu buildMenu;
 	
 	/* All the pop-up dialogue boxes */
 	private final JOptionPane resetDialogue;
 
-	public BuildModeButtonListener(IMainEngine model, IGameWindow gameWindow) {
+	public BuildModeButtonListener(IMainEngine model, IGameWindow gameWindow, IBuildMenu bm) {
 		this.model = model;
 		this.gameWindow = gameWindow;
+		this.buildMenu = bm;
 		
 		/* Set-up of the pop-up dialogue boxes */
 		Object[] jOptionPane_Options = {"Yes", "No"};			// Default options for JOptionPane
@@ -37,6 +41,23 @@ public class BuildModeButtonListener implements ActionListener {
 		String actionCmd = e.getActionCommand();
 		
 		switch(actionCmd){
+			/* Cardboard layout commands */
+			case "setPhysics":
+				try{
+					model.setFrictionCoef1(buildMenu.getFrictionCoef1FromGUI());
+					model.setFrictionCoef2(buildMenu.getFrictionCoef2FromGUI() / model.getLInPixels());
+					model.setGravity(buildMenu.getGravityFromGUI() * model.getLInPixels());
+					
+					// Op successful!
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
+				}catch (NumberFormatException ex) {
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTipError());
+					gameWindow.setActionTipsTextAreaColour(Color.RED);
+				}
+				
+				break;
+				
+			/* General commands */
 			case "resetBoard":
 				int response = JOptionPane.showOptionDialog(resetDialogue, resetDialogue.getMessage(), 
 						"Clear Board", 		// Option Dialogue's Title

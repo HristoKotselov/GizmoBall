@@ -281,6 +281,23 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void setFrictionCoef1(double mu1){
+		physicsSettings.setFrictionCoef1(mu1);
+	}
+	
+	public void setFrictionCoef2(double mu2){
+		physicsSettings.setFrictionCoef2(mu2);
+	}
+	
+	public void setGravity(double newGravity){
+		physicsSettings.setGravity(newGravity);
+	}
+	
+	@Override
+	public IPhysicsConfig getPhysicsConfig(){
+		return physicsSettings;
+	}
 
 	@Override
 	public void start() {
@@ -512,11 +529,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		return L;
 	}
 
-	public void update() {
-		setChanged();
-		notifyObservers();
-	}
-
 	@Override
 	public void trigger(int key, int type) {
 		Set<AGizmoComponent> s = customConnections.getKeyConnections(key, type);
@@ -534,4 +546,10 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
+	
+	private void update() {
+		setChanged();
+		notifyObservers();
+	}
+
 }

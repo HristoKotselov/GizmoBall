@@ -7,6 +7,7 @@ import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
+import model.ActionTipDialogue;
 import model.IMainEngine;
 import model.gizmos.Absorber;
 import model.gizmos.Ball;
@@ -23,6 +24,8 @@ public class BuildModeMouseListener implements MouseInputListener {
 	private IBoard board;
 	private IBuildMenu bm;
 	/** Need to change ActionTips that involves clicking on the Board **/
+	private IGameWindow gameWindow;
+	
 	private IMainEngine m;
 
 	private int x, y;
@@ -44,6 +47,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 		this.board = board;
 		this.m = m;
 		this.bm = bm;
+		this.gameWindow = gw;
 	}
 
 	@Override
@@ -103,12 +107,17 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Add Ball":
 				try {
-					double angle = bm.getBallDirection();
-					double speed = bm.getBallSpeed() * m.getLInPixels();
+					double angle = bm.getBallDirectionFromGUI();
+					double speed = bm.getBallSpeedFromGUI() * m.getLInPixels();
 
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
+					
+					// Op successful!
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
 				} catch (NumberFormatException ex) {
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallSettingsError());
+					gameWindow.setActionTipsTextAreaColour(Color.RED);
 				}
 
 				break;
