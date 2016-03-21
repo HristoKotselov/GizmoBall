@@ -85,6 +85,19 @@ public class GameWindow implements IGameWindow {
 		mntmReset.setActionCommand("resetBoard");
 		mntmReset.addActionListener(buildModeAL);
 		mnFolio.add(mntmReset);
+		
+		JMenu edFolio = new JMenu("Edit");
+		menuBar.add(edFolio);
+		
+		JMenuItem mntmUndo = new JMenuItem("Undo");
+		mntmUndo.setActionCommand("undo");
+		mntmUndo.addActionListener(buildModeAL);
+		edFolio.add(mntmUndo);
+
+		JMenuItem mntmRedo = new JMenuItem("Redo");
+		mntmRedo.setActionCommand("redo");
+		mntmRedo.addActionListener(buildModeAL);
+		edFolio.add(mntmRedo);
 
 
 		JSeparator separator = new JSeparator();

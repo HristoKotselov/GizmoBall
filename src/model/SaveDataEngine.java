@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import model.gizmos.TriangularBumper;
 import physics.Vect;
 
 
+
 /**
  * NOTE: This is suppose to be a Static Class, so please do not try to instantiate it
  *
@@ -30,7 +32,7 @@ public final class SaveDataEngine {
 	private SaveDataEngine() {
 	} // prevent instantiation
 
-	public static void loadFile(String filepath, MainEngine model) {
+	public static boolean loadFile(String filepath, MainEngine model) {
 		System.out.println("loading board from \"" + filepath + "\"");
 
 		try {
@@ -181,11 +183,15 @@ public final class SaveDataEngine {
 			}
 
 			br.close();
+		} catch (FileNotFoundException ex) {
+			return false;
 		} catch (IOException e) {
+			return false;
 		}
+		return true;
 	}
 
-	public static void saveFile(String filePath, MainEngine model) {
+	public static boolean saveFile(String filePath, MainEngine model) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filePath)));
 
@@ -212,7 +218,11 @@ public final class SaveDataEngine {
 			// TODO Connect, Gravity, Friction
 
 			bw.close();
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
+			return false;
+		}catch (IOException e) {
+			return false;
 		}
+		return true;
 	}
 }
