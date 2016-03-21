@@ -3,6 +3,7 @@ package model;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Observer;
+import model.gizmos.Ball;
 import physics.Vect;
 
 //TODO split this up a bit if possible
@@ -72,9 +73,6 @@ public interface IMainEngine {
 	public int getLInPixels();
 
 	public void addObserver(Observer o);
-
-	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-	public Ball getBall();
 
 	public void trigger(int key, int type);
 

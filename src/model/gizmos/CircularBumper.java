@@ -1,10 +1,12 @@
-package model;
+package model.gizmos;
 
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
+import model.AStationaryGizmo;
+import model.MainEngine;
 import physics.Circle;
 
 public class CircularBumper extends AStationaryGizmo {

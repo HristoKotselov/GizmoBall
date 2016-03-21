@@ -12,6 +12,12 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+import model.gizmos.Absorber;
+import model.gizmos.Ball;
+import model.gizmos.CircularBumper;
+import model.gizmos.Flipper;
+import model.gizmos.SquareBumper;
+import model.gizmos.TriangularBumper;
 import physics.Vect;
 
 

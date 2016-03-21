@@ -15,13 +15,13 @@ import javax.swing.JPanel;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
-import model.Absorber;
-import model.Ball;
-import model.CircularBumper;
-import model.Flipper;
 import model.IMainEngine;
-import model.SquareBumper;
-import model.TriangularBumper;
+import model.gizmos.Absorber;
+import model.gizmos.Ball;
+import model.gizmos.CircularBumper;
+import model.gizmos.Flipper;
+import model.gizmos.SquareBumper;
+import model.gizmos.TriangularBumper;
 import physics.Angle;
 
 public class GameBoard extends JPanel implements IBoard, Observer {

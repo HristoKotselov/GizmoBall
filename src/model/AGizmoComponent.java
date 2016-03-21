@@ -3,10 +3,8 @@ package model;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
-import java.util.HashSet;
 import java.util.Set;
 import physics.Circle;
-import physics.LineSegment;
 
 /**
  * TODO Parent class of ALL Gizmo Component. Contain key attribute that all

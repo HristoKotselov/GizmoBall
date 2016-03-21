@@ -1,4 +1,4 @@
-package model;
+package model.gizmos;
 
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import model.AStationaryGizmo;
+import model.ILineSegmentCollider;
+import model.MainEngine;
 import physics.Angle;
 import physics.Circle;
 import physics.LineSegment;

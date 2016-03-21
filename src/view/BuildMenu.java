@@ -15,9 +15,6 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import controller.BuildModeButtonListener;
 import controller.BuildModeFunctionChangeListener;
-import controller.ChangeBallConfigListener;
-import controller.PhysicsConfigListener;
-import controller.UndoRedoListener;
 import model.IMainEngine;
 
 public class BuildMenu implements IBuildMenu {
@@ -30,7 +27,6 @@ public class BuildMenu implements IBuildMenu {
 
 	private JTextField ballDirection;
 	private JTextField ballSpeed;
-	private int key;
 
 	/** Required as a reference for Controllers **/
 	private IGameWindow gameWindow;
@@ -40,9 +36,6 @@ public class BuildMenu implements IBuildMenu {
 
 	/* Controller */
 	private BuildModeButtonListener buildModeAL;
-	private ChangeBallConfigListener changeBallConfigAL;
-	private PhysicsConfigListener physicsConfigAL;
-	private UndoRedoListener undoRedoAL;
 
 	public BuildMenu(IMainEngine model, IGameWindow gameWindow) {
 		this.model = model;
@@ -55,15 +48,11 @@ public class BuildMenu implements IBuildMenu {
 	 */
 	private void initialize() {
 		// TODO the listeners should have been passed through parameter
-		// buildModeAL = new BuildModeMainListener(model);
-		physicsConfigAL = new PhysicsConfigListener(model);
 		buildModeAL = new BuildModeButtonListener(model, gameWindow);
-		undoRedoAL = new UndoRedoListener(model);
 
 		menuPanel = new JPanel();
 		menuPanel.setPreferredSize(new Dimension(300, 400));
 		menuPanel.setLayout(new BorderLayout());
-
 
 		// Function Selection
 		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Add Ball", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
@@ -166,6 +155,7 @@ public class BuildMenu implements IBuildMenu {
 
 
 		// Add Key Binding panel
+		// TODO Way to remove bindings
 		JPanel keyBind = new JPanel(new GridLayout(0, 1));
 
 		keyeventRButton = new ButtonGroup();
@@ -181,10 +171,6 @@ public class BuildMenu implements IBuildMenu {
 		keypress.setSelected(true);
 		keyBind.add(keypress);
 		keyBind.add(keyrelease);
-
-//		KeyEvent.getKeyText(keyCode)
-		JComboBox cb = new JComboBox<>();
-
 
 
 		// Physics Constants panel
@@ -246,12 +232,12 @@ public class BuildMenu implements IBuildMenu {
 
 		JButton undo = new JButton("Undo");
 		undo.setActionCommand("undo");
-		undo.addActionListener(undoRedoAL);
+		undo.addActionListener(buildModeAL);
 		buttonPanel.add(undo);
 
 		JButton redo = new JButton("Redo");
 		redo.setActionCommand("redo");
-		redo.addActionListener(undoRedoAL);
+		redo.addActionListener(buildModeAL);
 		buttonPanel.add(redo);
 
 		JButton reload = new JButton("Reset Board");

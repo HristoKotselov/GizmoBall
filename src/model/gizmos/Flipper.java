@@ -1,4 +1,4 @@
-package model;
+package model.gizmos;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -7,6 +7,9 @@ import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
+import model.AStationaryGizmo;
+import model.ILineSegmentCollider;
+import model.MainEngine;
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;

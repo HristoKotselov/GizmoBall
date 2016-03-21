@@ -2,15 +2,18 @@ package testing;
 /*
  * A test case to test the Ball class
  */
-import static org.junit.Assert.*;
-import java.awt.Shape;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import java.awt.Color;
+import java.awt.Shape;
 import java.util.Set;
-import physics.Vect;
 import org.junit.Test;
-import model.*;
+import model.gizmos.Ball;
 import physics.Angle;
 import physics.Circle;
+import physics.Vect;
 public class BallTests {
 	Angle test1 = new Angle(25);
 	Angle test2 = new Angle(75);

@@ -1,9 +1,9 @@
 package testing;
+
 /*
-* A test case to test the PhysicsConfig class
-*/
-import static org.junit.Assert.*;
-import model.PhysicsConfig;
+ * A test case to test the PhysicsConfig class
+ */
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class BasicPhysicsConfigTests {

@@ -7,13 +7,13 @@ import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
 import model.AStationaryGizmo;
-import model.Absorber;
-import model.Ball;
-import model.CircularBumper;
-import model.Flipper;
 import model.IMainEngine;
-import model.SquareBumper;
-import model.TriangularBumper;
+import model.gizmos.Absorber;
+import model.gizmos.Ball;
+import model.gizmos.CircularBumper;
+import model.gizmos.Flipper;
+import model.gizmos.SquareBumper;
+import model.gizmos.TriangularBumper;
 import physics.Angle;
 import view.IBoard;
 import view.IBuildMenu;
@@ -23,7 +23,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 	private IBoard board;
 	private IBuildMenu bm;
 	/** Need to change ActionTips that involves clicking on the Board **/
-	private IGameWindow gw;
 	private IMainEngine m;
 
 	private int x, y;
@@ -118,12 +117,10 @@ public class BuildModeMouseListener implements MouseInputListener {
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 				if (g != null) {
-					KeyBindPopupListener l;
-
 					if (bm.getKeyEventType().equals("keypress")) {
-						l = new KeyBindPopupListener(m, g, KeyEvent.KEY_PRESSED);
+						new KeyBindPopupListener(m, g, KeyEvent.KEY_PRESSED);
 					} else {
-						l = new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
+						new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
 					}
 				}
 

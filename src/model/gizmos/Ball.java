@@ -1,13 +1,13 @@
-package model;
+package model.gizmos;
 
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
+import model.AMovingGizmo;
 import physics.Angle;
 import physics.Circle;
-import physics.Vect;
 
 public class Ball extends AMovingGizmo {
 

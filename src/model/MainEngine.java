@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+import model.gizmos.Ball;
+import model.gizmos.Flipper;
 import physics.Angle;
 import physics.Circle;
 import physics.Geometry;
@@ -16,7 +18,7 @@ import physics.Vect;
 
 public class MainEngine extends Observable implements IMainEngine {
 	/* Constants */
-	final static int L = 20;
+	public final static int L = 20;
 
 	/* Game Component */
 	private Map<String, AGizmoComponent> gizmos;
@@ -25,9 +27,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	private Set<Ball> ballSet;
 	private Set<AStationaryGizmo> stationaryGizmos;
 	private Set<AMovingGizmo> movingGizmos;
-
-	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-	public Ball ball;// Using one ball to test, this is the only ball for now
 
 	private Walls gws;
 
@@ -63,9 +62,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		// Default height\width of the Walls
 		gws = new Walls(0, 0, 20 * L, 20 * L);
-
-		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-//		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
 	}
 
 	@Override
@@ -514,11 +510,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public int getLInPixels() {
 		return L;
-	}
-
-	/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
-	public Ball getBall() {
-		return ball;
 	}
 
 	public void update() {

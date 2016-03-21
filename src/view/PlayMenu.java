@@ -1,20 +1,10 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import controller.ChangeBallConfigListener;
-import controller.PhysicsConfigListener;
 import controller.PlayModeButtonListener;
-import controller.StartGameListener;
-import controller.StopGameListener;
-import controller.UndoRedoListener;
-import controller.WindowListener;
 import model.IMainEngine;
 
 public class PlayMenu {

@@ -1,4 +1,4 @@
-package model;
+package model.gizmos;
 
 import java.awt.Color;
 import java.awt.Polygon;
@@ -6,6 +6,9 @@ import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.util.HashSet;
 import java.util.Set;
+import model.AStationaryGizmo;
+import model.ILineSegmentCollider;
+import model.MainEngine;
 import physics.Circle;
 import physics.LineSegment;
 
