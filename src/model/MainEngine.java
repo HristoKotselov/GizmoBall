@@ -67,7 +67,12 @@ public class MainEngine extends Observable implements IMainEngine {
 		gws = new Walls(0, 0, 20 * L, 20 * L);
 
 		/** TODO Temporarily Line, REMOVE\CHANGE before final release **/
+<<<<<<< HEAD
 //		ball = new Ball("Ball", Color.RED, 50, 50, new Angle(45), 50);
+=======
+		ball = new Ball("Ball", Color.RED, 5, 5, new Angle(0), 20 * L);
+		ballSet.add(ball);
+>>>>>>> 7470ec251ef6753453eb4fd0830114b9402aaa04
 	}
 
 	@Override
@@ -81,6 +86,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		double frictionScale;
 		
+<<<<<<< HEAD
 		// Need to apply the Physics to all the balls before the collision prediction happen
 		for(Ball ball : ballSet){
 			if(ball.stopped()){		// if ball stopped, then no calculation will be needed
@@ -112,11 +118,40 @@ public class MainEngine extends Observable implements IMainEngine {
 			tuc = cd.getTuc(); // i.e. what is the time to the nearest future
 								// collision...?
 
+=======
+// CHANGE TODO CHANGE TO GET WORKING
+		for(Ball ball : ballSet){
+			// Apply friction to Ball
+			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
+			ball.setVelo(ball.getVelo().times(frictionScale));
+			
+			// Apply gravity to Ball
+			ball.setVelo(ball.getVelo().plus(new Vect(Angle.DEG_90, gravity * moveTime)));
+		}
+// CHANGE TODO CHANGE TO GET WORKING
+		
+		List<CollisionDetails> collisionList = calcTimesUntilCollision();		// called to get a list of collisions
+		
+		// Temp variables setup
+		Ball ball;
+		double tuc;
+		AGizmoComponent collider;
+		
+		for (CollisionDetails cd : collisionList) {
+			ball = cd.getBall();
+			
+			tuc = cd.getTuc();		// i.e. what is the time to the nearest future collision...?
+			
+>>>>>>> 7470ec251ef6753453eb4fd0830114b9402aaa04
 			if (tuc > moveTime) {
 				// No collision ...
 				moveBallAtCurrentVelo(ball, moveTime);
 			} else {
+<<<<<<< HEAD
 				// We've got a collision in tuc, so move the ball until it directly (occasionally with a very small margin of error) touches the collider
+=======
+				// We've got a collision in tuc, so move the ball until it directly touches the collider
+>>>>>>> 7470ec251ef6753453eb4fd0830114b9402aaa04
 				moveBallAtCurrentVelo(ball, tuc);	
 
 				collider = getGizmo(cd.getColliderName());
@@ -136,10 +171,17 @@ public class MainEngine extends Observable implements IMainEngine {
 		double newY = 0.0;
 		double xVel = ball.getVelo().x();
 		double yVel = ball.getVelo().y();
+<<<<<<< HEAD
 		newX = ball.getMovingX() + (xVel * time);
 		newY = ball.getMovingY() + (yVel * time);
 		ball.setMovingX(newX);
 		ball.setMovingY(newY);
+=======
+		newX = ball.getPreciseX() + (xVel * time);
+		newY = ball.getPreciseY() + (yVel * time);
+		ball.setPreciseX(newX);
+		ball.setPreciseY(newY);
+>>>>>>> 7470ec251ef6753453eb4fd0830114b9402aaa04
 	}
 
 	private List<CollisionDetails> calcTimesUntilCollision() {
