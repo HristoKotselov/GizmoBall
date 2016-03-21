@@ -96,5 +96,10 @@ public class ActionTipDialogue {
 		return "Have fun!";
 	}
 	
+	public static String buildModeActionTip() {
+
+		return "Begin Building!";
+	}
+	
 	
 }
