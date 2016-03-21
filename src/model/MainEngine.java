@@ -44,10 +44,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	 **/
 	private double moveTime = 1.0 / 60.0; // 60 fps
 
-	private boolean isPlaying; // used to tell Keyboard ActionListeners when
-								// they should be active (only when the game is
-								// running)
-
+	private boolean isPlaying; // used to tell Keyboard ActionListeners when they should be active (only when the game is running)
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
@@ -78,8 +75,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		// Need to apply the Physics to all the balls before the collision
 		// prediction happen
 		for (Ball ball : ballSet) {
-			if (ball.stopped()) { // if ball stopped, then no calculation will
-									// be needed
+			if (ball.stopped()) { // if ball stopped, then no calculation will be needed
 				continue;
 			}
 
@@ -279,23 +275,10 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public void setBallSpeed(Ball b, Vect velo) {
 		// TODO Auto-generated method stub
+	}
 
-	}
-	
-	public void setFrictionCoef1(double mu1){
-		physicsSettings.setFrictionCoef1(mu1);
-	}
-	
-	public void setFrictionCoef2(double mu2){
-		physicsSettings.setFrictionCoef2(mu2);
-	}
-	
-	public void setGravity(double newGravity){
-		physicsSettings.setGravity(newGravity);
-	}
-	
 	@Override
-	public IPhysicsConfig getPhysicsConfig(){
+	public IPhysicsConfig getPhysicsConfig() {
 		return physicsSettings;
 	}
 
@@ -311,7 +294,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean isPlaying() {
-		// TODO Auto-generated method stub
 		return isPlaying;
 	}
 
@@ -546,7 +528,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
-	
+
 	private void update() {
 		setChanged();
 		notifyObservers();

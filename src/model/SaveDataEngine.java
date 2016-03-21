@@ -38,6 +38,9 @@ public final class SaveDataEngine {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(new File(filepath)));
 
+			boolean gravitySet = false;
+			boolean frictionSet = false;
+
 			while (br.ready()) {
 				String line = br.readLine();
 
@@ -163,15 +166,26 @@ public final class SaveDataEngine {
 							} else {
 								model.bindKey(g, key, KeyEvent.KEY_RELEASED);
 							}
-
-							System.out.println("binding " + key + " to " + g.getGizmoID());
-
 							break;
 
-						// TODO These three
-						case "Connect":
 						case "Gravity":
+							double gravity = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							model.getPhysicsConfig().setGravity(gravity);
+							gravitySet = true;
+							break;
+
 						case "Friction":
+							double mu1 = Double.parseDouble(st.nextToken());
+							double mu2 = Double.parseDouble(st.nextToken()) / model.getLInPixels();
+
+							model.getPhysicsConfig().setFrictionCoef1(mu1);
+							model.getPhysicsConfig().setFrictionCoef2(mu2);
+
+							frictionSet = true;
+							break;
+
+						// TODO This
+						case "Connect":
 							System.err.println("Functionality for \"" + s + "\" not implemented");
 							break;
 
@@ -180,6 +194,15 @@ public final class SaveDataEngine {
 							break;
 					}
 				}
+			}
+
+			if (!gravitySet) {
+				model.getPhysicsConfig().setGravity(PhysicsConfig.DEFAULT_GRAVITY);
+			}
+			
+			if (!frictionSet) {
+				model.getPhysicsConfig().setFrictionCoef1(PhysicsConfig.DEFAULT_MU1);
+				model.getPhysicsConfig().setFrictionCoef2(PhysicsConfig.DEFAULT_MU2);
 			}
 
 			br.close();
@@ -205,22 +228,24 @@ public final class SaveDataEngine {
 
 			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyPressBindings().entrySet()) {
 				for (AGizmoComponent g : entry.getValue()) {
-					System.out.println("KeyConnect key " + entry.getKey() + " down " + g.getGizmoID());
+					bw.write("KeyConnect key " + entry.getKey() + " down " + g.getGizmoID() + "\n");
 				}
 			}
 
 			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyReleaseBindings().entrySet()) {
 				for (AGizmoComponent g : entry.getValue()) {
-					System.out.println("KeyConnect key " + entry.getKey() + " up " + g.getGizmoID());
+					bw.write("KeyConnect key " + entry.getKey() + " up " + g.getGizmoID() + "\n");
 				}
 			}
 
-			// TODO Connect, Gravity, Friction
+			// TODO Connect
+
+			bw.write(model.getPhysicsConfig().toString() + "\n");
 
 			bw.close();
 		} catch (FileNotFoundException e) {
 			return false;
-		}catch (IOException e) {
+		} catch (IOException e) {
 			return false;
 		}
 		return true;

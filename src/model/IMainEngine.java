@@ -15,12 +15,6 @@ public interface IMainEngine {
 
 	public void setBallSpeed(Ball b, Vect velo);
 	
-	public void setFrictionCoef1(double mu1);
-	
-	public void setFrictionCoef2(double mu2);
-	
-	public void setGravity(double newGravity);
-	
 	public IPhysicsConfig getPhysicsConfig();
 
 	public void start();

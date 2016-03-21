@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import model.ActionTipDialogue;
 import model.IMainEngine;
+import model.IPhysicsConfig;
 import view.IBuildMenu;
 import view.IGameWindow;
 
@@ -44,9 +45,10 @@ public class BuildModeButtonListener implements ActionListener {
 			/* Cardboard layout commands */
 			case "setPhysics":
 				try{
-					model.setFrictionCoef1(buildMenu.getFrictionCoef1FromGUI());
-					model.setFrictionCoef2(buildMenu.getFrictionCoef2FromGUI() / model.getLInPixels());
-					model.setGravity(buildMenu.getGravityFromGUI() * model.getLInPixels());
+					IPhysicsConfig phys = model.getPhysicsConfig();
+					phys.setFrictionCoef1(buildMenu.getFrictionCoef1FromGUI());
+					phys.setFrictionCoef2(buildMenu.getFrictionCoef2FromGUI() / model.getLInPixels());
+					phys.setGravity(buildMenu.getGravityFromGUI() * model.getLInPixels());
 					
 					// Op successful!
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
