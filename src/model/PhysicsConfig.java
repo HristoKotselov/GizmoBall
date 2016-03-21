@@ -1,6 +1,8 @@
 package model;
 
-public class PhysicsConfig {
+import java.util.Observable;
+
+public class PhysicsConfig extends Observable implements IPhysicsConfig{
 
 	// Friction
 	private double mu1;
@@ -21,12 +23,14 @@ public class PhysicsConfig {
 
 	/* Custom Settings */
 	public PhysicsConfig(double mu, double mu2, double g) {
-		// TODO some validation
+		// TODO auto-generated stub
 	}
 
 	public boolean setGravity(double newGravity) {
 		// TODO some validation
 		gravity = newGravity;
+		
+		update();
 		return true;
 	}
 
@@ -37,6 +41,8 @@ public class PhysicsConfig {
 	public boolean setFrictionCoef1(double mu) {
 		// TODO some validation
 		this.mu1 = mu;
+		
+		update();
 		return true;
 	}
 
@@ -47,10 +53,17 @@ public class PhysicsConfig {
 	public boolean setFrictionCoef2(double mu2) {
 		// TODO some validation
 		this.mu2 = mu2;
+		
+		update();
 		return true;
 	}
 
 	public double getFrictionCoef2() {
 		return mu2;
+	}
+	
+	private void update() {
+		setChanged();
+		notifyObservers();
 	}
 }

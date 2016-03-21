@@ -293,6 +293,11 @@ public class MainEngine extends Observable implements IMainEngine {
 	public void setGravity(double newGravity){
 		physicsSettings.setGravity(newGravity);
 	}
+	
+	@Override
+	public IPhysicsConfig getPhysicsConfig(){
+		return physicsSettings;
+	}
 
 	@Override
 	public void start() {
@@ -524,11 +529,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		return L;
 	}
 
-	public void update() {
-		setChanged();
-		notifyObservers();
-	}
-
 	@Override
 	public void trigger(int key, int type) {
 		Set<AGizmoComponent> s = customConnections.getKeyConnections(key, type);
@@ -546,4 +546,10 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
+	
+	private void update() {
+		setChanged();
+		notifyObservers();
+	}
+
 }

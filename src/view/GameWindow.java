@@ -21,6 +21,7 @@ import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
 import controller.PlayModeKeyListener;
 import controller.SaveFileListener;
+import model.ActionTipDialogue;
 import model.IMainEngine;
 
 public class GameWindow implements IGameWindow {
@@ -128,6 +129,8 @@ public class GameWindow implements IGameWindow {
 		actionTipsTextArea.setEditable(false);
 		actionTipsTextArea.setFocusable(false);
 		gameWindow.add(actionTipsTextArea);
+		// Default ActionTip when loaded up
+		setActionTipsTextArea(ActionTipDialogue.addGizmoActionTip());
 
 		coords = new JLabel("X: 100 (10), Y: 100 (10)");
 		gameWindow.add(coords);
@@ -185,6 +188,12 @@ public class GameWindow implements IGameWindow {
 
 	@Override
 	public void setActionTipsTextArea(String message){
+		actionTipsTextArea.setForeground(Color.black);
 		actionTipsTextArea.setText(message);
+	}
+	
+	@Override
+	public void setActionTipsTextAreaColour(Color colour){
+		actionTipsTextArea.setForeground(colour);
 	}
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,9 +43,18 @@ public class BuildModeButtonListener implements ActionListener {
 		switch(actionCmd){
 			/* Cardboard layout commands */
 			case "setPhysics":
-				model.setFrictionCoef1(buildMenu.getFrictionCoef1FromGUI());
-				model.setFrictionCoef2(buildMenu.getFrictionCoef2FromGUI() / model.getLInPixels());
-				model.setGravity(buildMenu.getGravityFromGUI() * model.getLInPixels());
+				try{
+					model.setFrictionCoef1(buildMenu.getFrictionCoef1FromGUI());
+					model.setFrictionCoef2(buildMenu.getFrictionCoef2FromGUI() / model.getLInPixels());
+					model.setGravity(buildMenu.getGravityFromGUI() * model.getLInPixels());
+					
+					// Op successful!
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
+				}catch (NumberFormatException ex) {
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTipError());
+					gameWindow.setActionTipsTextAreaColour(Color.RED);
+				}
+				
 				break;
 				
 			/* General commands */

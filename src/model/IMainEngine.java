@@ -20,6 +20,8 @@ public interface IMainEngine {
 	public void setFrictionCoef2(double mu2);
 	
 	public void setGravity(double newGravity);
+	
+	public IPhysicsConfig getPhysicsConfig();
 
 	public void start();
 
