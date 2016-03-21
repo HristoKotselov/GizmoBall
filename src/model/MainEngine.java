@@ -464,6 +464,10 @@ public class MainEngine extends Observable implements IMainEngine {
 	public Collection<AGizmoComponent> getAllGizmos() {
 		return gizmos.values();
 	}
+	
+	public Connections getConnections(){
+		return customConnections;
+	}
 
 	@Override
 	public Collection<AStationaryGizmo> getAllStationaryGizmos() {

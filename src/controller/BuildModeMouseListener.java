@@ -116,9 +116,8 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			case "Bind Key":
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-				
 
-				if (g != null) {						
+				if (g != null) {
 					KeyBindPopupListener l;
 
 					if (bm.getKeyEventType().equals("keypress")) {
@@ -126,19 +125,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 					} else {
 						l = new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
 					}
-					
-//				if (g != null) {						
-//					if (bm.getKeyEventType().equals("keypress")) {
-//						bm.bindKey(g, KeyEvent.KEY_PRESSED);
-//					} else {
-//						bm.bindKey(g, KeyEvent.KEY_RELEASED);
-//					}
-
-//					if (bm.getKeyEventType().equals("keypress")) {
-//						m.bindKey(g, key, KeyEvent.KEY_PRESSED);
-//					} else {
-//						m.bindKey(g, key, KeyEvent.KEY_RELEASED);
-//					}
 				}
 
 				break;

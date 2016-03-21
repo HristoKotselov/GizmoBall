@@ -188,4 +188,16 @@ public class Connections {
 		triggerMap.clear();
 	}
 
+	
+	public Map<Integer, Set<AGizmoComponent>> getKeyPressBindings(){
+		return keyPressedMap;
+	}
+	
+	public Map<Integer, Set<AGizmoComponent>> getKeyReleaseBindings(){
+		return keyReleasedMap;
+	}
+	
+//	keyPressedMap = kPressedMap;
+//	keyReleasedMap = kReleasedMap;
+//	triggerMap = gtMap;
 }
