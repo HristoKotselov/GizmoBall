@@ -167,10 +167,15 @@ public class BuildMenu implements IBuildMenu {
 		JRadioButton keyrelease = new JRadioButton("Key Released");
 		keyrelease.setActionCommand("keyrelease");
 		keyeventRButton.add(keyrelease);
+		
+		JRadioButton keyremove = new JRadioButton("Remove Bindings");
+		keyremove.setActionCommand("keyremove");
+		keyeventRButton.add(keyremove);
 
 		keypress.setSelected(true);
 		keyBind.add(keypress);
 		keyBind.add(keyrelease);
+		keyBind.add(keyremove);
 
 
 		// Physics Constants panel

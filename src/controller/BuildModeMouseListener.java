@@ -119,8 +119,10 @@ public class BuildModeMouseListener implements MouseInputListener {
 				if (g != null) {
 					if (bm.getKeyEventType().equals("keypress")) {
 						new KeyBindPopupListener(m, g, KeyEvent.KEY_PRESSED);
-					} else {
+					} else if (bm.getKeyEventType().equals("keyrelease")) {
 						new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
+					} else {
+						m.bindKey(g, -1, -1);
 					}
 				}
 

@@ -460,8 +460,8 @@ public class MainEngine extends Observable implements IMainEngine {
 	public Collection<AGizmoComponent> getAllGizmos() {
 		return gizmos.values();
 	}
-	
-	public Connections getConnections(){
+
+	public Connections getConnections() {
 		return customConnections;
 	}
 
@@ -528,6 +528,10 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void bindKey(AGizmoComponent gizmo, int key, int type) {
-		customConnections.addKeyConnection(key, type, gizmo);
+		if (key != -1) {
+			customConnections.addKeyConnection(key, type, gizmo);
+		} else {
+			customConnections.removeAllKeyBindings(gizmo);
+		}
 	}
 }

@@ -187,6 +187,24 @@ public class Connections {
 	public void clearALLGizmoTriggerConnection() {
 		triggerMap.clear();
 	}
+	
+	public void removeAllKeyBindings(AGizmoComponent gizmo){
+		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyPressedMap.entrySet()){
+			for (AGizmoComponent g : e.getValue()){
+				if (g.getGizmoID().equals(gizmo.getGizmoID())){
+					removeKeyConnection(e.getKey(), KeyEvent.KEY_PRESSED, gizmo);
+				}
+			}
+		}
+		
+		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyReleasedMap.entrySet()){
+			for (AGizmoComponent g : e.getValue()){
+				if (g.getGizmoID().equals(gizmo.getGizmoID())){
+					removeKeyConnection(e.getKey(), KeyEvent.KEY_RELEASED, gizmo);
+				}
+			}
+		}
+	}
 
 	
 	public Map<Integer, Set<AGizmoComponent>> getKeyPressBindings(){
