@@ -245,10 +245,11 @@ public class BuildMenu implements IBuildMenu {
 		redo.addActionListener(buildModeAL);
 		buttonPanel.add(redo);
 
-		JButton reload = new JButton("Reset Board");
+		/*JButton reload = new JButton("Reset Board");
 		reload.setActionCommand("resetBoard");
 		reload.addActionListener(buildModeAL);
 		buttonPanel.add(reload);
+		*/
 
 		JButton playMode = new JButton("Play!");
 		playMode.setActionCommand("playMode");

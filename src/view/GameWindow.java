@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
+
+import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
 import controller.PlayModeKeyListener;
@@ -27,7 +29,7 @@ public class GameWindow implements IGameWindow {
 	private JFrame gameWindow;
 
 	private JPanel sidebarPanel;
-
+	private BuildModeButtonListener buildModeAL;
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
@@ -40,7 +42,7 @@ public class GameWindow implements IGameWindow {
 
 	/* Model */
 	private IMainEngine model;
-
+	private IGameWindow gw;
 
 	/**
 	 * Initialize the contents of the frame.
@@ -57,6 +59,8 @@ public class GameWindow implements IGameWindow {
 		gameWindow = new JFrame("Build Mode");
 		gameWindow.setBounds(100, 100, 750, 500);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		buildModeAL = new BuildModeButtonListener(model, gw);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
@@ -74,6 +78,12 @@ public class GameWindow implements IGameWindow {
 		mntmSave.setActionCommand("save");
 		mntmSave.addActionListener(saveFileAL);
 		mnFolio.add(mntmSave);
+		
+		JMenuItem mntmReset = new JMenuItem("New Board");
+		mntmReset.setActionCommand("resetBoard");
+		mntmReset.addActionListener(buildModeAL);
+		mnFolio.add(mntmReset);
+
 
 		JSeparator separator = new JSeparator();
 		mnFolio.add(separator);
