@@ -209,7 +209,7 @@ public class MainEngine extends Observable implements IMainEngine {
 						if (time < shortestTime) {
 							shortestTime = time;
 							newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
-							colliderID = ((AGizmoComponent) gizmo).getGizmoID();
+							colliderID = gizmo.getGizmoID();
 						}
 					}
 				}
@@ -334,7 +334,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		else if(gizmo instanceof AMovingGizmo){
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
 			
-			// TODO implementation for movable Gizmos 
+			// TODO overlap protection for movable Gizmos 
 			// (that can technically be placed at any pixel, as look as it don't overlap with existing ones)
 			
 			
@@ -368,6 +368,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 		else if(gizmo instanceof AMovingGizmo){
 			movingGizmos.remove(gizmo);
+		}
+		else if(gizmo instanceof Ball){
+			ballSet.remove(gizmo);
 		}
 
 		update();
@@ -472,6 +475,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		gizmos.clear();
 		stationaryGizmos.clear();
 		movingGizmos.clear();
+		ballSet.clear();
 		
 		update();
 	}
@@ -479,9 +483,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public void loadFile(String filePath) {
 		// get rid of all existing Gizmos
-		gizmos = new HashMap<String, AGizmoComponent>(); 
-		stationaryGizmos = new HashSet<AStationaryGizmo>();
-		movingGizmos = new HashSet<AMovingGizmo>();
+		clearAllGizmos();
 		
 		SaveDataEngine.loadFile(filePath, this);
 	}
