@@ -310,26 +310,23 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
 		// TODO Validation
+		boolean spaceOccupied = false, outsideWall = false;
 
 		if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			int grid_tile_x = sGizmo.getX() / L;
 			int grid_tile_y = sGizmo.getY() / L;
 
-			// Remove any overlapping gizmos
-			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
-				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
-					AGizmoComponent g = getStationaryGizmoAt(grid_tile_x + i, grid_tile_y + j);
+			// Check for any overlapping Stationary Gizmos
+			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
+			
+			// Check for the walls
+			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 
-					if (g != null) {
-						removeGizmo(g);
-					}
-				}
+			if(!spaceOccupied && !outsideWall){
+				// Add stationary gizmo to Stationary Gizmo Set
+				stationaryGizmos.add(sGizmo);
 			}
-
-			// Add stationary gizmo to Stationary Gizmo Set
-			stationaryGizmos.add(sGizmo);
-
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
 
@@ -337,20 +334,23 @@ public class MainEngine extends Observable implements IMainEngine {
 			// (that can technically be placed at any pixel, as look as it don't overlap with existing ones)
 
 
-			// Add stationary gizmo to Stationary Gizmo Set
-			movingGizmos.add(mGizmo);
-
-			// if moving Gizmo is a Ball, then we add it to a special subset
-			if (mGizmo instanceof Ball) {
-				ballSet.add((Ball) mGizmo);
+			if(!spaceOccupied && !outsideWall){
+				// Add moving gizmo to Moving Gizmo Set
+				movingGizmos.add(mGizmo);
+				
+				// if moving Gizmo is a Ball, then we add it to a special subset
+				if (mGizmo instanceof Ball) {
+					ballSet.add((Ball) mGizmo);
+				}
 			}
 
 		}
 
-		// Add new gizmo to the map of ALL Gizmos
-		gizmos.put(gizmo.getGizmoID(), gizmo);
+		if (!spaceOccupied && !outsideWall) {
+			// Add new gizmo to the map of ALL Gizmos
+			gizmos.put(gizmo.getGizmoID(), gizmo);
+		}
 
-		// Update view
 		update();
 
 		return false;
@@ -390,40 +390,69 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO handle null
 		// TODO handle absorber off screen?
 		// TODO Validation
-		boolean spaceOccupied = false;
+		boolean spaceOccupied = false, outsideWall = false;
 
 		if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 
 			// Check for any overlapping Stationary Gizmos
-			for (int i = 0; i < sGizmo.getBMWidth(); i++) {
-				for (int j = 0; j < sGizmo.getBMHeight(); j++) {
-					AGizmoComponent g = getStationaryGizmoAt(grid_tile_x + i, grid_tile_y + j);
-
-					if (g != null &&
-							g != sGizmo) { // no need to get against the same
-											// Gizmo! If this happens, Flipper
-											// will be not able to move 1 square
-											// left/right
-						spaceOccupied = true;
-					}
-				}
-			}
-
-			// TODO Check for any overlapping Moving Gizmos (i.e. Ball)
+			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
+			
+			// Check for the walls
+			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 		}
+		
 
-		if (!spaceOccupied) {
+		// TODO Check for any overlapping Moving Gizmos (i.e. Ball)
+		
+
+		if (!spaceOccupied && !outsideWall) {
 			gizmo.move(grid_tile_x, grid_tile_y);
 		}
 
 		update();
 
-		return (!spaceOccupied);
+		return (!spaceOccupied && !outsideWall);
 	}
 
 	// TODO make moveGizmoByPixel()
 
+	/** Helper Method **/
+	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
+		boolean spaceOccupied = false;
+		
+		// Check for any overlapping Stationary Gizmos
+		for (int i = 0; i < sGizmo.getBMWidth(); i++) {
+			for (int j = 0; j < sGizmo.getBMHeight(); j++) {
+				AGizmoComponent g = getStationaryGizmoAt(new_grid_tile_x + i, new_grid_tile_y + j);
+
+				if (g != null &&
+						g != sGizmo) { // no need to get against the same
+										// Gizmo! If this happens, Flipper
+										// will be not able to move 1 square
+										// left/right
+					spaceOccupied = true;
+				}
+			}
+		}
+		
+		return spaceOccupied;
+	}
+	
+	/** Helper Method **/
+	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
+		boolean outsideWall = false;
+		
+		// only need to check for RHS overlap due to all Stationary Gizmo starting from Top-Left corner of a square
+		if( (new_grid_tile_x + sGizmo.getBMWidth() ) > gws.getWidthInL() ||
+			(new_grid_tile_y + sGizmo.getBMHeight() ) > gws.getHeightInL()
+			){
+			outsideWall = true;
+		}
+		
+		return outsideWall;
+	}
+	
 	@Override
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
