@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
+import controller.MagicKeyListenerWrapper;
 import controller.PlayModeKeyListener;
 import controller.SaveFileListener;
 import model.ActionTipDialogue;
@@ -126,7 +127,9 @@ public class GameWindow implements IGameWindow {
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
 		
-		board.addKeyListener(new PlayModeKeyListener(model));
+		PlayModeKeyListener kl = new PlayModeKeyListener(model);
+		MagicKeyListenerWrapper mkl = new MagicKeyListenerWrapper(kl);
+		board.addKeyListener(mkl);
 
 		gameWindow.add(sidebarPanel);
 		gameWindow.add(new JSeparator());
