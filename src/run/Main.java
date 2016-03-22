@@ -1,5 +1,6 @@
 package run;
 
+import model.IMainEngine;
 import model.MainEngine;
 import view.GameWindow;
 
