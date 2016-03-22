@@ -85,6 +85,10 @@ public class BuildModeButtonListener implements ActionListener {
 				//TODO
 				System.out.println("redo pressed");
 				break;
+				
+			case "exit":
+				System.exit(0);
+				break;
 		}
 		
 	}
