@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -437,6 +438,30 @@ public class MainEngine extends Observable implements IMainEngine {
 										// left/right
 					spaceOccupied = true;
 				}
+			}
+		}
+		
+		// Check for any overlapping Moving Gizmos
+		for(AMovingGizmo mGizmo : movingGizmos){
+			/* The bounding box is a rectangular object that encloses around the Shape object
+			 * of a gizmo, and it can be used to check whether a moving Gizmo overlap a 
+			 * Stationary Gizmo, required as moving Gizmos such as ball can get placed in the 
+			 * middle of grid squares. In a way, this box can be thought of like the concept 
+			 * of "Hitbox" in video games.
+			 */
+			Rectangle sGizmoBounds = sGizmo.getDrawingShape().getBounds();
+			
+			// Divide by L = pixels, Multiple by L = grid_tile_squares
+			if(sGizmo.getX() / L != new_grid_tile_x || sGizmo.getY() / L != new_grid_tile_y){		// Is it Move Gizmo?
+				int diffInGridTileX = new_grid_tile_x - (sGizmo.getX() / L);
+				int diffInGridTileY = new_grid_tile_y - (sGizmo.getY() / L);
+				sGizmoBounds.setLocation(sGizmo.getX() + diffInGridTileX * L, sGizmo.getY() + diffInGridTileY * L);
+			}
+				
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();	
+			
+			if( sGizmoBounds.intersects(mGizmoBounds) ){
+				spaceOccupied = true;
 			}
 		}
 		
