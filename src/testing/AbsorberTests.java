@@ -3,11 +3,8 @@ package testing;
 /*
  * A test case to test the Absorber class
  */
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+import physics.Circle;
 import java.awt.Color;
 import java.awt.Shape;
 import java.util.ArrayList;
@@ -69,23 +66,22 @@ public class AbsorberTests {
 
 	@Test
 	public void testReset() {
-		capturedBalls.add(ball);
-		capturedBalls.add(ball2);
-		capturedBalls.add(ball3);
-		capturedBalls.add(ball4);
-		capturedBalls.add(ball5);
+		a.addCapturedBall(ball);
+		a.addCapturedBall(ball2);
+		a.addCapturedBall(ball3);
+		a.addCapturedBall(ball4);
+		a.addCapturedBall(ball5);
 
 		assertFalse(a.getCapturedBalls() == null);
-		a.triggerAction();
 		a.reset();
 		System.out.println("");
 		System.out.println("Clearing using reset");
 		for (int i = 0; i < capturedBalls.size(); i++) {
 			System.out.println(capturedBalls.get(i));
 		}
+		
 		assertTrue(a.getCapturedBalls().isEmpty());
 	}
-
 
 	@Test
 	public void testAbsorberSetGetX() {

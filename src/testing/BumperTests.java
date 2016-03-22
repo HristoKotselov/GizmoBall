@@ -1,14 +1,13 @@
 package testing;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import java.awt.Color;
-import java.awt.Shape;
+
 /*
  * A test case to test the Circular, Triangular and Square bumper classes
  */
+import static org.junit.Assert.*;
 import org.junit.Test;
+import java.awt.Color;
+import java.awt.Shape;
 import model.gizmos.CircularBumper;
 import model.gizmos.SquareBumper;
 import model.gizmos.TriangularBumper;

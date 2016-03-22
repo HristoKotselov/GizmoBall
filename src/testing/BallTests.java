@@ -1,13 +1,11 @@
 package testing;
+
 /*
  * A test case to test the Ball class
  */
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import java.awt.Color;
+import static org.junit.Assert.*;
 import java.awt.Shape;
+import java.awt.Color;
 import java.util.Set;
 import org.junit.Test;
 import model.gizmos.Ball;
