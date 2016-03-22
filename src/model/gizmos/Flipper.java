@@ -51,7 +51,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		ls = new HashSet<LineSegment>();
 
 		this.gameplayRotation = 0;
-		this.flippingForward = true;
+		this.flippingForward = false;
 		this.orientation = orientation;
 
 		updateCollections();
@@ -223,26 +223,26 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void triggerAction() {
-		// TODO Auto-generated method stub
-		System.out.println("Flipper triggered");
+		System.out.println("triggered");
+		flippingForward = !flippingForward;
 
-		startedFlipping = System.nanoTime();
-		if (flippingForward) {
-			for (int flipCount = 0; flipCount < 5; flipCount++){
-			rotate18degrees();
-			update();
-			}
-			flippingForward = false;
-			return;
-		}
-		if (!flippingForward) {
-			for (int flipCount = 0; flipCount < 5; flipCount++){
-			rotateback18degrees();
-			update();
-			}
-			flippingForward = true;
-			return;
-		}
+//		startedFlipping = System.nanoTime();
+//		if (flippingForward) {
+//			for (int flipCount = 0; flipCount < 5; flipCount++){
+//			rotate18degrees();
+//			update();
+//			}
+//			flippingForward = false;
+//			return;
+//		}
+//		if (!flippingForward) {
+//			for (int flipCount = 0; flipCount < 5; flipCount++){
+//			rotateback18degrees();
+//			update();
+//			}
+//			flippingForward = true;
+//			return;
+//		}
 
 	}
 
@@ -299,25 +299,22 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Flipper exclusive methods */
-	public void update() {
-		if (flippingForward) {
-			gameplayRotation += flipSpeed;
-		} else {
-			gameplayRotation -= flipSpeed;
+	public void update(double moveTime) {
+		if (flippingForward && gameplayRotation < 90) {
+			rotate18degrees();
+			gameplayRotation += 1080 * moveTime;
+
+			if (gameplayRotation > 90) {
+				gameplayRotation = 90;
+			}
+		} else if (!flippingForward && gameplayRotation > 0) {
+			rotateback18degrees();
+			gameplayRotation -= 1080 * moveTime;
+
+			if (gameplayRotation < 0) {
+				gameplayRotation = 0;
+			}
 		}
-
-		if (gameplayRotation > 90) {
-			gameplayRotation = 90;
-		} else if (gameplayRotation < 0) {
-			gameplayRotation = 0;
-		}
-
-//		if (System.nanoTime() - startedFlipping > flipTime) {
-//			flippingForward = false;
-//		}
-		// Circle circle = new physics.Circle(new physics.Vect(this.getX(),
-		// this.getY()), 10);
-
 	}
 
 	// use this method TWICE for each flipper for a full 90-degree rotation
@@ -330,24 +327,24 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedCircles.add(newCircle); 														 // 342
-																										 // degrees
+					rotatedCircles.add(newCircle); // 342
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedLines.add(newLine); 															  // 342
-																										  // degrees
+					rotatedLines.add(newLine); // 342
+												// degrees
 				}
 			} else {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedCircles.add(newCircle); 														  // 18
-																										  // degrees
+					rotatedCircles.add(newCircle); // 18
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedLines.add(newLine); 															   // 18
-																										   // degrees
+					rotatedLines.add(newLine); // 18
+												// degrees
 				}
 			}
 			circleSet = rotatedCircles;
@@ -366,24 +363,24 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedCircles.add(newCircle); 														  // 18
-																										  // degrees
+					rotatedCircles.add(newCircle); // 18
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedLines.add(newLine);															   // 18
-																										   // degrees
+					rotatedLines.add(newLine); // 18
+												// degrees
 				}
 			} else {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedCircles.add(newCircle); 														 // 342
-																										 // degrees
+					rotatedCircles.add(newCircle); // 342
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedLines.add(newLine); 															  // 342
-																										  // degrees
+					rotatedLines.add(newLine); // 342
+												// degrees
 				}
 			}
 			circleSet = rotatedCircles;
@@ -402,16 +399,15 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			} else { // rotationAngle == 270
 				return new Vect(getX() + 5, getY() + MainEngine.L * 2 - 5);
 			}
-		} else
-			if (rotationAngle == 0) {
-				return new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
-			} else if (rotationAngle == 90) {
-				return new Vect(getX() + MainEngine.L * 2 - 5, getY() + MainEngine.L * 2 - 5);
-			} else if (rotationAngle == 180) {
-				return new Vect(getX() + 5, getY() + MainEngine.L * 2 - 5);
-			} else { // rotationAngle == 270
-				return new Vect(getX() + 5, getY() + 5);
-			}
+		} else if (rotationAngle == 0) {
+			return new Vect(getX() + MainEngine.L * 2 - 5, getY() + 5);
+		} else if (rotationAngle == 90) {
+			return new Vect(getX() + MainEngine.L * 2 - 5, getY() + MainEngine.L * 2 - 5);
+		} else if (rotationAngle == 180) {
+			return new Vect(getX() + 5, getY() + MainEngine.L * 2 - 5);
+		} else { // rotationAngle == 270
+			return new Vect(getX() + 5, getY() + 5);
+		}
 	}
 
 	public int getOrientation() {

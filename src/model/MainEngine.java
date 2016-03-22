@@ -61,6 +61,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		gws = new Walls(0, 0, 20 * L, 20 * L);
 	}
 
+	// TODO Rename to updatePhysics
 	@Override
 	public void moveBalls() {
 		// Friction - from 6.170 Final Project Gizmoball
@@ -120,9 +121,12 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		}
 
+		for (AGizmoComponent g : gizmos.values()) {
+			g.update(moveTime);
+		}
+
 		// Notify observers ... redraw updated view
 		update();
-
 	}
 
 	public void moveBallAtCurrentVelo(Ball ball, double time) {

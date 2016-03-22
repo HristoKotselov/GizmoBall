@@ -142,6 +142,10 @@ abstract public class AGizmoComponent {
 		setY(newY);
 	}
 	
+	public void update(double moveTime){
+		// By default, do nothing
+	}
+	
 	
 /* Collection-sped-up-able abstract methods */
 	abstract public Shape getDrawingShape();
