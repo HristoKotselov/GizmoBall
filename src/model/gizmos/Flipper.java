@@ -27,6 +27,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 **/
 	private double gameplayRotation;
 	private boolean flippingForward;
+	private boolean finishedFlipping;
 	private int orientation;
 
 	private long flipTime;
@@ -52,6 +53,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 		this.gameplayRotation = 0;
 		this.flippingForward = false;
+		this.finishedFlipping = true;
 		this.orientation = orientation;
 
 		updateCollections();
@@ -306,18 +308,22 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 			if (gameplayRotation > 90) {
 				gameplayRotation = 90;
+				finishedFlipping = true;
 			}
+			//finishedFlipping = false;
 		} else if (!flippingForward && gameplayRotation > 0) {
 			rotateback18degrees();
 			gameplayRotation -= 1080 * moveTime;
 
 			if (gameplayRotation < 0) {
 				gameplayRotation = 0;
+				finishedFlipping = true;
 			}
+			//finishedFlipping = false;
 		}
 	}
 
-	// use this method TWICE for each flipper for a full 90-degree rotation
+	// use this method 5 times for each flipper for a full 90-degree rotation
 	public void rotate18degrees() {
 		Vect rotationPoint;
 		if (flippingForward) {
@@ -352,7 +358,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		}
 	}
 
-	// use this method TWICE for each flipper for a full 90-degree rotation
+	// use this method 5 times for each flipper for a full 90-degree rotation
 	// BACKWARDS
 	public void rotateback18degrees() {
 		Vect rotationPoint;
@@ -416,5 +422,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 
 	public boolean getFlippingStatus() {
 		return flippingForward;
+	}
+	
+	public boolean getFinishedStatus() {
+		return finishedFlipping;
 	}
 }
