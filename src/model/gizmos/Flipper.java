@@ -22,9 +22,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private static int flipSpeed = 45;
 
 	/**
-	 * Angle of rotation of flipper relative to start point, used during
-	 * gameplay. Separate from rotationAngle, which defines the rotation of the
-	 * flipper within bounding box.
+	 * Angle of rotation of flipper relative to start point, used during gameplay. Separate from rotationAngle, which defines the rotation
+	 * of the flipper within bounding box.
 	 **/
 	private double gameplayRotation;
 	private boolean flippingForward;
@@ -34,13 +33,11 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private long startedFlipping;
 
 	/**
-	 * A set of Circles belonging to this Gizmo. They act as collision detectors
-	 * with a ball, often at the edges of a shape.
+	 * A set of Circles belonging to this Gizmo. They act as collision detectors with a ball, often at the edges of a shape.
 	 **/
 	private Set<Circle> circleSet;
 	/**
-	 * A set of Line Segments around the edge of the absorber, which will act as
-	 * the collision detector with a ball
+	 * A set of Line Segments around the edge of the absorber, which will act as the collision detector with a ball
 	 **/
 	private Set<LineSegment> ls;
 
@@ -70,29 +67,36 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// rotation += 15;
 		RoundRectangle2D.Double r = new RoundRectangle2D.Double(x, y, 0.5 * MainEngine.L, 2 * MainEngine.L,
 				0.5 * MainEngine.L, 0.5 * MainEngine.L);
-		AffineTransform transform = new AffineTransform();
+
+		AffineTransform t1 = new AffineTransform();
 
 		// Apply flipper rotation when triggered
-		transform.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);
+		t1.rotate(Math.toRadians(gameplayRotation), r.getX() + 5, r.getY() + 5);
 		if (orientation == LEFT) {
 			try {
 				// System.out.println("inverting");
-				transform.invert();
+				t1.invert();
 			} catch (NoninvertibleTransformException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
-		// Rotate to proper orientation within the bounding box
-		transform.rotate(Math.toRadians(rotationAngle), x + MainEngine.L, y + MainEngine.L);
+		Shape s = t1.createTransformedShape(r);
 
 		// Position right flipper at RHS of bounding box
 		if (orientation == RIGHT) {
-			transform.translate(30, 0);
+			AffineTransform t2 = new AffineTransform();
+			t2.translate(30, 0);
+			s = t2.createTransformedShape(s);
 		}
 
-		return transform.createTransformedShape(r);
+		// Rotate to proper orientation within the bounding box
+		AffineTransform t3 = new AffineTransform();
+		t3.rotate(Math.toRadians(rotationAngle), x + MainEngine.L, y + MainEngine.L);
+		s = t3.createTransformedShape(s);
+
+		return s;
 	}
 
 	@Override
@@ -105,46 +109,39 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		int rCorner_X = getX() + MainEngine.L * 2;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L * 2;
-		
+
 		circleSet.clear();
-		
+
 		Circle topleft = new Circle(lCorner_X + 5, tCorner_Y + 5, 5);
 		Circle topright = new Circle(rCorner_X - 5, tCorner_Y + 5, 5);
 		Circle bottomleft = new Circle(lCorner_X + 5, bCorner_Y - 5, 5);
 		Circle bottomright = new Circle(rCorner_X - 5, bCorner_Y - 5, 5);
-		
-		if(orientation == LEFT){
-			if(rotationAngle == 0){
+
+		if (orientation == LEFT) {
+			if (rotationAngle == 0) {
 				circleSet.add(topleft);
 				circleSet.add(bottomleft);
-			}
-			else if(rotationAngle == 90){
+			} else if (rotationAngle == 90) {
 				circleSet.add(topleft);
 				circleSet.add(topright);
-			}
-			else if(rotationAngle == 180){
+			} else if (rotationAngle == 180) {
 				circleSet.add(topright);
 				circleSet.add(bottomright);
-			}
-			else if(rotationAngle == 270){
+			} else if (rotationAngle == 270) {
 				circleSet.add(bottomright);
 				circleSet.add(bottomleft);
 			}
-		}
-		else {
-			if(rotationAngle == 0){
+		} else {
+			if (rotationAngle == 0) {
 				circleSet.add(topright);
 				circleSet.add(bottomright);
-			}
-			else if(rotationAngle == 90){
+			} else if (rotationAngle == 90) {
 				circleSet.add(bottomright);
 				circleSet.add(bottomleft);
-			}
-			else if(rotationAngle == 180){
+			} else if (rotationAngle == 180) {
 				circleSet.add(bottomleft);
 				circleSet.add(topleft);
-			}
-			else if(rotationAngle == 270){
+			} else if (rotationAngle == 270) {
 				circleSet.add(topleft);
 				circleSet.add(topright);
 			}
@@ -157,67 +154,58 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/**
-	 * The setup of the Line Segment collection. Gizmo component that rely on
-	 * Line Segments for collision detection should set up their Line Segment
-	 * objects here.
+	 * The setup of the Line Segment collection. Gizmo component that rely on Line Segments for collision detection should set up their Line
+	 * Segment objects here.
 	 * 
 	 * @modify this
-	 * @effect Fill the collection which hold all the Line Segments in this
-	 *         class with appropriate objects
+	 * @effect Fill the collection which hold all the Line Segments in this class with appropriate objects
 	 */
 	private void setupLineSeg() {
 		int lCorner_X = getX();
 		int rCorner_X = getX() + MainEngine.L * 2;
 		int tCorner_Y = getY();
 		int bCorner_Y = getY() + MainEngine.L * 2;
-		
+
 		ls.clear();
-		
+
 		LineSegment leftleft = new LineSegment(lCorner_X, tCorner_Y + 5, lCorner_X, bCorner_Y - 5);
 		LineSegment leftright = new LineSegment(lCorner_X + 10, tCorner_Y + 5, lCorner_X + 10, bCorner_Y - 5);
-		
+
 		LineSegment toptop = new LineSegment(lCorner_X + 5, tCorner_Y, rCorner_X - 5, tCorner_Y);
 		LineSegment topbottom = new LineSegment(lCorner_X + 5, tCorner_Y + 10, rCorner_X - 5, tCorner_Y + 10);
-		
+
 		LineSegment rightright = new LineSegment(rCorner_X, tCorner_Y + 5, rCorner_X, bCorner_Y - 5);
 		LineSegment rightleft = new LineSegment(rCorner_X - 10, tCorner_Y + 5, rCorner_X - 10, bCorner_Y - 5);
-		
+
 		LineSegment bottombottom = new LineSegment(lCorner_X + 5, bCorner_Y, rCorner_X - 5, bCorner_Y);
 		LineSegment bottomtop = new LineSegment(lCorner_X + 5, bCorner_Y - 10, rCorner_X - 5, bCorner_Y - 10);
-		
 
-		if(orientation == LEFT){
-			if(rotationAngle == 0){
+
+		if (orientation == LEFT) {
+			if (rotationAngle == 0) {
 				ls.add(leftleft);
 				ls.add(leftright);
-			}
-			else if(rotationAngle == 90){
+			} else if (rotationAngle == 90) {
 				ls.add(toptop);
 				ls.add(topbottom);
-			}
-			else if(rotationAngle == 180){
+			} else if (rotationAngle == 180) {
 				ls.add(rightright);
 				ls.add(rightleft);
-			}
-			else if(rotationAngle == 270){
+			} else if (rotationAngle == 270) {
 				ls.add(bottombottom);
 				ls.add(bottomtop);
 			}
-		}
-		else {
-			if(rotationAngle == 0){
+		} else {
+			if (rotationAngle == 0) {
 				ls.add(rightright);
 				ls.add(rightleft);
-			}
-			else if(rotationAngle == 90){
+			} else if (rotationAngle == 90) {
 				ls.add(bottombottom);
 				ls.add(bottomtop);
-			}
-			else if(rotationAngle == 180){
+			} else if (rotationAngle == 180) {
 				ls.add(leftleft);
 				ls.add(leftright);
-			}
-			else if(rotationAngle == 270){
+			} else if (rotationAngle == 270) {
 				ls.add(toptop);
 				ls.add(topbottom);
 			}
@@ -237,7 +225,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public void triggerAction() {
 		// TODO Auto-generated method stub
 		System.out.println("Flipper triggered");
-		
+
 		flippingForward = true;
 		startedFlipping = System.nanoTime();
 		rotate45degrees();
@@ -254,7 +242,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		rotationAngle = (rotationAngle + degree) % 360;
 
 		updateCollections();
-		
+
 		return true;
 	}
 
@@ -267,7 +255,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Validation
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
-		
+
 		updateCollections();
 	}
 
@@ -330,28 +318,28 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-					rotatedCircles.add(newCircle);															// 315
-																											// degrees
+					rotatedCircles.add(newCircle); // 315
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-					rotatedLines.add(newLine);																// 315
-																											// degrees
+					rotatedLines.add(newLine); // 315
+												// degrees
 				}
 			} else {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-					rotatedCircles.add(newCircle);															// 45
-																											// degrees
+					rotatedCircles.add(newCircle); // 45
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-					rotatedLines.add(newLine);																// 45
-																											// degrees
+					rotatedLines.add(newLine); // 45
+												// degrees
 				}
 			}
-		circleSet = rotatedCircles;
-		ls = rotatedLines;
+			circleSet = rotatedCircles;
+			ls = rotatedLines;
 		}
 	}
 
@@ -367,28 +355,28 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			if (orientation == LEFT) {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-					rotatedCircles.add(newCircle);															// 45
-																											// degrees
+					rotatedCircles.add(newCircle); // 45
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(SQRT, SQRT)); // rotate
-					rotatedLines.add(newLine);																// 45
-																											// degrees
+					rotatedLines.add(newLine); // 45
+												// degrees
 				}
 			} else {
 				for (Circle circle : circleSet) {
 					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-					rotatedCircles.add(newCircle);															// 315
-																											// degrees
+					rotatedCircles.add(newCircle); // 315
+													// degrees
 				}
 				for (LineSegment line : ls) {
 					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(SQRT, -SQRT)); // rotate
-					rotatedLines.add(newLine);																// 315
-																											// degrees
+					rotatedLines.add(newLine); // 315
+												// degrees
 				}
 			}
-		circleSet = rotatedCircles;
-		ls = rotatedLines;
+			circleSet = rotatedCircles;
+			ls = rotatedLines;
 		}
 	}
 
@@ -402,7 +390,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public int getOrientation() {
 		return orientation;
 	}
-	
+
 	public boolean getFlippingStatus() {
 		return flippingForward;
 	}

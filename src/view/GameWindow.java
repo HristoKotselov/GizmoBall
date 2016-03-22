@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
+import controller.MagicKeyListenerWrapper;
 import controller.PlayModeKeyListener;
 import controller.SaveFileListener;
 import model.ActionTipDialogue;
@@ -104,7 +105,9 @@ public class GameWindow implements IGameWindow {
 		mnFolio.add(separator);
 
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.setActionCommand("exit");
 		mnFolio.add(mntmExit);
+		mntmExit.addActionListener(buildModeAL);
 		gameWindow.getContentPane().setLayout(new FlowLayout());
 		// end of menu bar
 
@@ -126,7 +129,9 @@ public class GameWindow implements IGameWindow {
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
 		
-		board.addKeyListener(new PlayModeKeyListener(model));
+		PlayModeKeyListener kl = new PlayModeKeyListener(model);
+		MagicKeyListenerWrapper mkl = new MagicKeyListenerWrapper(kl);
+		board.addKeyListener(mkl);
 
 		gameWindow.add(sidebarPanel);
 		gameWindow.add(new JSeparator());
