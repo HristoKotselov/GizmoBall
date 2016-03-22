@@ -36,5 +36,14 @@ public class Walls {
 	public Set<LineSegment> getLineSegments() {
 		return ls;
 	}
+	
+	public int getWidthInL(){
+		return (xpos2 - xpos1) / MainEngine.L;
+	}
+	
+	public int getHeightInL(){
+		return (ypos2 - ypos1) / MainEngine.L;
+
+	}
 
 }

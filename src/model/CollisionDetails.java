@@ -1,5 +1,6 @@
 package model;
 
+import model.gizmos.Ball;
 import physics.Vect;
 
 public class CollisionDetails {

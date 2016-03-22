@@ -3,10 +3,8 @@ package model;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
-import java.util.HashSet;
 import java.util.Set;
 import physics.Circle;
-import physics.LineSegment;
 
 /**
  * TODO Parent class of ALL Gizmo Component. Contain key attribute that all
@@ -142,6 +140,16 @@ abstract public class AGizmoComponent {
 	
 		setX(newX);
 		setY(newY);
+	}
+	
+	/**
+	 * Gizmo that might change its shape during the game (such as Flipper) should
+	 * implement this method. The View & Model representation should be altered
+	 * here
+	 * @param moveTime
+	 */
+	public void update(double moveTime){
+		// By default, do nothing
 	}
 	
 	

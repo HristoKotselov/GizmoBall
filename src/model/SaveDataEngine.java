@@ -1,20 +1,30 @@
 package model;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
+import model.gizmos.Absorber;
+import model.gizmos.Ball;
+import model.gizmos.CircularBumper;
+import model.gizmos.Flipper;
+import model.gizmos.SquareBumper;
+import model.gizmos.TriangularBumper;
 import physics.Vect;
 
 
+
 /**
- * NOTE: This is suppose to be a Static Class, so please do not try to
- * instantiate it
+ * NOTE: This is suppose to be a Static Class, so please do not try to instantiate it
  *
  */
 public final class SaveDataEngine {
@@ -22,11 +32,14 @@ public final class SaveDataEngine {
 	private SaveDataEngine() {
 	} // prevent instantiation
 
-	public static void loadFile(String filepath, MainEngine model) {
+	public static boolean loadFile(String filepath, MainEngine model) {
 		System.out.println("loading board from \"" + filepath + "\"");
 
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(new File(filepath)));
+
+			boolean gravitySet = false;
+			boolean frictionSet = false;
 
 			while (br.ready()) {
 				String line = br.readLine();
@@ -140,10 +153,39 @@ public final class SaveDataEngine {
 							model.addGizmo(g);
 							break;
 
-						case "Connect":
 						case "KeyConnect":
+							st.nextToken();
+							int key = Integer.parseInt(st.nextToken());
+							String type = st.nextToken();
+							name = st.nextToken();
+
+							g = model.getGizmo(name);
+
+							if (type.equals("down")) {
+								model.bindKey(g, key, KeyEvent.KEY_PRESSED);
+							} else {
+								model.bindKey(g, key, KeyEvent.KEY_RELEASED);
+							}
+							break;
+
 						case "Gravity":
+							double gravity = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							model.getPhysicsConfig().setGravity(gravity);
+							gravitySet = true;
+							break;
+
 						case "Friction":
+							double mu1 = Double.parseDouble(st.nextToken());
+							double mu2 = Double.parseDouble(st.nextToken()) / model.getLInPixels();
+
+							model.getPhysicsConfig().setFrictionCoef1(mu1);
+							model.getPhysicsConfig().setFrictionCoef2(mu2);
+
+							frictionSet = true;
+							break;
+
+						// TODO This
+						case "Connect":
 							System.err.println("Functionality for \"" + s + "\" not implemented");
 							break;
 
@@ -154,25 +196,58 @@ public final class SaveDataEngine {
 				}
 			}
 
+			if (!gravitySet) {
+				model.getPhysicsConfig().setGravity(PhysicsConfig.DEFAULT_GRAVITY);
+			}
+			
+			if (!frictionSet) {
+				model.getPhysicsConfig().setFrictionCoef1(PhysicsConfig.DEFAULT_MU1);
+				model.getPhysicsConfig().setFrictionCoef2(PhysicsConfig.DEFAULT_MU2);
+			}
+
 			br.close();
+		} catch (FileNotFoundException ex) {
+			return false;
 		} catch (IOException e) {
+			return false;
 		}
+		return true;
 	}
 
-	public static void saveFile(String filePath, MainEngine model) {
-		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
-
+	public static boolean saveFile(String filePath, MainEngine model) {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(filePath)));
+
+			Collection<AGizmoComponent> gizmos = model.getAllGizmos();
 
 			for (AGizmoComponent g : gizmos) {
 				bw.write(g.toString() + "\n");
 			}
 
-			// TODO Connect, KeyConnect, Gravity, Friction
+			Connections c = model.getConnections();
+
+			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyPressBindings().entrySet()) {
+				for (AGizmoComponent g : entry.getValue()) {
+					bw.write("KeyConnect key " + entry.getKey() + " down " + g.getGizmoID() + "\n");
+				}
+			}
+
+			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyReleaseBindings().entrySet()) {
+				for (AGizmoComponent g : entry.getValue()) {
+					bw.write("KeyConnect key " + entry.getKey() + " up " + g.getGizmoID() + "\n");
+				}
+			}
+
+			// TODO Connect
+
+			bw.write(model.getPhysicsConfig().toString() + "\n");
 
 			bw.close();
+		} catch (FileNotFoundException e) {
+			return false;
 		} catch (IOException e) {
+			return false;
 		}
+		return true;
 	}
 }
