@@ -25,7 +25,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 	private IBuildMenu bm;
 	/** Need to change ActionTips that involves clicking on the Board **/
 	private IGameWindow gameWindow;
-	
+
 	private IMainEngine m;
 
 	private int x, y;
@@ -42,6 +42,13 @@ public class BuildModeMouseListener implements MouseInputListener {
 	 * null is the default value that indicates the 1st click is required to start the moving procedure.
 	 */
 	private AGizmoComponent moveG;
+
+	/**
+	 * Memory value used when connecting two Gizmos.
+	 * 
+	 * null is the default value that indicates the 1st click is required to start the connection procedure.
+	 */
+	private AGizmoComponent connG;
 
 	public BuildModeMouseListener(IBoard board, IMainEngine m, IBuildMenu bm, IGameWindow gw) {
 		this.board = board;
@@ -112,7 +119,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
 					m.addGizmo(g);
-					
+
 					// Op successful!
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
 				} catch (NumberFormatException ex) {
@@ -122,6 +129,33 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 				break;
 
+			// TODO Add way to remove individual connection
+			case "Connect Gizmos":
+				if (bm.getConnectFunction().equals("addconn")) {
+					if (connG == null) {
+						connG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+						// TODO change ActionTip to remind user of the currently selected Gizmo
+					} else {
+						g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+
+						if (g != null) {
+							m.addConnection(connG, g);
+							connG = null;
+						}
+					}
+				} else {
+					connG = null;
+
+					g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+
+					if (g != null) {
+						m.addConnection(g, null);
+					}
+				}
+
+				break;
+
+			// TODO Add way to remove individual binding
 			case "Bind Key":
 				g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.geom.Point2D;
+import java.util.Set;
 import model.gizmos.Absorber;
 import model.gizmos.Ball;
 
@@ -13,7 +14,7 @@ public class CollisionHandler {
 	}
 
 	// Use CollisionDetails to determine whether a handle_Coli() method need to be called
-	public void handleCollision(CollisionDetails cd, AGizmoComponent gizmo) {
+	public void handleCollision(CollisionDetails cd, AGizmoComponent gizmo, Connections con) {
 
 		double tuc = cd.getTuc();
 		Ball ball = cd.getBall();
@@ -40,6 +41,16 @@ public class CollisionHandler {
 					ball.setVelo(cd.getVelo()); // Post collision velocity ...
 					break;
 			}
+
+			gizmo.collided();
+			Set<AGizmoComponent> s = con.getGizmoTriggerConnections(gizmo);
+
+			if (s != null) {
+				for (AGizmoComponent g : s) {
+					g.triggerAction();
+				}
+			}
+
 		} else {
 			// procedures for a wall collision
 			ball.setVelo(cd.getVelo()); // Post collision velocity ...
@@ -47,6 +58,7 @@ public class CollisionHandler {
 
 	}
 
+	// TODO could possibly be moved to Absorber class in the collided() method?
 	// Return TRUE if outside absorber, return FALSE if inside absorber
 	private boolean handleAbsorberColi(CollisionDetails cd, AGizmoComponent gizmo) {
 

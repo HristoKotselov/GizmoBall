@@ -136,7 +136,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void triggerAction() {
 		System.out.println("Absorber triggered");
-		
+
 		if (!capturedBalls.isEmpty()) { // no ball in absorber = nothing happens
 			Ball ball = capturedBalls.remove(0);
 
@@ -196,5 +196,8 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		return capturedBalls;
 	}
 
-
+	@Override
+	public void collided() {
+		// Do nothing
+	}
 }

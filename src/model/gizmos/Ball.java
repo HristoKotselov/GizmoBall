@@ -43,7 +43,7 @@ public class Ball extends AMovingGizmo {
 	@Override
 	public void triggerAction() {
 		// TODO Auto-generated method stub
-
+		// Do nothing
 	}
 
 	/* (non-Javadoc)
@@ -66,8 +66,8 @@ public class Ball extends AMovingGizmo {
 
 		super.move(x, y);
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#reset()
 	 */

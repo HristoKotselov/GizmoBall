@@ -19,4 +19,6 @@ public interface IBuildMenu {
 	public String getSelectedGizmo();
 
 	public String getKeyEventType();
+
+	public String getConnectFunction();
 }

@@ -79,4 +79,6 @@ public interface IMainEngine {
 	public void trigger(int key, int type);
 
 	public void bindKey(AGizmoComponent gizmo, int key, int type);
+
+	public void addConnection(AGizmoComponent moveG, AGizmoComponent g);
 }

@@ -417,4 +417,9 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public boolean getFlippingStatus() {
 		return flippingForward;
 	}
+	
+	@Override
+	public void collided() {
+		// Do nothing
+	}
 }

@@ -116,7 +116,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 				collider = getGizmo(cd.getColliderName());
 				// Now handle the collision
-				collisionHandler.handleCollision(cd, collider);
+				collisionHandler.handleCollision(cd, collider, customConnections);
 			}
 
 		}
@@ -561,10 +561,18 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
+	
+	@Override
+	public void addConnection(AGizmoComponent g1, AGizmoComponent g2) {
+		if (g2 != null) {
+			customConnections.addGizmoTriggerConnection(g1, g2);
+		} else {
+			customConnections.removeAllGizmoConnections(g1);
+		}
+	}
 
 	private void update() {
 		setChanged();
 		notifyObservers();
 	}
-
 }
