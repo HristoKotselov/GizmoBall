@@ -364,7 +364,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			int grid_tile_x = sGizmo.getX() / L;
 			int grid_tile_y = sGizmo.getY() / L;
 
-			// Check for any overlapping Stationary Gizmos
+			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
 			
 			// Check for the walls
@@ -442,7 +442,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 
-			// Check for any overlapping Stationary Gizmos
+			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
 			
 			// Check for the walls
@@ -450,7 +450,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 		
 
-		// TODO Check for any overlapping Moving Gizmos (i.e. Ball)
+		// TODO Move Ball
 		
 
 		if (!spaceOccupied && !outsideWall) {
@@ -464,7 +464,9 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	// TODO make moveGizmoByPixel()
 
-	/** Helper Method **/
+	/** TODO
+	 * Helper Method 
+	 * **/
 	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
 		boolean spaceOccupied = false;
 		
@@ -493,8 +495,8 @@ public class MainEngine extends Observable implements IMainEngine {
 			 */
 			Rectangle sGizmoBounds = sGizmo.getDrawingShape().getBounds();
 			
-			// Divide by L = pixels, Multiple by L = grid_tile_squares
-			if(sGizmo.getX() / L != new_grid_tile_x || sGizmo.getY() / L != new_grid_tile_y){		// Is it Move Gizmo?
+			// Divide by L = grid_tile_squares, Multiple by L = pixels
+			if(sGizmo.getX() / L != new_grid_tile_x || sGizmo.getY() / L != new_grid_tile_y){		// i.e. Is it Move Gizmo?
 				int diffInGridTileX = new_grid_tile_x - (sGizmo.getX() / L);
 				int diffInGridTileY = new_grid_tile_y - (sGizmo.getY() / L);
 				sGizmoBounds.setLocation(sGizmo.getX() + diffInGridTileX * L, sGizmo.getY() + diffInGridTileY * L);
@@ -510,7 +512,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		return spaceOccupied;
 	}
 	
-	/** Helper Method **/
+	/** TODO
+	 * Helper Method 
+	 * **/
 	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
 		boolean outsideWall = false;
 		
