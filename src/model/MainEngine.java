@@ -376,10 +376,13 @@ public class MainEngine extends Observable implements IMainEngine {
 			}
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
+			int x = mGizmo.getX();
+			int y = mGizmo.getY();
+			
+			// Check for any overlapping Gizmos
+			spaceOccupied = checkGizmoOverlap(mGizmo, x, y);
 
-			// TODO overlap protection for movable Gizmos
-			// (that can technically be placed at any pixel, as look as it don't overlap with existing ones)
-
+			outsideWall = checkForWalls(mGizmo, x, y);
 
 			if(!spaceOccupied && !outsideWall){
 				// Add moving gizmo to Moving Gizmo Set
@@ -406,7 +409,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		// TODO Handle null
-		// TODO remove connections
+		// TODO remove connections (?)
 
 		gizmos.remove(gizmo.getGizmoID());
 		if (gizmo instanceof AStationaryGizmo) {
@@ -527,6 +530,65 @@ public class MainEngine extends Observable implements IMainEngine {
 		
 		return outsideWall;
 	}
+	
+	/** TODO
+	 * Helper Method 
+	 * **/
+	private boolean checkGizmoOverlap(AMovingGizmo mGizmo, int new_x, int new_y){
+		boolean spaceOccupied = false;
+		
+		Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+		int mGizmoX = mGizmo.getX();
+		int mGizmoY = mGizmo.getY();
+		
+		// Divide by L = grid_tile_squares, Multiple by L = pixels
+		if(mGizmoX != new_x || mGizmoY != new_y){		// i.e. Is it Move Gizmo?
+			int diffInX = new_x - mGizmoX;
+			int diffInY = new_y - mGizmoY;
+			mGizmoBounds.setLocation(mGizmoX + diffInX, mGizmoY + diffInY);
+		}
+		
+		
+		// Check for any overlapping Stationary Gizmos
+		for (AStationaryGizmo sGizmo : stationaryGizmos){
+			if (
+				mGizmoBounds.intersects( sGizmo.getDrawingShape().getBounds() )
+			){
+				spaceOccupied = true;
+			}
+		}
+		
+		// Check for any overlapping Moving Gizmos
+		for(AMovingGizmo g : movingGizmos){
+			Rectangle gBounds = g.getDrawingShape().getBounds();	
+			
+			if( mGizmoBounds.intersects(gBounds) ){
+				spaceOccupied = true;
+			}
+		}
+		
+		return spaceOccupied;
+	}
+	
+	/** TODO
+	 * Helper Method 
+	 * **/
+	private boolean checkForWalls(AMovingGizmo mGizmo, int new_x, int new_y){
+		boolean outsideWall = false;
+		
+		Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+		
+		
+		// only need to check for RHS overlap due to all Stationary Gizmo starting from Top-Left corner of a square
+		if( (new_x + mGizmoBounds.getWidth() ) > gws.getWidthInL() * L ||
+			(new_y + mGizmoBounds.getHeight() ) > gws.getHeightInL() * L
+			){
+			outsideWall = true;
+		}
+		
+		return outsideWall;
+	}
+	
 	
 	@Override
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
