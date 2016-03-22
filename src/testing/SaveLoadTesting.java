@@ -1,7 +1,5 @@
 package testing;
-/*
- * A test case to test the SaveDataEngine class
- */
+
 import static org.junit.Assert.*;
 import model.*;
 import java.awt.Color;

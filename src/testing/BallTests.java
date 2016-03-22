@@ -1,7 +1,5 @@
 package testing;
-/*
- * A test case to test the Ball class
- */
+
 import static org.junit.Assert.*;
 import java.awt.Shape;
 import java.awt.Color;

@@ -1,7 +1,5 @@
 package testing;
-/*
- * A test case to test the Absorber class
- */
+
 import static org.junit.Assert.*;
 import physics.Circle;
 import java.awt.Color;
@@ -77,7 +75,7 @@ public class AbsorberTests {
 		for(int i=0; i<capturedBalls.size(); i++){
 		System.out.println(capturedBalls.get(i));
 		}
-	assertTrue(a.getCapturedBalls().isEmpty());
+	assertTrue(capturedBalls.isEmpty());
 		}
 	
 
