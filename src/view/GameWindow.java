@@ -105,7 +105,9 @@ public class GameWindow implements IGameWindow {
 		mnFolio.add(separator);
 
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.setActionCommand("exit");
 		mnFolio.add(mntmExit);
+		mntmExit.addActionListener(buildModeAL);
 		gameWindow.getContentPane().setLayout(new FlowLayout());
 		// end of menu bar
 
