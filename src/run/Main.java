@@ -7,7 +7,7 @@ import view.GameWindow;
 
 public class Main {
 	public static void main(String[] args) {
-		MainEngine m = new MainEngine();
+		final MainEngine m = new MainEngine();
 		SwingUtilities.invokeLater(new Runnable() {
 
 			@Override
