@@ -7,6 +7,7 @@ import java.awt.geom.AffineTransform;
 import java.util.HashSet;
 import java.util.Set;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.ILineSegmentCollider;
 import model.MainEngine;
 import physics.Circle;
@@ -164,11 +165,20 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	
 	
 /* Regular methods implementation */
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		action();
+	}
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
+	public void action() {
 		// TODO Auto-generated method stub
 		System.out.println("Triangle bumper triggered");
 	}

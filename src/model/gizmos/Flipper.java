@@ -8,6 +8,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.ILineSegmentCollider;
 import model.MainEngine;
 import physics.Angle;
@@ -218,11 +219,17 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Regular methods implementation */
+	
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		// Do nothing
+	}
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
+	public void action() {
 		System.out.println("triggered");
 		flippingForward = !flippingForward;
 
@@ -417,4 +424,5 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public boolean getFlippingStatus() {
 		return flippingForward;
 	}
+
 }

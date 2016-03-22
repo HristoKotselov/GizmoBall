@@ -54,7 +54,7 @@ public class AbsorberTests {
 		capturedBalls.add(ball5);
 
 		assertFalse(a.getCapturedBalls() == null);
-		a.triggerAction();
+		a.action();
 		capturedBalls.clear();
 		System.out.println("");
 		System.out.println("Clearing using clear");
@@ -173,7 +173,7 @@ public class AbsorberTests {
 		// imitating a ball being captured in the absorber
 		a.addCapturedBall(ball);
 		// triggering the absorber, which should mean capturedBall == null
-		a.triggerAction();
+		a.action();
 
 		List<Ball> capturedBalls = a.getCapturedBalls();
 

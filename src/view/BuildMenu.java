@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -25,7 +24,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 
 	/* GUI */
 	private JPanel menuPanel;
-	private ButtonGroup gizmoRButton, keyeventRButton;
+	private ButtonGroup gizmoRButton, keyeventRButton, connRButton;
 	private JComboBox<String> functionCB;
 	private JPanel cards;
 
@@ -166,7 +165,6 @@ public class BuildMenu implements IBuildMenu, Observer {
 
 
 		// Add Key Binding panel
-		// TODO Way to remove bindings
 		JPanel keyBind = new JPanel(new GridLayout(0, 1));
 
 		keyeventRButton = new ButtonGroup();
@@ -178,7 +176,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		JRadioButton keyrelease = new JRadioButton("Key Released");
 		keyrelease.setActionCommand("keyrelease");
 		keyeventRButton.add(keyrelease);
-		
+
 		JRadioButton keyremove = new JRadioButton("Remove Bindings");
 		keyremove.setActionCommand("keyremove");
 		keyeventRButton.add(keyremove);
@@ -188,31 +186,48 @@ public class BuildMenu implements IBuildMenu, Observer {
 		keyBind.add(keyrelease);
 		keyBind.add(keyremove);
 
+		// Add Key Binding panel
+		JPanel connect = new JPanel(new GridLayout(0, 1));
+
+		connRButton = new ButtonGroup();
+
+		JRadioButton addConn = new JRadioButton("Add Connection");
+		addConn.setActionCommand("addconn");
+		connRButton.add(addConn);
+
+		JRadioButton remConn = new JRadioButton("Remove Connection");
+		remConn.setActionCommand("remconn");
+		connRButton.add(remConn);
+
+		addConn.setSelected(true);
+		connect.add(addConn);
+		connect.add(remConn);
+
 
 		// Physics Constants panel
 		JPanel setPhysics = new JPanel();
-		
+
 		JPanel physicsSetting = new JPanel(new GridLayout(0, 2, 5, 10));
-		
+
 		JLabel mu1StoredLabelTitle = new JLabel("    Friction mu1:");
 		mu1StoredLabelTitle.setFont(new Font("Arial", 1, 15));
 		mu1StoredLabel = new JLabel();
 		// FONT.BOLD bitwise 'or' FONT.ITALIC works due to them being bitmasks
-		mu1StoredLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));		
-		
+		mu1StoredLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));
+
 		JLabel mu2StoredLabelTitle = new JLabel("    Friction mu2:");
 		mu2StoredLabelTitle.setFont(new Font("Arial", 1, 15));
 		mu2StoredLabel = new JLabel();
 		mu2StoredLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));
-		
+
 		JLabel gravityStoredLabelTitle = new JLabel("    Gravity:");
 		gravityStoredLabelTitle.setFont(new Font("Arial", 1, 15));
 		gravityStoredLabel = new JLabel();
 		gravityStoredLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));
-		
+
 		// get the current Physics Settings display up!
 		updateStoredPhysicsDisplay();
-		
+
 		JLabel mu1label = new JLabel("New Friction mu1:");
 		mu1label.setFont(new Font("Arial", 1, 15));
 		mu1Field = new JTextField(4);
@@ -223,7 +238,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		mu1.setPaintTicks(true);
 		mu1.setPaintLabels(true);
 		mu1.setLabelTable(mu1.createStandardLabels(5));*/
-		
+
 		JLabel mu2label = new JLabel("New Friction mu2:");
 		mu2label.setFont(new Font("Arial", 1, 15));
 		mu2Field = new JTextField(4);
@@ -246,7 +261,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		gravity.setPaintTicks(true);
 		gravity.setPaintLabels(true);
 		gravity.setLabelTable(gravity.createStandardLabels(10));*/
-		
+
 		physicsSetting.add(mu1StoredLabelTitle);
 		physicsSetting.add(mu1StoredLabel);
 		physicsSetting.add(mu2StoredLabelTitle);
@@ -259,12 +274,12 @@ public class BuildMenu implements IBuildMenu, Observer {
 		physicsSetting.add(mu2Field);
 		physicsSetting.add(gravitylabel);
 		physicsSetting.add(gravityField);
-		
+
 		JButton applyPhysicsSettings = new JButton("Apply Settings");
 		applyPhysicsSettings.setFont(new Font("Arial", 1, 15));
 		applyPhysicsSettings.setActionCommand("setPhysics");
 		applyPhysicsSettings.addActionListener(buildModeAL);
-		
+
 		setPhysics.add(physicsSetting);
 		setPhysics.add(applyPhysicsSettings);
 
@@ -276,7 +291,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		cards.add(new JPanel(), functions[2]);
 		cards.add(new JPanel(), functions[3]);
 		cards.add(addBall, functions[4]);
-		cards.add(new JPanel(), functions[5]);
+		cards.add(connect, functions[5]);
 		cards.add(keyBind, functions[6]);
 		cards.add(setPhysics, functions[7]);
 
@@ -312,7 +327,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 	public double getBallSpeedFromGUI() {
 		return Double.parseDouble(ballSpeed.getText());
 	}
-	
+
 	@Override
 	public double getFrictionCoef1FromGUI() {
 		return Double.parseDouble(mu1Field.getText());
@@ -327,16 +342,22 @@ public class BuildMenu implements IBuildMenu, Observer {
 	public double getGravityFromGUI() {
 		return Double.parseDouble(gravityField.getText());
 	}
-	
+
 	@Override
 	public String getSelectedGizmo() {
 		return gizmoRButton.getSelection().getActionCommand();
 	}
-	
+
 
 	@Override
 	public String getKeyEventType() {
 		return keyeventRButton.getSelection().getActionCommand();
+	}
+
+	
+	@Override
+	public String getConnectFunction() {
+		return connRButton.getSelection().getActionCommand();
 	}
 
 	@Override
@@ -353,22 +374,19 @@ public class BuildMenu implements IBuildMenu, Observer {
 	public void update(Observable o, Object arg) {
 		updateStoredPhysicsDisplay();
 	}
-	
-	private void updateStoredPhysicsDisplay(){
+
+	private void updateStoredPhysicsDisplay() {
 		IPhysicsConfig physicsConfig = model.getPhysicsConfig();
-		
+
 		mu1StoredLabel.setText(
-							Double.toString(physicsConfig.getFrictionCoef1()) +
-							" per second"
-							);
+				Double.toString(physicsConfig.getFrictionCoef1()) +
+						" per second");
 		mu2StoredLabel.setText(
-							Double.toString(physicsConfig.getFrictionCoef2() * model.getLInPixels()) + 
-							" per L"
-							);
+				Double.toString(physicsConfig.getFrictionCoef2() * model.getLInPixels()) +
+						" per L");
 		gravityStoredLabel.setText(
-							Double.toString(physicsConfig.getGravity() / model.getLInPixels()) +
-							" L/sec\u00B2"
-							);
+				Double.toString(physicsConfig.getGravity() / model.getLInPixels()) +
+						" L/sec\u00B2");
 	}
 
 }

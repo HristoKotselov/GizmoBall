@@ -3,11 +3,15 @@ package model.gizmos;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import model.AGizmoComponent;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.ILineSegmentCollider;
 import model.MainEngine;
 import physics.Angle;
@@ -129,14 +133,58 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Regular methods implementation */
+	
+
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		double tuc = cd.getTuc();
+		Ball ball = cd.getBall();
+		MainEngine model = cd.getMainEngine();
+		
+		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
+		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
+		 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/
+		if (tuc == 0 && !handleAbsorberColi(cd)) { // tuc == 0 occur when the Ball is directly in contact the Line Segment
+			model.moveBallAtCurrentVelo(ball, model.getMoveTime());
+		}
+	}
+	
+	/**  TODO
+	 * HELPER method 
+	 * Return TRUE if outside absorber, return FALSE if inside absorber
+	 **/
+	private boolean handleAbsorberColi(CollisionDetails cd) {
+
+		Ball ball = cd.getBall();
+		int width_in_pixels = bmWidth * MainEngine.L;
+		int height_in_pixels = bmHeight * MainEngine.L;
+
+		// i.e. first collision BEFORE ball enter Absorber
+		Point2D ballCentre = new Point2D.Double(ball.getMovingX(), ball.getMovingY());
+
+		if (!capturedBalls.contains(ball) &&
+				!drawingShape.contains(ballCentre) // check if Ball is NOT inside Absorber
+		) {
+			ball.stop();
+			ball.setMovingX(getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setMovingY(getY() + height_in_pixels - (0.25 * MainEngine.L));
+			capturedBalls.add(ball);
+			return true;
+		} else { // i.e. second collision AFTER ball enter Absorber
+			return false; // nothing happens
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
+	public void action() {
 		System.out.println("Absorber triggered");
-		
+
 		if (!capturedBalls.isEmpty()) { // no ball in absorber = nothing happens
 			Ball ball = capturedBalls.remove(0);
 
@@ -195,6 +243,5 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public List<Ball> getCapturedBalls() {
 		return capturedBalls;
 	}
-
 
 }

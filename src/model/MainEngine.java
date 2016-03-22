@@ -33,7 +33,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/* Game Mechanic */
 	private PhysicsConfig physicsSettings;
-	private CollisionHandler collisionHandler;
 	private Connections customConnections;
 
 
@@ -55,7 +54,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		movingGizmos = new HashSet<AMovingGizmo>();
 
 		physicsSettings = new PhysicsConfig();
-		collisionHandler = new CollisionHandler(this);
 		customConnections = new Connections();
 
 		// Default height\width of the Walls
@@ -97,7 +95,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		// Temp variables setup
 		Ball ball;
 		double tuc;
-		AGizmoComponent collider;
 
 
 		for (CollisionDetails cd : collisionList) {
@@ -115,9 +112,8 @@ public class MainEngine extends Observable implements IMainEngine {
 				// touches the collider
 				moveBallAtCurrentVelo(ball, tuc);
 
-				collider = getGizmo(cd.getColliderName());
 				// Now handle the collision
-				collisionHandler.handleCollision(cd, collider);
+				handleCollision(cd);
 			}
 
 		}
@@ -141,6 +137,11 @@ public class MainEngine extends Observable implements IMainEngine {
 		ball.setMovingY(newY);
 	}
 
+	
+	/** TODO
+	 * HELPER METHOD
+	 * @return
+	 */
 	private List<CollisionDetails> calcTimesUntilCollision() {
 
 		List<CollisionDetails> collisionList = new ArrayList<CollisionDetails>();
@@ -264,11 +265,52 @@ public class MainEngine extends Observable implements IMainEngine {
 
 			}
 
-			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID);
+			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID, this);
 			collisionList.add(cd);
 		}
 
 		return collisionList;
+	}
+	
+	
+	/** TODO
+	 * HELPER METHOD
+	 * @param cd
+	 */
+	private void handleCollision(CollisionDetails cd) {
+		Ball ball = cd.getBall();
+		AGizmoComponent collider = getGizmo(cd.getColliderName());
+
+		// gizmo == null means its the wall
+		if (collider != null) {
+
+			switch (collider.getClass().getSimpleName()) {
+				case "Absorber":
+					// Ball should NEVER bounce away from Absorber, so Ball speed is not changed automatically
+					break;
+
+				// TODO add Flipper stuff here
+
+				default: // procedures for a normal collision (that is not wall collision)
+					ball.setVelo(cd.getVelo()); // Post collision velocity ...
+					break;
+			}
+
+			// call the Gizmo's Ball trigger
+			collider.ballTriggered(cd);
+			// call the Gizmo's connections, that will activate the action of connected Gizmos
+			Set<AGizmoComponent> actionToDo = customConnections.getGizmoTriggerConnections(collider);
+
+			if (actionToDo != null) {
+				for (AGizmoComponent g : actionToDo) {
+					g.action();
+				}
+			}
+		} else {
+			// procedures for a wall collision
+			ball.setVelo(cd.getVelo()); // Post collision velocity ...
+		}
+
 	}
 
 	@Override
@@ -574,7 +616,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		Set<AGizmoComponent> s = customConnections.getKeyConnections(key, type);
 
 		for (AGizmoComponent g : s) {
-			g.triggerAction();
+			g.action();
 		}
 	}
 
@@ -586,10 +628,18 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
+	
+	@Override
+	public void addConnection(AGizmoComponent g1, AGizmoComponent g2) {
+		if (g2 != null) {
+			customConnections.addGizmoTriggerConnection(g1, g2);
+		} else {
+			customConnections.removeAllGizmoConnections(g1);
+		}
+	}
 
 	private void update() {
 		setChanged();
 		notifyObservers();
 	}
-
 }

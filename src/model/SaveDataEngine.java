@@ -168,6 +168,16 @@ public final class SaveDataEngine {
 							}
 							break;
 
+						case "Connect":
+							name = st.nextToken();
+							AGizmoComponent g1 = model.getGizmo(name);
+
+							name = st.nextToken();
+							AGizmoComponent g2 = model.getGizmo(name);
+
+							model.addConnection(g1, g2);
+							break;
+
 						case "Gravity":
 							double gravity = Double.parseDouble(st.nextToken()) * model.getLInPixels();
 							model.getPhysicsConfig().setGravity(gravity);
@@ -184,11 +194,6 @@ public final class SaveDataEngine {
 							frictionSet = true;
 							break;
 
-						// TODO This
-						case "Connect":
-							System.err.println("Functionality for \"" + s + "\" not implemented");
-							break;
-
 						default:
 							System.err.println("Invalid command");
 							break;
@@ -199,7 +204,7 @@ public final class SaveDataEngine {
 			if (!gravitySet) {
 				model.getPhysicsConfig().setGravity(PhysicsConfig.DEFAULT_GRAVITY);
 			}
-			
+
 			if (!frictionSet) {
 				model.getPhysicsConfig().setFrictionCoef1(PhysicsConfig.DEFAULT_MU1);
 				model.getPhysicsConfig().setFrictionCoef2(PhysicsConfig.DEFAULT_MU2);
@@ -237,8 +242,12 @@ public final class SaveDataEngine {
 					bw.write("KeyConnect key " + entry.getKey() + " up " + g.getGizmoID() + "\n");
 				}
 			}
-
-			// TODO Connect
+			
+			for (Map.Entry<AGizmoComponent, Set<AGizmoComponent>> entry : c.getConnections().entrySet()) {
+				for (AGizmoComponent g : entry.getValue()) {
+					bw.write("Connect " + entry.getKey().getGizmoID() + " " + g.getGizmoID() + "\n");
+				}
+			}
 
 			bw.write(model.getPhysicsConfig().toString() + "\n");
 

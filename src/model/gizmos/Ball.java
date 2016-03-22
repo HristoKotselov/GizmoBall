@@ -6,6 +6,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
 import model.AMovingGizmo;
+import model.CollisionDetails;
 import physics.Angle;
 import physics.Circle;
 
@@ -35,15 +36,22 @@ public class Ball extends AMovingGizmo {
 		return circleSet;
 	}
 
-
 	/* Regular methods implementation */
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		// Do nothing
+	}
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-
+	public void action() {
+		// Do nothing
 	}
 
 	/* (non-Javadoc)
@@ -66,8 +74,8 @@ public class Ball extends AMovingGizmo {
 
 		super.move(x, y);
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#reset()
 	 */
