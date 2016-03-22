@@ -174,17 +174,10 @@ public class AbsorberTests {
 		a.addCapturedBall(ball);
 		// triggering the absorber, which should mean capturedBall == null
 		a.triggerAction();
-		// assigning the absorber's captured ball to a variable (SHOULD be null)
 
+		List<Ball> capturedBalls = a.getCapturedBalls();
 
-		if (capturedBalls.size() != 0) {
-			Ball newBall = capturedBalls.get(0);
-
-			// fails if not null
-			assertNull(newBall);
-		} else {
-			assertTrue(capturedBalls.isEmpty());
-		}
+		assertTrue(capturedBalls.size() == 0);
 	}
 
 	@Test
