@@ -447,10 +447,26 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public void rotateGizmo(AGizmoComponent gizmo, int degree) {
+	public boolean rotateGizmo(AGizmoComponent gizmo, int degree) {
 		// TODO handle null
 		gizmo.rotate(degree);
+
+		// Check for any overlapping Moving Gizmos
+		for (AMovingGizmo mGizmo : movingGizmos) {
+			Rectangle gizmoBounds = gizmo.getDrawingShape().getBounds();
+
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+
+			if (gizmoBounds.intersects(mGizmoBounds)) {
+				gizmo.rotate(degree);
+				gizmo.rotate(degree);
+				gizmo.rotate(degree);			// rotate 3 times back to original position
+				return false;
+			}
+		}
+		
 		update();
+		return true;
 	}
 
 	/* (non-Javadoc)
