@@ -3,7 +3,7 @@ package model;
 import java.util.Collection;
 import java.util.Observer;
 
-//TODO split this up a bit if possible
+
 public interface IMainEngine {
 
 	public static final int L = 20;

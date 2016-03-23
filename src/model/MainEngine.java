@@ -58,10 +58,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		gws = new Walls(0, 0, 20 * L, 20 * L);
 	}
 
-	// TODO Rename to updatePhysics
+	
 	@Override
 	public boolean moveBalls() {
-		if (ball == null) {
+		if (ball == null || ball.stopped()) {
 			return false;
 		}
 
@@ -123,9 +123,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 
 	/**
-	 * TODO HELPER METHOD
-	 * 
-	 * @return
+	 * HELPER METHOD
 	 */
 	private CollisionDetails calcTimeUntilCollision() {
 		// Find Time Until Collision and also, if there is a collision, the new speed vector.
@@ -233,9 +231,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 
 	/**
-	 * TODO HELPER METHOD
-	 * 
-	 * @param cd
+	 * HELPER METHOD
 	 */
 	private void handleCollision(CollisionDetails cd) {
 		Ball ball = cd.getBall();
@@ -249,7 +245,6 @@ public class MainEngine extends Observable implements IMainEngine {
 					// Ball should NEVER bounce away from Absorber, so Ball speed is not changed automatically
 					break;
 
-				// TODO add Flipper stuff here
 
 				default: // procedures for a normal collision (that is not wall collision)
 					ball.setVelo(cd.getVelo()); // Post collision velocity ...
@@ -297,7 +292,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
-		// TODO Validation
+
 		boolean spaceOccupied = false, outsideWall = false;
 
 		// ... really to check if pointed location contains a Absorber
@@ -340,12 +335,13 @@ public class MainEngine extends Observable implements IMainEngine {
 				// if moving Gizmo is a Ball, then we add it to a special subset
 				if (mGizmo instanceof Ball) {
 					ball = ((Ball) mGizmo);
+					movingGizmos.add(ball);
 				}
 			}
 
 		}
 
-		if (!spaceOccupied && !outsideWall && !(gizmo instanceof Ball)) {
+		if (!spaceOccupied && !outsideWall) {
 			update();
 
 			// Add new gizmo to the map of ALL Gizmos
@@ -383,9 +379,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
-		// TODO Handle null
-		// TODO remove connections (?)
-
 		gizmos.remove(gizmo.getGizmoID());
 
 		if (gizmo instanceof AStationaryGizmo) {
@@ -410,7 +403,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean rotateGizmo(AGizmoComponent gizmo, int degree) {
-		// TODO handle null
 		gizmo.rotate(degree);
 
 		// Check for any overlapping Moving Gizmos
@@ -436,8 +428,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	 */
 	@Override
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
-		// TODO handle null
-		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
 		
 		if (gizmo instanceof AStationaryGizmo) {
@@ -449,10 +439,6 @@ public class MainEngine extends Observable implements IMainEngine {
 			// Check for the walls
 			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 		}
-
-
-		// TODO Move Ball
-
 
 		if (!spaceOccupied && !outsideWall) {
 			gizmo.move(grid_tile_x, grid_tile_y);
@@ -500,7 +486,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-	 * TODO Helper Method
+	 * Helper Method
 	 **/
 	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean spaceOccupied = false;
@@ -548,7 +534,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-	 * TODO Helper Method
+	 * Helper Method
 	 **/
 	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean outsideWall = false;
@@ -563,7 +549,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-	 * TODO Helper Method
+	 * Helper Method
 	 **/
 	private boolean checkGizmoOverlap(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean spaceOccupied = false;
@@ -599,7 +585,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-	 * TODO Helper Method
+	 * Helper Method
 	 **/
 	private boolean checkForWalls(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean outsideWall = false;
@@ -649,10 +635,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		return null;
 	}
-
-
-	// TODO make alternate version of getGizmoAt (double), that one will get
-	// called first in the BuildModeMouseListener
+	
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);

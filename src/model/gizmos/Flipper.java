@@ -75,10 +75,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			try {
 				// System.out.println("inverting");
 				t1.invert();
-			} catch (NoninvertibleTransformException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} catch (NoninvertibleTransformException e) {}
 		}
 
 		Shape s = t1.createTransformedShape(r);
@@ -276,7 +273,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void reset() {
-		// TODO get Flipper to default position
 		flippingForward = false;
 		stationary = true;
 

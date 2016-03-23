@@ -73,7 +73,7 @@ public class Ball extends AMovingGizmo {
 	 */
 	@Override
 	public void move(int x, int y) {
-		// TODO Validation
+		
 		super.move(x, y);
 		
 		// without setting MovingX/Y, ball position on board will be updated only when the game is reloaded
@@ -114,9 +114,7 @@ public class Ball extends AMovingGizmo {
 
 
 	/**
-	 * TODO Shortcut method to retrieve the only Circle class within circleSets
-	 * 
-	 * @return
+	 * Shortcut method to retrieve the only Circle class within circleSets
 	 */
 	public Circle getCircle() {
 		return new Circle(getMovingX(), getMovingY(), radius);

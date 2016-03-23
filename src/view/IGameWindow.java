@@ -7,9 +7,7 @@ public interface IGameWindow {
 	public String getFile(String buttonText, String lastLocation);
 
 	/**
-	 * TODO Set the message displayed by the ActionTips. Note that calling this method will reset the colour of the text back to black.
-	 * 
-	 * @param message
+	 * Set the message displayed by the ActionTips. Note that calling this method will reset the colour of the text back to black.
 	 */
 	public void setActionTipsTextArea(String message);
 

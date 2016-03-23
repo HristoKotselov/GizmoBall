@@ -26,13 +26,7 @@ public class Connections {
 		triggerMap = new HashMap<AGizmoComponent, Set<AGizmoComponent>>();
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param keyCode
-	 * @param gizmo
-	 * @return
-	 */
+
 	public Connections_Status.AC addKeyConnection(int keyCode, int type, AGizmoComponent gizmo) {
 		// parameter validation
 		if (gizmo == null ||

@@ -28,7 +28,6 @@ public class PhysicsConfig extends Observable implements IPhysicsConfig {
 	}
 
 	public boolean setGravity(double newGravity) {
-		// TODO some validation
 		gravity = newGravity;
 
 		update();
@@ -40,7 +39,6 @@ public class PhysicsConfig extends Observable implements IPhysicsConfig {
 	}
 
 	public boolean setFrictionCoef1(double mu) {
-		// TODO some validation
 		this.mu1 = mu;
 
 		update();
@@ -52,7 +50,6 @@ public class PhysicsConfig extends Observable implements IPhysicsConfig {
 	}
 
 	public boolean setFrictionCoef2(double mu2) {
-		// TODO some validation
 		this.mu2 = mu2;
 
 		update();
