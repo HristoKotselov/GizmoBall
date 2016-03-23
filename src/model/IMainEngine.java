@@ -1,27 +1,18 @@
 package model;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.Observer;
-import model.gizmos.Ball;
-import physics.Vect;
 
 //TODO split this up a bit if possible
 public interface IMainEngine {
+
+	public static final int L = 20;
 
 	public void moveBalls();
 
 	public double getMoveTime();
 
-	public void setBallSpeed(Ball b, Vect velo);
-	
 	public IPhysicsConfig getPhysicsConfig();
-
-	public void start();
-
-	public void stop();
-
-	public boolean isPlaying();
 
 	public void reset();
 
@@ -47,13 +38,7 @@ public interface IMainEngine {
 
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y);
 
-	public Map<String, AGizmoComponent> getGizmosMap();
-
 	public Collection<AGizmoComponent> getAllGizmos();
-
-	public Collection<AStationaryGizmo> getAllStationaryGizmos();
-
-	public Collection<AMovingGizmo> getAllMovingGizmos();
 
 	public void clearAllGizmos();
 
@@ -72,8 +57,6 @@ public interface IMainEngine {
 	 */
 	public void setWallDimensions(int width, int height);
 
-	public int getLInPixels();
-
 	public void addObserver(Observer o);
 
 	public void trigger(int key, int type);
@@ -81,6 +64,6 @@ public interface IMainEngine {
 	public void bindKey(AGizmoComponent gizmo, int key, int type);
 
 	public void addConnection(AGizmoComponent moveG, AGizmoComponent g);
-	
+
 	public void update();
 }

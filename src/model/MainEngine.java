@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
-
 import model.gizmos.Absorber;
 import model.gizmos.Ball;
 import model.gizmos.Flipper;
@@ -45,8 +44,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	 * Physics code the required time variable to be as realistic as possible
 	 **/
 	private double moveTime = 1.0 / 60.0; // 60 fps
-
-	private boolean isPlaying; // used to tell Keyboard ActionListeners when they should be active (only when the game is running)
 
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
@@ -304,30 +301,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		return moveTime;
 	}
 
-
-	@Override
-	public void setBallSpeed(Ball b, Vect velo) {
-		// TODO Auto-generated method stub
-	}
-
 	@Override
 	public IPhysicsConfig getPhysicsConfig() {
 		return physicsSettings;
-	}
-
-	@Override
-	public void start() {
-		isPlaying = true;
-	}
-
-	@Override
-	public void stop() {
-		isPlaying = false;
-	}
-
-	@Override
-	public boolean isPlaying() {
-		return isPlaying;
 	}
 
 	@Override
@@ -347,11 +323,11 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		// ... really to check if pointed location contains a Absorber
 		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
-		
-		if(gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber){
+
+		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
 			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
 		}
-		
+
 		else if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			int grid_tile_x = sGizmo.getX() / L;
@@ -367,7 +343,7 @@ public class MainEngine extends Observable implements IMainEngine {
 				// Add stationary gizmo to Stationary Gizmo Set
 				stationaryGizmos.add(sGizmo);
 			}
-			
+
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
 			int x = mGizmo.getX();
@@ -393,9 +369,9 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		if (!spaceOccupied && !outsideWall) {
 			update();
-			
+
 			// Add new gizmo to the map of ALL Gizmos
-			if( gizmos.put(gizmo.getGizmoID(), gizmo) == null ){
+			if (gizmos.put(gizmo.getGizmoID(), gizmo) == null) {
 				return true;
 			}
 		}
@@ -403,28 +379,28 @@ public class MainEngine extends Observable implements IMainEngine {
 		return false;
 
 	}
-	
-	private void setupBallInAbsorber(Ball ball, Absorber absorber){		
+
+	private void setupBallInAbsorber(Ball ball, Absorber absorber) {
 		// register the new Ball
 		ballSet.add(ball);
 		movingGizmos.add(ball);
-		
+
 		// procedures for registering the ball into the Absorber
 		int absorberX = absorber.getX();
 		int absorberY = absorber.getY();
 		int absorberWidthInPixels = absorber.getBMWidth() * L;
 		int absorberHeighInPixels = absorber.getBMHeight() * L;
-		
+
 		ball.stop();
 		ball.setX((int) (absorberX + absorberWidthInPixels - (0.25 * MainEngine.L)));
 		ball.setY((int) (absorberY + absorberHeighInPixels - (0.25 * MainEngine.L)));
 		ball.setMovingX(absorberX + absorberWidthInPixels - (0.25 * MainEngine.L));
 		ball.setMovingY(absorberY + absorberHeighInPixels - (0.25 * MainEngine.L));
 		absorber.addCapturedBall(ball);
-		
-		ball.setInitialVelo(new Vect(Angle.DEG_270, 0));		// make the initial velocity 0
-		absorber.addInitialCapturedBall(ball);		// so Absorber retains the balls even if reseted
-		ball.setStartInAbsorber(true);		// so Ball actually any movement & doesn't fall out of the Absorber when it reset
+
+		ball.setInitialVelo(new Vect(Angle.DEG_270, 0)); // make the initial velocity 0
+		absorber.addInitialCapturedBall(ball); // so Absorber retains the balls even if reseted
+		ball.setStartInAbsorber(true); // so Ball actually any movement & doesn't fall out of the Absorber when it reset
 	}
 
 	@Override
@@ -460,11 +436,11 @@ public class MainEngine extends Observable implements IMainEngine {
 			if (gizmoBounds.intersects(mGizmoBounds)) {
 				gizmo.rotate(degree);
 				gizmo.rotate(degree);
-				gizmo.rotate(degree);			// rotate 3 times back to original position
+				gizmo.rotate(degree); // rotate 3 times back to original position
 				return false;
 			}
 		}
-		
+
 		update();
 		return true;
 	}
@@ -650,11 +626,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public Map<String, AGizmoComponent> getGizmosMap() {
-		return gizmos;
-	}
-
-	@Override
 	public Collection<AGizmoComponent> getAllGizmos() {
 		return gizmos.values();
 	}
@@ -662,17 +633,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	public Connections getConnections() {
 		return customConnections;
 	}
-
-	@Override
-	public Collection<AStationaryGizmo> getAllStationaryGizmos() {
-		return stationaryGizmos;
-	}
-
-	@Override
-	public Collection<AMovingGizmo> getAllMovingGizmos() {
-		return movingGizmos;
-	}
-
 
 	@Override
 	public void clearAllGizmos() {
@@ -703,11 +663,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public void setWallDimensions(int width, int height) {
 		gws = new Walls(0, 0, width, height);
-	}
-
-	@Override
-	public int getLInPixels() {
-		return L;
 	}
 
 	@Override

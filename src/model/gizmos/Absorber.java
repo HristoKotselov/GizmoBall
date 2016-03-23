@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import model.AGizmoComponent;
 import model.AStationaryGizmo;
 import model.CollisionDetails;
 import model.ILineSegmentCollider;
@@ -23,10 +21,10 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Absorber exclusive variables */
-	
+
 	private List<Ball> initialCapturedBalls;
-	
-	
+
+
 	/**
 	 * The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null.
 	 */
@@ -138,17 +136,16 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Regular methods implementation */
-	
+
 
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggered()
 	 */
 	@Override
 	public void ballTriggered(CollisionDetails cd) {
-		double tuc = cd.getTuc();
 		Ball ball = cd.getBall();
 		MainEngine model = cd.getMainEngine();
-		
+
 		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
 		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
 		 */
@@ -156,10 +153,9 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 			model.moveBallAtCurrentVelo(ball, model.getMoveTime());
 		}
 	}
-	
-	/**  TODO
-	 * HELPER method 
-	 * Return TRUE if outside absorber, return FALSE if inside absorber
+
+	/**
+	 * TODO HELPER method Return TRUE if outside absorber, return FALSE if inside absorber
 	 **/
 	private boolean handleAbsorberColi(CollisionDetails cd) {
 
@@ -212,7 +208,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Overwritten methods */
-	
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
@@ -250,8 +246,8 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public List<Ball> getCapturedBalls() {
 		return capturedBalls;
 	}
-	
-	public void addInitialCapturedBall(Ball b){
+
+	public void addInitialCapturedBall(Ball b) {
 		initialCapturedBalls.add(b);
 	}
 

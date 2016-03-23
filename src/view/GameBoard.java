@@ -60,26 +60,9 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 
 
 		// Iterate over all stationary gizmos
-		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
+		Collection<AGizmoComponent> sGizmos = model.getAllGizmos();
 
-		for (AStationaryGizmo giz : sGizmos) {
-			// Get the colour and shape of the gizmo
-			// System.out.println(giz.getGizmoID());
-			g2d.setColor(giz.getColour());
-			Shape s = giz.getDrawingShape();
-
-			// Draw the shape
-			g2d.fill(s);
-
-			// Reset transformation before drawing the next object
-			g2d.setTransform(old);
-		}
-
-
-		// Iterate over all moving gizmos
-		Collection<AMovingGizmo> mGizmos = model.getAllMovingGizmos();
-
-		for (AMovingGizmo giz : mGizmos) {
+		for (AGizmoComponent giz : sGizmos) {
 			// Get the colour and shape of the gizmo
 			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
@@ -151,8 +134,8 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// TODO make all previews white, but change to red if placement will
 		// override another component?
 		AGizmoComponent giz = null;
-		int x = x1 / model.getLInPixels();
-		int y = y1 / model.getLInPixels();
+		int x = x1 / IMainEngine.L;
+		int y = y1 / IMainEngine.L;
 
 		switch (s) {
 			case "Square":
@@ -179,11 +162,11 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 				int x1, y1, x2, y2;
 
 				if (this.x2 != -1) {
-					x1 = Math.min(x, this.x2 / model.getLInPixels());
-					y1 = Math.min(y, this.y2 / model.getLInPixels());
+					x1 = Math.min(x, this.x2 / IMainEngine.L);
+					y1 = Math.min(y, this.y2 / IMainEngine.L);
 
-					x2 = Math.max(x, this.x2 / model.getLInPixels()) + 1;
-					y2 = Math.max(y, this.y2 / model.getLInPixels()) + 1;
+					x2 = Math.max(x, this.x2 / IMainEngine.L) + 1;
+					y2 = Math.max(y, this.y2 / IMainEngine.L) + 1;
 				} else {
 					x1 = x;
 					y1 = y;
