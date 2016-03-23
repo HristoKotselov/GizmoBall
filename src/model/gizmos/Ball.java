@@ -12,7 +12,7 @@ import physics.Circle;
 
 public class Ball extends AMovingGizmo {
 
-	private boolean startInAbsorber;
+	private Absorber startInAbsorber;
 	
 	private double radius;
 
@@ -20,7 +20,7 @@ public class Ball extends AMovingGizmo {
 	public Ball(String name, Color color, int starting_x, int starting_y, Angle theta, double velo) {
 		super(name, starting_x, starting_y, color, theta, velo);
 
-		startInAbsorber = false;
+		startInAbsorber = null;
 		radius = 5;
 	}
 
@@ -90,7 +90,7 @@ public class Ball extends AMovingGizmo {
 		setMovingX(getX());
 		setMovingY(getY());
 		setVelo(getInitialVelo());
-		if(startInAbsorber){
+		if(startInAbsorber != null){
 			stop();
 		}
 		else{
@@ -104,9 +104,14 @@ public class Ball extends AMovingGizmo {
 		return radius;
 	}
 	
-	public void setStartInAbsorber(boolean bool){
-		startInAbsorber = bool;
+	public void setStartInAbsorber(Absorber abs){
+		startInAbsorber = abs;
 	}
+	
+	public Absorber getStartInAbsorber(){
+		return startInAbsorber;
+	}
+
 
 	/**
 	 * TODO Shortcut method to retrieve the only Circle class within circleSets

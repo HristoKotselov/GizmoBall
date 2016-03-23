@@ -217,7 +217,17 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Validation
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
+		int width_in_pixels = bmWidth * MainEngine.L;
+		int height_in_pixels = bmHeight * MainEngine.L;
 
+		for(Ball ball : capturedBalls){
+			ball.setMovingX(getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setMovingY(getY() + height_in_pixels - (0.25 * MainEngine.L));
+			ball.setX((int) (getX() + width_in_pixels - (0.25 * MainEngine.L)));
+			ball.setY((int) (getY() + height_in_pixels - (0.25 * MainEngine.L)));
+		}
+		
 		updateCollections();
 	}
 
@@ -241,6 +251,23 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	/* Absorber exclusive methods */
 	public void addCapturedBall(Ball b) {
 		capturedBalls.add(b);
+	}
+	
+	public void removeALLCapturedBalls() {
+		for(int i = 0; i < initialCapturedBalls.size(); i++){
+			removeCapturedBall(initialCapturedBalls.get(i));
+		}
+		
+		for(int i = 0; i < capturedBalls.size(); i++){
+			removeCapturedBall(capturedBalls.get(i));
+		}
+	}
+	
+	public void removeCapturedBall(Ball b) {
+		capturedBalls.remove(b);
+		initialCapturedBalls.remove(b);
+		b.setStartInAbsorber(null);
+		b.start();
 	}
 
 	public List<Ball> getCapturedBalls() {

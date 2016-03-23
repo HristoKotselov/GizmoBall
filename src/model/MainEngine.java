@@ -401,7 +401,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		ball.setInitialVelo(new Vect(Angle.DEG_270, 0)); // make the initial velocity 0
 		absorber.addInitialCapturedBall(ball); // so Absorber retains the balls even if reseted
-		ball.setStartInAbsorber(true); // so Ball actually any movement & doesn't fall out of the Absorber when it reset
+		ball.setStartInAbsorber(absorber); // so Ball have a reference to the Absorber & doesn't fall out of the Absorber when the game reset
 	}
 
 	@Override
@@ -414,8 +414,15 @@ public class MainEngine extends Observable implements IMainEngine {
 			stationaryGizmos.remove(gizmo);
 		} else if (gizmo instanceof AMovingGizmo) {
 			movingGizmos.remove(gizmo);
-		} else if (gizmo instanceof Ball) {
+		}
+		
+		if (gizmo instanceof Ball) {
 			ballSet.remove(gizmo);
+		} 
+		if(gizmo instanceof Absorber){
+			Absorber abs = (Absorber) gizmo;
+			
+			abs.removeALLCapturedBalls();
 		}
 
 		update();
@@ -454,7 +461,7 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO handle null
 		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
-
+		
 		if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 
@@ -495,6 +502,16 @@ public class MainEngine extends Observable implements IMainEngine {
 			outsideWall = checkForWalls(gizmo, x, y);
 			if (!spaceOccupied && !outsideWall) {
 				gizmo.move(x, y);
+				
+				// special action need to be done if the Ball is not in Absorber
+				if(gizmo instanceof Ball){
+					Ball ball = (Ball) gizmo;
+					
+					if(ball.getStartInAbsorber() != null){
+						// use Absorber's remove method to set the attributes for Ball to be out-of-Absorber
+						ball.getStartInAbsorber().removeCapturedBall(ball);
+					}
+				}
 			}
 		}
 		update();
