@@ -29,7 +29,7 @@ public interface IMainEngine {
 
 	public boolean removeGizmo(AGizmoComponent gizmo);
 
-	public void rotateGizmo(AGizmoComponent gizmo, int degree);
+	public boolean rotateGizmo(AGizmoComponent gizmo, int degree);
 
 	/**
 	 * Method called when the user decides to move a Gizmo.
