@@ -13,18 +13,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
@@ -131,11 +122,6 @@ public class GameWindow implements IGameWindow {
 
 		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
 		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		sidebarPanel.addChangeListener(new ChangeListener() {
 
             @Override
@@ -149,10 +135,6 @@ public class GameWindow implements IGameWindow {
                 }
             }
         });
-<<<<<<< HEAD
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 
 
 		board = new GameBoard(model, buildmenu, playmenu, this);

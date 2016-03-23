@@ -58,24 +58,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		gws = new Walls(0, 0, 20 * L, 20 * L);
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	// TODO Rename to updatePhysics
-	@Override
-	public boolean moveBalls() {
-		if (ball == null) {
-=======
 	
 	@Override
 	public boolean moveBalls() {
 		if (ball == null || ball.stopped()) {
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	
-	@Override
-	public boolean moveBalls() {
-		if (ball == null || ball.stopped()) {
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 			return false;
 		}
 
@@ -137,17 +123,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 
 	/**
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 * TODO HELPER METHOD
-	 * 
-	 * @return
-=======
 	 * HELPER METHOD
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	 * HELPER METHOD
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 */
 	private CollisionDetails calcTimeUntilCollision() {
 		// Find Time Until Collision and also, if there is a collision, the new speed vector.
@@ -192,21 +168,12 @@ public class MainEngine extends Observable implements IMainEngine {
 
 				if (flipper.isStationary()) {
 					angVel = 0;
-<<<<<<< HEAD
 				}
 
 				if (flipper.getOrientation() == Flipper.LEFT) {
 					angVel = -angVel;
 				}
 
-=======
-				}
-
-				if (flipper.getOrientation() == Flipper.LEFT) {
-					angVel = -angVel;
-				}
-
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 				for (Circle circle : circleSet) {
 					time = Geometry.timeUntilRotatingCircleCollision(circle, rotPoint, angVel, ballCircle, ballVelocity);
 					if (time < shortestTime) {
@@ -264,17 +231,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 
 	/**
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 * TODO HELPER METHOD
-	 * 
-	 * @param cd
-=======
 	 * HELPER METHOD
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	 * HELPER METHOD
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 */
 	private void handleCollision(CollisionDetails cd) {
 		Ball ball = cd.getBall();
@@ -288,13 +245,6 @@ public class MainEngine extends Observable implements IMainEngine {
 					// Ball should NEVER bounce away from Absorber, so Ball speed is not changed automatically
 					break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				// TODO add Flipper stuff here
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 
 				default: // procedures for a normal collision (that is not wall collision)
 					ball.setVelo(cd.getVelo()); // Post collision velocity ...
@@ -342,21 +292,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		// TODO Validation
-=======
-
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
-		boolean spaceOccupied = false, outsideWall = false;
-
-		// ... really to check if pointed location contains a Absorber
-		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
-
-		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
-			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
-
-=======
 
 		boolean spaceOccupied = false, outsideWall = false;
 
@@ -366,7 +301,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
 			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
 
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 		} else if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			int grid_tile_x = sGizmo.getX() / L;
@@ -401,28 +335,13 @@ public class MainEngine extends Observable implements IMainEngine {
 				// if moving Gizmo is a Ball, then we add it to a special subset
 				if (mGizmo instanceof Ball) {
 					ball = ((Ball) mGizmo);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 					movingGizmos.add(ball);
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-					movingGizmos.add(ball);
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 				}
 			}
 
 		}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-		if (!spaceOccupied && !outsideWall && !(gizmo instanceof Ball)) {
-=======
 		if (!spaceOccupied && !outsideWall) {
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-		if (!spaceOccupied && !outsideWall) {
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 			update();
 
 			// Add new gizmo to the map of ALL Gizmos
@@ -460,15 +379,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		// TODO Handle null
-		// TODO remove connections (?)
-
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		gizmos.remove(gizmo.getGizmoID());
 
 		if (gizmo instanceof AStationaryGizmo) {
@@ -493,13 +403,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public boolean rotateGizmo(AGizmoComponent gizmo, int degree) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		// TODO handle null
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		gizmo.rotate(degree);
 
 		// Check for any overlapping Moving Gizmos
@@ -525,14 +428,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	 */
 	@Override
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		// TODO handle null
-		// TODO Validation
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		boolean spaceOccupied = false, outsideWall = false;
 		
 		if (gizmo instanceof AStationaryGizmo) {
@@ -545,16 +440,6 @@ public class MainEngine extends Observable implements IMainEngine {
 			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 		}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-		// TODO Move Ball
-
-
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		if (!spaceOccupied && !outsideWall) {
 			gizmo.move(grid_tile_x, grid_tile_y);
 		}
@@ -601,15 +486,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 * TODO Helper Method
-=======
 	 * Helper Method
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	 * Helper Method
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean spaceOccupied = false;
@@ -652,30 +529,6 @@ public class MainEngine extends Observable implements IMainEngine {
 				spaceOccupied = true;
 			}
 		}
-<<<<<<< HEAD
-
-		return spaceOccupied;
-	}
-
-	/**
-	 * Helper Method
-	 **/
-	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
-		boolean outsideWall = false;
-
-		// only need to check for RHS overlap due to all Stationary Gizmo starting from Top-Left corner of a square
-		if ((new_grid_tile_x + sGizmo.getBMWidth()) > gws.getWidthInL() ||
-				(new_grid_tile_y + sGizmo.getBMHeight()) > gws.getHeightInL()) {
-			outsideWall = true;
-		}
-
-		return outsideWall;
-	}
-
-	/**
-<<<<<<< HEAD
-	 * TODO Helper Method
-=======
 
 		return spaceOccupied;
 	}
@@ -697,10 +550,6 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/**
 	 * Helper Method
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	 * Helper Method
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkGizmoOverlap(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean spaceOccupied = false;
@@ -736,15 +585,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-<<<<<<< HEAD
-<<<<<<< HEAD
-	 * TODO Helper Method
-=======
 	 * Helper Method
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
-	 * Helper Method
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkForWalls(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean outsideWall = false;
@@ -783,7 +624,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public AMovingGizmo getMovingGizmoAt(int x, int y) {
 		Point mouseClick = new Point(x, y);
-<<<<<<< HEAD
 
 		for (AMovingGizmo mGizmo : movingGizmos) {
 			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
@@ -795,34 +635,11 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		return null;
 	}
-<<<<<<< HEAD
-
-
-	// TODO make alternate version of getGizmoAt (double), that one will get
-	// called first in the BuildModeMouseListener
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-
-		for (AMovingGizmo mGizmo : movingGizmos) {
-			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
-
-			if (mGizmoBounds.contains(mouseClick)) {
-				return mGizmo;
-			}
-		}
-
-		return null;
-	}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);
 	}
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 	@Override
 	public Collection<AGizmoComponent> getAllGizmos() {
@@ -873,7 +690,6 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 	}
 
-<<<<<<< HEAD
 	@Override
 	public void bindKey(AGizmoComponent gizmo, int key, int type) {
 		if (key == -1) {
@@ -903,37 +719,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-=======
-	@Override
-	public void bindKey(AGizmoComponent gizmo, int key, int type) {
-		if (key == -1) {
-			customConnections.removeAllKeyBindings(gizmo);
-
-		} else if (type == -1) {
-			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_PRESSED);
-			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_RELEASED);
-
-		} else {
-			customConnections.addKeyConnection(key, type, gizmo);
-		}
-	}
-
-	@Override
-	public void addConnection(AGizmoComponent g1, AGizmoComponent g2) {
-		if (g2 != null) {
-			customConnections.addGizmoTriggerConnection(g1, g2);
-		} else {
-			customConnections.removeAllGizmoConnections(g1);
-		}
-	}
-
-	@Override
-	public void removeConnection(AGizmoComponent g1, AGizmoComponent g2) {
-		customConnections.removeGizmoTriggerConnection(g1, g2);
-	}
-
-	@Override
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 	public AMovingGizmo getBall() {
 		return ball;
 	}

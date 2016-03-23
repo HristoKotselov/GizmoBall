@@ -80,13 +80,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 			switch (selectedFunction) {
 				case "Remove Gizmo":
-<<<<<<< HEAD
-<<<<<<< HEAD
-					// TODO add method for to check for AMovingGizmo first, i.e. Ball
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 					g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 					if (g != null) {
@@ -96,13 +89,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 					break;
 
 				case "Rotate Gizmo":
-<<<<<<< HEAD
-<<<<<<< HEAD
-					// TODO add method for to check for AMovingGizmo first, i.e. Ball
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 					g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
 					if (g != null) {
@@ -117,13 +103,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 						if (moveG == null) { // i.e. no moving Gizmo found
 							moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 						}
-<<<<<<< HEAD
-<<<<<<< HEAD
-						// TODO change ActionTip to remind user of the currently selected Gizmo
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 					} else {
 						if (moveG instanceof AStationaryGizmo) {
 							m.moveGizmoByL(moveG, grid_tile_x, grid_tile_y);
@@ -154,24 +133,10 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 					break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				// TODO Add way to remove individual connection
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 				case "Connect Gizmos":
 					if (bm.getConnectFunction().equals("addconn")) {
 						if (connG == null) {
 							connG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-<<<<<<< HEAD
-<<<<<<< HEAD
-							// TODO change ActionTip to remind user of the currently selected Gizmo
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 						} else {
 							g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
@@ -183,13 +148,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 					} else if (bm.getConnectFunction().equals("remconn")) {
 						if (connG == null) {
 							connG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
-<<<<<<< HEAD
-<<<<<<< HEAD
-							// TODO change ActionTip to remind user of the currently selected Gizmo
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 						} else {
 							g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
@@ -211,13 +169,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 					break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				// TODO Add way to remove individual binding
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 				case "Bind Key":
 					g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 
@@ -272,13 +223,6 @@ public class BuildModeMouseListener implements MouseInputListener {
 							if (x2 == -1 && y2 == -1) {
 								x2 = grid_tile_x;
 								y2 = grid_tile_y;
-<<<<<<< HEAD
-<<<<<<< HEAD
-								// TODO change ActionTip to remind user of the currently selected Absorber
-=======
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
-=======
->>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 							} else {
 								// Top left corner
 								int x1 = Math.min(grid_tile_x, x2);

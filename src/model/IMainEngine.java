@@ -2,10 +2,6 @@ package model;
 
 import java.util.Collection;
 import java.util.Observer;
-<<<<<<< HEAD
-=======
-
->>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 
 public interface IMainEngine {
