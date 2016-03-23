@@ -7,14 +7,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
 import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
-import model.AMovingGizmo;
-import model.AStationaryGizmo;
 import model.IMainEngine;
 import model.gizmos.Absorber;
 import model.gizmos.Ball;
@@ -55,25 +52,26 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		// Save the default transformation
-		AffineTransform old = g2d.getTransform();
-
-
 		// Iterate over all stationary gizmos
-		Collection<AGizmoComponent> sGizmos = model.getAllGizmos();
+		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
 
-		for (AGizmoComponent giz : sGizmos) {
+		for (AGizmoComponent giz : gizmos) {
 			// Get the colour and shape of the gizmo
-			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
 
 			// Draw the shape
 			g2d.fill(s);
-
-			// Reset transformation before drawing the next object
-			g2d.setTransform(old);
 		}
+
+		// Draw the ball
+		AGizmoComponent b = model.getBall();
+		if (b != null) {
+			g2d.setColor(b.getColour());
+			Shape s = b.getDrawingShape();
+			g2d.fill(s);
+		}
+
 
 		if (gameWindow.isBuildMode() || playMenu.isDynamicEditEnabled()) {
 			// Draw shadow of gizmo being placed, if appropriate

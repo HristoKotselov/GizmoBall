@@ -143,14 +143,13 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void ballTriggered(CollisionDetails cd) {
-		Ball ball = cd.getBall();
 		MainEngine model = cd.getMainEngine();
 
 		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
 		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
 		 */
 		if (!handleAbsorberColi(cd)) {
-			model.moveBallAtCurrentVelo(ball, model.getMoveTime());
+			model.moveBallAtCurrentVelo(model.getMoveTime());
 		}
 	}
 
@@ -250,5 +249,4 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public void addInitialCapturedBall(Ball b) {
 		initialCapturedBalls.add(b);
 	}
-
 }
