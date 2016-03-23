@@ -4,9 +4,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import model.AMovingGizmo;
 import model.ActionTipDialogue;
 import model.IMainEngine;
 import model.IPhysicsConfig;
+import physics.Angle;
+import physics.Vect;
 import view.IBuildMenu;
 import view.IGameWindow;
 
@@ -52,6 +55,29 @@ public class BuildModeButtonListener implements ActionListener {
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
 				} catch (NumberFormatException ex) {
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTipError());
+					gameWindow.setActionTipsTextAreaColour(Color.RED);
+				}
+
+				break;
+
+			case "setBall":
+				try {
+					AMovingGizmo ball = model.getBall();
+
+					double r = Math.toRadians(buildMenu.getBallDirectionFromGUI());
+					double s = buildMenu.getBallSpeedFromGUI() * IMainEngine.L;
+
+					Vect v = new Vect(new Angle(r), s);
+
+					if (ball != null) {
+						ball.setInitialVelo(v);
+						model.reset();
+					}
+
+					// Op successful!
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.ballActionTip());
+				} catch (NumberFormatException ex) {
+					gameWindow.setActionTipsTextArea(ActionTipDialogue.ballActionTipError());
 					gameWindow.setActionTipsTextAreaColour(Color.RED);
 				}
 

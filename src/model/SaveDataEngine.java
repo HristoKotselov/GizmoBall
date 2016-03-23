@@ -229,6 +229,8 @@ public final class SaveDataEngine {
 				bw.write(g.toString() + "\n");
 			}
 
+			bw.write(model.getBall().toString() + "\n");
+
 			Connections c = model.getConnections();
 
 			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyPressBindings().entrySet()) {

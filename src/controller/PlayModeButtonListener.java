@@ -29,6 +29,7 @@ public class PlayModeButtonListener implements ActionListener {
 		// is ActionEvent the automatic run timer?
 		if (e.getSource() == timer) {
 			model.moveBalls();
+
 		} else { // ... then it is a command selected by the user
 			switch (e.getActionCommand()) {
 				case "start":

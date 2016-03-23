@@ -64,7 +64,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		menuPanel.setLayout(new BorderLayout());
 
 		// Function Selection
-		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Add Ball", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
+		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Edit Ball Settings", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
 		functionCB = new JComboBox<String>(functions);
 		functionCB.setFocusable(false);
 		functionCB.addItemListener(new BuildModeFunctionChangeListener(this, gameWindow));
@@ -125,25 +125,6 @@ public class BuildMenu implements IBuildMenu, Observer {
 
 		JPanel controls = new JPanel(new GridLayout(0, 2, 5, 10));
 
-//		JLabel selectBallLabel = new JLabel("Ball: ", JLabel.RIGHT);
-//		selectBallLabel.setFont(new Font("Arial", 1, 15));
-//
-//		String[] ballsString = { "<New Ball>" };
-//		JComboBox<String> balls = new JComboBox<String>(ballsString);
-
-//		controls.add(selectBallLabel);
-//		controls.add(balls);
-
-//		JLabel xcoordLabel = new JLabel("X: ", JLabel.RIGHT);
-//		JTextField xcoord = new JTextField(4);
-//		xcoordLabel.setFont(new Font("Arial", 1, 15));
-//		xcoord.setFont(new Font("Arial", 1, 15));
-//
-//		JLabel ycoordLabel = new JLabel("Y: ", JLabel.RIGHT);
-//		JTextField ycoord = new JTextField(4);
-//		ycoordLabel.setFont(new Font("Arial", 1, 15));
-//		ycoord.setFont(new Font("Arial", 1, 15));
-
 		JLabel directionLabel = new JLabel("Initial Direction: ", JLabel.RIGHT);
 		directionLabel.setFont(new Font("Arial", 1, 15));
 
@@ -156,18 +137,15 @@ public class BuildMenu implements IBuildMenu, Observer {
 		ballSpeed = new JTextField("50.0", 4);
 		ballSpeed.setFont(new Font("Arial", 1, 15));
 
-//		controls.add(xcoordLabel);
-//		controls.add(xcoord);
-//		controls.add(ycoordLabel);
-//		controls.add(ycoord);
 		controls.add(directionLabel);
 		controls.add(ballDirection);
 		controls.add(speedLabel);
 		controls.add(ballSpeed);
 
-		JButton applyBallSettings = new JButton("Apply Settings");
+		JButton applyBallSettings = new JButton("Apply Settings and Restart");
 		applyBallSettings.setFont(new Font("Arial", 1, 15));
 		applyBallSettings.setFocusable(false);
+		applyBallSettings.setActionCommand("setBall");
 		applyBallSettings.addActionListener(buildModeAL);
 
 		addBall.add(controls);
@@ -189,15 +167,21 @@ public class BuildMenu implements IBuildMenu, Observer {
 		keyrelease.setFocusable(false);
 		keyeventRButton.add(keyrelease);
 
-		JRadioButton keyremove = new JRadioButton("Remove Bindings");
+		JRadioButton keyremove = new JRadioButton("Remove Binding");
 		keyremove.setActionCommand("keyremove");
 		keyremove.setFocusable(false);
 		keyeventRButton.add(keyremove);
+
+		JRadioButton keyremoveall = new JRadioButton("Remove All Bindings");
+		keyremoveall.setActionCommand("keyremoveall");
+		keyremoveall.setFocusable(false);
+		keyeventRButton.add(keyremoveall);
 
 		keypress.setSelected(true);
 		keyBind.add(keypress);
 		keyBind.add(keyrelease);
 		keyBind.add(keyremove);
+		keyBind.add(keyremoveall);
 
 		// Add Key Binding panel
 		JPanel connect = new JPanel(new GridLayout(0, 1));
@@ -214,9 +198,15 @@ public class BuildMenu implements IBuildMenu, Observer {
 		remConn.setFocusable(false);
 		connRButton.add(remConn);
 
+		JRadioButton remAllConn = new JRadioButton("Remove All Connections");
+		remAllConn.setActionCommand("remallconn");
+		remAllConn.setFocusable(false);
+		connRButton.add(remAllConn);
+
 		addConn.setSelected(true);
 		connect.add(addConn);
 		connect.add(remConn);
+		connect.add(remAllConn);
 
 
 		// Physics Constants panel

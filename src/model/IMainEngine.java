@@ -8,7 +8,7 @@ public interface IMainEngine {
 
 	public static final int L = 20;
 
-	public void moveBalls();
+	public boolean moveBalls();
 
 	public double getMoveTime();
 
@@ -21,6 +21,8 @@ public interface IMainEngine {
 	public boolean removeGizmo(AGizmoComponent gizmo);
 
 	public boolean rotateGizmo(AGizmoComponent gizmo, int degree);
+	
+	public AMovingGizmo getBall();
 
 	/**
 	 * Method called when the user decides to move a Gizmo.
@@ -68,6 +70,8 @@ public interface IMainEngine {
 	public void bindKey(AGizmoComponent gizmo, int key, int type);
 
 	public void addConnection(AGizmoComponent moveG, AGizmoComponent g);
+	
+	public void removeConnection(AGizmoComponent moveG, AGizmoComponent g);
 
 	public void update();
 }

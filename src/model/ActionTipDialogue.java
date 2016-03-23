@@ -101,6 +101,16 @@ public class ActionTipDialogue {
 		return "Invalid Physics settings!       Please enter some other value.";
 	}
 	
+	public static String ballActionTip() {
+
+		return "Enter the ball values of your choice";
+	}
+	
+	public static String ballActionTipError() {
+
+		return "Invalid Ball settings!       Please enter some other value.";
+	}
+	
 	public static String playModeActionTip() {
 
 		return "Have fun!";

@@ -55,7 +55,6 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	}
 
 	public boolean setMovingY(double y) {
-		// TODO Validation
 		movingYPos = y;
 
 		return true;
@@ -70,7 +69,6 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	}
 
 	public void setVelo(Vect v) {
-		// TODO Validation
 		velocity = v;
 	}
 
