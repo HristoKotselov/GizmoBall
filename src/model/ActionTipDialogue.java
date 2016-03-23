@@ -96,11 +96,6 @@ public class ActionTipDialogue {
 		return "Enter the physics values of your choice";
 	}
 	
-	public static String physicsActionTipError() {
-
-		return "Invalid Physics settings!       Please enter some other value.";
-	}
-	
 	public static String ballActionTip() {
 
 		return "Enter the ball values of your choice";

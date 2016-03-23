@@ -283,9 +283,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		for (AGizmoComponent gizmo : getAllGizmos()) {
 			gizmo.reset();
 		}
-
-		ball.reset();
-
+		if(ball != null){
+			ball.reset();
+		}
+		
 		// Update view
 		update();
 	}
@@ -336,6 +337,8 @@ public class MainEngine extends Observable implements IMainEngine {
 				if (mGizmo instanceof Ball) {
 					ball = ((Ball) mGizmo);
 					movingGizmos.add(ball);
+					update();
+					return true;
 				}
 			}
 
@@ -344,9 +347,13 @@ public class MainEngine extends Observable implements IMainEngine {
 		if (!spaceOccupied && !outsideWall) {
 			update();
 
+			if(gizmo instanceof Ball){	
+			}
 			// Add new gizmo to the map of ALL Gizmos
-			if (gizmos.put(gizmo.getGizmoID(), gizmo) == null) {
-				return true;
+			else {
+				if(gizmos.put(gizmo.getGizmoID(), gizmo) == null) {
+					return true;
+				}
 			}
 		}
 

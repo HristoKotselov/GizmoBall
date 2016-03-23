@@ -53,10 +53,7 @@ public class BuildModeButtonListener implements ActionListener {
 
 					// Op successful!
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
-				} catch (NumberFormatException ex) {
-					gameWindow.setActionTipsTextArea(ActionTipDialogue.physicsActionTipError());
-					gameWindow.setActionTipsTextAreaColour(Color.RED);
-				}
+				} catch (NumberFormatException ex) {}
 
 				break;
 

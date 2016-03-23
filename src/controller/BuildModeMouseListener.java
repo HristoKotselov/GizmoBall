@@ -115,7 +115,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 					break;
 
-				case "Edit Ball Settings":
+				case "Add Ball":
 					try {
 						double angle = bm.getBallDirectionFromGUI();
 						double speed = bm.getBallSpeedFromGUI() * IMainEngine.L;
@@ -126,10 +126,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 						// Op successful!
 						gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
-					} catch (NumberFormatException ex) {
-						gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallSettingsError());
-						gameWindow.setActionTipsTextAreaColour(Color.RED);
-					}
+					} catch (NumberFormatException ex) {}
 
 					break;
 

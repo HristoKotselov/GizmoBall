@@ -128,10 +128,16 @@ public class GameWindow implements IGameWindow {
             public void stateChanged(ChangeEvent e) {
                 if (e.getSource() instanceof JTabbedPane) {
                     JTabbedPane pane = (JTabbedPane) e.getSource();
-                    if(pane.getSelectedIndex() == 0 && !playmenu.isDynamicEditEnabled()){
-                    	playmenu.pauseModel();
+                    if(pane.getSelectedIndex() == 0){
+                    	actionTipsTextArea.setText(ActionTipDialogue.buildModeActionTip());
+                    	
+                    	if(!playmenu.isDynamicEditEnabled()){
+                    		playmenu.pauseModel();
+                    	}
                     }
-                    
+                    if(pane.getSelectedIndex() == 1){
+                    	actionTipsTextArea.setText(ActionTipDialogue.playModeActionTip());
+                    }
                 }
             }
         });
