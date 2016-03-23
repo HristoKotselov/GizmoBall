@@ -3,6 +3,8 @@ package controller;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.time.LocalDateTime;
+
 import javax.swing.event.MouseInputListener;
 import model.AGizmoComponent;
 import model.AMovingGizmo;
@@ -49,6 +51,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 	 * null is the default value that indicates the 1st click is required to start the connection procedure.
 	 */
 	private AGizmoComponent connG;
+	
 
 	public BuildModeMouseListener(IBoard board, IMainEngine m, IBuildMenu bm, IGameWindow gw) {
 		this.board = board;
@@ -117,7 +120,9 @@ public class BuildModeMouseListener implements MouseInputListener {
 					double angle = bm.getBallDirectionFromGUI();
 					double speed = bm.getBallSpeedFromGUI() * m.getLInPixels();
 
-					g = new Ball("Ball(" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
+					// require unique ID for each Ball as they can be at same x/y now (due to multiple balls being able to be placed in Absorber)
+					g = new Ball("Ball(" + LocalDateTime.now() + ":" + x + "," + y + ")", Color.BLUE, x, y, new Angle(Math.toRadians(angle)), speed);
+					
 					m.addGizmo(g);
 
 					// Op successful!

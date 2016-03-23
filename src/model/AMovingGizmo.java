@@ -77,6 +77,10 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 	public Vect getVelo() {
 		return velocity;
 	}
+	
+	public void setInitialVelo(Vect v) {
+		initialVelo = v;
+	}
 
 	public Vect getInitialVelo() {
 		return initialVelo;

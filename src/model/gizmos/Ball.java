@@ -12,12 +12,15 @@ import physics.Circle;
 
 public class Ball extends AMovingGizmo {
 
+	private boolean startInAbsorber;
+	
 	private double radius;
 
 	// x, y coordinates and x,y velocity
 	public Ball(String name, Color color, int starting_x, int starting_y, Angle theta, double velo) {
 		super(name, starting_x, starting_y, color, theta, velo);
 
+		startInAbsorber = false;
 		radius = 5;
 	}
 
@@ -84,13 +87,22 @@ public class Ball extends AMovingGizmo {
 		setMovingX(getX());
 		setMovingY(getY());
 		setVelo(getInitialVelo());
-		start();
+		if(startInAbsorber){
+			stop();
+		}
+		else{
+			start();
+		}
 	}
 
 
 	/* Ball specific methods */
 	public double getRadius() {
 		return radius;
+	}
+	
+	public void setStartInAbsorber(boolean bool){
+		startInAbsorber = bool;
 	}
 
 	/**

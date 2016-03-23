@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+
+import model.gizmos.Absorber;
 import model.gizmos.Ball;
 import model.gizmos.Flipper;
 import physics.Angle;
@@ -359,7 +361,14 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
 
-		if (gizmo instanceof AStationaryGizmo) {
+		// ... really to check if pointed location contains a Absorber
+		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
+		
+		if(gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber){
+			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
+		}
+		
+		else if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			int grid_tile_x = sGizmo.getX() / L;
 			int grid_tile_y = sGizmo.getY() / L;
@@ -374,6 +383,7 @@ public class MainEngine extends Observable implements IMainEngine {
 				// Add stationary gizmo to Stationary Gizmo Set
 				stationaryGizmos.add(sGizmo);
 			}
+			
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
 			int x = mGizmo.getX();
@@ -382,6 +392,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(mGizmo, x, y);
 
+			// Check for the walls
 			outsideWall = checkForWalls(mGizmo, x, y);
 
 			if(!spaceOccupied && !outsideWall){
@@ -397,13 +408,39 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 
 		if (!spaceOccupied && !outsideWall) {
+			update();
+			
 			// Add new gizmo to the map of ALL Gizmos
-			gizmos.put(gizmo.getGizmoID(), gizmo);
+			if( gizmos.put(gizmo.getGizmoID(), gizmo) == null ){
+				return true;
+			}
 		}
 
-		update();
-
 		return false;
+
+	}
+	
+	private void setupBallInAbsorber(Ball ball, Absorber absorber){		
+		// register the new Ball
+		ballSet.add(ball);
+		movingGizmos.add(ball);
+		
+		// procedures for registering the ball into the Absorber
+		int absorberX = absorber.getX();
+		int absorberY = absorber.getY();
+		int absorberWidthInPixels = absorber.getBMWidth() * L;
+		int absorberHeighInPixels = absorber.getBMHeight() * L;
+		
+		ball.stop();
+		ball.setX((int) (absorberX + absorberWidthInPixels - (0.25 * MainEngine.L)));
+		ball.setY((int) (absorberY + absorberHeighInPixels - (0.25 * MainEngine.L)));
+		ball.setMovingX(absorberX + absorberWidthInPixels - (0.25 * MainEngine.L));
+		ball.setMovingY(absorberY + absorberHeighInPixels - (0.25 * MainEngine.L));
+		absorber.addCapturedBall(ball);
+		
+		ball.setInitialVelo(new Vect(Angle.DEG_270, 0));		// make the initial velocity 0
+		absorber.addInitialCapturedBall(ball);		// so Absorber retains the balls even if reseted
+		ball.setStartInAbsorber(true);		// so Ball actually any movement & doesn't fall out of the Absorber when it reset
 	}
 
 	@Override

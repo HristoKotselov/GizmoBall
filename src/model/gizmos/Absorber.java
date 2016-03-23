@@ -23,6 +23,10 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Absorber exclusive variables */
+	
+	private List<Ball> initialCapturedBalls;
+	
+	
 	/**
 	 * The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null.
 	 */
@@ -49,6 +53,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		bmWidth = grid_tile_width;
 		bmHeight = grid_tile_height;
 		capturedBalls = new ArrayList<Ball>();
+		initialCapturedBalls = new ArrayList<Ball>();
 
 
 		// Collection-speed up initialisation
@@ -207,6 +212,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Overwritten methods */
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
@@ -225,6 +231,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void reset() {
 		capturedBalls.clear();
+		capturedBalls.addAll(initialCapturedBalls);
 	}
 
 	@Override
@@ -242,6 +249,10 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 	public List<Ball> getCapturedBalls() {
 		return capturedBalls;
+	}
+	
+	public void addInitialCapturedBall(Ball b){
+		initialCapturedBalls.add(b);
 	}
 
 }
