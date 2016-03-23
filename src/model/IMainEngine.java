@@ -1,29 +1,18 @@
 package model;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.Observer;
-import model.gizmos.Ball;
-import physics.Vect;
 
-//TODO split this up a bit if possible
+
 public interface IMainEngine {
 
-	public void moveBalls();
+	public static final int L = 20;
+
+	public boolean moveBalls();
 
 	public double getMoveTime();
-	
-	public double getMinTUC();
 
-	public void setBallSpeed(Ball b, Vect velo);
-	
 	public IPhysicsConfig getPhysicsConfig();
-
-	public void start();
-
-	public void stop();
-
-	public boolean isPlaying();
 
 	public void reset();
 
@@ -31,7 +20,9 @@ public interface IMainEngine {
 
 	public boolean removeGizmo(AGizmoComponent gizmo);
 
-	public void rotateGizmo(AGizmoComponent gizmo, int degree);
+	public boolean rotateGizmo(AGizmoComponent gizmo, int degree);
+	
+	public AMovingGizmo getBall();
 
 	/**
 	 * Method called when the user decides to move a Gizmo.
@@ -46,16 +37,14 @@ public interface IMainEngine {
 	 *         the destination is already occupied with another Gizmo)
 	 */
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y);
+	
+	public boolean moveGizmoByPixels(AMovingGizmo moveG, int x, int y);
 
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y);
-
-	public Map<String, AGizmoComponent> getGizmosMap();
+	
+	public AMovingGizmo getMovingGizmoAt(int x, int y);
 
 	public Collection<AGizmoComponent> getAllGizmos();
-
-	public Collection<AStationaryGizmo> getAllStationaryGizmos();
-
-	public Collection<AMovingGizmo> getAllMovingGizmos();
 
 	public void clearAllGizmos();
 
@@ -74,11 +63,15 @@ public interface IMainEngine {
 	 */
 	public void setWallDimensions(int width, int height);
 
-	public int getLInPixels();
-
 	public void addObserver(Observer o);
 
 	public void trigger(int key, int type);
 
 	public void bindKey(AGizmoComponent gizmo, int key, int type);
+
+	public void addConnection(AGizmoComponent moveG, AGizmoComponent g);
+	
+	public void removeConnection(AGizmoComponent moveG, AGizmoComponent g);
+
+	public void update();
 }

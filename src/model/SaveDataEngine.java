@@ -127,7 +127,7 @@ public final class SaveDataEngine {
 								model.moveGizmoByL(g, x, y);
 							}
 							if (g instanceof AMovingGizmo) {
-								// TODO moveGizmoByPixels()
+								model.moveGizmoByPixels((AMovingGizmo) g, x, y);
 							}
 
 							break;
@@ -141,11 +141,11 @@ public final class SaveDataEngine {
 						case "Ball":
 							name = st.nextToken();
 
-							int xpos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
-							int ypos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
+							int xpos = (int) (Double.parseDouble(st.nextToken()) * IMainEngine.L);
+							int ypos = (int) (Double.parseDouble(st.nextToken()) * IMainEngine.L);
 
-							double xvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
-							double yvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double xvel = Double.parseDouble(st.nextToken()) * IMainEngine.L;
+							double yvel = Double.parseDouble(st.nextToken()) * IMainEngine.L;
 
 							Vect v = new Vect(xvel, yvel);
 
@@ -168,25 +168,30 @@ public final class SaveDataEngine {
 							}
 							break;
 
+						case "Connect":
+							name = st.nextToken();
+							AGizmoComponent g1 = model.getGizmo(name);
+
+							name = st.nextToken();
+							AGizmoComponent g2 = model.getGizmo(name);
+
+							model.addConnection(g1, g2);
+							break;
+
 						case "Gravity":
-							double gravity = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double gravity = Double.parseDouble(st.nextToken()) * IMainEngine.L;
 							model.getPhysicsConfig().setGravity(gravity);
 							gravitySet = true;
 							break;
 
 						case "Friction":
 							double mu1 = Double.parseDouble(st.nextToken());
-							double mu2 = Double.parseDouble(st.nextToken()) / model.getLInPixels();
+							double mu2 = Double.parseDouble(st.nextToken()) / IMainEngine.L;
 
 							model.getPhysicsConfig().setFrictionCoef1(mu1);
 							model.getPhysicsConfig().setFrictionCoef2(mu2);
 
 							frictionSet = true;
-							break;
-
-						// TODO This
-						case "Connect":
-							System.err.println("Functionality for \"" + s + "\" not implemented");
 							break;
 
 						default:
@@ -199,7 +204,7 @@ public final class SaveDataEngine {
 			if (!gravitySet) {
 				model.getPhysicsConfig().setGravity(PhysicsConfig.DEFAULT_GRAVITY);
 			}
-			
+
 			if (!frictionSet) {
 				model.getPhysicsConfig().setFrictionCoef1(PhysicsConfig.DEFAULT_MU1);
 				model.getPhysicsConfig().setFrictionCoef2(PhysicsConfig.DEFAULT_MU2);
@@ -224,6 +229,8 @@ public final class SaveDataEngine {
 				bw.write(g.toString() + "\n");
 			}
 
+			bw.write(model.getBall().toString() + "\n");
+
 			Connections c = model.getConnections();
 
 			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyPressBindings().entrySet()) {
@@ -238,7 +245,11 @@ public final class SaveDataEngine {
 				}
 			}
 
-			// TODO Connect
+			for (Map.Entry<AGizmoComponent, Set<AGizmoComponent>> entry : c.getConnections().entrySet()) {
+				for (AGizmoComponent g : entry.getValue()) {
+					bw.write("Connect " + entry.getKey().getGizmoID() + " " + g.getGizmoID() + "\n");
+				}
+			}
 
 			bw.write(model.getPhysicsConfig().toString() + "\n");
 

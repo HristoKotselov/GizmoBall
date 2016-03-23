@@ -2,32 +2,26 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import model.IMainEngine;
 
-public class ConnectKeyListener implements KeyListener {
+public class PlayModeKeyListener implements KeyListener {
 	private IMainEngine model;
 
-	public ConnectKeyListener(IMainEngine m) {
+	public PlayModeKeyListener(IMainEngine m) {
 		model = m;
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		model.trigger(e.getKeyCode(), KeyEvent.KEY_PRESSED);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		model.trigger(e.getKeyCode(), KeyEvent.KEY_RELEASED);
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
-
 }

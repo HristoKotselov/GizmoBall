@@ -8,6 +8,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 import java.util.Set;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.ILineSegmentCollider;
 import model.MainEngine;
 import physics.Angle;
@@ -19,7 +20,6 @@ import physics.Vect;
 public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	public static final int LEFT = 0;
 	public static final int RIGHT = 1;
-	private static int flipSpeed = 18;
 
 	/**
 	 * Angle of rotation of flipper relative to start point, used during gameplay. Separate from rotationAngle, which defines the rotation
@@ -29,8 +29,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	private boolean flippingForward;
 	private int orientation;
 
-	private long flipTime;
-	private long startedFlipping;
+	private boolean stationary = true;
 
 	/**
 	 * A set of Circles belonging to this Gizmo. They act as collision detectors with a ball, often at the edges of a shape.
@@ -76,10 +75,7 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 			try {
 				// System.out.println("inverting");
 				t1.invert();
-			} catch (NoninvertibleTransformException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} catch (NoninvertibleTransformException e) {}
 		}
 
 		Shape s = t1.createTransformedShape(r);
@@ -218,32 +214,18 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Regular methods implementation */
+
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		// Do nothing
+	}
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
-		System.out.println("triggered");
+	public void action() {
 		flippingForward = !flippingForward;
-
-//		startedFlipping = System.nanoTime();
-//		if (flippingForward) {
-//			for (int flipCount = 0; flipCount < 5; flipCount++){
-//			rotate18degrees();
-//			update();
-//			}
-//			flippingForward = false;
-//			return;
-//		}
-//		if (!flippingForward) {
-//			for (int flipCount = 0; flipCount < 5; flipCount++){
-//			rotateback18degrees();
-//			update();
-//			}
-//			flippingForward = true;
-//			return;
-//		}
-
 	}
 
 	/* (non-Javadoc)
@@ -251,7 +233,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public boolean rotate(int degree) {
-		// TODO Validation
 		rotationAngle = (rotationAngle + degree) % 360;
 
 		updateCollections();
@@ -265,8 +246,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
-		// TODO Validation
-
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 
 		updateCollections();
@@ -294,98 +273,71 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void reset() {
-		// TODO get Flipper to default position
+		flippingForward = false;
+		stationary = true;
+
+		gameplayRotation(-gameplayRotation);
+		gameplayRotation = 0;
 	}
 
 
 	/* Flipper exclusive methods */
 	public void update(double moveTime) {
-		if (flippingForward && gameplayRotation < 90) {
-			rotate18degrees();
-			gameplayRotation += 1080 * moveTime;
+		double ang = 1080 * moveTime;
 
-			if (gameplayRotation > 90) {
+		if (flippingForward && gameplayRotation < 90) {
+			stationary = false;
+
+			ang = Math.min(ang, 90 - gameplayRotation);
+
+			gameplayRotation(ang);
+			gameplayRotation += ang;
+
+			if (gameplayRotation >= 90) {
+				stationary = true;
 				gameplayRotation = 90;
 			}
-		} else if (!flippingForward && gameplayRotation > 0) {
-			rotateback18degrees();
-			gameplayRotation -= 1080 * moveTime;
 
-			if (gameplayRotation < 0) {
+		} else if (!flippingForward && gameplayRotation > 0) {
+			stationary = false;
+
+			ang = Math.min(ang, gameplayRotation);
+
+			gameplayRotation(-ang);
+			gameplayRotation -= ang;
+
+			if (gameplayRotation <= 0) {
+				stationary = true;
 				gameplayRotation = 0;
 			}
 		}
 	}
 
 	// use this method TWICE for each flipper for a full 90-degree rotation
-	public void rotate18degrees() {
+	public void gameplayRotation(double deg) {
 		Vect rotationPoint;
-		if (flippingForward) {
-			Set<Circle> rotatedCircles = new HashSet<Circle>();
-			Set<LineSegment> rotatedLines = new HashSet<LineSegment>();
-			rotationPoint = getRotationPoint();
-			if (orientation == LEFT) {
-				for (Circle circle : circleSet) {
-					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedCircles.add(newCircle); // 342
-													// degrees
-				}
-				for (LineSegment line : ls) {
-					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedLines.add(newLine); // 342
-												// degrees
-				}
-			} else {
-				for (Circle circle : circleSet) {
-					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedCircles.add(newCircle); // 18
-													// degrees
-				}
-				for (LineSegment line : ls) {
-					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedLines.add(newLine); // 18
-												// degrees
-				}
-			}
-			circleSet = rotatedCircles;
-			ls = rotatedLines;
-		}
-	}
 
-	// use this method TWICE for each flipper for a full 90-degree rotation
-	// BACKWARDS
-	public void rotateback18degrees() {
-		Vect rotationPoint;
-		if (!flippingForward) {
-			Set<Circle> rotatedCircles = new HashSet<Circle>();
-			Set<LineSegment> rotatedLines = new HashSet<LineSegment>();
-			rotationPoint = getRotationPoint();
-			if (orientation == LEFT) {
-				for (Circle circle : circleSet) {
-					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedCircles.add(newCircle); // 18
-													// degrees
-				}
-				for (LineSegment line : ls) {
-					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(0.314159)); // rotate
-					rotatedLines.add(newLine); // 18
-												// degrees
-				}
-			} else {
-				for (Circle circle : circleSet) {
-					Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedCircles.add(newCircle); // 342
-													// degrees
-				}
-				for (LineSegment line : ls) {
-					LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(5.96903)); // rotate
-					rotatedLines.add(newLine); // 342
-												// degrees
-				}
-			}
-			circleSet = rotatedCircles;
-			ls = rotatedLines;
+		Set<Circle> rotatedCircles = new HashSet<Circle>();
+		Set<LineSegment> rotatedLines = new HashSet<LineSegment>();
+		rotationPoint = getRotationPoint();
+
+		double rad = Math.toRadians(deg);
+
+		if (orientation == LEFT) {
+			rad = -rad;
 		}
+
+		for (Circle circle : circleSet) {
+			Circle newCircle = Geometry.rotateAround(circle, rotationPoint, new Angle(rad)); // rotate
+			rotatedCircles.add(newCircle);
+		}
+		for (LineSegment line : ls) {
+			LineSegment newLine = Geometry.rotateAround(line, rotationPoint, new Angle(rad)); // rotate
+			rotatedLines.add(newLine);
+		}
+
+		circleSet = rotatedCircles;
+		ls = rotatedLines;
 	}
 
 	public Vect getRotationPoint() {
@@ -414,7 +366,8 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 		return orientation;
 	}
 
-	public boolean getFlippingStatus() {
-		return flippingForward;
+	public boolean isStationary() {
+		return stationary;
 	}
+
 }

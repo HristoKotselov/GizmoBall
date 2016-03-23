@@ -3,7 +3,6 @@ package model;
 import java.awt.Color;
 
 /**
- * TODO
  * Class designed for Gizmos that do not actively move around on the board, but might change their shape 
  * at any given time (e.g. rotation).
  * Examples:	Square Bumper, Circular Bumper, Flipper

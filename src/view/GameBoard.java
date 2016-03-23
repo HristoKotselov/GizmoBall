@@ -7,38 +7,38 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
 import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
 import model.AGizmoComponent;
-import model.AMovingGizmo;
-import model.AStationaryGizmo;
-import model.Absorber;
-import model.Ball;
-import model.CircularBumper;
-import model.Flipper;
 import model.IMainEngine;
-import model.SquareBumper;
-import model.TriangularBumper;
+import model.gizmos.Absorber;
+import model.gizmos.Ball;
+import model.gizmos.CircularBumper;
+import model.gizmos.Flipper;
+import model.gizmos.SquareBumper;
+import model.gizmos.TriangularBumper;
 import physics.Angle;
 
 public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 	private GameWindow gameWindow;
 	private BuildMenu buildMenu;
+	private PlayMenu playMenu;
 
 	private int x1, y1;
 	private int x2 = -1, y2 = -1;
 
-	public GameBoard(IMainEngine m, BuildMenu bm, GameWindow gw) {
+	public GameBoard(IMainEngine m, BuildMenu bm, PlayMenu pm, GameWindow gw) {
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
+		setFocusable(true);
 
 		model = m;
 		gameWindow = gw;
 		buildMenu = bm;
+		playMenu = pm;
 		model.setWallDimensions(getPreferredSize().width, getPreferredSize().height);
 		model.addObserver(this);
 	}
@@ -52,68 +52,54 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		// Turn on antialiasing
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		// Save the default transformation
-		AffineTransform old = g2d.getTransform();
-
-
 		// Iterate over all stationary gizmos
-		Collection<AStationaryGizmo> sGizmos = model.getAllStationaryGizmos();
+		Collection<AGizmoComponent> gizmos = model.getAllGizmos();
 
-		for (AStationaryGizmo giz : sGizmos) {
+		for (AGizmoComponent giz : gizmos) {
 			// Get the colour and shape of the gizmo
-			// System.out.println(giz.getGizmoID());
 			g2d.setColor(giz.getColour());
 			Shape s = giz.getDrawingShape();
 
 			// Draw the shape
 			g2d.fill(s);
-
-			// Reset transformation before drawing the next object
-			g2d.setTransform(old);
 		}
 
-
-		// Iterate over all moving gizmos
-		Collection<AMovingGizmo> mGizmos = model.getAllMovingGizmos();
-
-		for (AMovingGizmo giz : mGizmos) {
-			// Get the colour and shape of the gizmo
-			// System.out.println(giz.getGizmoID());
-			g2d.setColor(giz.getColour());
-			Shape s = giz.getDrawingShape();
-
-			// Draw the shape
+		// Draw the ball
+		AGizmoComponent b = model.getBall();
+		if (b != null) {
+			g2d.setColor(b.getColour());
+			Shape s = b.getDrawingShape();
 			g2d.fill(s);
-
-			// Reset transformation before drawing the next object
-			g2d.setTransform(old);
 		}
 
-		// Draw shadow of gizmo being placed, if appropriate
-		if (buildMenu.getSelectedFunction().equals("Add Gizmo") || buildMenu.getSelectedFunction().equals("Add Ball")) {
-			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
-			AGizmoComponent giz;
 
-			if (buildMenu.getSelectedFunction().equals("Add Gizmo")) {
-				giz = getShape(buildMenu.getSelectedGizmo());
-			} else {
-				giz = new Ball("temp", Color.BLUE, x1, y1, Angle.ZERO, 0);
+		if (gameWindow.isBuildMode() || playMenu.isDynamicEditEnabled()) {
+			// Draw shadow of gizmo being placed, if appropriate
+			if (buildMenu.getSelectedFunction().equals("Add Gizmo") || buildMenu.getSelectedFunction().equals("Add Ball")) {
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+				AGizmoComponent giz;
+
+				if (buildMenu.getSelectedFunction().equals("Add Gizmo")) {
+					giz = getShape(buildMenu.getSelectedGizmo());
+				} else {
+					giz = new Ball("temp", Color.BLUE, x1, y1, Angle.ZERO, 0);
+				}
+
+				g2d.setColor(giz.getColour());
+				g2d.fill(giz.getDrawingShape());
+
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			}
 
-			g2d.setColor(giz.getColour());
-			g2d.fill(giz.getDrawingShape());
-
+			// Draw grid
+			g2d.setColor(Color.WHITE);
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+			for (int i = 0; i <= 20; i++) {
+				g2d.drawLine(0, i * 20, 400, i * 20);
+				g2d.drawLine(i * 20, 0, i * 20, 400);
+			}
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 		}
-
-		// Draw grid
-		g2d.setColor(Color.WHITE);
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
-		for (int i = 0; i <= 20; i++) {
-			g2d.drawLine(0, i * 20, 400, i * 20);
-			g2d.drawLine(i * 20, 0, i * 20, 400);
-		}
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 	}
 
 	@Override
@@ -142,12 +128,10 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	}
 
 	public AGizmoComponent getShape(String s) {
-		// TODO make this code pretty
-		// TODO make all previews white, but change to red if placement will
-		// override another component?
+
 		AGizmoComponent giz = null;
-		int x = x1 / model.getLInPixels();
-		int y = y1 / model.getLInPixels();
+		int x = x1 / IMainEngine.L;
+		int y = y1 / IMainEngine.L;
 
 		switch (s) {
 			case "Square":
@@ -174,11 +158,11 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 				int x1, y1, x2, y2;
 
 				if (this.x2 != -1) {
-					x1 = Math.min(x, this.x2 / model.getLInPixels());
-					y1 = Math.min(y, this.y2 / model.getLInPixels());
+					x1 = Math.min(x, this.x2 / IMainEngine.L);
+					y1 = Math.min(y, this.y2 / IMainEngine.L);
 
-					x2 = Math.max(x, this.x2 / model.getLInPixels()) + 1;
-					y2 = Math.max(y, this.y2 / model.getLInPixels()) + 1;
+					x2 = Math.max(x, this.x2 / IMainEngine.L) + 1;
+					y2 = Math.max(y, this.y2 / IMainEngine.L) + 1;
 				} else {
 					x1 = x;
 					y1 = y;

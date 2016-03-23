@@ -1,12 +1,19 @@
 package run;
 
-import model.IMainEngine;
+import javax.swing.SwingUtilities;
 import model.MainEngine;
 import view.GameWindow;
 
 public class Main {
 	public static void main(String[] args) {
-		MainEngine m = new MainEngine();
-		new GameWindow(m);
+		final MainEngine m = new MainEngine();
+
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new GameWindow(m);
+			}
+		});
+
 	}
 }

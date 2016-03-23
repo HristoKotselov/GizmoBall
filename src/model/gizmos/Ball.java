@@ -6,17 +6,21 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
 import model.AMovingGizmo;
+import model.CollisionDetails;
 import physics.Angle;
 import physics.Circle;
 
 public class Ball extends AMovingGizmo {
 
+	private Absorber startInAbsorber;
+	
 	private double radius;
 
 	// x, y coordinates and x,y velocity
 	public Ball(String name, Color color, int starting_x, int starting_y, Angle theta, double velo) {
 		super(name, starting_x, starting_y, color, theta, velo);
 
+		startInAbsorber = null;
 		radius = 5;
 	}
 
@@ -35,15 +39,22 @@ public class Ball extends AMovingGizmo {
 		return circleSet;
 	}
 
-
 	/* Regular methods implementation */
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		// Do nothing
+	}
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-
+	public void action() {
+		// Do nothing
 	}
 
 	/* (non-Javadoc)
@@ -62,12 +73,15 @@ public class Ball extends AMovingGizmo {
 	 */
 	@Override
 	public void move(int x, int y) {
-		// TODO Validation
-
+		
 		super.move(x, y);
+		
+		// without setting MovingX/Y, ball position on board will be updated only when the game is reloaded
+		setMovingX(x);
+		setMovingY(y);
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#reset()
 	 */
@@ -76,7 +90,12 @@ public class Ball extends AMovingGizmo {
 		setMovingX(getX());
 		setMovingY(getY());
 		setVelo(getInitialVelo());
-		start();
+		if(startInAbsorber != null){
+			stop();
+		}
+		else{
+			start();
+		}
 	}
 
 
@@ -84,11 +103,18 @@ public class Ball extends AMovingGizmo {
 	public double getRadius() {
 		return radius;
 	}
+	
+	public void setStartInAbsorber(Absorber abs){
+		startInAbsorber = abs;
+	}
+	
+	public Absorber getStartInAbsorber(){
+		return startInAbsorber;
+	}
+
 
 	/**
-	 * TODO Shortcut method to retrieve the only Circle class within circleSets
-	 * 
-	 * @return
+	 * Shortcut method to retrieve the only Circle class within circleSets
 	 */
 	public Circle getCircle() {
 		return new Circle(getMovingX(), getMovingY(), radius);

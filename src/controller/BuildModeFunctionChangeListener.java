@@ -2,17 +2,14 @@ package controller;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
 import model.ActionTipDialogue;
-import view.BuildMenu;
 import view.IBuildMenu;
 import view.IGameWindow;
 
 public class BuildModeFunctionChangeListener implements ItemListener {
 	private IBuildMenu bm;
 	/**
-	 * Need to change ActionTips that involves selecting an dropdown command in
-	 * Build Mode
+	 * Need to change ActionTips that involves selecting an dropdown command in Build Mode
 	 **/
 	private IGameWindow gw;
 
@@ -32,39 +29,37 @@ public class BuildModeFunctionChangeListener implements ItemListener {
 
 	private void changeActionTips(String s) {
 		switch (s) {
-		case "Add Gizmo":
-			gw.setActionTipsTextArea(ActionTipDialogue.addGizmoActionTip());
-			break;
+			case "Add Gizmo":
+				gw.setActionTipsTextArea(ActionTipDialogue.addGizmoActionTip());
+				break;
 
-		case "Remove Gizmo":
-			gw.setActionTipsTextArea(ActionTipDialogue.deleteGizmoActionTip());
-			break;
+			case "Remove Gizmo":
+				gw.setActionTipsTextArea(ActionTipDialogue.deleteGizmoActionTip());
+				break;
 
-		case "Rotate Gizmo":
-			gw.setActionTipsTextArea(ActionTipDialogue.rotateGizmoActionTip());
-			break;
+			case "Rotate Gizmo":
+				gw.setActionTipsTextArea(ActionTipDialogue.rotateGizmoActionTip());
+				break;
 
-		case "Move Gizmo":
-			gw.setActionTipsTextArea(ActionTipDialogue.moveGizmoActionTip());
-			break;
+			case "Move Gizmo":
+				gw.setActionTipsTextArea(ActionTipDialogue.moveGizmoActionTip());
+				break;
 
-		case "Add Ball":
-			gw.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
-			break;
+			case "Add Ball":
+				gw.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
+				break;
 
-		case "Connect Gizmos":
-			gw.setActionTipsTextArea(ActionTipDialogue.connectGizmoActionTip());
-			break;
+			case "Connect Gizmos":
+				gw.setActionTipsTextArea(ActionTipDialogue.connectGizmoActionTip());
+				break;
 
-		case "Bind Key":
-			gw.setActionTipsTextArea(ActionTipDialogue.connectKeyToGizmoActionTip());
-			break;
+			case "Bind Key":
+				gw.setActionTipsTextArea(ActionTipDialogue.connectKeyToGizmoActionTip());
+				break;
 
-		case "Set Physics Constants":
-			gw.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
-			break;
-
+			case "Set Physics Constants":
+				gw.setActionTipsTextArea(ActionTipDialogue.physicsActionTip());
+				break;
 		}
-
 	}
 }

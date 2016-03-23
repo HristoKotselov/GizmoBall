@@ -1,27 +1,41 @@
 package testing;
-/*
- * A test case to test the SaveDataEngine class
- */
+
 import static org.junit.Assert.*;
-import model.*;
-import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.StringTokenizer;
-import physics.Vect;
+
 import org.junit.Test;
 
-public class SaveLoadTesting {
+import controller.LoadFileListener;
+import model.MainEngine;
+import model.SaveDataEngine;
 
-	String filepath = "res/ExampleBoard.txt";
+public class SaveLoadTesting {
+	SaveDataEngine sde;
+	MainEngine model = new MainEngine();
+	String filepathT = "res/loadsavetest.txt";
+	String filepathF = "res/does_not_exist/DO_NOT_WORK.txt";
+
+	/*
+	 * Testing to ensure that loading a file works correctly and that an
+	 * incorrect filepath does not throw unexpected errors
+	 */
 	@Test
 	public void testLoadingAFile() {
-		
+
+		assertTrue(SaveDataEngine.loadFile(filepathT, model));
+		assertFalse(SaveDataEngine.loadFile(filepathF, model));
+
+	}
+
+	/*
+	 * Testing to ensure that saving a file works correctly and that an
+	 * incorrect filepath does not throw unexpected errors
+	 */
+	@Test
+	public void testSavingAFile() {
+
+		assertTrue(SaveDataEngine.saveFile(filepathT, model));
+		assertFalse(SaveDataEngine.saveFile(filepathF, model));
+
 	}
 
 }
