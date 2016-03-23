@@ -45,9 +45,7 @@ public class PlayModeButtonListener implements ActionListener {
 					break;
 
 				case "tick":
-					model.start();
 					model.moveBalls();
-					model.stop();
 					break;
 
 				case "reload":
@@ -59,6 +57,10 @@ public class PlayModeButtonListener implements ActionListener {
 					model.stop();
 					timer.stop();
 					gameWindow.setMode("Build Mode");
+					break;
+					
+				case "dynamicedit":
+					model.update();
 					break;
 			}
 		}

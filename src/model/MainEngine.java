@@ -721,7 +721,8 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 	}
 
-	private void update() {
+	@Override
+	public void update() {
 		setChanged();
 		notifyObservers();
 	}

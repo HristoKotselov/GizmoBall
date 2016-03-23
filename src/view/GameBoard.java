@@ -28,11 +28,12 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	private IMainEngine model;
 	private GameWindow gameWindow;
 	private BuildMenu buildMenu;
+	private PlayMenu playMenu;
 
 	private int x1, y1;
 	private int x2 = -1, y2 = -1;
 
-	public GameBoard(IMainEngine m, BuildMenu bm, GameWindow gw) {
+	public GameBoard(IMainEngine m, BuildMenu bm, PlayMenu pm, GameWindow gw) {
 		setPreferredSize(new Dimension(400, 400));
 		setBackground(Color.BLACK);
 		setFocusable(true);
@@ -40,6 +41,7 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 		model = m;
 		gameWindow = gw;
 		buildMenu = bm;
+		playMenu = pm;
 		model.setWallDimensions(getPreferredSize().width, getPreferredSize().height);
 		model.addObserver(this);
 	}
@@ -90,31 +92,33 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 			g2d.setTransform(old);
 		}
 
-		// Draw shadow of gizmo being placed, if appropriate
-		if (buildMenu.getSelectedFunction().equals("Add Gizmo") || buildMenu.getSelectedFunction().equals("Add Ball")) {
-			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
-			AGizmoComponent giz;
+		if (gameWindow.isBuildMode() || playMenu.isDynamicEditEnabled()) {
+			// Draw shadow of gizmo being placed, if appropriate
+			if (buildMenu.getSelectedFunction().equals("Add Gizmo") || buildMenu.getSelectedFunction().equals("Add Ball")) {
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+				AGizmoComponent giz;
 
-			if (buildMenu.getSelectedFunction().equals("Add Gizmo")) {
-				giz = getShape(buildMenu.getSelectedGizmo());
-			} else {
-				giz = new Ball("temp", Color.BLUE, x1, y1, Angle.ZERO, 0);
+				if (buildMenu.getSelectedFunction().equals("Add Gizmo")) {
+					giz = getShape(buildMenu.getSelectedGizmo());
+				} else {
+					giz = new Ball("temp", Color.BLUE, x1, y1, Angle.ZERO, 0);
+				}
+
+				g2d.setColor(giz.getColour());
+				g2d.fill(giz.getDrawingShape());
+
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			}
 
-			g2d.setColor(giz.getColour());
-			g2d.fill(giz.getDrawingShape());
-
+			// Draw grid
+			g2d.setColor(Color.WHITE);
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+			for (int i = 0; i <= 20; i++) {
+				g2d.drawLine(0, i * 20, 400, i * 20);
+				g2d.drawLine(i * 20, 0, i * 20, 400);
+			}
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 		}
-
-		// Draw grid
-		g2d.setColor(Color.WHITE);
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
-		for (int i = 0; i <= 20; i++) {
-			g2d.drawLine(0, i * 20, 400, i * 20);
-			g2d.drawLine(i * 20, 0, i * 20, 400);
-		}
-		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 	}
 
 	@Override

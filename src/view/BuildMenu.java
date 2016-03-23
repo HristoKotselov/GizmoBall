@@ -61,7 +61,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		buildModeAL = new BuildModeButtonListener(model, gameWindow, this);
 
 		menuPanel = new JPanel();
-		menuPanel.setPreferredSize(new Dimension(300, 400));
+		menuPanel.setPreferredSize(new Dimension(300, 375));
 		menuPanel.setLayout(new BorderLayout());
 
 		// Function Selection
@@ -310,7 +310,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		playMode.addActionListener(buildModeAL);
 		buttonPanel.add(playMode);
 
-		menuPanel.add(buttonPanel, BorderLayout.SOUTH);
+//		menuPanel.add(buttonPanel, BorderLayout.SOUTH);
 	}
 
 	@Override
