@@ -157,10 +157,13 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
+<<<<<<< HEAD
 <<<<<<< HEAD:src/model/gizmos/SquareBumper.java
 		// TODO Validation
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf:src/model/gizmos/SquareBumper.java
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 

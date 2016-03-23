@@ -7,7 +7,7 @@ import java.util.Observer;
 
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
-//TODO split this up a bit if possible
+
 public interface IMainEngine {
 
 	public static final int L = 20;

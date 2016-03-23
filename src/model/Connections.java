@@ -27,6 +27,7 @@ public class Connections {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	/**
 	 * TODO
 	 * 
@@ -37,6 +38,9 @@ public class Connections {
 =======
 
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	public Connections_Status.AC addKeyConnection(int keyCode, int type, AGizmoComponent gizmo) {
 		// parameter validation
 		if (gizmo == null ||

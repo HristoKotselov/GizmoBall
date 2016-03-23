@@ -7,10 +7,14 @@ import physics.Circle;
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * TODO Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
 =======
  * Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+ * Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
  */
 abstract public class AGizmoComponent {
 
@@ -133,10 +137,13 @@ abstract public class AGizmoComponent {
 	 */
 	public void move(int newX, int newY) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// TODO Validation
 
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		setX(newX);
 		setY(newY);
 	}

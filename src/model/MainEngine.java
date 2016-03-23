@@ -59,6 +59,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// TODO Rename to updatePhysics
 	@Override
 	public boolean moveBalls() {
@@ -69,6 +70,12 @@ public class MainEngine extends Observable implements IMainEngine {
 	public boolean moveBalls() {
 		if (ball == null || ball.stopped()) {
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	
+	@Override
+	public boolean moveBalls() {
+		if (ball == null || ball.stopped()) {
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 			return false;
 		}
 
@@ -131,12 +138,16 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/**
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * TODO HELPER METHOD
 	 * 
 	 * @return
 =======
 	 * HELPER METHOD
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	 * HELPER METHOD
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 */
 	private CollisionDetails calcTimeUntilCollision() {
 		// Find Time Until Collision and also, if there is a collision, the new speed vector.
@@ -254,12 +265,16 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/**
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * TODO HELPER METHOD
 	 * 
 	 * @param cd
 =======
 	 * HELPER METHOD
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	 * HELPER METHOD
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 */
 	private void handleCollision(CollisionDetails cd) {
 		Ball ball = cd.getBall();
@@ -274,9 +289,12 @@ public class MainEngine extends Observable implements IMainEngine {
 					break;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 				// TODO add Flipper stuff here
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 
 				default: // procedures for a normal collision (that is not wall collision)
 					ball.setVelo(cd.getVelo()); // Post collision velocity ...
@@ -325,7 +343,11 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean addGizmo(AGizmoComponent gizmo) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// TODO Validation
+=======
+
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		boolean spaceOccupied = false, outsideWall = false;
 
 		// ... really to check if pointed location contains a Absorber
@@ -380,19 +402,27 @@ public class MainEngine extends Observable implements IMainEngine {
 				if (mGizmo instanceof Ball) {
 					ball = ((Ball) mGizmo);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 					movingGizmos.add(ball);
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+					movingGizmos.add(ball);
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 				}
 			}
 
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if (!spaceOccupied && !outsideWall && !(gizmo instanceof Ball)) {
 =======
 		if (!spaceOccupied && !outsideWall) {
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+		if (!spaceOccupied && !outsideWall) {
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 			update();
 
 			// Add new gizmo to the map of ALL Gizmos
@@ -431,11 +461,14 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// TODO Handle null
 		// TODO remove connections (?)
 
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		gizmos.remove(gizmo.getGizmoID());
 
 		if (gizmo instanceof AStationaryGizmo) {
@@ -461,9 +494,12 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean rotateGizmo(AGizmoComponent gizmo, int degree) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// TODO handle null
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		gizmo.rotate(degree);
 
 		// Check for any overlapping Moving Gizmos
@@ -490,10 +526,13 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// TODO handle null
 		// TODO Validation
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		boolean spaceOccupied = false, outsideWall = false;
 		
 		if (gizmo instanceof AStationaryGizmo) {
@@ -507,12 +546,15 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		// TODO Move Ball
 
 
 =======
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 		if (!spaceOccupied && !outsideWall) {
 			gizmo.move(grid_tile_x, grid_tile_y);
 		}
@@ -560,10 +602,14 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/**
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * TODO Helper Method
 =======
 	 * Helper Method
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	 * Helper Method
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean spaceOccupied = false;
@@ -612,7 +658,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
-	 * TODO Helper Method
+	 * Helper Method
 	 **/
 	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean outsideWall = false;
@@ -627,6 +673,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * TODO Helper Method
 =======
 
@@ -651,6 +698,9 @@ public class MainEngine extends Observable implements IMainEngine {
 	/**
 	 * Helper Method
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	 * Helper Method
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkGizmoOverlap(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean spaceOccupied = false;
@@ -687,10 +737,14 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	/**
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * TODO Helper Method
 =======
 	 * Helper Method
 >>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
+=======
+	 * Helper Method
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	 **/
 	private boolean checkForWalls(AMovingGizmo mGizmo, int new_x, int new_y) {
 		boolean outsideWall = false;
@@ -741,6 +795,7 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		return null;
 	}
+<<<<<<< HEAD
 
 
 	// TODO make alternate version of getGizmoAt (double), that one will get
@@ -760,6 +815,8 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 24d1d8980855bc42d310646b4924367d62afb755
 	
 
 	public AGizmoComponent getGizmo(String name) {
