@@ -6,7 +6,11 @@ import java.util.Set;
 import physics.Circle;
 
 /**
+<<<<<<< HEAD
  * TODO Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
+=======
+ * Parent class of ALL Gizmo Component. Contain key attribute that all Gizmo should process.
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
  */
 abstract public class AGizmoComponent {
 
@@ -73,7 +77,6 @@ abstract public class AGizmoComponent {
 	}
 
 	public boolean setX(int x) {
-		// TODO some validation
 		xpos = x;
 		return true;
 	}
@@ -83,7 +86,6 @@ abstract public class AGizmoComponent {
 	}
 
 	public boolean setY(int y) {
-		// TODO some validation
 		ypos = y;
 		return true;
 	}
@@ -130,8 +132,11 @@ abstract public class AGizmoComponent {
 	 * @effect xpos & ypos is updated with the new values.
 	 */
 	public void move(int newX, int newY) {
+<<<<<<< HEAD
 		// TODO Validation
 
+=======
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 		setX(newX);
 		setY(newY);
 	}

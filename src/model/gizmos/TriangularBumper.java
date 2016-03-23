@@ -194,7 +194,7 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 		rotationAngle = (rotationAngle + degree) % 360;
 
 		updateCollections();
-		// TODO Also requires validation
+
 		return true;
 	}
 
@@ -204,7 +204,10 @@ public class TriangularBumper extends AStationaryGizmo implements ILineSegmentCo
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
+<<<<<<< HEAD:src/model/gizmos/TriangularBumper.java
 		// TODO Validation
+=======
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf:src/model/gizmos/TriangularBumper.java
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 

@@ -54,5 +54,9 @@ public class PlayModeButtonListener implements ActionListener {
 			}
 		}
 	}
+	
+	public void pauseModel(){
+		timer.stop();
+	}
 
 }

@@ -127,7 +127,7 @@ public final class SaveDataEngine {
 								model.moveGizmoByL(g, x, y);
 							}
 							if (g instanceof AMovingGizmo) {
-								// TODO moveGizmoByPixels()
+								model.moveGizmoByPixels((AMovingGizmo) g, x, y);
 							}
 
 							break;

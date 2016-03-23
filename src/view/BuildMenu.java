@@ -120,7 +120,10 @@ public class BuildMenu implements IBuildMenu, Observer {
 
 
 		// Add Ball panel
+<<<<<<< HEAD
 		// TODO Low priority: be fancy and change font colour to red if numbers not properly formatted
+=======
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 		JPanel addBall = new JPanel();
 
 		JPanel controls = new JPanel(new GridLayout(0, 2, 5, 10));
@@ -357,10 +360,13 @@ public class BuildMenu implements IBuildMenu, Observer {
 		mu1StoredLabel.setText(mu1 + " per second");
 		mu2StoredLabel.setText(mu2 + " per L");
 		gravityStoredLabel.setText(g + " L/sec\u00B2");
+<<<<<<< HEAD
 
 		mu1Field.setText(mu1);
 		mu2Field.setText(mu2);
 		gravityField.setText(g);
+=======
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 	}
 
 }

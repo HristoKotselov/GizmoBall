@@ -144,7 +144,11 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void ballTriggered(CollisionDetails cd) {
 		MainEngine model = cd.getMainEngine();
+<<<<<<< HEAD:src/model/gizmos/Absorber.java
 
+=======
+		
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf:src/model/gizmos/Absorber.java
 		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
 		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
 		 */
@@ -154,7 +158,12 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/**
+<<<<<<< HEAD:src/model/gizmos/Absorber.java
 	 * TODO HELPER method Return TRUE if outside absorber, return FALSE if inside absorber
+=======
+	 * HELPER method:
+	 * Return TRUE if outside absorber, return FALSE if inside absorber
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf:src/model/gizmos/Absorber.java
 	 **/
 	private boolean handleAbsorberColi(CollisionDetails cd) {
 
@@ -213,8 +222,12 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
+<<<<<<< HEAD:src/model/gizmos/Absorber.java
 		// TODO Validation
 
+=======
+		
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf:src/model/gizmos/Absorber.java
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		
 		int width_in_pixels = bmWidth * MainEngine.L;

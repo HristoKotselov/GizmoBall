@@ -26,6 +26,7 @@ public class Connections {
 		triggerMap = new HashMap<AGizmoComponent, Set<AGizmoComponent>>();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * TODO
 	 * 
@@ -33,6 +34,9 @@ public class Connections {
 	 * @param gizmo
 	 * @return
 	 */
+=======
+
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 	public Connections_Status.AC addKeyConnection(int keyCode, int type, AGizmoComponent gizmo) {
 		// parameter validation
 		if (gizmo == null ||
@@ -198,6 +202,10 @@ public class Connections {
 				}
 			}
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyReleasedMap.entrySet()) {
 			for (AGizmoComponent g : e.getValue()) {
 				if (g.getGizmoID().equals(gizmo.getGizmoID())) {

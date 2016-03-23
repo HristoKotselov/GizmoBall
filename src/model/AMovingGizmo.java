@@ -5,7 +5,7 @@ import physics.Angle;
 import physics.Vect;
 
 /**
- * TODO Class designed for Gizmos that can actively move around on the Board.
+ * Class designed for Gizmos that can actively move around on the Board.
  * For these Gizmos, PreciseX & PreciseY methods can be used instead if their
  * position on the board need be precise (i.e. move about rapidly). Keep in mind
  * that preciseX/Y replaces the normal X/Y's role in this class. Examples: Ball
@@ -48,7 +48,6 @@ abstract public class AMovingGizmo extends AGizmoComponent {
 
 	/* Exclusive Methods to this type of Gizmo */
 	public boolean setMovingX(double x) {
-		// TODO Validation
 		movingXPos = x;
 
 		return true;

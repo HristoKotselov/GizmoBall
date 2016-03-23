@@ -2,6 +2,10 @@ package model;
 
 import java.util.Collection;
 import java.util.Observer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 //TODO split this up a bit if possible
 public interface IMainEngine {

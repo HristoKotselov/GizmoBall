@@ -128,9 +128,7 @@ public class GameBoard extends JPanel implements IBoard, Observer {
 	}
 
 	public AGizmoComponent getShape(String s) {
-		// TODO make this code pretty
-		// TODO make all previews white, but change to red if placement will
-		// override another component?
+
 		AGizmoComponent giz = null;
 		int x = x1 / IMainEngine.L;
 		int y = y1 / IMainEngine.L;

@@ -32,10 +32,15 @@ public class PlayMenu implements IPlayMenu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+<<<<<<< HEAD
 		// TODO the listeners should have been passed through parameter
 		playModeAL = new PlayModeButtonListener(model);
 		// startGameAL = new StartGameListener(model);
 		// stopGameAL = new StopGameListener(model);
+=======
+
+		playModeAL = new PlayModeButtonListener(model);
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 		buttonMenu = new JPanel();
 		buttonMenu.setLayout(new GridLayout(0, 1, 0, 10));
@@ -87,5 +92,12 @@ public class PlayMenu implements IPlayMenu {
 	public boolean isDynamicEditEnabled() {
 		return dynamicEdit.isSelected();
 	}
+<<<<<<< HEAD
+=======
+	
+	public void pauseModel(){
+		playModeAL.pauseModel();
+	}
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 }

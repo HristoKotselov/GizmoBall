@@ -13,6 +13,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+<<<<<<< HEAD
+=======
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
@@ -119,6 +125,22 @@ public class GameWindow implements IGameWindow {
 
 		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
 		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
+<<<<<<< HEAD
+=======
+		sidebarPanel.addChangeListener(new ChangeListener() {
+
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if (e.getSource() instanceof JTabbedPane) {
+                    JTabbedPane pane = (JTabbedPane) e.getSource();
+                    if(pane.getSelectedIndex() == 0 && !playmenu.isDynamicEditEnabled()){
+                    	playmenu.pauseModel();
+                    }
+                    
+                }
+            }
+        });
+>>>>>>> 84931fe3ceaa7b9f66afcccdfc818bd402232cbf
 
 
 		board = new GameBoard(model, buildmenu, playmenu, this);
