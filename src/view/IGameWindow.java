@@ -20,4 +20,6 @@ public interface IGameWindow {
 	public void setActionTipsTextArea(String message);
 	
 	public void setActionTipsTextAreaColour(Color colour);
+	
+	public boolean isBuildMode();
 }
