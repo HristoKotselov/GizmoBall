@@ -91,38 +91,35 @@ public class MainEngine extends Observable implements IMainEngine {
 		// called to get a list of collisions
 		List<CollisionDetails> collisionList = calcTimesUntilCollision();
 
-
 		// Temp variables setup
 		Ball ball;
+		double time = moveTime;
 		double tuc;
 
+		// Find the time until the nearest collision
+		for (CollisionDetails cd : collisionList) {
+			tuc = cd.getTuc();
+			time = Math.min(time, tuc);
+		}
 
+		// Move balls, and if necessary, handle collisions
 		for (CollisionDetails cd : collisionList) {
 			ball = cd.getBall();
+			tuc = cd.getTuc();
 
-			tuc = cd.getTuc(); // i.e. what is the time to the nearest future
-								// collision...?
+			moveBallAtCurrentVelo(ball, time);
 
-			if (tuc > moveTime) {
-				// No collision ...
-				moveBallAtCurrentVelo(ball, moveTime);
-			} else {
-				// We've got a collision in tuc, so move the ball until it
-				// directly (occasionally with a very small margin of error)
-				// touches the collider
-				moveBallAtCurrentVelo(ball, tuc);
-
-				// Now handle the collision
+			if (time == tuc) {
 				handleCollision(cd);
 			}
-
 		}
 
+		// Update other gizmos
 		for (AGizmoComponent g : gizmos.values()) {
-			g.update(moveTime);
+			g.update(time);
 		}
 
-		// Notify observers ... redraw updated view
+		// Notify observers and redraw updated view
 		update();
 	}
 
@@ -137,9 +134,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		ball.setMovingY(newY);
 	}
 
-	
-	/** TODO
-	 * HELPER METHOD
+
+	/**
+	 * TODO HELPER METHOD
+	 * 
 	 * @return
 	 */
 	private List<CollisionDetails> calcTimesUntilCollision() {
@@ -148,15 +146,12 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		for (Ball ball : ballSet) {
 
-			if (ball.stopped()) { // if ball stopped, then no calculation will
-									// be needed
+			if (ball.stopped()) { // if ball stopped, then no calculation will be needed
 				continue;
 			}
 
 
-			// Find Time Until Collision and also, if there is a collision, the
-			// new
-			// speed vector.
+			// Find Time Until Collision and also, if there is a collision, the new speed vector.
 			// Create a physics.Circle from Ball
 			Circle ballCircle = ball.getCircle();
 			Vect ballVelocity = ball.getVelo();
@@ -166,10 +161,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			double shortestTime = Double.MAX_VALUE;
 			double time = 0.0;
 
-			String colliderID = null; // the Gizmo component that the ball will
-										// collide with in a collision
-										// prediction
-
+			String colliderID = null; // the Gizmo component that the ball will collide with in a collision prediction
 
 			// Time to collide with 4 walls
 			Set<LineSegment> lss = gws.getLineSegments();
@@ -182,7 +174,6 @@ public class MainEngine extends Observable implements IMainEngine {
 				}
 			}
 
-
 			// Time to collide with all Gizmos
 			Set<Circle> circleSet;
 			Set<LineSegment> lsSet;
@@ -190,77 +181,69 @@ public class MainEngine extends Observable implements IMainEngine {
 			Collection<AGizmoComponent> allGizmos = getAllGizmos();
 
 			for (AGizmoComponent gizmo : allGizmos) {
-				circleSet = gizmo.getCircles();
-
-				// Checking collision with all the Circles
-				for (Circle circle : circleSet) {
-					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
-					if (time < shortestTime) {
-						shortestTime = time;
-						newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);
-						colliderID = gizmo.getGizmoID();
-					}
-				}
-
-				if (gizmo instanceof ILineSegmentCollider) {
-					lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
-
-					// Checking collision with all the Line Segments
-					for (LineSegment line : lsSet) {
-						time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
-						if (time < shortestTime) {
-							shortestTime = time;
-							newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
-							colliderID = gizmo.getGizmoID();
-						}
-					}
-				}
 
 				if (gizmo instanceof Flipper) {
+
 					Flipper flipper = (Flipper) gizmo;
 					lsSet = flipper.getLineSeg();
 					circleSet = flipper.getCircles();
 
-					// Checking collision with rotating left flipper
-					if (flipper.getOrientation() == Flipper.LEFT && flipper.getFlippingStatus() == true) {
-						for (Circle circle : circleSet) {
-							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-						for (LineSegment line : lsSet) {
-							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), 18.84956, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
+					double angVel = Math.toRadians(1080);
+					Vect rotPoint = flipper.getRotationPoint();
+
+					if (flipper.isStationary()) {
+						angVel = 0;
+					}
+
+					if (flipper.getOrientation() == Flipper.LEFT) {
+						angVel = -angVel;
+					}
+
+					for (Circle circle : circleSet) {
+						time = Geometry.timeUntilRotatingCircleCollision(circle, rotPoint, angVel, ballCircle, ballVelocity);
+						if (time < shortestTime) {
+							shortestTime = time;
+							newVelo = Geometry.reflectRotatingCircle(circle, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
+							colliderID = flipper.getGizmoID();
 						}
 					}
-					// collision with rotating right flipper
-					else if (flipper.getOrientation() == Flipper.RIGHT && flipper.getFlippingStatus() == true) {
-						for (Circle circle : circleSet) {
-							time = Geometry.timeUntilRotatingCircleCollision(circle, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingCircle(circle, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
-						}
-						for (LineSegment line : lsSet) {
-							time = Geometry.timeUntilRotatingWallCollision(line, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectRotatingWall(line, flipper.getRotationPoint(), -18.84956, ballCircle, ballVelocity, 2.0);
-								colliderID = flipper.getGizmoID();
-							}
+					for (LineSegment line : lsSet) {
+						time = Geometry.timeUntilRotatingWallCollision(line, rotPoint, angVel, ballCircle, ballVelocity);
+						if (time < shortestTime) {
+							shortestTime = time;
+							newVelo = Geometry.reflectRotatingWall(line, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
+							colliderID = flipper.getGizmoID();
 						}
 					}
 
 
+
+				} else {
+					circleSet = gizmo.getCircles();
+
+					// Checking collision with all the Circles
+					for (Circle circle : circleSet) {
+						time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+						if (time < shortestTime) {
+							shortestTime = time;
+							newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);
+							colliderID = gizmo.getGizmoID();
+						}
+					}
+
+					if (gizmo instanceof ILineSegmentCollider) {
+						lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
+
+						// Checking collision with all the Line Segments
+						for (LineSegment line : lsSet) {
+							time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
+							if (time < shortestTime) {
+								shortestTime = time;
+								newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
+								colliderID = gizmo.getGizmoID();
+							}
+						}
+					}
 				}
 
 			}
@@ -271,10 +254,11 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		return collisionList;
 	}
-	
-	
-	/** TODO
-	 * HELPER METHOD
+
+
+	/**
+	 * TODO HELPER METHOD
+	 * 
 	 * @param cd
 	 */
 	private void handleCollision(CollisionDetails cd) {
@@ -366,25 +350,28 @@ public class MainEngine extends Observable implements IMainEngine {
 
 			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
-			
+
 			// Check for the walls
 			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 
-			if(!spaceOccupied && !outsideWall){
+			if (!spaceOccupied && !outsideWall) {
 				// Add stationary gizmo to Stationary Gizmo Set
 				stationaryGizmos.add(sGizmo);
 			}
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
+			int x = mGizmo.getX();
+			int y = mGizmo.getY();
 
-			// TODO overlap protection for movable Gizmos
-			// (that can technically be placed at any pixel, as look as it don't overlap with existing ones)
+			// Check for any overlapping Gizmos
+			spaceOccupied = checkGizmoOverlap(mGizmo, x, y);
 
+			outsideWall = checkForWalls(mGizmo, x, y);
 
-			if(!spaceOccupied && !outsideWall){
+			if (!spaceOccupied && !outsideWall) {
 				// Add moving gizmo to Moving Gizmo Set
 				movingGizmos.add(mGizmo);
-				
+
 				// if moving Gizmo is a Ball, then we add it to a special subset
 				if (mGizmo instanceof Ball) {
 					ballSet.add((Ball) mGizmo);
@@ -406,7 +393,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean removeGizmo(AGizmoComponent gizmo) {
 		// TODO Handle null
-		// TODO remove connections
+		// TODO remove connections (?)
 
 		gizmos.remove(gizmo.getGizmoID());
 		if (gizmo instanceof AStationaryGizmo) {
@@ -444,14 +431,14 @@ public class MainEngine extends Observable implements IMainEngine {
 
 			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(sGizmo, grid_tile_x, grid_tile_y);
-			
+
 			// Check for the walls
 			outsideWall = checkForWalls(sGizmo, grid_tile_x, grid_tile_y);
 		}
-		
+
 
 		// TODO Move Ball
-		
+
 
 		if (!spaceOccupied && !outsideWall) {
 			gizmo.move(grid_tile_x, grid_tile_y);
@@ -464,12 +451,12 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	// TODO make moveGizmoByPixel()
 
-	/** TODO
-	 * Helper Method 
-	 * **/
-	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
+	/**
+	 * TODO Helper Method
+	 **/
+	private boolean checkGizmoOverlap(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean spaceOccupied = false;
-		
+
 		// Check for any overlapping Stationary Gizmos
 		for (int i = 0; i < sGizmo.getBMWidth(); i++) {
 			for (int j = 0; j < sGizmo.getBMHeight(); j++) {
@@ -484,9 +471,9 @@ public class MainEngine extends Observable implements IMainEngine {
 				}
 			}
 		}
-		
+
 		// Check for any overlapping Moving Gizmos
-		for(AMovingGizmo mGizmo : movingGizmos){
+		for (AMovingGizmo mGizmo : movingGizmos) {
 			/* The bounding box is a rectangular object that encloses around the Shape object
 			 * of a gizmo, and it can be used to check whether a moving Gizmo overlap a 
 			 * Stationary Gizmo, required as moving Gizmos such as ball can get placed in the 
@@ -494,40 +481,95 @@ public class MainEngine extends Observable implements IMainEngine {
 			 * of "Hitbox" in video games.
 			 */
 			Rectangle sGizmoBounds = sGizmo.getDrawingShape().getBounds();
-			
+
 			// Divide by L = grid_tile_squares, Multiple by L = pixels
-			if(sGizmo.getX() / L != new_grid_tile_x || sGizmo.getY() / L != new_grid_tile_y){		// i.e. Is it Move Gizmo?
+			if (sGizmo.getX() / L != new_grid_tile_x || sGizmo.getY() / L != new_grid_tile_y) { // i.e. Is it Move Gizmo?
 				int diffInGridTileX = new_grid_tile_x - (sGizmo.getX() / L);
 				int diffInGridTileY = new_grid_tile_y - (sGizmo.getY() / L);
 				sGizmoBounds.setLocation(sGizmo.getX() + diffInGridTileX * L, sGizmo.getY() + diffInGridTileY * L);
 			}
-				
-			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();	
-			
-			if( sGizmoBounds.intersects(mGizmoBounds) ){
+
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+
+			if (sGizmoBounds.intersects(mGizmoBounds)) {
 				spaceOccupied = true;
 			}
 		}
-		
+
 		return spaceOccupied;
 	}
-	
-	/** TODO
-	 * Helper Method 
-	 * **/
-	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y){
+
+	/**
+	 * TODO Helper Method
+	 **/
+	private boolean checkForWalls(AStationaryGizmo sGizmo, int new_grid_tile_x, int new_grid_tile_y) {
 		boolean outsideWall = false;
-		
+
 		// only need to check for RHS overlap due to all Stationary Gizmo starting from Top-Left corner of a square
-		if( (new_grid_tile_x + sGizmo.getBMWidth() ) > gws.getWidthInL() ||
-			(new_grid_tile_y + sGizmo.getBMHeight() ) > gws.getHeightInL()
-			){
+		if ((new_grid_tile_x + sGizmo.getBMWidth()) > gws.getWidthInL() ||
+				(new_grid_tile_y + sGizmo.getBMHeight()) > gws.getHeightInL()) {
 			outsideWall = true;
 		}
-		
+
 		return outsideWall;
 	}
-	
+
+	/**
+	 * TODO Helper Method
+	 **/
+	private boolean checkGizmoOverlap(AMovingGizmo mGizmo, int new_x, int new_y) {
+		boolean spaceOccupied = false;
+
+		Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+		int mGizmoX = mGizmo.getX();
+		int mGizmoY = mGizmo.getY();
+
+		// Divide by L = grid_tile_squares, Multiple by L = pixels
+		if (mGizmoX != new_x || mGizmoY != new_y) { // i.e. Is it Move Gizmo?
+			int diffInX = new_x - mGizmoX;
+			int diffInY = new_y - mGizmoY;
+			mGizmoBounds.setLocation(mGizmoX + diffInX, mGizmoY + diffInY);
+		}
+
+
+		// Check for any overlapping Stationary Gizmos
+		for (AStationaryGizmo sGizmo : stationaryGizmos) {
+			if (mGizmoBounds.intersects(sGizmo.getDrawingShape().getBounds())) {
+				spaceOccupied = true;
+			}
+		}
+
+		// Check for any overlapping Moving Gizmos
+		for (AMovingGizmo g : movingGizmos) {
+			Rectangle gBounds = g.getDrawingShape().getBounds();
+
+			if (mGizmoBounds.intersects(gBounds)) {
+				spaceOccupied = true;
+			}
+		}
+
+		return spaceOccupied;
+	}
+
+	/**
+	 * TODO Helper Method
+	 **/
+	private boolean checkForWalls(AMovingGizmo mGizmo, int new_x, int new_y) {
+		boolean outsideWall = false;
+
+		Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+
+
+		// only need to check for RHS overlap due to all Stationary Gizmo starting from Top-Left corner of a square
+		if ((new_x + mGizmoBounds.getWidth()) > gws.getWidthInL() * L ||
+				(new_y + mGizmoBounds.getHeight()) > gws.getHeightInL() * L) {
+			outsideWall = true;
+		}
+
+		return outsideWall;
+	}
+
+
 	@Override
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y) {
 		int gizmosX_in_L;
@@ -632,7 +674,7 @@ public class MainEngine extends Observable implements IMainEngine {
 			customConnections.removeAllKeyBindings(gizmo);
 		}
 	}
-	
+
 	@Override
 	public void addConnection(AGizmoComponent g1, AGizmoComponent g2) {
 		if (g2 != null) {
