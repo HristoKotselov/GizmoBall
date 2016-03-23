@@ -68,8 +68,11 @@ public class BuildModeButtonListener implements ActionListener {
 					double s = buildMenu.getBallSpeedFromGUI() * IMainEngine.L;
 
 					Vect v = new Vect(new Angle(r), s);
-					ball.setInitialVelo(v);
-					model.reset();
+
+					if (ball != null) {
+						ball.setInitialVelo(v);
+						model.reset();
+					}
 
 					// Op successful!
 					gameWindow.setActionTipsTextArea(ActionTipDialogue.ballActionTip());

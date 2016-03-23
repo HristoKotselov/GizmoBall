@@ -228,7 +228,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void action() {
-		System.out.println("triggered");
 		flippingForward = !flippingForward;
 	}
 
@@ -237,7 +236,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public boolean rotate(int degree) {
-		// TODO Validation
 		rotationAngle = (rotationAngle + degree) % 360;
 
 		updateCollections();
@@ -251,8 +249,6 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
-		// TODO Validation
-
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 
 		updateCollections();
@@ -281,6 +277,11 @@ public class Flipper extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void reset() {
 		// TODO get Flipper to default position
+		flippingForward = false;
+		stationary = true;
+
+		gameplayRotation(-gameplayRotation);
+		gameplayRotation = 0;
 	}
 
 

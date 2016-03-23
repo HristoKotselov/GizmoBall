@@ -118,7 +118,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 					break;
 
-				case "Add Ball":
+				case "Edit Ball Settings":
 					try {
 						double angle = bm.getBallDirectionFromGUI();
 						double speed = bm.getBallSpeedFromGUI() * IMainEngine.L;
