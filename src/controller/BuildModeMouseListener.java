@@ -71,7 +71,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 		if (gameWindow.isBuildMode() || pm.isDynamicEditEnabled()) {
 			x = e.getX();
 			y = e.getY();
-			int L = m.getLInPixels();
+			int L = IMainEngine.L;
 			int grid_tile_x = x / L;
 			int grid_tile_y = y / L;
 
@@ -122,7 +122,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				case "Add Ball":
 					try {
 						double angle = bm.getBallDirectionFromGUI();
-						double speed = bm.getBallSpeedFromGUI() * m.getLInPixels();
+						double speed = bm.getBallSpeedFromGUI() * IMainEngine.L;
 
 						// require unique ID for each Ball as they can be at same x/y now (due to multiple balls being able to be placed in
 						// Absorber)
@@ -246,7 +246,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-
+		board.requestFocusInWindow();
 	}
 
 	@Override

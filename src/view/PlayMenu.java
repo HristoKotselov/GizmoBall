@@ -13,9 +13,6 @@ public class PlayMenu implements IPlayMenu {
 	/* GUI */
 	private JPanel buttonMenu;
 
-	/** Required as a reference for Controllers **/
-	private IGameWindow gameWindow;
-
 	/* Model */
 	private IMainEngine model;
 
@@ -23,12 +20,11 @@ public class PlayMenu implements IPlayMenu {
 	private PlayModeButtonListener playModeAL;
 	// private StartGameListener startGameAL;
 	// private StopGameListener stopGameAL;
-	
+
 	private JCheckBox dynamicEdit;
 
-	public PlayMenu(IMainEngine model, IGameWindow gameWindow) {
+	public PlayMenu(IMainEngine model) {
 		this.model = model;
-		this.gameWindow = gameWindow;
 		initialize();
 	}
 
@@ -37,7 +33,7 @@ public class PlayMenu implements IPlayMenu {
 	 */
 	private void initialize() {
 		// TODO the listeners should have been passed through parameter
-		playModeAL = new PlayModeButtonListener(model, gameWindow);
+		playModeAL = new PlayModeButtonListener(model);
 		// startGameAL = new StartGameListener(model);
 		// stopGameAL = new StopGameListener(model);
 
@@ -68,15 +64,6 @@ public class PlayMenu implements IPlayMenu {
 		reload.addActionListener(playModeAL);
 		reload.setFont(new Font("Arial", Font.PLAIN, 20));
 
-		// JButton shoot = new JButton("<html>Shoot ball<br />(idea)</html>");
-		// shoot.setFont(new Font("Arial", Font.PLAIN, 30));
-
-		JButton buildMode = new JButton("Build Mode");
-		buildMode.setActionCommand("buildMode");
-		buildMode.setFocusable(false);
-		buildMode.addActionListener(playModeAL);
-		buildMode.setFont(new Font("Arial", Font.PLAIN, 20));
-
 		dynamicEdit = new JCheckBox(" Enable Dynamic Editing");
 		dynamicEdit.setActionCommand("dynamicedit");
 		dynamicEdit.setFocusable(false);
@@ -88,8 +75,6 @@ public class PlayMenu implements IPlayMenu {
 		buttonMenu.add(stop);
 		buttonMenu.add(tick);
 		buttonMenu.add(reload);
-		// buttonMenu.add(shoot);
-//		buttonMenu.add(buildMode);
 		buttonMenu.add(dynamicEdit);
 
 	}

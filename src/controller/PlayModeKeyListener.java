@@ -13,13 +13,11 @@ public class PlayModeKeyListener implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("keypress");
 		model.trigger(e.getKeyCode(), KeyEvent.KEY_PRESSED);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		System.out.println("keyrelease");
 		model.trigger(e.getKeyCode(), KeyEvent.KEY_RELEASED);
 	}
 

@@ -1,10 +1,8 @@
 package view;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Point;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -79,7 +77,7 @@ public class GameWindow implements IGameWindow {
 		mntmOpen.setActionCommand("load");
 		mntmOpen.addActionListener(loadFileAL);
 		mnFolio.add(mntmOpen);
-		
+
 		JMenuItem mntmSave = new JMenuItem("Save");
 		mntmSave.setActionCommand("save");
 		mntmSave.addActionListener(saveFileAL);
@@ -113,11 +111,11 @@ public class GameWindow implements IGameWindow {
 		gameWindow.add(separator1);
 
 
-//		sidebarPanel = new JPanel(new CardLayout());
 		sidebarPanel = new JTabbedPane();
+		sidebarPanel.setFocusable(false);
 
 		buildmenu = new BuildMenu(model, this);
-		playmenu = new PlayMenu(model, this);
+		playmenu = new PlayMenu(model);
 
 		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
 		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
@@ -155,33 +153,17 @@ public class GameWindow implements IGameWindow {
 		gameWindow.setVisible(true);
 	}
 
-	@Override
-	public void setMode(String mode) {
-//		sidebarPanel.
-		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
-		cl.show(sidebarPanel, mode);
-
-		gameWindow.setTitle(mode);
-		updateCoordsLabel(0, 0);
-	}
-
 	public void updateCoordsLabel(int x, int y) {
-		if (gameWindow.getTitle().equals("Build Mode") || playmenu.isDynamicEditEnabled()) {
+		if (isBuildMode() || playmenu.isDynamicEditEnabled()) {
 			String xP = String.format("%03d", x);
 			String yP = String.format("%03d", y);
-			String xG = String.format("%02d", x / model.getLInPixels());
-			String yG = String.format("%02d", y / model.getLInPixels());
+			String xG = String.format("%02d", x / IMainEngine.L);
+			String yG = String.format("%02d", y / IMainEngine.L);
 
 			coords.setText("X: " + xG + " (" + xP + "), Y: " + yG + " (" + yP + ")");
 		} else {
 			coords.setText("");
 		}
-	}
-
-	@Override
-	public Point getCoords() {
-		Point p = new Point();
-		return p;
 	}
 
 	@Override
