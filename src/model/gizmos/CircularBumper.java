@@ -79,9 +79,19 @@ public class CircularBumper extends AStationaryGizmo {
 	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		System.out.println("Circle bumper triggered");
+		timeTilRevert = 3;
+		setColour(Color.YELLOW);
 	}
+
+	@Override
+	public void update(double moveTime) {
+		timeTilRevert -= moveTime;
+
+		if (timeTilRevert <= 0) {
+			timeTilRevert = 0;
+			reset();
+		}
+	};
 	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#rotate(int)

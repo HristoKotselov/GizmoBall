@@ -1,10 +1,8 @@
 package view;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Point;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -12,10 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-
 import controller.BuildModeButtonListener;
 import controller.BuildModeMouseListener;
 import controller.LoadFileListener;
@@ -29,11 +26,11 @@ public class GameWindow implements IGameWindow {
 
 	/* GUI components */
 	private JFrame gameWindow;
-	private JPanel sidebarPanel;
+	private JTabbedPane sidebarPanel;
 	private BuildMenu buildmenu;
 	private PlayMenu playmenu;
 	private GameBoard board;
-	
+
 	private JLabel coords;
 	private JTextArea actionTipsTextArea;
 
@@ -58,12 +55,11 @@ public class GameWindow implements IGameWindow {
 	}
 
 	private void initialiseBuildWindow() {
-		gameWindow = new JFrame("Build Mode");
+		gameWindow = new JFrame("Gizmoball");
 		gameWindow.setBounds(100, 100, 750, 500);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		IBuildMenu iBuildMenu = buildmenu;			// must be passed as interface instead to hide implementation
-		buildModeAL = new BuildModeButtonListener(model, this, iBuildMenu);
+
+		buildModeAL = new BuildModeButtonListener(model, this, buildmenu);
 
 		// start of drop menu
 		JMenuBar menuBar = new JMenuBar();
@@ -72,7 +68,12 @@ public class GameWindow implements IGameWindow {
 		JMenu mnFolio = new JMenu("Game");
 		menuBar.add(mnFolio);
 
-		JMenuItem mntmOpen = new JMenuItem("Load");
+		JMenuItem mntmReset = new JMenuItem("New");
+		mntmReset.setActionCommand("resetBoard");
+		mntmReset.addActionListener(buildModeAL);
+		mnFolio.add(mntmReset);
+
+		JMenuItem mntmOpen = new JMenuItem("Open");
 		mntmOpen.setActionCommand("load");
 		mntmOpen.addActionListener(loadFileAL);
 		mnFolio.add(mntmOpen);
@@ -81,15 +82,10 @@ public class GameWindow implements IGameWindow {
 		mntmSave.setActionCommand("save");
 		mntmSave.addActionListener(saveFileAL);
 		mnFolio.add(mntmSave);
-		
-		JMenuItem mntmReset = new JMenuItem("New Board");
-		mntmReset.setActionCommand("resetBoard");
-		mntmReset.addActionListener(buildModeAL);
-		mnFolio.add(mntmReset);
-		
+
 		JMenu edFolio = new JMenu("Edit");
-		menuBar.add(edFolio);
-		
+//		menuBar.add(edFolio);
+
 		JMenuItem mntmUndo = new JMenuItem("Undo");
 		mntmUndo.setActionCommand("undo");
 		mntmUndo.addActionListener(buildModeAL);
@@ -115,20 +111,21 @@ public class GameWindow implements IGameWindow {
 		gameWindow.add(separator1);
 
 
-		sidebarPanel = new JPanel(new CardLayout());
+		sidebarPanel = new JTabbedPane();
+		sidebarPanel.setFocusable(false);
 
 		buildmenu = new BuildMenu(model, this);
-		playmenu = new PlayMenu(model, this);
+		playmenu = new PlayMenu(model);
 
 		sidebarPanel.add(buildmenu.getMenu(), "Build Mode");
 		sidebarPanel.add(playmenu.getMenu(), "Play Mode");
 
 
-		board = new GameBoard(model, buildmenu, this);
-		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu, this);
+		board = new GameBoard(model, buildmenu, playmenu, this);
+		BuildModeMouseListener l = new BuildModeMouseListener(board, model, buildmenu, playmenu, this);
 		board.addMouseListener(l);
 		board.addMouseMotionListener(l);
-		
+
 		PlayModeKeyListener kl = new PlayModeKeyListener(model);
 		MagicKeyListenerWrapper mkl = new MagicKeyListenerWrapper(kl);
 		board.addKeyListener(mkl);
@@ -156,21 +153,12 @@ public class GameWindow implements IGameWindow {
 		gameWindow.setVisible(true);
 	}
 
-	@Override
-	public void setMode(String mode) {
-		CardLayout cl = (CardLayout) sidebarPanel.getLayout();
-		cl.show(sidebarPanel, mode);
-
-		gameWindow.setTitle(mode);
-		updateCoordsLabel(0, 0);
-	}
-
 	public void updateCoordsLabel(int x, int y) {
-		if (gameWindow.getTitle().equals("Build Mode")) {
+		if (isBuildMode() || playmenu.isDynamicEditEnabled()) {
 			String xP = String.format("%03d", x);
 			String yP = String.format("%03d", y);
-			String xG = String.format("%02d", x / model.getLInPixels());
-			String yG = String.format("%02d", y / model.getLInPixels());
+			String xG = String.format("%02d", x / IMainEngine.L);
+			String yG = String.format("%02d", y / IMainEngine.L);
 
 			coords.setText("X: " + xG + " (" + xP + "), Y: " + yG + " (" + yP + ")");
 		} else {
@@ -179,17 +167,11 @@ public class GameWindow implements IGameWindow {
 	}
 
 	@Override
-	public Point getCoords() {
-		Point p = new Point();
-		return p;
-	}
-
-	@Override
 	public String getFile(String buttonText, String lastLocation) {
 		JFileChooser f = new JFileChooser();
-		
+
 		// set JFileChooser to user's last location, for quickness
-		if(lastLocation != null){
+		if (lastLocation != null) {
 			File fileLoc = new File(lastLocation);
 			f.setCurrentDirectory(fileLoc);
 		}
@@ -205,13 +187,17 @@ public class GameWindow implements IGameWindow {
 	}
 
 	@Override
-	public void setActionTipsTextArea(String message){
+	public void setActionTipsTextArea(String message) {
 		actionTipsTextArea.setForeground(Color.black);
 		actionTipsTextArea.setText(message);
 	}
-	
+
 	@Override
-	public void setActionTipsTextAreaColour(Color colour){
+	public void setActionTipsTextAreaColour(Color colour) {
 		actionTipsTextArea.setForeground(colour);
+	}
+
+	public boolean isBuildMode() {
+		return sidebarPanel.getSelectedIndex() == 0;
 	}
 }

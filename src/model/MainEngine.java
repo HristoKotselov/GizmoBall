@@ -1,14 +1,15 @@
 package model;
 
+import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+import model.gizmos.Absorber;
 import model.gizmos.Ball;
 import model.gizmos.Flipper;
 import physics.Angle;
@@ -25,7 +26,7 @@ public class MainEngine extends Observable implements IMainEngine {
 	private Map<String, AGizmoComponent> gizmos;
 
 	// Sub-set of All Gizmos
-	private Set<Ball> ballSet;
+	private Ball ball;
 	private Set<AStationaryGizmo> stationaryGizmos;
 	private Set<AMovingGizmo> movingGizmos;
 
@@ -44,11 +45,8 @@ public class MainEngine extends Observable implements IMainEngine {
 	 **/
 	private double moveTime = 1.0 / 60.0; // 60 fps
 
-	private boolean isPlaying; // used to tell Keyboard ActionListeners when they should be active (only when the game is running)
-
 	public MainEngine() {
 		gizmos = new HashMap<String, AGizmoComponent>();
-		ballSet = new HashSet<Ball>();
 
 		stationaryGizmos = new HashSet<AStationaryGizmo>();
 		movingGizmos = new HashSet<AMovingGizmo>();
@@ -62,7 +60,11 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	// TODO Rename to updatePhysics
 	@Override
-	public void moveBalls() {
+	public boolean moveBalls() {
+		if (ball == null) {
+			return false;
+		}
+
 		// Friction - from 6.170 Final Project Gizmoball
 		double mu1 = physicsSettings.getFrictionCoef1();
 		double mu2 = physicsSettings.getFrictionCoef2();
@@ -72,12 +74,8 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		double frictionScale;
 
-		// Need to apply the Physics to all the balls before the collision
-		// prediction happen
-		for (Ball ball : ballSet) {
-			if (ball.stopped()) { // if ball stopped, then no calculation will be needed
-				continue;
-			}
+		// Need to apply the Physics to all the balls before the collision prediction happen
+		if (!ball.stopped()) { // if ball stopped, then no calculation will be needed
 
 			// Apply friction to Ball
 			frictionScale = 1 - mu1 * moveTime - ball.getVelo().length() * mu2 * moveTime;
@@ -88,30 +86,17 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 
 
-		// called to get a list of collisions
-		List<CollisionDetails> collisionList = calcTimesUntilCollision();
-
-		// Temp variables setup
-		Ball ball;
-		double time = moveTime;
-		double tuc;
+		// called to get collision details
+		CollisionDetails cd = calcTimeUntilCollision();
 
 		// Find the time until the nearest collision
-		for (CollisionDetails cd : collisionList) {
-			tuc = cd.getTuc();
-			time = Math.min(time, tuc);
-		}
+		double tuc = cd.getTuc();
+		double time = Math.min(moveTime, tuc);
 
-		// Move balls, and if necessary, handle collisions
-		for (CollisionDetails cd : collisionList) {
-			ball = cd.getBall();
-			tuc = cd.getTuc();
+		moveBallAtCurrentVelo(time);
 
-			moveBallAtCurrentVelo(ball, time);
-
-			if (time == tuc) {
-				handleCollision(cd);
-			}
+		if (time == tuc) {
+			handleCollision(cd);
 		}
 
 		// Update other gizmos
@@ -121,9 +106,11 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		// Notify observers and redraw updated view
 		update();
+
+		return true;
 	}
 
-	public void moveBallAtCurrentVelo(Ball ball, double time) {
+	public void moveBallAtCurrentVelo(double time) {
 		double newX = 0.0;
 		double newY = 0.0;
 		double xVel = ball.getVelo().x();
@@ -140,119 +127,108 @@ public class MainEngine extends Observable implements IMainEngine {
 	 * 
 	 * @return
 	 */
-	private List<CollisionDetails> calcTimesUntilCollision() {
+	private CollisionDetails calcTimeUntilCollision() {
+		// Find Time Until Collision and also, if there is a collision, the new speed vector.
+		// Create a physics.Circle from Ball
+		Circle ballCircle = ball.getCircle();
+		Vect ballVelocity = ball.getVelo();
+		Vect newVelo = new Vect(0, 0);
 
-		List<CollisionDetails> collisionList = new ArrayList<CollisionDetails>();
+		// Now find shortest time to hit a vertical line or a wall line
+		double shortestTime = Double.MAX_VALUE;
+		double time = 0.0;
 
-		for (Ball ball : ballSet) {
+		String colliderID = null; // the Gizmo component that the ball will collide with in a collision prediction
 
-			if (ball.stopped()) { // if ball stopped, then no calculation will be needed
-				continue;
+		// Time to collide with 4 walls
+		Set<LineSegment> lss = gws.getLineSegments();
+		for (LineSegment line : lss) {
+			time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
+			if (time < shortestTime) {
+				shortestTime = time;
+				newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
+				colliderID = "Wall";
 			}
+		}
 
+		// Time to collide with all Gizmos
+		Set<Circle> circleSet;
+		Set<LineSegment> lsSet;
 
-			// Find Time Until Collision and also, if there is a collision, the new speed vector.
-			// Create a physics.Circle from Ball
-			Circle ballCircle = ball.getCircle();
-			Vect ballVelocity = ball.getVelo();
-			Vect newVelo = new Vect(0, 0);
+		Collection<AGizmoComponent> allGizmos = getAllGizmos();
 
-			// Now find shortest time to hit a vertical line or a wall line
-			double shortestTime = Double.MAX_VALUE;
-			double time = 0.0;
+		for (AGizmoComponent gizmo : allGizmos) {
 
-			String colliderID = null; // the Gizmo component that the ball will collide with in a collision prediction
+			if (gizmo instanceof Flipper) {
 
-			// Time to collide with 4 walls
-			Set<LineSegment> lss = gws.getLineSegments();
-			for (LineSegment line : lss) {
-				time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
-				if (time < shortestTime) {
-					shortestTime = time;
-					newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
-					colliderID = "Wall";
+				Flipper flipper = (Flipper) gizmo;
+				lsSet = flipper.getLineSeg();
+				circleSet = flipper.getCircles();
+
+				double angVel = Math.toRadians(1080);
+				Vect rotPoint = flipper.getRotationPoint();
+
+				if (flipper.isStationary()) {
+					angVel = 0;
 				}
-			}
 
-			// Time to collide with all Gizmos
-			Set<Circle> circleSet;
-			Set<LineSegment> lsSet;
+				if (flipper.getOrientation() == Flipper.LEFT) {
+					angVel = -angVel;
+				}
 
-			Collection<AGizmoComponent> allGizmos = getAllGizmos();
-
-			for (AGizmoComponent gizmo : allGizmos) {
-
-				if (gizmo instanceof Flipper) {
-
-					Flipper flipper = (Flipper) gizmo;
-					lsSet = flipper.getLineSeg();
-					circleSet = flipper.getCircles();
-
-					double angVel = Math.toRadians(1080);
-					Vect rotPoint = flipper.getRotationPoint();
-
-					if (flipper.isStationary()) {
-						angVel = 0;
+				for (Circle circle : circleSet) {
+					time = Geometry.timeUntilRotatingCircleCollision(circle, rotPoint, angVel, ballCircle, ballVelocity);
+					if (time < shortestTime) {
+						shortestTime = time;
+						newVelo = Geometry.reflectRotatingCircle(circle, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
+						colliderID = flipper.getGizmoID();
 					}
-
-					if (flipper.getOrientation() == Flipper.LEFT) {
-						angVel = -angVel;
+				}
+				for (LineSegment line : lsSet) {
+					time = Geometry.timeUntilRotatingWallCollision(line, rotPoint, angVel, ballCircle, ballVelocity);
+					if (time < shortestTime) {
+						shortestTime = time;
+						newVelo = Geometry.reflectRotatingWall(line, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
+						colliderID = flipper.getGizmoID();
 					}
+				}
 
-					for (Circle circle : circleSet) {
-						time = Geometry.timeUntilRotatingCircleCollision(circle, rotPoint, angVel, ballCircle, ballVelocity);
-						if (time < shortestTime) {
-							shortestTime = time;
-							newVelo = Geometry.reflectRotatingCircle(circle, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
-							colliderID = flipper.getGizmoID();
-						}
+
+
+			} else {
+				circleSet = gizmo.getCircles();
+
+				// Checking collision with all the Circles
+				for (Circle circle : circleSet) {
+					time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+					if (time < shortestTime) {
+						shortestTime = time;
+						newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);
+						colliderID = gizmo.getGizmoID();
 					}
+				}
+
+				if (gizmo instanceof ILineSegmentCollider) {
+					lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
+
+					// Checking collision with all the Line Segments
 					for (LineSegment line : lsSet) {
-						time = Geometry.timeUntilRotatingWallCollision(line, rotPoint, angVel, ballCircle, ballVelocity);
+						time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
 						if (time < shortestTime) {
 							shortestTime = time;
-							newVelo = Geometry.reflectRotatingWall(line, rotPoint, angVel, ballCircle, ballVelocity, 0.95);
-							colliderID = flipper.getGizmoID();
-						}
-					}
-
-
-
-				} else {
-					circleSet = gizmo.getCircles();
-
-					// Checking collision with all the Circles
-					for (Circle circle : circleSet) {
-						time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
-						if (time < shortestTime) {
-							shortestTime = time;
-							newVelo = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1.0);
+							newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
 							colliderID = gizmo.getGizmoID();
 						}
 					}
-
-					if (gizmo instanceof ILineSegmentCollider) {
-						lsSet = ((ILineSegmentCollider) gizmo).getLineSeg();
-
-						// Checking collision with all the Line Segments
-						for (LineSegment line : lsSet) {
-							time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
-							if (time < shortestTime) {
-								shortestTime = time;
-								newVelo = Geometry.reflectWall(line, ballVelocity, 1.0);
-								colliderID = gizmo.getGizmoID();
-							}
-						}
-					}
 				}
-
 			}
 
-			CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID, this);
-			collisionList.add(cd);
 		}
 
-		return collisionList;
+
+		CollisionDetails cd = new CollisionDetails(shortestTime, newVelo, ball, colliderID, this);
+
+		return cd;
 	}
 
 
@@ -302,30 +278,9 @@ public class MainEngine extends Observable implements IMainEngine {
 		return moveTime;
 	}
 
-
-	@Override
-	public void setBallSpeed(Ball b, Vect velo) {
-		// TODO Auto-generated method stub
-	}
-
 	@Override
 	public IPhysicsConfig getPhysicsConfig() {
 		return physicsSettings;
-	}
-
-	@Override
-	public void start() {
-		isPlaying = true;
-	}
-
-	@Override
-	public void stop() {
-		isPlaying = false;
-	}
-
-	@Override
-	public boolean isPlaying() {
-		return isPlaying;
 	}
 
 	@Override
@@ -333,6 +288,8 @@ public class MainEngine extends Observable implements IMainEngine {
 		for (AGizmoComponent gizmo : getAllGizmos()) {
 			gizmo.reset();
 		}
+
+		ball.reset();
 
 		// Update view
 		update();
@@ -343,7 +300,13 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
 
-		if (gizmo instanceof AStationaryGizmo) {
+		// ... really to check if pointed location contains a Absorber
+		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(gizmo.getX() / L, gizmo.getY() / L);
+
+		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
+			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
+
+		} else if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 			int grid_tile_x = sGizmo.getX() / L;
 			int grid_tile_y = sGizmo.getY() / L;
@@ -358,6 +321,7 @@ public class MainEngine extends Observable implements IMainEngine {
 				// Add stationary gizmo to Stationary Gizmo Set
 				stationaryGizmos.add(sGizmo);
 			}
+
 		} else if (gizmo instanceof AMovingGizmo) {
 			AMovingGizmo mGizmo = (AMovingGizmo) gizmo;
 			int x = mGizmo.getX();
@@ -366,28 +330,55 @@ public class MainEngine extends Observable implements IMainEngine {
 			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(mGizmo, x, y);
 
+			// Check for the walls
 			outsideWall = checkForWalls(mGizmo, x, y);
 
 			if (!spaceOccupied && !outsideWall) {
 				// Add moving gizmo to Moving Gizmo Set
-				movingGizmos.add(mGizmo);
+//				movingGizmos.add(mGizmo);
 
 				// if moving Gizmo is a Ball, then we add it to a special subset
 				if (mGizmo instanceof Ball) {
-					ballSet.add((Ball) mGizmo);
+					ball = ((Ball) mGizmo);
 				}
 			}
 
 		}
 
-		if (!spaceOccupied && !outsideWall) {
+		if (!spaceOccupied && !outsideWall && !(gizmo instanceof Ball)) {
+			update();
+
 			// Add new gizmo to the map of ALL Gizmos
-			gizmos.put(gizmo.getGizmoID(), gizmo);
+			if (gizmos.put(gizmo.getGizmoID(), gizmo) == null) {
+				return true;
+			}
 		}
 
-		update();
-
 		return false;
+
+	}
+
+	private void setupBallInAbsorber(Ball ball, Absorber absorber) {
+		// register the new Ball
+		this.ball = ball;
+		movingGizmos.add(ball);
+
+		// procedures for registering the ball into the Absorber
+		int absorberX = absorber.getX();
+		int absorberY = absorber.getY();
+		int absorberWidthInPixels = absorber.getBMWidth() * L;
+		int absorberHeighInPixels = absorber.getBMHeight() * L;
+
+		ball.stop();
+		ball.setX((int) (absorberX + absorberWidthInPixels - (0.25 * MainEngine.L)));
+		ball.setY((int) (absorberY + absorberHeighInPixels - (0.25 * MainEngine.L)));
+		ball.setMovingX(absorberX + absorberWidthInPixels - (0.25 * MainEngine.L));
+		ball.setMovingY(absorberY + absorberHeighInPixels - (0.25 * MainEngine.L));
+		absorber.addCapturedBall(ball);
+
+		ball.setInitialVelo(new Vect(Angle.DEG_270, 0)); // make the initial velocity 0
+		absorber.addInitialCapturedBall(ball); // so Absorber retains the balls even if reseted
+		ball.setStartInAbsorber(absorber); // so Ball have a reference to the Absorber & doesn't fall out of the Absorber when the game reset
 	}
 
 	@Override
@@ -396,12 +387,20 @@ public class MainEngine extends Observable implements IMainEngine {
 		// TODO remove connections (?)
 
 		gizmos.remove(gizmo.getGizmoID());
+
 		if (gizmo instanceof AStationaryGizmo) {
 			stationaryGizmos.remove(gizmo);
 		} else if (gizmo instanceof AMovingGizmo) {
 			movingGizmos.remove(gizmo);
-		} else if (gizmo instanceof Ball) {
-			ballSet.remove(gizmo);
+		}
+		
+		if (gizmo instanceof Ball) {
+			ball = null;
+		} 
+		if(gizmo instanceof Absorber){
+			Absorber abs = (Absorber) gizmo;
+			
+			abs.removeALLCapturedBalls();
 		}
 
 		update();
@@ -410,10 +409,26 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public void rotateGizmo(AGizmoComponent gizmo, int degree) {
+	public boolean rotateGizmo(AGizmoComponent gizmo, int degree) {
 		// TODO handle null
 		gizmo.rotate(degree);
+
+		// Check for any overlapping Moving Gizmos
+		for (AMovingGizmo mGizmo : movingGizmos) {
+			Rectangle gizmoBounds = gizmo.getDrawingShape().getBounds();
+
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+
+			if (gizmoBounds.intersects(mGizmoBounds)) {
+				gizmo.rotate(degree);
+				gizmo.rotate(degree);
+				gizmo.rotate(degree); // rotate 3 times back to original position
+				return false;
+			}
+		}
+
 		update();
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -422,10 +437,9 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
 		// TODO handle null
-		// TODO handle absorber off screen?
 		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
-
+		
 		if (gizmo instanceof AStationaryGizmo) {
 			AStationaryGizmo sGizmo = (AStationaryGizmo) gizmo;
 
@@ -449,7 +463,41 @@ public class MainEngine extends Observable implements IMainEngine {
 		return (!spaceOccupied && !outsideWall);
 	}
 
-	// TODO make moveGizmoByPixel()
+	public boolean moveGizmoByPixels(AMovingGizmo gizmo, int x, int y) {
+		boolean spaceOccupied = false, outsideWall = false;
+
+		// ... really to check if pointed location contains a Absorber
+		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(x / L, y / L);
+
+		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
+			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
+		} else {
+			// Check for any overlapping Gizmos
+			spaceOccupied = checkGizmoOverlap(gizmo, x, y);
+
+			// Check for the walls
+			outsideWall = checkForWalls(gizmo, x, y);
+			if (!spaceOccupied && !outsideWall) {
+				gizmo.move(x, y);
+				
+				// special action need to be done if the Ball is not in Absorber
+				if(gizmo instanceof Ball){
+					Ball ball = (Ball) gizmo;
+					
+					if(ball.getStartInAbsorber() != null){
+						// use Absorber's remove method to set the attributes for Ball to be out-of-Absorber
+						ball.getStartInAbsorber().removeCapturedBall(ball);
+					}
+				}
+			}
+		}
+		update();
+
+		return (!spaceOccupied && !outsideWall);
+
+
+
+	}
 
 	/**
 	 * TODO Helper Method
@@ -528,9 +576,8 @@ public class MainEngine extends Observable implements IMainEngine {
 		if (mGizmoX != new_x || mGizmoY != new_y) { // i.e. Is it Move Gizmo?
 			int diffInX = new_x - mGizmoX;
 			int diffInY = new_y - mGizmoY;
-			mGizmoBounds.setLocation(mGizmoX + diffInX, mGizmoY + diffInY);
+			mGizmoBounds.setLocation(mGizmoBounds.x + diffInX, mGizmoBounds.y + diffInY);
 		}
-
 
 		// Check for any overlapping Stationary Gizmos
 		for (AStationaryGizmo sGizmo : stationaryGizmos) {
@@ -588,17 +635,27 @@ public class MainEngine extends Observable implements IMainEngine {
 		return null;
 	}
 
+	@Override
+	public AMovingGizmo getMovingGizmoAt(int x, int y) {
+		Point mouseClick = new Point(x, y);
+
+		for (AMovingGizmo mGizmo : movingGizmos) {
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+
+			if (mGizmoBounds.contains(mouseClick)) {
+				return mGizmo;
+			}
+		}
+
+		return null;
+	}
+
 
 	// TODO make alternate version of getGizmoAt (double), that one will get
 	// called first in the BuildModeMouseListener
 
 	public AGizmoComponent getGizmo(String name) {
 		return gizmos.get(name);
-	}
-
-	@Override
-	public Map<String, AGizmoComponent> getGizmosMap() {
-		return gizmos;
 	}
 
 	@Override
@@ -611,22 +668,11 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public Collection<AStationaryGizmo> getAllStationaryGizmos() {
-		return stationaryGizmos;
-	}
-
-	@Override
-	public Collection<AMovingGizmo> getAllMovingGizmos() {
-		return movingGizmos;
-	}
-
-
-	@Override
 	public void clearAllGizmos() {
 		gizmos.clear();
 		stationaryGizmos.clear();
 		movingGizmos.clear();
-		ballSet.clear();
+		ball = null;
 
 		update();
 	}
@@ -653,11 +699,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
-	public int getLInPixels() {
-		return L;
-	}
-
-	@Override
 	public void trigger(int key, int type) {
 		Set<AGizmoComponent> s = customConnections.getKeyConnections(key, type);
 
@@ -668,10 +709,15 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void bindKey(AGizmoComponent gizmo, int key, int type) {
-		if (key != -1) {
-			customConnections.addKeyConnection(key, type, gizmo);
-		} else {
+		if (key == -1) {
 			customConnections.removeAllKeyBindings(gizmo);
+
+		} else if (type == -1) {
+			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_PRESSED);
+			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_RELEASED);
+
+		} else {
+			customConnections.addKeyConnection(key, type, gizmo);
 		}
 	}
 
@@ -684,7 +730,18 @@ public class MainEngine extends Observable implements IMainEngine {
 		}
 	}
 
-	private void update() {
+	@Override
+	public void removeConnection(AGizmoComponent g1, AGizmoComponent g2) {
+		customConnections.removeGizmoTriggerConnection(g1, g2);
+	}
+
+	@Override
+	public AMovingGizmo getBall() {
+		return ball;
+	}
+
+	@Override
+	public void update() {
 		setChanged();
 		notifyObservers();
 	}

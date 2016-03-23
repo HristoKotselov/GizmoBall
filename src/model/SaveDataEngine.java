@@ -141,11 +141,11 @@ public final class SaveDataEngine {
 						case "Ball":
 							name = st.nextToken();
 
-							int xpos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
-							int ypos = (int) (Double.parseDouble(st.nextToken()) * model.getLInPixels());
+							int xpos = (int) (Double.parseDouble(st.nextToken()) * IMainEngine.L);
+							int ypos = (int) (Double.parseDouble(st.nextToken()) * IMainEngine.L);
 
-							double xvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
-							double yvel = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double xvel = Double.parseDouble(st.nextToken()) * IMainEngine.L;
+							double yvel = Double.parseDouble(st.nextToken()) * IMainEngine.L;
 
 							Vect v = new Vect(xvel, yvel);
 
@@ -179,14 +179,14 @@ public final class SaveDataEngine {
 							break;
 
 						case "Gravity":
-							double gravity = Double.parseDouble(st.nextToken()) * model.getLInPixels();
+							double gravity = Double.parseDouble(st.nextToken()) * IMainEngine.L;
 							model.getPhysicsConfig().setGravity(gravity);
 							gravitySet = true;
 							break;
 
 						case "Friction":
 							double mu1 = Double.parseDouble(st.nextToken());
-							double mu2 = Double.parseDouble(st.nextToken()) / model.getLInPixels();
+							double mu2 = Double.parseDouble(st.nextToken()) / IMainEngine.L;
 
 							model.getPhysicsConfig().setFrictionCoef1(mu1);
 							model.getPhysicsConfig().setFrictionCoef2(mu2);
@@ -229,6 +229,8 @@ public final class SaveDataEngine {
 				bw.write(g.toString() + "\n");
 			}
 
+			bw.write(model.getBall().toString() + "\n");
+
 			Connections c = model.getConnections();
 
 			for (Map.Entry<Integer, Set<AGizmoComponent>> entry : c.getKeyPressBindings().entrySet()) {
@@ -242,7 +244,7 @@ public final class SaveDataEngine {
 					bw.write("KeyConnect key " + entry.getKey() + " up " + g.getGizmoID() + "\n");
 				}
 			}
-			
+
 			for (Map.Entry<AGizmoComponent, Set<AGizmoComponent>> entry : c.getConnections().entrySet()) {
 				for (AGizmoComponent g : entry.getValue()) {
 					bw.write("Connect " + entry.getKey().getGizmoID() + " " + g.getGizmoID() + "\n");

@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import model.AGizmoComponent;
 import model.AStationaryGizmo;
 import model.CollisionDetails;
 import model.ILineSegmentCollider;
@@ -23,6 +21,10 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Absorber exclusive variables */
+
+	private List<Ball> initialCapturedBalls;
+
+
 	/**
 	 * The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null.
 	 */
@@ -49,6 +51,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		bmWidth = grid_tile_width;
 		bmHeight = grid_tile_height;
 		capturedBalls = new ArrayList<Ball>();
+		initialCapturedBalls = new ArrayList<Ball>();
 
 
 		// Collection-speed up initialisation
@@ -133,28 +136,25 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Regular methods implementation */
-	
+
 
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggered()
 	 */
 	@Override
 	public void ballTriggered(CollisionDetails cd) {
-		double tuc = cd.getTuc();
-		Ball ball = cd.getBall();
 		MainEngine model = cd.getMainEngine();
-		
+
 		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
 		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
-		 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/
-		if (tuc == 0 && !handleAbsorberColi(cd)) { // tuc == 0 occur when the Ball is directly in contact the Line Segment
-			model.moveBallAtCurrentVelo(ball, model.getMoveTime());
+		 */
+		if (!handleAbsorberColi(cd)) {
+			model.moveBallAtCurrentVelo(model.getMoveTime());
 		}
 	}
-	
-	/**  TODO
-	 * HELPER method 
-	 * Return TRUE if outside absorber, return FALSE if inside absorber
+
+	/**
+	 * TODO HELPER method Return TRUE if outside absorber, return FALSE if inside absorber
 	 **/
 	private boolean handleAbsorberColi(CollisionDetails cd) {
 
@@ -207,6 +207,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Overwritten methods */
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
@@ -215,7 +216,17 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		// TODO Validation
 
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
+		int width_in_pixels = bmWidth * MainEngine.L;
+		int height_in_pixels = bmHeight * MainEngine.L;
 
+		for(Ball ball : capturedBalls){
+			ball.setMovingX(getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setMovingY(getY() + height_in_pixels - (0.25 * MainEngine.L));
+			ball.setX((int) (getX() + width_in_pixels - (0.25 * MainEngine.L)));
+			ball.setY((int) (getY() + height_in_pixels - (0.25 * MainEngine.L)));
+		}
+		
 		updateCollections();
 	}
 
@@ -225,6 +236,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void reset() {
 		capturedBalls.clear();
+		capturedBalls.addAll(initialCapturedBalls);
 	}
 
 	@Override
@@ -239,9 +251,29 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public void addCapturedBall(Ball b) {
 		capturedBalls.add(b);
 	}
+	
+	public void removeALLCapturedBalls() {
+		for(int i = 0; i < initialCapturedBalls.size(); i++){
+			removeCapturedBall(initialCapturedBalls.get(i));
+		}
+		
+		for(int i = 0; i < capturedBalls.size(); i++){
+			removeCapturedBall(capturedBalls.get(i));
+		}
+	}
+	
+	public void removeCapturedBall(Ball b) {
+		capturedBalls.remove(b);
+		initialCapturedBalls.remove(b);
+		b.setStartInAbsorber(null);
+		b.start();
+	}
 
 	public List<Ball> getCapturedBalls() {
 		return capturedBalls;
 	}
 
+	public void addInitialCapturedBall(Ball b) {
+		initialCapturedBalls.add(b);
+	}
 }
