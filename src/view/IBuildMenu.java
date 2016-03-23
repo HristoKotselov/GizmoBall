@@ -6,11 +6,19 @@ public interface IBuildMenu {
 
 	public String getSelectedFunction();
 
-	public double getBallDirection();
+	public double getBallDirectionFromGUI();
 
-	public double getBallSpeed();
+	public double getBallSpeedFromGUI();
+	
+	public double getFrictionCoef1FromGUI();
+	
+	public double getFrictionCoef2FromGUI();
+	
+	public double getGravityFromGUI();
 
 	public String getSelectedGizmo();
 
 	public String getKeyEventType();
+
+	public String getConnectFunction();
 }

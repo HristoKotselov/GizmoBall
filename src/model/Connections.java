@@ -26,13 +26,7 @@ public class Connections {
 		triggerMap = new HashMap<AGizmoComponent, Set<AGizmoComponent>>();
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param keyCode
-	 * @param gizmo
-	 * @return
-	 */
+
 	public Connections_Status.AC addKeyConnection(int keyCode, int type, AGizmoComponent gizmo) {
 		// parameter validation
 		if (gizmo == null ||
@@ -112,16 +106,18 @@ public class Connections {
 		}
 	}
 
-	public void clearKeyConnection(int keyCode, int type) {
+	public void clearKeyConnection(int keyCode, AGizmoComponent g, int type) {
 		Set<AGizmoComponent> gizmoSet;
-		
+
 		if (type == KeyEvent.KEY_PRESSED) {
 			gizmoSet = keyPressedMap.get(keyCode);
 		} else {
-			gizmoSet = keyPressedMap.get(keyCode);
+			gizmoSet = keyReleasedMap.get(keyCode);
 		}
-		
-		gizmoSet.clear();
+
+		if (gizmoSet != null) {
+			gizmoSet.remove(g);
+		}
 	}
 
 	public void clearALLKeyConnection(int type) {
@@ -187,34 +183,42 @@ public class Connections {
 	public void clearALLGizmoTriggerConnection() {
 		triggerMap.clear();
 	}
-	
-	public void removeAllKeyBindings(AGizmoComponent gizmo){
-		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyPressedMap.entrySet()){
-			for (AGizmoComponent g : e.getValue()){
-				if (g.getGizmoID().equals(gizmo.getGizmoID())){
+
+	public void removeAllKeyBindings(AGizmoComponent gizmo) {
+		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyPressedMap.entrySet()) {
+			for (AGizmoComponent g : e.getValue()) {
+				if (g.getGizmoID().equals(gizmo.getGizmoID())) {
 					removeKeyConnection(e.getKey(), KeyEvent.KEY_PRESSED, gizmo);
 				}
 			}
 		}
-		
-		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyReleasedMap.entrySet()){
-			for (AGizmoComponent g : e.getValue()){
-				if (g.getGizmoID().equals(gizmo.getGizmoID())){
+
+		for (Map.Entry<Integer, Set<AGizmoComponent>> e : keyReleasedMap.entrySet()) {
+			for (AGizmoComponent g : e.getValue()) {
+				if (g.getGizmoID().equals(gizmo.getGizmoID())) {
 					removeKeyConnection(e.getKey(), KeyEvent.KEY_RELEASED, gizmo);
 				}
 			}
 		}
 	}
 
-	
-	public Map<Integer, Set<AGizmoComponent>> getKeyPressBindings(){
+	public void removeAllGizmoConnections(AGizmoComponent gizmo) {
+		triggerMap.remove(gizmo);
+	}
+
+
+	public Map<Integer, Set<AGizmoComponent>> getKeyPressBindings() {
 		return keyPressedMap;
 	}
-	
-	public Map<Integer, Set<AGizmoComponent>> getKeyReleaseBindings(){
+
+	public Map<Integer, Set<AGizmoComponent>> getKeyReleaseBindings() {
 		return keyReleasedMap;
 	}
-	
+
+	public Map<AGizmoComponent, Set<AGizmoComponent>> getConnections() {
+		return triggerMap;
+	}
+
 //	keyPressedMap = kPressedMap;
 //	keyReleasedMap = kReleasedMap;
 //	triggerMap = gtMap;

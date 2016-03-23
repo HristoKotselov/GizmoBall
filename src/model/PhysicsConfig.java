@@ -1,6 +1,11 @@
 package model;
 
-public class PhysicsConfig {
+import java.util.Observable;
+
+public class PhysicsConfig extends Observable implements IPhysicsConfig {
+	public static final double DEFAULT_GRAVITY = 25.0 * MainEngine.L;
+	public static double DEFAULT_MU1 = 0.025;
+	public static double DEFAULT_MU2 = 0.025 / MainEngine.L;
 
 	// Friction
 	private double mu1;
@@ -9,24 +14,23 @@ public class PhysicsConfig {
 	// Gravity
 	private double gravity;
 
-	/* Default settings */
+	/* Custom Settings */
 	public PhysicsConfig() {
-		// Friction
-		mu1 = 0.025;
-		mu2 = 0.025 / MainEngine.L;
-
-		// Gravity
-		gravity = 25.0 * MainEngine.L;
+		gravity = DEFAULT_GRAVITY;
+		mu1 = DEFAULT_MU1;
+		mu2 = DEFAULT_MU2;
 	}
 
-	/* Custom Settings */
-	public PhysicsConfig(double mu, double mu2, double g) {
-		// TODO some validation
+	public PhysicsConfig(double gravity, double mu1, double mu2) {
+		this.gravity = gravity;
+		this.mu1 = mu1;
+		this.mu2 = mu2;
 	}
 
 	public boolean setGravity(double newGravity) {
-		// TODO some validation
 		gravity = newGravity;
+
+		update();
 		return true;
 	}
 
@@ -35,8 +39,9 @@ public class PhysicsConfig {
 	}
 
 	public boolean setFrictionCoef1(double mu) {
-		// TODO some validation
 		this.mu1 = mu;
+
+		update();
 		return true;
 	}
 
@@ -45,12 +50,24 @@ public class PhysicsConfig {
 	}
 
 	public boolean setFrictionCoef2(double mu2) {
-		// TODO some validation
 		this.mu2 = mu2;
+
+		update();
 		return true;
 	}
 
 	public double getFrictionCoef2() {
 		return mu2;
+	}
+
+	private void update() {
+		setChanged();
+		notifyObservers();
+	}
+
+	@Override
+	public String toString() {
+		return "Gravity " + gravity / MainEngine.L + "\n"
+				+ "Friction " + mu1 + " " + mu2 * MainEngine.L;
 	}
 }

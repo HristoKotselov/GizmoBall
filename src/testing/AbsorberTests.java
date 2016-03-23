@@ -3,11 +3,8 @@ package testing;
 /*
  * A test case to test the Absorber class
  */
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+import physics.Circle;
 import java.awt.Color;
 import java.awt.Shape;
 import java.util.ArrayList;
@@ -32,7 +29,10 @@ public class AbsorberTests {
 	Ball ball4 = new Ball("test4", Color.RED, 1, 1, test1, 2.0);
 	Ball ball5 = new Ball("test5", Color.RED, 1, 1, test1, 2.0);
 
-
+	/*
+	 * Standard test to ensure created absorbers with differing constructor
+	 * values are not identical objects
+	 */
 	@Test
 	public void testAbsorberCreation() {
 
@@ -41,6 +41,11 @@ public class AbsorberTests {
 
 	}
 
+	/*
+	 * returns true to ensure that absorber rotation has been successful Mainly
+	 * to check integrity of the method implementation ,as absorbers will
+	 * obviously not be rotated in gameplay
+	 */
 	@Test
 	public void testRoation() {
 		assertTrue(a.rotate(11));
@@ -48,6 +53,10 @@ public class AbsorberTests {
 		assertTrue(a.rotate(13));
 	};
 
+	/*
+	 * A test to check whether or not the absorbers trigger method deals with
+	 * the captured ball appropriately
+	 */
 	@Test
 	public void testCapturedBall() {
 		capturedBalls.add(ball);
@@ -57,7 +66,7 @@ public class AbsorberTests {
 		capturedBalls.add(ball5);
 
 		assertFalse(a.getCapturedBalls() == null);
-		a.triggerAction();
+		a.action();
 		capturedBalls.clear();
 		System.out.println("");
 		System.out.println("Clearing using clear");
@@ -67,26 +76,31 @@ public class AbsorberTests {
 		assertTrue(capturedBalls.isEmpty());
 	}
 
+	/*
+	 * Similar to above, but calls reset instead of explicitly calling clear
+	 */
 	@Test
 	public void testReset() {
-		capturedBalls.add(ball);
-		capturedBalls.add(ball2);
-		capturedBalls.add(ball3);
-		capturedBalls.add(ball4);
-		capturedBalls.add(ball5);
+		a.addCapturedBall(ball);
+		a.addCapturedBall(ball2);
+		a.addCapturedBall(ball3);
+		a.addCapturedBall(ball4);
+		a.addCapturedBall(ball5);
 
 		assertFalse(a.getCapturedBalls() == null);
-		a.triggerAction();
 		a.reset();
 		System.out.println("");
 		System.out.println("Clearing using reset");
 		for (int i = 0; i < capturedBalls.size(); i++) {
 			System.out.println(capturedBalls.get(i));
 		}
+
 		assertTrue(a.getCapturedBalls().isEmpty());
 	}
 
-
+	/*
+	 * Making sure the setX and getX methods are working
+	 */
 	@Test
 	public void testAbsorberSetGetX() {
 		a.setX(5);
@@ -105,6 +119,9 @@ public class AbsorberTests {
 		assertFalse(bX == cX);
 	}
 
+	/*
+	 * Making sure the setY and getY methods are working
+	 */
 	@Test
 	public void testAbsorberSetGetY() {
 		a.setY(5);
@@ -123,6 +140,9 @@ public class AbsorberTests {
 		assertFalse(bY == cY);
 	}
 
+	/*
+	 * Testing the get colour method of the absorber
+	 */
 	@Test
 	public void testAbsorberSetGetColor() {
 		a.setColour(Color.green);
@@ -141,6 +161,10 @@ public class AbsorberTests {
 		assertFalse(bColour == cColour);
 	}
 
+	/*
+	 * testing that the move method correctly changes certain properties of the
+	 * absorber
+	 */
 	@Test
 	public void testAbsorberMove() {
 		Absorber a1 = new Absorber("test", 1, 1, 1, 1, Color.red);
@@ -148,10 +172,13 @@ public class AbsorberTests {
 		assertFalse(a1 == b1);
 
 		a1.move(10, 10);
-		// deliberate fail
+
 		assertTrue(a1 != b1);
 	}
 
+	/*
+	 * Testing that the set of circles is not empty
+	 */
 	@Test
 	public void circleSetTest() {
 
@@ -159,12 +186,18 @@ public class AbsorberTests {
 		assertNotNull(testCirc);
 	}
 
+	/*
+	 * testing the return of the drawing shape
+	 */
 	@Test
 	public void returnDrawingShape() {
 		Shape s = a.getDrawingShape();
 		assertNotNull(s);
 	}
 
+	/*
+	 * Testing that the set of LineSegs is not empty
+	 */
 	@Test
 	public void lineSegSetTest() {
 
@@ -172,25 +205,25 @@ public class AbsorberTests {
 		assertNotNull(testSeg);
 	}
 
+	/*
+	 * A test to show that there is no captured ball beloning to the absorber
+	 * once it has been triggered
+	 */
 	@Test
 	public void triggerTest() {
 		// imitating a ball being captured in the absorber
 		a.addCapturedBall(ball);
 		// triggering the absorber, which should mean capturedBall == null
-		a.triggerAction();
-		// assigning the absorber's captured ball to a variable (SHOULD be null)
+		a.action();
 
+		List<Ball> capturedBalls = a.getCapturedBalls();
 
-		if (capturedBalls.size() != 0) {
-			Ball newBall = capturedBalls.get(0);
-
-			// fails if not null
-			assertNull(newBall);
-		} else {
-			assertTrue(capturedBalls.isEmpty());
-		}
+		assertTrue(capturedBalls.size() == 0);
 	}
 
+	/*
+	 * Testing that the toString method prints out correctly
+	 */
 	@Test
 	public void testToString() {
 		String test = "Absorber A1 1 1 2 2";

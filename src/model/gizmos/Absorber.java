@@ -3,11 +3,13 @@ package model.gizmos;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.ILineSegmentCollider;
 import model.MainEngine;
 import physics.Angle;
@@ -19,6 +21,10 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 
 	/* Absorber exclusive variables */
+
+	private List<Ball> initialCapturedBalls;
+
+
 	/**
 	 * The currently captured Ball within the Absorber. If there is no ball within the absorber, then this object becomes null.
 	 */
@@ -45,6 +51,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		bmWidth = grid_tile_width;
 		bmHeight = grid_tile_height;
 		capturedBalls = new ArrayList<Ball>();
+		initialCapturedBalls = new ArrayList<Ball>();
 
 
 		// Collection-speed up initialisation
@@ -130,13 +137,55 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 
 	/* Regular methods implementation */
 
+
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		MainEngine model = cd.getMainEngine();
+		
+		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
+		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
+		 */
+		if (!handleAbsorberColi(cd)) {
+			model.moveBallAtCurrentVelo(model.getMoveTime());
+		}
+	}
+
+	/**
+	 * HELPER method:
+	 * Return TRUE if outside absorber, return FALSE if inside absorber
+	 **/
+	private boolean handleAbsorberColi(CollisionDetails cd) {
+
+		Ball ball = cd.getBall();
+		int width_in_pixels = bmWidth * MainEngine.L;
+		int height_in_pixels = bmHeight * MainEngine.L;
+
+		// i.e. first collision BEFORE ball enter Absorber
+		Point2D ballCentre = new Point2D.Double(ball.getMovingX(), ball.getMovingY());
+
+		if (!capturedBalls.contains(ball) &&
+				!drawingShape.contains(ballCentre) // check if Ball is NOT inside Absorber
+		) {
+			ball.stop();
+			ball.setMovingX(getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setMovingY(getY() + height_in_pixels - (0.25 * MainEngine.L));
+			capturedBalls.add(ball);
+			return true;
+		} else { // i.e. second collision AFTER ball enter Absorber
+			return false; // nothing happens
+		}
+	}
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
+	public void action() {
 		System.out.println("Absorber triggered");
-		
+
 		if (!capturedBalls.isEmpty()) { // no ball in absorber = nothing happens
 			Ball ball = capturedBalls.remove(0);
 
@@ -159,15 +208,25 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	}
 
 	/* Overwritten methods */
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#move(int, int)
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
-		// TODO Validation
-
+		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
+		
+		int width_in_pixels = bmWidth * MainEngine.L;
+		int height_in_pixels = bmHeight * MainEngine.L;
 
+		for(Ball ball : capturedBalls){
+			ball.setMovingX(getX() + width_in_pixels - (0.25 * MainEngine.L));
+			ball.setMovingY(getY() + height_in_pixels - (0.25 * MainEngine.L));
+			ball.setX((int) (getX() + width_in_pixels - (0.25 * MainEngine.L)));
+			ball.setY((int) (getY() + height_in_pixels - (0.25 * MainEngine.L)));
+		}
+		
 		updateCollections();
 	}
 
@@ -177,6 +236,7 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	@Override
 	public void reset() {
 		capturedBalls.clear();
+		capturedBalls.addAll(initialCapturedBalls);
 	}
 
 	@Override
@@ -191,10 +251,29 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 	public void addCapturedBall(Ball b) {
 		capturedBalls.add(b);
 	}
+	
+	public void removeALLCapturedBalls() {
+		for(int i = 0; i < initialCapturedBalls.size(); i++){
+			removeCapturedBall(initialCapturedBalls.get(i));
+		}
+		
+		for(int i = 0; i < capturedBalls.size(); i++){
+			removeCapturedBall(capturedBalls.get(i));
+		}
+	}
+	
+	public void removeCapturedBall(Ball b) {
+		capturedBalls.remove(b);
+		initialCapturedBalls.remove(b);
+		b.setStartInAbsorber(null);
+		b.start();
+	}
 
 	public List<Ball> getCapturedBalls() {
 		return capturedBalls;
 	}
 
-
+	public void addInitialCapturedBall(Ball b) {
+		initialCapturedBalls.add(b);
+	}
 }

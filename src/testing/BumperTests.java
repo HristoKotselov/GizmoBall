@@ -1,14 +1,12 @@
 package testing;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import java.awt.Color;
-import java.awt.Shape;
 /*
  * A test case to test the Circular, Triangular and Square bumper classes
  */
+import static org.junit.Assert.*;
 import org.junit.Test;
+import java.awt.Color;
+import java.awt.Shape;
 import model.gizmos.CircularBumper;
 import model.gizmos.SquareBumper;
 import model.gizmos.TriangularBumper;
@@ -22,6 +20,9 @@ public class BumperTests {
 	SquareBumper square1 = new SquareBumper("square", 1, 2, Color.blue);
 	TriangularBumper triangle1 = new TriangularBumper("triangle", 1, 2, Color.blue);
 
+	/*
+	 * Testing that the toString method prints out correctly
+	 */
 	@Test
 	public void testtoString() {
 		String circ = "Circle circle 1 2";
@@ -32,6 +33,9 @@ public class BumperTests {
 		assertEquals(tri, triangle1.toString());
 	}
 
+	/*
+	 * Testing that a bumper rotates correctly
+	 */
 	@Test
 	public void rotateTest() {
 		assertTrue(circle1.rotate(12));
@@ -39,6 +43,9 @@ public class BumperTests {
 		assertTrue(triangle1.rotate(14));
 	}
 
+	/*
+	 * Testing that a bumper's drawing shape is not null
+	 */
 	@Test
 	public void drawingShapeTests() {
 		Shape c1 = circle1.getDrawingShape();

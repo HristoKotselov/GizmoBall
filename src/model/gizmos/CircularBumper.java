@@ -6,6 +6,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashSet;
 import java.util.Set;
 import model.AStationaryGizmo;
+import model.CollisionDetails;
 import model.MainEngine;
 import physics.Circle;
 
@@ -64,14 +65,33 @@ public class CircularBumper extends AStationaryGizmo {
 	
 
 /* Regular methods implementation */
+	
+	/* (non-Javadoc)
+	 * @see model.AGizmoComponent#triggered()
+	 */
+	@Override
+	public void ballTriggered(CollisionDetails cd) {
+		action();
+	}
+	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
-	public void triggerAction() {
-		// TODO Auto-generated method stub
-		System.out.println("Circle bumper triggered");
+	public void action() {
+		timeTilRevert = 3;
+		setColour(Color.YELLOW);
 	}
+
+	@Override
+	public void update(double moveTime) {
+		timeTilRevert -= moveTime;
+
+		if (timeTilRevert <= 0) {
+			timeTilRevert = 0;
+			reset();
+		}
+	};
 	
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#rotate(int)
@@ -87,7 +107,6 @@ public class CircularBumper extends AStationaryGizmo {
 	 */
 	@Override
 	public void move(int grid_tile_x, int grid_tile_y) {
-		// TODO Validation
 		
 		super.move(grid_tile_x * MainEngine.L, grid_tile_y * MainEngine.L);
 		

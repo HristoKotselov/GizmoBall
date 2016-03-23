@@ -16,7 +16,7 @@ public class KeyBindPopupListener implements KeyListener {
 		this.m = m;
 		this.g = g;
 		this.type = type;
-		
+
 		p = new KeyBindPopup(this);
 	}
 
@@ -30,8 +30,6 @@ public class KeyBindPopupListener implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("binding " + e.getKeyCode() + " to " + g.getGizmoID());
-
 		m.bindKey(g, e.getKeyCode(), type);
 		p.dispose();
 	}
