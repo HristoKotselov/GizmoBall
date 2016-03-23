@@ -126,10 +126,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 						// Op successful!
 						gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallActionTip());
-					} catch (NumberFormatException ex) {
-						gameWindow.setActionTipsTextArea(ActionTipDialogue.addBallSettingsError());
-						gameWindow.setActionTipsTextAreaColour(Color.RED);
-					}
+					} catch (NumberFormatException ex) {}
 
 					break;
 

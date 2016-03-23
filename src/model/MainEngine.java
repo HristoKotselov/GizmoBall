@@ -283,9 +283,10 @@ public class MainEngine extends Observable implements IMainEngine {
 		for (AGizmoComponent gizmo : getAllGizmos()) {
 			gizmo.reset();
 		}
-
-		ball.reset();
-
+		if(ball != null){
+			ball.reset();
+		}
+		
 		// Update view
 		update();
 	}
