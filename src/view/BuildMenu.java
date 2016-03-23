@@ -64,7 +64,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		menuPanel.setLayout(new BorderLayout());
 
 		// Function Selection
-		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Edit Ball Settings", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
+		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Add Ball", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
 		functionCB = new JComboBox<String>(functions);
 		functionCB.setFocusable(false);
 		functionCB.addItemListener(new BuildModeFunctionChangeListener(this, gameWindow));
