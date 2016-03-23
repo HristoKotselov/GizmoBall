@@ -70,6 +70,8 @@ public interface IMainEngine {
 	public void bindKey(AGizmoComponent gizmo, int key, int type);
 
 	public void addConnection(AGizmoComponent moveG, AGizmoComponent g);
+	
+	public void removeConnection(AGizmoComponent moveG, AGizmoComponent g);
 
 	public void update();
 }

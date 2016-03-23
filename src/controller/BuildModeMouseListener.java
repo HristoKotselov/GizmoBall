@@ -150,6 +150,19 @@ public class BuildModeMouseListener implements MouseInputListener {
 								connG = null;
 							}
 						}
+					} else if (bm.getConnectFunction().equals("remconn")) {
+						if (connG == null) {
+							connG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+							// TODO change ActionTip to remind user of the currently selected Gizmo
+						} else {
+							g = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+
+							if (g != null) {
+								m.removeConnection(connG, g);
+								connG = null;
+							}
+						}
+						
 					} else {
 						connG = null;
 

@@ -714,6 +714,11 @@ public class MainEngine extends Observable implements IMainEngine {
 	}
 
 	@Override
+	public void removeConnection(AGizmoComponent g1, AGizmoComponent g2) {
+		customConnections.removeGizmoTriggerConnection(g1, g2);
+	}
+
+	@Override
 	public AMovingGizmo getBall() {
 		return ball;
 	}

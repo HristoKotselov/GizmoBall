@@ -64,7 +64,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		menuPanel.setLayout(new BorderLayout());
 
 		// Function Selection
-		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Add Ball", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
+		String[] functions = { "Add Gizmo", "Remove Gizmo", "Rotate Gizmo", "Move Gizmo", "Edit Ball Settings", "Connect Gizmos", "Bind Key", "Set Physics Constants" };
 		functionCB = new JComboBox<String>(functions);
 		functionCB.setFocusable(false);
 		functionCB.addItemListener(new BuildModeFunctionChangeListener(this, gameWindow));
@@ -171,7 +171,7 @@ public class BuildMenu implements IBuildMenu, Observer {
 		keyremove.setActionCommand("keyremove");
 		keyremove.setFocusable(false);
 		keyeventRButton.add(keyremove);
-		
+
 		JRadioButton keyremoveall = new JRadioButton("Remove All Bindings");
 		keyremoveall.setActionCommand("keyremoveall");
 		keyremoveall.setFocusable(false);
@@ -198,9 +198,15 @@ public class BuildMenu implements IBuildMenu, Observer {
 		remConn.setFocusable(false);
 		connRButton.add(remConn);
 
+		JRadioButton remAllConn = new JRadioButton("Remove All Connections");
+		remAllConn.setActionCommand("remallconn");
+		remAllConn.setFocusable(false);
+		connRButton.add(remAllConn);
+
 		addConn.setSelected(true);
 		connect.add(addConn);
 		connect.add(remConn);
+		connect.add(remAllConn);
 
 
 		// Physics Constants panel
