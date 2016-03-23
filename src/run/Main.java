@@ -8,8 +8,8 @@ import view.GameWindow;
 public class Main {
 	public static void main(String[] args) {
 		final MainEngine m = new MainEngine();
-		SwingUtilities.invokeLater(new Runnable() {
 
+		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				new GameWindow(m);
