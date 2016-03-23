@@ -74,8 +74,11 @@ public class Ball extends AMovingGizmo {
 	@Override
 	public void move(int x, int y) {
 		// TODO Validation
-
 		super.move(x, y);
+		
+		// without setting MovingX/Y, ball position on board will be updated only when the game is reloaded
+		setMovingX(x);
+		setMovingY(y);
 	}
 
 

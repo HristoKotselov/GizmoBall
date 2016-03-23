@@ -44,8 +44,12 @@ public interface IMainEngine {
 	 *         the destination is already occupied with another Gizmo)
 	 */
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y);
+	
+	public boolean moveGizmoByPixels(AMovingGizmo moveG, int x, int y);
 
 	public AStationaryGizmo getStationaryGizmoAt(int grid_tile_x, int grid_tile_y);
+	
+	public AMovingGizmo getMovingGizmoAt(int x, int y);
 
 	public Map<String, AGizmoComponent> getGizmosMap();
 

@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -475,7 +476,6 @@ public class MainEngine extends Observable implements IMainEngine {
 	@Override
 	public boolean moveGizmoByL(AGizmoComponent gizmo, int grid_tile_x, int grid_tile_y) {
 		// TODO handle null
-		// TODO handle absorber off screen?
 		// TODO Validation
 		boolean spaceOccupied = false, outsideWall = false;
 
@@ -502,8 +502,33 @@ public class MainEngine extends Observable implements IMainEngine {
 		return (!spaceOccupied && !outsideWall);
 	}
 
-	// TODO make moveGizmoByPixel()
+	public boolean moveGizmoByPixels(AMovingGizmo gizmo, int x, int y){
+		boolean spaceOccupied = false, outsideWall = false;
+		
+		// ... really to check if pointed location contains a Absorber
+		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(x / L, y / L);
 
+		if(gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber){
+			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
+		}
+		else{
+			// Check for any overlapping Gizmos
+			spaceOccupied = checkGizmoOverlap(gizmo, x, y);
+	
+			// Check for the walls
+			outsideWall = checkForWalls(gizmo, x, y);
+			if (!spaceOccupied && !outsideWall) {
+				gizmo.move(x, y);
+			}
+		}
+		update();
+
+		return (!spaceOccupied && !outsideWall);
+		
+		
+		
+	}
+	
 	/**
 	 * TODO Helper Method
 	 **/
@@ -581,9 +606,8 @@ public class MainEngine extends Observable implements IMainEngine {
 		if (mGizmoX != new_x || mGizmoY != new_y) { // i.e. Is it Move Gizmo?
 			int diffInX = new_x - mGizmoX;
 			int diffInY = new_y - mGizmoY;
-			mGizmoBounds.setLocation(mGizmoX + diffInX, mGizmoY + diffInY);
+			mGizmoBounds.setLocation(mGizmoBounds.x + diffInX, mGizmoBounds.y + diffInY);
 		}
-
 
 		// Check for any overlapping Stationary Gizmos
 		for (AStationaryGizmo sGizmo : stationaryGizmos) {
@@ -638,6 +662,21 @@ public class MainEngine extends Observable implements IMainEngine {
 			}
 		}
 
+		return null;
+	}
+	
+	@Override
+	public AMovingGizmo getMovingGizmoAt(int x, int y){
+		Point mouseClick = new Point(x, y);
+		
+		for(AMovingGizmo mGizmo : movingGizmos){
+			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
+			
+			if( mGizmoBounds.contains(mouseClick) ){
+				return mGizmo;
+			}
+		}
+		
 		return null;
 	}
 

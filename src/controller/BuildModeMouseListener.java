@@ -102,15 +102,17 @@ public class BuildModeMouseListener implements MouseInputListener {
 
 				case "Move Gizmo":
 					if (moveG == null) {
-						// TODO add method for to check for AMovingGizmo first, i.e. Ball
-						moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+						moveG = m.getMovingGizmoAt(x, y);
+						if(moveG == null){		// i.e. no moving Gizmo found
+							moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
+						}
 						// TODO change ActionTip to remind user of the currently selected Gizmo
 					} else {
 						if (moveG instanceof AStationaryGizmo) {
 							m.moveGizmoByL(moveG, grid_tile_x, grid_tile_y);
 						}
 						if (moveG instanceof AMovingGizmo) {
-							// TODO moveGizmoByPixels()
+							m.moveGizmoByPixels((AMovingGizmo) moveG, x, y);
 						}
 						moveG = null;
 					}
