@@ -151,8 +151,8 @@ public class Absorber extends AStationaryGizmo implements ILineSegmentCollider {
 		
 		/* If ball is outside an absorber while moving (i.e. as it touches the edge of the Absorber), then the ball is captured.
 		 * If ball is inside an absorber while moving (i.e. shooting straight up for launching), then the ball is moved outside; ignoring that top Line Segment
-		 * "tuc == 0" prolong execution of the handleAbsorberColi() procedure until next cycle by exploiting the fact that in a && expression; if the 1st condition isn't true, the 2nd condition is not evaluated	*/
-		if (tuc == 0 && !handleAbsorberColi(cd)) { // tuc == 0 occur when the Ball is directly in contact the Line Segment
+		 */
+		if (!handleAbsorberColi(cd)) {
 			model.moveBallAtCurrentVelo(ball, model.getMoveTime());
 		}
 	}
