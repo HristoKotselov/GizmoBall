@@ -85,5 +85,9 @@ public class PlayMenu implements IPlayMenu {
 	public boolean isDynamicEditEnabled() {
 		return dynamicEdit.isSelected();
 	}
+	
+	public void pauseModel(){
+		playModeAL.pauseModel();
+	}
 
 }
