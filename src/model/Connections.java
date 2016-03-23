@@ -112,16 +112,18 @@ public class Connections {
 		}
 	}
 
-	public void clearKeyConnection(int keyCode, int type) {
+	public void clearKeyConnection(int keyCode, AGizmoComponent g, int type) {
 		Set<AGizmoComponent> gizmoSet;
 
 		if (type == KeyEvent.KEY_PRESSED) {
 			gizmoSet = keyPressedMap.get(keyCode);
 		} else {
-			gizmoSet = keyPressedMap.get(keyCode);
+			gizmoSet = keyReleasedMap.get(keyCode);
 		}
 
-		gizmoSet.clear();
+		if (gizmoSet != null) {
+			gizmoSet.remove(g);
+		}
 	}
 
 	public void clearALLKeyConnection(int type) {

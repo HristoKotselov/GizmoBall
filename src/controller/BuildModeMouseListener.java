@@ -102,7 +102,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 				case "Move Gizmo":
 					if (moveG == null) {
 						moveG = m.getMovingGizmoAt(x, y);
-						if(moveG == null){		// i.e. no moving Gizmo found
+						if (moveG == null) { // i.e. no moving Gizmo found
 							moveG = m.getStationaryGizmoAt(grid_tile_x, grid_tile_y);
 						}
 						// TODO change ActionTip to remind user of the currently selected Gizmo
@@ -169,8 +169,13 @@ public class BuildModeMouseListener implements MouseInputListener {
 					if (g != null) {
 						if (bm.getKeyEventType().equals("keypress")) {
 							new KeyBindPopupListener(m, g, KeyEvent.KEY_PRESSED);
+
 						} else if (bm.getKeyEventType().equals("keyrelease")) {
 							new KeyBindPopupListener(m, g, KeyEvent.KEY_RELEASED);
+
+						} else if (bm.getKeyEventType().equals("keyremove")) {
+							new KeyBindPopupListener(m, g, -1);
+
 						} else {
 							m.bindKey(g, -1, -1);
 						}
@@ -234,6 +239,7 @@ public class BuildModeMouseListener implements MouseInputListener {
 					}
 			}
 		}
+
 	}
 
 	@Override

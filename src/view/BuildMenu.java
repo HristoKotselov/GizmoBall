@@ -167,15 +167,21 @@ public class BuildMenu implements IBuildMenu, Observer {
 		keyrelease.setFocusable(false);
 		keyeventRButton.add(keyrelease);
 
-		JRadioButton keyremove = new JRadioButton("Remove Bindings");
+		JRadioButton keyremove = new JRadioButton("Remove Binding");
 		keyremove.setActionCommand("keyremove");
 		keyremove.setFocusable(false);
 		keyeventRButton.add(keyremove);
+		
+		JRadioButton keyremoveall = new JRadioButton("Remove All Bindings");
+		keyremoveall.setActionCommand("keyremoveall");
+		keyremoveall.setFocusable(false);
+		keyeventRButton.add(keyremoveall);
 
 		keypress.setSelected(true);
 		keyBind.add(keypress);
 		keyBind.add(keyrelease);
 		keyBind.add(keyremove);
+		keyBind.add(keyremoveall);
 
 		// Add Key Binding panel
 		JPanel connect = new JPanel(new GridLayout(0, 1));

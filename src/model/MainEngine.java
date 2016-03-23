@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -455,19 +456,18 @@ public class MainEngine extends Observable implements IMainEngine {
 		return (!spaceOccupied && !outsideWall);
 	}
 
-	public boolean moveGizmoByPixels(AMovingGizmo gizmo, int x, int y){
+	public boolean moveGizmoByPixels(AMovingGizmo gizmo, int x, int y) {
 		boolean spaceOccupied = false, outsideWall = false;
-		
+
 		// ... really to check if pointed location contains a Absorber
 		AGizmoComponent gizmoAtPointedLocation = getStationaryGizmoAt(x / L, y / L);
 
-		if(gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber){
+		if (gizmo instanceof Ball && gizmoAtPointedLocation instanceof Absorber) {
 			setupBallInAbsorber((Ball) gizmo, (Absorber) gizmoAtPointedLocation);
-		}
-		else{
+		} else {
 			// Check for any overlapping Gizmos
 			spaceOccupied = checkGizmoOverlap(gizmo, x, y);
-	
+
 			// Check for the walls
 			outsideWall = checkForWalls(gizmo, x, y);
 			if (!spaceOccupied && !outsideWall) {
@@ -477,11 +477,11 @@ public class MainEngine extends Observable implements IMainEngine {
 		update();
 
 		return (!spaceOccupied && !outsideWall);
-		
-		
-		
+
+
+
 	}
-	
+
 	/**
 	 * TODO Helper Method
 	 **/
@@ -617,19 +617,19 @@ public class MainEngine extends Observable implements IMainEngine {
 
 		return null;
 	}
-	
+
 	@Override
-	public AMovingGizmo getMovingGizmoAt(int x, int y){
+	public AMovingGizmo getMovingGizmoAt(int x, int y) {
 		Point mouseClick = new Point(x, y);
-		
-		for(AMovingGizmo mGizmo : movingGizmos){
+
+		for (AMovingGizmo mGizmo : movingGizmos) {
 			Rectangle mGizmoBounds = mGizmo.getDrawingShape().getBounds();
-			
-			if( mGizmoBounds.contains(mouseClick) ){
+
+			if (mGizmoBounds.contains(mouseClick)) {
 				return mGizmo;
 			}
 		}
-		
+
 		return null;
 	}
 
@@ -692,10 +692,15 @@ public class MainEngine extends Observable implements IMainEngine {
 
 	@Override
 	public void bindKey(AGizmoComponent gizmo, int key, int type) {
-		if (key != -1) {
-			customConnections.addKeyConnection(key, type, gizmo);
-		} else {
+		if (key == -1) {
 			customConnections.removeAllKeyBindings(gizmo);
+
+		} else if (type == -1) {
+			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_PRESSED);
+			customConnections.clearKeyConnection(key, gizmo, KeyEvent.KEY_RELEASED);
+
+		} else {
+			customConnections.addKeyConnection(key, type, gizmo);
 		}
 	}
 
