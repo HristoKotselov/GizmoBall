@@ -46,6 +46,8 @@ abstract public class AGizmoComponent {
 	 * The angle of rotation of a Gizmo. In this project, the default position of a Gizmo component is treated as 0.
 	 **/
 	protected int rotationAngle;
+	
+	protected double timeTilRevert;
 
 
 	public AGizmoComponent(String name, int x, int y, Color color) {
@@ -91,7 +93,6 @@ abstract public class AGizmoComponent {
 	}
 
 	public boolean setColour(Color color) {
-		// TODO some validation
 		this.colour = color;
 		return true;
 	}
@@ -138,7 +139,7 @@ abstract public class AGizmoComponent {
 	public void update(double moveTime) {
 		// By default, do nothing
 	}
-	
+
 	/* Collection-sped-up-able abstract methods */
 	abstract public Shape getDrawingShape();
 
@@ -146,21 +147,21 @@ abstract public class AGizmoComponent {
 
 
 	/* Other abstract methods */
-	
+
 	/**
-	 * Procedure that is executed when a Ball has a collision with this component. Might execute
-	 * the action() sequence.
+	 * Procedure that is executed when a Ball has a collision with this component. Might execute the action() sequence.
 	 * 
-	 * @param cd - the collection of all objects related to the collision
-	 * @modify maybe   this, maybe   cd
+	 * @param cd
+	 *            - the collection of all objects related to the collision
+	 * @modify maybe this, maybe cd
 	 * @effect varies with each Gizmo component; see individual class
 	 */
 	abstract public void ballTriggered(CollisionDetails cd);
-		
-	
+
+
 	/**
-	 * Action that might be executed when a Ball collide with Gizmo (depends on the Gizmo), 
-	 * or from a connection of triggers. Keep in mind there are no graphical procedures here.
+	 * Action that might be executed when a Ball collide with Gizmo (depends on the Gizmo), or from a connection of triggers. Keep in mind
+	 * there are no graphical procedures here.
 	 * 
 	 * @modify this
 	 * @effect varies with each Gizmo component; see individual class

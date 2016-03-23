@@ -114,7 +114,7 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 
 
 	/* Regular methods implementation */
-	
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggered()
 	 */
@@ -122,15 +122,25 @@ public class SquareBumper extends AStationaryGizmo implements ILineSegmentCollid
 	public void ballTriggered(CollisionDetails cd) {
 		action();
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#triggerAction()
 	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		System.out.println("Square bumper triggered");
+		timeTilRevert = 3;
+		setColour(Color.GREEN);
 	}
+
+	@Override
+	public void update(double moveTime) {
+		timeTilRevert -= moveTime;
+
+		if (timeTilRevert <= 0) {
+			timeTilRevert = 0;
+			reset();
+		}
+	};
 
 	/* (non-Javadoc)
 	 * @see model.AGizmoComponent#rotate(int)
